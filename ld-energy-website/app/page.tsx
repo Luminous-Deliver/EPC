@@ -1,37 +1,51 @@
-import { Section } from '@/components/ui/Section'
-import { Button } from '@/components/ui/Button'
-import { Phone } from 'lucide-react'
-import { site } from '@/lib/site'
+import type { Metadata } from 'next'
+import { Hero } from '@/components/sections/Hero'
+import { TrustBar } from '@/components/sections/TrustBar'
+import { WhatIsEpc } from '@/components/sections/WhatIsEpc'
+import { Pricing } from '@/components/sections/Pricing'
+import { HowItWorks } from '@/components/sections/HowItWorks'
+import { ServicesOverview } from '@/components/sections/ServicesOverview'
+import { WhyChoose } from '@/components/sections/WhyChoose'
+import { Coverage } from '@/components/sections/Coverage'
+import { Faq } from '@/components/sections/Faq'
+import { ContactSection } from '@/components/sections/ContactSection'
+
+export const metadata: Metadata = {
+  title: 'Domestic EPC London | From £49 | Elmhurst Accredited | L&D Energy',
+  description:
+    'Fast, affordable EPC certificates across all London boroughs. Elmhurst accredited Domestic Energy Assessor. Fixed prices from £49, certificate within 72 hours, next-day service available. Book your EPC today.',
+  keywords: [
+    'EPC London',
+    'domestic EPC',
+    'energy performance certificate London',
+    'EPC certificate',
+    'EPC assessor London',
+    'cheap EPC London',
+    'same day EPC London',
+  ],
+  alternates: { canonical: '/' },
+}
 
 export default function HomePage() {
   return (
-    <Section variant="default" className="py-20 md:py-28">
-      <div className="max-w-3xl">
-        <p className="text-xs uppercase tracking-wide font-medium text-primary-700">
-          Elmhurst Accredited · All London Boroughs
+    <>
+      <section aria-label="Page summary" className="sr-only">
+        <h2>About L&amp;D Energy</h2>
+        <p>
+          L&amp;D Energy is an Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. We provide official Energy Performance Certificates (EPCs) and floor plans for residential properties across all London boroughs. Standard turnaround is 72 hours; next-day service available for £12 extra. Prices start at £49 for studios and £79 for 5+ bedroom homes. All EPCs are lodged on the UK government&rsquo;s official EPC Register. Contact: 07492 575 396 or contact@luminousanddeliver.co.uk.
         </p>
-        <h1 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-secondary-900">
-          Fast, Affordable EPCs Across London
-        </h1>
-        <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-          Elmhurst-accredited Domestic Energy Assessor. Fixed prices from £49. Certificate within 72 hours, or next day for just £12 extra.
-        </p>
-        <p className="mt-3 text-sm text-secondary-500">
-          Covering all 32 London boroughs. 7 days a week. No hidden fees.
-        </p>
-        <div className="mt-8 flex flex-col sm:flex-row gap-3">
-          <Button href="/contact" variant="accent" size="lg">
-            Get Your EPC Quote
-          </Button>
-          <Button href={site.phoneHref} variant="secondary" size="lg">
-            <Phone className="w-5 h-5" aria-hidden="true" />
-            Call {site.phone}
-          </Button>
-        </div>
-        <p className="mt-10 text-sm text-secondary-500">
-          Phase 1 foundation deployed — homepage and inner pages coming in Phase 2+.
-        </p>
-      </div>
-    </Section>
+      </section>
+
+      <Hero />
+      <TrustBar />
+      <WhatIsEpc />
+      <Pricing />
+      <HowItWorks />
+      <ServicesOverview />
+      <WhyChoose />
+      <Coverage />
+      <Faq />
+      <ContactSection />
+    </>
   )
 }
