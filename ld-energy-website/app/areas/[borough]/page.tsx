@@ -1,0 +1,222 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
+import { CheckCircle2, MapPin } from 'lucide-react'
+import { Section } from '@/components/ui/Section'
+import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
+import { PageHero } from '@/components/sections/PageHero'
+import { Pricing } from '@/components/sections/Pricing'
+import { CtaStrip } from '@/components/sections/CtaStrip'
+import { Accordion } from '@/components/ui/Accordion'
+import { ContactSection } from '@/components/sections/ContactSection'
+import { boroughMeta } from '@/lib/boroughs'
+import { site } from '@/lib/site'
+import type { FaqItem } from '@/lib/faq'
+
+interface PageProps {
+  params: Promise<{ borough: string }>
+}
+
+export async function generateStaticParams() {
+  return Object.keys(boroughMeta).map((slug) => ({ borough: slug }))
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { borough: slug } = await params
+  const data = boroughMeta[slug]
+  if (!data) return {}
+
+  return {
+    title: `EPC ${data.name} | Domestic EPC Certificate | L&D Energy`,
+    description: `Domestic EPC certificates in ${data.name}, London. Elmhurst accredited DEA. Fixed prices from £49. 72-hour turnaround, next-day available. Book your ${data.name} EPC today.`,
+    alternates: { canonical: `${site.url}/areas/${slug}` },
+    openGraph: {
+      title: `EPC ${data.name} | Domestic EPC Certificate | L&D Energy`,
+      description: `Domestic EPC certificates in ${data.name}, London. Fixed prices from £49. 72-hour turnaround.`,
+      url: `${site.url}/areas/${slug}`,
+    },
+  }
+}
+
+function boroughFaq(name: string): FaqItem[] {
+  return [
+    {
+      q: `How much does an EPC cost in ${name}?`,
+      a: `Our EPC prices in ${name} are fixed by property size: £49 for studios, £60 for 1-bedroom, £65 for 2-bedroom, £67 for 3-bedroom, £69 for 4-bedroom, and £79 for 5+ bedroom homes. Next-day service is available for £12 extra. No travel surcharges.`,
+    },
+    {
+      q: `How quickly can I get an EPC in ${name}?`,
+      a: `Standard delivery is within 72 hours of the assessment. For urgent requirements, our next-day service guarantees your certificate within 24 hours for an additional £12. We offer appointments 7 days a week, including evenings.`,
+    },
+    {
+      q: `Do I need an EPC to let my property in ${name}?`,
+      a: `Yes. Under MEES regulations, all rental properties in England and Wales must have a valid EPC rated E or above. Landlords in ${name} who let without a compliant EPC can face fines of up to £5,000 per property.`,
+    },
+    {
+      q: `Do I need an EPC to sell my home in ${name}?`,
+      a: `Yes. You're legally required to have an EPC commissioned before marketing your property for sale. Estate agents cannot legally list your ${name} property without one.`,
+    },
+  ]
+}
+
+const sellingPoints = [
+  'Local assessor with rapid response times',
+  'Appointments 7 days a week, including evenings',
+  'Fixed prices — no travel surcharges',
+  'Certificate within 72 hours, or next day for £12 extra',
+]
+
+export default async function BoroughPage({ params }: PageProps) {
+  const { borough: slug } = await params
+  const data = boroughMeta[slug]
+
+  if (!data) notFound()
+
+  const neighbours = data.neighbours
+    .map((s) => boroughMeta[s])
+    .filter(Boolean)
+
+  const breadcrumbs = [
+    { href: '/', label: 'Home' },
+    { href: '/areas', label: 'Areas' },
+    { href: `/areas/${slug}`, label: data.name },
+  ]
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'Areas', item: `${site.url}/areas` },
+      { '@type': 'ListItem', position: 3, name: data.name, item: `${site.url}/areas/${slug}` },
+    ],
+  }
+
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${site.url}/#business`,
+    name: 'L&D Energy',
+    telephone: site.phoneIntl,
+    email: site.email,
+    url: site.url,
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: data.name,
+    },
+  }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: boroughFaq(data.name).map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  }
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([breadcrumbSchema, localBusinessSchema, faqSchema]),
+        }}
+      />
+
+      <BreadcrumbNav items={breadcrumbs} />
+
+      <PageHero
+        eyebrow={`EPC Certificates · ${data.name}`}
+        heading={`EPC Certificates in ${data.name}`}
+        subheading={`Local Elmhurst-accredited Domestic Energy Assessor covering ${data.name} and surrounding areas. Fixed prices from £49. Certificate within 72 hours.`}
+        primaryCta={{ label: `Book Your ${data.name} EPC`, href: '#contact' }}
+      />
+
+      {/* Local intro */}
+      <Section variant="default" id="local-intro">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">{data.name}, London</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            EPC Service in {data.name}
+          </h2>
+          <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
+            Need an EPC in {data.name}? L&amp;D Energy provides fast, affordable domestic Energy Performance Certificates across {data.name} and all surrounding London areas. As an Elmhurst-accredited Domestic Energy Assessor based in East London, we offer flexible appointment times and rapid turnaround for homeowners, landlords, and letting agents.
+          </p>
+          <p className="mt-4 text-secondary-700 leading-relaxed">
+            Whether you're selling a property in {data.name}, preparing for a new tenancy, or staying compliant with MEES regulations as a landlord, we'll deliver your EPC within 72 hours — or next day if you need it urgently.
+          </p>
+          <p className="mt-4 text-secondary-700 leading-relaxed">{data.blurb}</p>
+        </div>
+      </Section>
+
+      {/* Why choose us locally */}
+      <Section variant="muted" id="why-us">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Why Choose Us</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            Why Choose Us for Your {data.name} EPC
+          </h2>
+        </div>
+        <ul className="mt-8 space-y-3 max-w-2xl">
+          {sellingPoints.map((point) => (
+            <li key={point} className="flex items-start gap-3 text-secondary-700">
+              <CheckCircle2 className="w-5 h-5 text-primary-600 shrink-0 mt-0.5" aria-hidden="true" />
+              <span>{point.replace('no travel surcharges', `no travel surcharges for ${data.name}`)}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Pricing />
+
+      {/* Nearby areas */}
+      <Section variant="default" id="nearby-areas">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Also Nearby</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            Nearby Areas We Also Cover
+          </h2>
+          <p className="mt-5 text-secondary-700 leading-relaxed">
+            We cover {data.name} and all neighbouring boroughs with the same fixed prices and rapid turnaround.
+          </p>
+        </div>
+        <ul className="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+          {neighbours.map((n) => (
+            <li key={n.slug}>
+              <Link
+                href={`/areas/${n.slug}`}
+                className="group flex items-center gap-2 rounded-lg border border-secondary-200 bg-white px-4 py-3 text-sm font-medium text-secondary-800 transition-colors hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700"
+              >
+                <MapPin className="w-3.5 h-3.5 text-secondary-400 group-hover:text-primary-500" aria-hidden="true" />
+                EPC in {n.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* Local FAQ */}
+      <Section variant="muted" id="faq">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Common Questions</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            EPC Questions for {data.name}
+          </h2>
+          <div className="mt-8">
+            <Accordion items={boroughFaq(data.name)} />
+          </div>
+        </div>
+      </Section>
+
+      <ContactSection />
+
+      <CtaStrip
+        heading={`Book Your ${data.name} EPC`}
+        body={`Fast, fixed-price EPC certificates in ${data.name}. Appointments 7 days a week.`}
+        primaryCta={{ label: 'Book Now', href: '/contact' }}
+      />
+    </>
+  )
+}
