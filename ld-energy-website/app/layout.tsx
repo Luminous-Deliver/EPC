@@ -57,9 +57,59 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${site.url}/#business`,
+  name: site.name,
+  legalName: site.legalName,
+  description: site.description,
+  url: site.url,
+  telephone: site.phoneIntl,
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: site.address.locality,
+    addressRegion: site.address.region,
+    postalCode: site.address.postalCode,
+    addressCountry: site.address.country,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: site.geo.lat,
+    longitude: site.geo.lng,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '08:00',
+    closes: '20:00',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'London',
+    addressCountry: 'GB',
+  },
+  priceRange: '££',
+  currenciesAccepted: 'GBP',
+  paymentAccepted: 'Cash, Credit Card, Bank Transfer',
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'Domestic Energy Assessor Accreditation',
+    recognizedBy: { '@type': 'Organization', name: 'Elmhurst Energy' },
+  },
+  sameAs: [],
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB" className={`${inter.variable} ${jakarta.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col">
         <a
           href="#main"

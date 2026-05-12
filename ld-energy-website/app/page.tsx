@@ -9,6 +9,8 @@ import { WhyChoose } from '@/components/sections/WhyChoose'
 import { Coverage } from '@/components/sections/Coverage'
 import { Faq } from '@/components/sections/Faq'
 import { ContactSection } from '@/components/sections/ContactSection'
+import { site } from '@/lib/site'
+import { homepageFaq } from '@/lib/faq'
 
 export const metadata: Metadata = {
   title: 'Domestic EPC London | From £49 | Elmhurst Accredited | L&D Energy',
@@ -26,9 +28,60 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
 }
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${site.url}/#organization`,
+  name: site.legalName,
+  url: site.url,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${site.url}/logo.png`,
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: site.phoneIntl,
+    contactType: 'customer service',
+    areaServed: 'GB',
+    availableLanguage: 'English',
+  },
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${site.url}/#website`,
+  url: site.url,
+  name: site.name,
+  description: site.description,
+  publisher: { '@id': `${site.url}/#organization` },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${site.url}/areas/{search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: homepageFaq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+}
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationSchema, websiteSchema, faqSchema]) }}
+      />
       <section aria-label="Page summary" className="sr-only">
         <h2>About L&amp;D Energy</h2>
         <p>

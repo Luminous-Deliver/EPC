@@ -1,0 +1,67 @@
+# L&D Energy — EPC Certificates London
+
+## What we do
+L&D Energy is the EPC trading division of Luminous & Deliver Ltd. We are an Elmhurst-accredited Domestic Energy Assessor (DEA) providing official Energy Performance Certificates (EPCs) and professional floor plans for residential properties across all 33 London boroughs.
+
+## Key facts
+- Accreditation: Elmhurst Energy (UK's largest DEA accreditation scheme)
+- Coverage: All London boroughs — from Stratford (our base) to Hillingdon, Enfield, and Croydon
+- Base location: Stratford, East London, E15
+- Contact: 07492 575 396 | contact@luminousanddeliver.co.uk
+- Hours: Monday–Sunday, 8am–8pm
+
+## Services and pricing
+All prices are fixed — no travel surcharges within our service area.
+
+| Property size | EPC only | EPC + floor plan bundle |
+|---------------|----------|------------------------|
+| Studio        | £49      | £73.50 (save £24.50)   |
+| 1 bedroom     | £60      | £90 (save £30)         |
+| 2 bedroom     | £65      | £97.50 (save £32.50)   |
+| 3 bedroom     | £67      | £100.50 (save £33.50)  |
+| 4 bedroom     | £69      | £103.50 (save £34.50)  |
+| 5+ bedrooms   | £79      | £118.50 (save £39.50)  |
+
+Next-day EPC service: add £12 to the EPC price above.
+
+## EPC delivery
+- Standard: within 72 hours of the assessment
+- Express (next-day): within 24 hours of the assessment
+- Certificate emailed as PDF and lodged on the UK Government EPC Register
+
+## What is an EPC?
+An Energy Performance Certificate (EPC) rates a property's energy efficiency on a scale from A (most efficient) to G (least efficient). It is a legal requirement in England and Wales when selling or renting a property. EPCs are valid for 10 years.
+
+## Legal requirement
+An EPC is required by law:
+- When letting a residential property (minimum rating: E)
+- When selling a residential property
+- For newly built homes
+- Landlords must have a minimum EPC rating of E (band E) under the Minimum Energy Efficiency Standards (MEES). Proposed future legislation may raise this to C by 2028.
+
+## How to book
+Visit https://epc.luminousanddeliver.co.uk/contact, call 07492 575 396, or WhatsApp the same number. We confirm appointments and respond within 2 hours during business hours.
+
+## Website structure
+- Homepage: https://epc.luminousanddeliver.co.uk/
+- Domestic EPC service: https://epc.luminousanddeliver.co.uk/services/domestic-epc
+- Floor plans service: https://epc.luminousanddeliver.co.uk/services/floor-plans
+- For landlords: https://epc.luminousanddeliver.co.uk/landlords
+- For sellers: https://epc.luminousanddeliver.co.uk/sellers
+- Pricing: https://epc.luminousanddeliver.co.uk/pricing
+- London areas: https://epc.luminousanddeliver.co.uk/areas
+- FAQ: https://epc.luminousanddeliver.co.uk/faq
+- About: https://epc.luminousanddeliver.co.uk/about
+- Contact/book: https://epc.luminousanddeliver.co.uk/contact
+
+## Area pages
+We have dedicated pages for every London borough including: Stratford, Hackney, Tower Hamlets, Newham, Greenwich, Islington, Southwark, Lewisham, Barking & Dagenham, Waltham Forest, Camden, Westminster, Lambeth, Wandsworth, Brent, Ealing, Hounslow, Richmond, Kingston, Croydon, Enfield, Haringey, Redbridge, Havering, Bexley, Bromley, Sutton, Merton, Hammersmith & Fulham, Kensington & Chelsea, City of London, Barnet, Harrow, and Hillingdon.
+
+Each area page: https://epc.luminousanddeliver.co.uk/areas/[borough-slug]
+
+## Company details
+- Trading name: L&D Energy
+- Legal entity: Luminous & Deliver Ltd
+- Registered in England & Wales
+- Accreditation: Elmhurst Energy
+- All EPCs lodged on the official UK Government EPC Register (https://www.gov.uk/find-energy-certificate)
