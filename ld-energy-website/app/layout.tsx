@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   applicationName: site.name,
   authors: [{ name: site.legalName }],
   alternates: { canonical: '/' },
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+  },
   openGraph: {
     type: 'website',
     locale: 'en_GB',
@@ -102,6 +105,7 @@ const localBusinessSchema = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const cfBeaconToken = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN
   return (
     <html lang="en-GB" className={`${inter.variable} ${jakarta.variable}`}>
       <head>
@@ -109,6 +113,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
+        {cfBeaconToken ? (
+          <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({ token: cfBeaconToken })}
+          />
+        ) : null}
       </head>
       <body className="min-h-screen flex flex-col">
         <a
