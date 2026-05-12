@@ -1,0 +1,209 @@
+import type { Metadata } from 'next'
+import { AlertTriangle, CheckCircle2, Clock, ShieldCheck, FileText, CalendarRange } from 'lucide-react'
+import { Section } from '@/components/ui/Section'
+import { Card } from '@/components/ui/Card'
+import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
+import { PageHero } from '@/components/sections/PageHero'
+import { Pricing } from '@/components/sections/Pricing'
+import { CtaStrip } from '@/components/sections/CtaStrip'
+import { site } from '@/lib/site'
+
+export const metadata: Metadata = {
+  title: 'EPC for Landlords London | MEES Compliance | Avoid £5,000 Fines',
+  description:
+    'EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Fast turnaround, fixed prices from £49. Portfolio discounts available.',
+  alternates: { canonical: `${site.url}/landlords` },
+}
+
+const breadcrumbs = [
+  { href: '/', label: 'Home' },
+  { href: '/landlords', label: 'For Landlords' },
+]
+
+const penalties = [
+  { breach: 'False information on PRS Exemptions Register', fine: '£1,000' },
+  { breach: 'Failing to comply with a compliance notice', fine: '£2,000' },
+  { breach: 'Letting a non-compliant property under 3 months', fine: '£4,000' },
+  { breach: 'Letting a non-compliant property 3+ months', fine: '£5,000' },
+]
+
+const landlordNeeds = [
+  'Valid EPC rated E or above (legal minimum)',
+  'EPC must be provided to tenants before signing',
+  'Certificate must be lodged on the government register',
+  'Valid for 10 years',
+  'Must be replaced when expired before re-letting',
+]
+
+const ourService = [
+  {
+    Icon: FileText,
+    title: 'Portfolio discounts',
+    body: 'Multiple-property pricing for landlords and letting agents — contact us for a tailored quote.',
+  },
+  {
+    Icon: ShieldCheck,
+    title: 'Improvement advice',
+    body: 'Every EPC includes specific recommendations to help you reach EPC C ahead of upcoming MEES changes.',
+  },
+  {
+    Icon: Clock,
+    title: 'Same-week appointments',
+    body: 'Fast turnaround for urgent tenancies — including evening and weekend slots.',
+  },
+  {
+    Icon: CalendarRange,
+    title: 'Agent-friendly delivery',
+    body: 'We can send certificates directly to letting agents (with your written permission) to save you forwarding paperwork.',
+  },
+]
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+    { '@type': 'ListItem', position: 2, name: 'For Landlords', item: `${site.url}/landlords` },
+  ],
+}
+
+export default function LandlordsPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      <BreadcrumbNav items={breadcrumbs} />
+
+      <PageHero
+        eyebrow="For Landlords"
+        heading="EPCs for London Landlords"
+        subheading="Stay compliant with MEES regulations. Avoid fines of up to £5,000 per property. Get your rental property's EPC sorted in 72 hours — or next day if you need it urgently."
+        primaryCta={{ label: 'Book Your Landlord EPC', href: '/contact' }}
+      />
+
+      {/* MEES Compliance */}
+      <Section variant="default" id="mees">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">MEES Compliance</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            Why You Need an EPC for Your Rental
+          </h2>
+          <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
+            Under the Minimum Energy Efficiency Standards (MEES), landlords in England and Wales cannot legally let a residential property with an EPC rating below E unless they have a registered exemption. This applies to all new tenancies since 2018 and all existing tenancies since April 2020.
+          </p>
+        </div>
+      </Section>
+
+      {/* Penalties */}
+      <Section variant="muted" id="penalties">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-wide font-semibold text-accent-700">Don&rsquo;t Get Caught Out</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            Penalties for Non-Compliance
+          </h2>
+          <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
+            Local authorities can issue civil penalties for breaches of MEES. Maximum fines escalate with the length of the breach.
+          </p>
+        </div>
+
+        <div className="mt-10 overflow-x-auto rounded-lg border border-accent-200">
+          <table className="w-full text-sm min-w-[520px]">
+            <thead>
+              <tr className="bg-accent-50 border-b border-accent-200">
+                <th className="px-4 py-3 text-left font-semibold text-accent-700">Breach</th>
+                <th className="px-4 py-3 text-right font-semibold text-accent-700">Maximum Fine</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-secondary-100 bg-white">
+              {penalties.map((row) => (
+                <tr key={row.breach}>
+                  <td className="px-4 py-3 text-secondary-800">{row.breach}</td>
+                  <td className="px-4 py-3 text-right font-bold text-accent-700">{row.fine}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="mt-6 rounded-lg border border-accent-200 bg-accent-50 p-4 flex items-start gap-3">
+          <AlertTriangle className="w-5 h-5 text-accent-700 shrink-0 mt-0.5" aria-hidden="true" />
+          <p className="text-sm text-accent-800">
+            <span className="font-semibold">Heads up:</span> Government consultations have proposed penalty increases to £30,000 per property when EPC C becomes the new minimum standard.
+          </p>
+        </div>
+      </Section>
+
+      {/* EPC C Roadmap */}
+      <Section variant="default" id="epc-c-roadmap">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
+          <div>
+            <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">What&rsquo;s Coming</p>
+            <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+              EPC C by 2030
+            </h2>
+            <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
+              The UK government is moving towards requiring EPC C for rental properties. Exact dates may shift but the direction is set. Acting now gives you time to plan improvements.
+            </p>
+            <ul className="mt-6 space-y-2.5">
+              {[
+                'Proposed: New tenancies must be EPC C by 2028',
+                'Proposed: All tenancies must be EPC C by 2030',
+                'Dates may shift but direction is set',
+                'Acting now gives you time to plan improvements',
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-secondary-700">
+                  <CheckCircle2 className="w-5 h-5 text-primary-600 shrink-0 mt-0.5" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <Card>
+            <h3 className="text-xl font-semibold text-secondary-900">What landlords need</h3>
+            <ul className="mt-4 space-y-2.5">
+              {landlordNeeds.map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-secondary-700">
+                  <CheckCircle2 className="w-5 h-5 text-primary-600 shrink-0 mt-0.5" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Card>
+        </div>
+      </Section>
+
+      {/* Our Landlord Service */}
+      <Section variant="muted" id="our-service">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">For Portfolios &amp; Single Lets</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            Our Landlord Service
+          </h2>
+        </div>
+        <ul className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {ourService.map((s) => (
+            <li key={s.title} className="rounded-lg bg-white border border-secondary-100 p-6">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-700">
+                <s.Icon className="w-6 h-6" aria-hidden="true" />
+              </div>
+              <h3 className="mt-4 text-lg font-semibold text-secondary-900">{s.title}</h3>
+              <p className="mt-2 text-sm text-secondary-700 leading-relaxed">{s.body}</p>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Pricing />
+
+      <CtaStrip
+        heading="Protect Your Rental Income"
+        body="Book your EPC today and stay ahead of MEES. Portfolio enquiries welcome."
+        primaryCta={{ label: 'Book Now', href: '/contact' }}
+      />
+    </>
+  )
+}
