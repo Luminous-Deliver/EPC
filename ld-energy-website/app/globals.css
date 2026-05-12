@@ -20,3 +20,21 @@
     @apply outline-none ring-2 ring-primary-500 ring-offset-2;
   }
 }
+
+@layer components {
+  .legal-prose h2 {
+    @apply mt-10 text-2xl font-bold text-secondary-900;
+  }
+  .legal-prose h3 {
+    @apply mt-6 text-lg font-semibold text-secondary-900;
+  }
+  .legal-prose p {
+    @apply leading-relaxed;
+  }
+  .legal-prose ul {
+    @apply list-disc pl-6 space-y-2;
+  }
+  .legal-prose a {
+    @apply text-primary-700 underline hover:text-primary-800;
+  }
+}
