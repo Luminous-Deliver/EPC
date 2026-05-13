@@ -51,6 +51,7 @@ export const metadata: Metadata = {
     'geo.placename': 'London',
     'geo.position': `${site.geo.lat};${site.geo.lng}`,
     ICBM: `${site.geo.lat}, ${site.geo.lng}`,
+    'msvalidate.01': 'DFFEC284468B87783C72AAE82B182E2B',
   },
 }
 
