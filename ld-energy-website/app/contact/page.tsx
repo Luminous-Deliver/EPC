@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   description:
     'Book your London EPC certificate. Call, WhatsApp, email or use our booking form. We respond within 2 hours during business hours (Mon–Sun, 8am–8pm).',
   alternates: { canonical: `${site.url}/contact` },
+  openGraph: {
+    title: 'Contact L&D Energy | Book Your London EPC | 07492 575 396',
+    description:
+      'Book your London EPC certificate. Call, WhatsApp, email or use our booking form. We respond within 2 hours during business hours (Mon–Sun, 8am–8pm).',
+    url: `${site.url}/contact`,
+  },
+  twitter: {
+    title: 'Contact L&D Energy | Book Your London EPC',
+    description:
+      'Book your London EPC certificate. Call, WhatsApp, email or use our booking form. Fast response.',
+  },
 }
 
 const breadcrumbs = [

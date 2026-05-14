@@ -3,11 +3,21 @@ import { LegalPage } from '@/components/ui/LegalPage'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | L&D Energy',
+  title: 'Privacy Policy',
   description:
     'How L&D Energy collects, uses, and protects your personal data when you enquire about or book an EPC. UK GDPR compliant.',
   alternates: { canonical: `${site.url}/privacy-policy` },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: 'Privacy Policy | L&D Energy',
+    description:
+      'How L&D Energy collects, uses, and protects your personal data when you enquire about or book an EPC. UK GDPR compliant.',
+    url: `${site.url}/privacy-policy`,
+  },
+  twitter: {
+    title: 'Privacy Policy | L&D Energy',
+    description: 'How L&D Energy collects, uses, and protects your personal data. UK GDPR compliant.',
+  },
 }
 
 export default function PrivacyPolicyPage() {

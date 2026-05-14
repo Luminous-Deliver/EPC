@@ -17,10 +17,21 @@ import { CtaStrip } from '@/components/sections/CtaStrip'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'EPC for Selling Your Home London | From £49 | L&D Energy',
+  title: 'EPC for Selling Your Home London | From £49',
   description:
     'EPC certificates for selling your London home. Required by law before marketing. Fast 72-hour turnaround, next-day available. Fixed prices from £49. Book today.',
   alternates: { canonical: `${site.url}/sellers` },
+  openGraph: {
+    title: 'EPC for Selling Your Home London | From £49 | L&D Energy',
+    description:
+      'EPC certificates for selling your London home. Required by law before marketing. Fast 72-hour turnaround, next-day available. Fixed prices from £49.',
+    url: `${site.url}/sellers`,
+  },
+  twitter: {
+    title: 'EPC for Selling Your Home London | From £49',
+    description:
+      'EPC certificates for selling your London home. Required by law before marketing. Book today.',
+  },
 }
 
 const breadcrumbs = [

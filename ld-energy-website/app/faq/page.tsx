@@ -9,10 +9,21 @@ import { fullFaq } from '@/lib/faq'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'EPC FAQ | Common Questions About EPCs in London | L&D Energy',
+  title: 'EPC FAQ | Common Questions About EPCs in London',
   description:
     'Frequently asked questions about Energy Performance Certificates: validity, legal requirements, the assessment process, pricing, and improvements. Answered by an Elmhurst-accredited DEA.',
   alternates: { canonical: `${site.url}/faq` },
+  openGraph: {
+    title: 'EPC FAQ | Common Questions About EPCs in London | L&D Energy',
+    description:
+      'Frequently asked questions about Energy Performance Certificates: validity, legal requirements, the assessment process, pricing, and improvements.',
+    url: `${site.url}/faq`,
+  },
+  twitter: {
+    title: 'EPC FAQ | Common Questions About EPCs in London',
+    description:
+      'Frequently asked questions about Energy Performance Certificates, answered by an Elmhurst-accredited DEA.',
+  },
 }
 
 const breadcrumbs = [

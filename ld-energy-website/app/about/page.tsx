@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   description:
     'L&D Energy — Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Professional EPC certificates and floor plans across all London boroughs.',
   alternates: { canonical: `${site.url}/about` },
+  openGraph: {
+    title: 'About L&D Energy | London EPC Assessor | Elmhurst Accredited',
+    description:
+      'L&D Energy — Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Professional EPC certificates and floor plans across all London boroughs.',
+    url: `${site.url}/about`,
+  },
+  twitter: {
+    title: 'About L&D Energy | London EPC Assessor',
+    description:
+      'Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. EPC certificates across all London boroughs.',
+  },
 }
 
 const breadcrumbs = [

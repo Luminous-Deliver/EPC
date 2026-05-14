@@ -10,10 +10,21 @@ import { pricing } from '@/lib/site'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Property Floor Plans London | From £49 | L&D Energy',
+  title: 'Property Floor Plans London | From £49',
   description:
     'Professional property floor plans across London. Accurately measured, high-resolution files for estate agents and property marketing. Half price when bundled with an EPC.',
   alternates: { canonical: `${site.url}/services/floor-plans` },
+  openGraph: {
+    title: 'Property Floor Plans London | From £49 | L&D Energy',
+    description:
+      'Professional property floor plans across London. Accurately measured, high-resolution files for estate agents and property marketing. Half price when bundled with an EPC.',
+    url: `${site.url}/services/floor-plans`,
+  },
+  twitter: {
+    title: 'Property Floor Plans London | From £49',
+    description:
+      'Professional property floor plans across London. High-resolution files for estate agents. Half price bundled with an EPC.',
+  },
 }
 
 const breadcrumbs = [

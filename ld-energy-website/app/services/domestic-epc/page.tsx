@@ -15,6 +15,17 @@ export const metadata: Metadata = {
   description:
     'Get your domestic EPC certificate in London from £49. Elmhurst accredited assessor, 72-hour standard delivery, next-day available. Required for selling or renting your home. Book online today.',
   alternates: { canonical: `${site.url}/services/domestic-epc` },
+  openGraph: {
+    title: 'Domestic EPC Certificate London | From £49 | L&D Energy',
+    description:
+      'Get your domestic EPC certificate in London from £49. Elmhurst accredited assessor, 72-hour standard delivery, next-day available. Required for selling or renting your home.',
+    url: `${site.url}/services/domestic-epc`,
+  },
+  twitter: {
+    title: 'Domestic EPC Certificate London | From £49',
+    description:
+      'Elmhurst accredited assessor, 72-hour standard delivery, next-day available. Required for selling or renting.',
+  },
 }
 
 const breadcrumbs = [
@@ -95,16 +106,6 @@ const assessed = [
   'Renewable energy systems (solar PV, heat pumps, etc.)',
 ]
 
-const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': `${site.url}/#business`,
-  name: 'L&D Energy',
-  telephone: site.phoneIntl,
-  email: site.email,
-  url: site.url,
-}
-
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -142,7 +143,7 @@ export default function DomesticEpcPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([localBusinessSchema, serviceSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([serviceSchema, breadcrumbSchema]) }}
       />
 
       <BreadcrumbNav items={breadcrumbs} />

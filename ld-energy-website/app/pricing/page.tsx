@@ -10,10 +10,21 @@ import { pricing, site } from '@/lib/site'
 import type { FaqItem } from '@/lib/faq'
 
 export const metadata: Metadata = {
-  title: 'EPC Prices London | From £49 | Clear, Fixed Pricing | L&D Energy',
+  title: 'EPC Prices London | From £49 | Clear, Fixed Pricing',
   description:
     'Fixed-price EPC services in London. From £49 for studios up to £79 for 5+ bedroom homes. Next-day service for £12. Floor plan bundles save up to £39. No hidden fees.',
   alternates: { canonical: `${site.url}/pricing` },
+  openGraph: {
+    title: 'EPC Prices London | From £49 | Clear, Fixed Pricing | L&D Energy',
+    description:
+      'Fixed-price EPC services in London. From £49 for studios up to £79 for 5+ bedroom homes. Next-day service for £12. Floor plan bundles save up to £39.',
+    url: `${site.url}/pricing`,
+  },
+  twitter: {
+    title: 'EPC Prices London | From £49 | Clear, Fixed Pricing',
+    description:
+      'Fixed-price EPC services in London. From £49. Next-day service for £12. No hidden fees.',
+  },
 }
 
 const breadcrumbs = [

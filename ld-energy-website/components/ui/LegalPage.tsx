@@ -1,5 +1,6 @@
 import { Section } from '@/components/ui/Section'
 import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
+import { site } from '@/lib/site'
 
 interface LegalPageProps {
   title: string
@@ -9,8 +10,23 @@ interface LegalPageProps {
 }
 
 export function LegalPage({ title, lastUpdated, breadcrumbs, children }: LegalPageProps) {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.label,
+      item: item.href ? `${site.url}${item.href === '/' ? '' : item.href}` : undefined,
+    })),
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <BreadcrumbNav items={breadcrumbs} />
       <Section variant="default" className="py-12 md:py-16">
         <div className="max-w-3xl">

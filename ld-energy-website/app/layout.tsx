@@ -46,6 +46,9 @@ export const metadata: Metadata = {
     description: 'Fast, affordable EPC certificates across London. Book today.',
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
+  },
   other: {
     'geo.region': 'GB-LND',
     'geo.placename': 'London',

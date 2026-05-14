@@ -3,11 +3,22 @@ import { LegalPage } from '@/components/ui/LegalPage'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | L&D Energy',
+  title: 'Terms of Service',
   description:
     'Terms of service governing the supply of EPC certificates and floor plans by L&D Energy, the EPC trading division of Luminous & Deliver Ltd.',
   alternates: { canonical: `${site.url}/terms` },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: 'Terms of Service | L&D Energy',
+    description:
+      'Terms of service governing the supply of EPC certificates and floor plans by L&D Energy, the EPC trading division of Luminous & Deliver Ltd.',
+    url: `${site.url}/terms`,
+  },
+  twitter: {
+    title: 'Terms of Service | L&D Energy',
+    description:
+      'Terms of service governing the supply of EPC certificates and floor plans by L&D Energy.',
+  },
 }
 
 export default function TermsPage() {

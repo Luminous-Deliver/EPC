@@ -27,13 +27,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!data) return {}
 
   return {
-    title: `EPC ${data.name} | Domestic EPC Certificate | L&D Energy`,
+    title: `EPC ${data.name} | Domestic EPC Certificate`,
     description: `Domestic EPC certificates in ${data.name}, London. Elmhurst accredited DEA. Fixed prices from £49. 72-hour turnaround, next-day available. Book your ${data.name} EPC today.`,
     alternates: { canonical: `${site.url}/areas/${slug}` },
     openGraph: {
       title: `EPC ${data.name} | Domestic EPC Certificate | L&D Energy`,
       description: `Domestic EPC certificates in ${data.name}, London. Fixed prices from £49. 72-hour turnaround.`,
       url: `${site.url}/areas/${slug}`,
+    },
+    twitter: {
+      title: `EPC ${data.name} | Domestic EPC Certificate`,
+      description: `Domestic EPC certificates in ${data.name}, London. Fixed prices from £49. 72-hour turnaround.`,
     },
   }
 }
@@ -92,20 +96,6 @@ export default async function BoroughPage({ params }: PageProps) {
     ],
   }
 
-  const localBusinessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${site.url}/#business`,
-    name: 'L&D Energy',
-    telephone: site.phoneIntl,
-    email: site.email,
-    url: site.url,
-    areaServed: {
-      '@type': 'AdministrativeArea',
-      name: data.name,
-    },
-  }
-
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -121,7 +111,7 @@ export default async function BoroughPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([breadcrumbSchema, localBusinessSchema, faqSchema]),
+          __html: JSON.stringify([breadcrumbSchema, faqSchema]),
         }}
       />
 
@@ -144,10 +134,26 @@ export default async function BoroughPage({ params }: PageProps) {
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
             Need an EPC in {data.name}? L&amp;D Energy provides fast, affordable domestic Energy Performance Certificates across {data.name} and all surrounding London areas. As an Elmhurst-accredited Domestic Energy Assessor based in East London, we offer flexible appointment times and rapid turnaround for homeowners, landlords, and letting agents.
           </p>
-          <p className="mt-4 text-secondary-700 leading-relaxed">
-            Whether you're selling a property in {data.name}, preparing for a new tenancy, or staying compliant with MEES regulations as a landlord, we'll deliver your EPC within 72 hours — or next day if you need it urgently.
-          </p>
           <p className="mt-4 text-secondary-700 leading-relaxed">{data.blurb}</p>
+
+          <h3 className="mt-8 text-xl font-bold text-secondary-900">
+            Property and housing stock in {data.name}
+          </h3>
+          <p className="mt-3 text-secondary-700 leading-relaxed">{data.housingStock}</p>
+
+          <h3 className="mt-8 text-xl font-bold text-secondary-900">
+            Typical EPC results in {data.name}
+          </h3>
+          <p className="mt-3 text-secondary-700 leading-relaxed">{data.epcIssues}</p>
+
+          <h3 className="mt-8 text-xl font-bold text-secondary-900">
+            Getting to your {data.name} property
+          </h3>
+          <p className="mt-3 text-secondary-700 leading-relaxed">{data.transport}</p>
+
+          <p className="mt-8 text-secondary-700 leading-relaxed">
+            Whether you&rsquo;re selling a property in {data.name}, preparing for a new tenancy, or staying compliant with MEES regulations as a landlord, we&rsquo;ll deliver your EPC within 72 hours — or next day if you need it urgently.
+          </p>
         </div>
       </Section>
 
