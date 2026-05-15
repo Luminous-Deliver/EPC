@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import { CTABanner } from './CTABanner'
 import { slugify } from './TableOfContents'
 
 type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>
+type TableProps = React.TableHTMLAttributes<HTMLTableElement>
 
 function isInternal(href: string): boolean {
   return href.startsWith('/') || href.startsWith('#')
@@ -42,6 +44,31 @@ const components = {
       </a>
     )
   },
+  table: ({ children, ...props }: TableProps) => (
+    <div className="not-prose my-8 -mx-4 sm:mx-0 overflow-x-auto">
+      <table
+        className="w-full min-w-[480px] border-collapse text-sm md:text-base"
+        {...props}
+      >
+        {children}
+      </table>
+    </div>
+  ),
+  thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <thead className="bg-secondary-50" {...props} />
+  ),
+  th: (props: React.ThHTMLAttributes<HTMLTableCellElement>) => (
+    <th
+      className="text-left font-semibold text-secondary-900 px-3 md:px-4 py-2.5 md:py-3 border border-secondary-200"
+      {...props}
+    />
+  ),
+  td: (props: React.TdHTMLAttributes<HTMLTableCellElement>) => (
+    <td
+      className="px-3 md:px-4 py-2.5 md:py-3 border border-secondary-200 align-top text-secondary-800"
+      {...props}
+    />
+  ),
   CTABanner,
 }
 
@@ -52,7 +79,11 @@ interface PostContentProps {
 export function PostContent({ source }: PostContentProps) {
   return (
     <div className="prose-blog">
-      <MDXRemote source={source} components={components} />
+      <MDXRemote
+        source={source}
+        components={components}
+        options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+      />
     </div>
   )
 }
