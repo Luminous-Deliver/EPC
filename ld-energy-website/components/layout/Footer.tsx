@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Phone, Mail, MapPin, Clock, ShieldCheck } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, ShieldCheck, Star } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/ui/Logo'
 import { navLinks, site } from '@/lib/site'
@@ -72,6 +72,15 @@ export function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
             <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white">Terms of Service</Link>
+            <a
+              href="https://share.google/4LTPb4XMjeNq7TpXk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 hover:text-white"
+            >
+              <Star className="w-3.5 h-3.5 text-accent-400" aria-hidden="true" />
+              Google Reviews
+            </a>
             <a
               href="https://digital.luminousanddeliver.co.uk/"
               target="_blank"

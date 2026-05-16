@@ -3,6 +3,7 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { MobileCallBar } from '@/components/layout/MobileCallBar'
+import { CookieBanner } from '@/components/layout/CookieBanner'
 import { site } from '@/lib/site'
 import './globals.css'
 
@@ -105,7 +106,7 @@ const localBusinessSchema = {
     credentialCategory: 'Domestic Energy Assessor Accreditation',
     recognizedBy: { '@type': 'Organization', name: 'Elmhurst Energy' },
   },
-  sameAs: [],
+  sameAs: ['https://share.google/4LTPb4XMjeNq7TpXk'],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -138,6 +139,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <MobileCallBar />
+        <CookieBanner />
       </body>
     </html>
   )

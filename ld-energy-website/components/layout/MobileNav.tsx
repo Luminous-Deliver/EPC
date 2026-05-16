@@ -126,7 +126,7 @@ export function MobileNav() {
               Get a Quote
             </Link>
           </div>
-          <nav aria-label="Mobile" className="flex-1 overflow-y-auto px-4 py-4 bg-white">
+          <nav aria-label="Mobile" className="flex-1 min-h-0 overflow-y-auto px-4 py-4 bg-white">
             <ul className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <li key={link.href}>

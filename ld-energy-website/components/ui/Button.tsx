@@ -6,15 +6,15 @@ type Variant = 'primary' | 'secondary' | 'accent' | 'ghost'
 type Size = 'md' | 'lg'
 
 const base =
-  'inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed'
+  'inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed'
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white shadow-sm',
+    'bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white shadow-sm hover:shadow-md',
   secondary:
-    'bg-white hover:bg-secondary-50 text-secondary-800 border border-secondary-200',
+    'bg-white hover:bg-secondary-50 text-secondary-800 border border-secondary-200 hover:border-secondary-300 hover:shadow-sm',
   accent:
-    'bg-accent-500 hover:bg-accent-600 text-white font-bold shadow-md',
+    'bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-bold shadow-md hover:shadow-lg',
   ghost:
     'bg-transparent hover:bg-secondary-100 text-secondary-800',
 }

@@ -8,14 +8,14 @@ export function Hero() {
     <section className="relative bg-gradient-to-b from-primary-50 via-white to-white border-b border-secondary-100">
       <Container className="py-16 md:py-24 lg:py-28 grid gap-10 lg:grid-cols-12 lg:gap-12 items-center">
         <div className="lg:col-span-7">
-          <p className="inline-flex items-center gap-2 text-xs uppercase tracking-wide font-semibold text-primary-700 bg-primary-100 rounded-full px-3 py-1">
+          <p className="inline-flex items-center gap-2 text-xs uppercase tracking-wide font-semibold text-primary-700 bg-primary-100 rounded-full px-3 py-1 animate-fade-in">
             <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
             Elmhurst Accredited · All London Boroughs
           </p>
-          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-secondary-900">
+          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-secondary-900 animate-fade-in-up animate-delay-100">
             Fast, Affordable EPCs Across London
           </h1>
-          <p className="mt-5 text-lg md:text-xl text-secondary-700 leading-relaxed max-w-2xl">
+          <p className="mt-5 text-lg md:text-xl text-secondary-700 leading-relaxed max-w-2xl animate-fade-in-up animate-delay-200">
             Elmhurst-accredited Domestic Energy Assessor. Guide prices from{' '}
             <span className="font-semibold text-secondary-900">£49</span>. Certificate within 72 hours, or next day for just £12 extra.
           </p>
@@ -50,7 +50,7 @@ export function Hero() {
         </div>
 
         <div className="lg:col-span-5">
-          <div className="relative rounded-2xl bg-white shadow-xl border border-secondary-100 p-6 md:p-8">
+          <div className="relative rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-secondary-100 p-6 md:p-8 animate-fade-in animate-delay-300">
             <div className="absolute -top-3 left-6 bg-accent-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
               Sample Rating
             </div>
