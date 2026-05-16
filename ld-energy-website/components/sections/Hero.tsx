@@ -12,7 +12,7 @@ export function Hero() {
             <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
             Elmhurst Accredited · All London Boroughs
           </p>
-          <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-secondary-900">
+          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-secondary-900">
             Fast, Affordable EPCs Across London
           </h1>
           <p className="mt-5 text-lg md:text-xl text-secondary-700 leading-relaxed max-w-2xl">
