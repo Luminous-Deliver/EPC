@@ -3,7 +3,7 @@ export const site = {
   legalName: 'Luminous & Deliver Ltd',
   url: 'https://epc.luminousanddeliver.co.uk',
   description:
-    'Elmhurst-accredited Domestic Energy Assessor providing EPC certificates and floor plans across all London boroughs. Fixed prices from £49.',
+    'Elmhurst-accredited Domestic Energy Assessor providing EPC certificates and floor plans across all London boroughs. Guide prices from £49.',
   phone: '07492 575 396',
   phoneIntl: '+447492575396',
   phoneHref: 'tel:+447492575396',

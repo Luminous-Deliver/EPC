@@ -130,7 +130,7 @@ export default function FaqPage() {
 
       <CtaStrip
         heading="Ready to Book?"
-        body="Get your London EPC sorted. Fixed prices, fast delivery, no hidden fees."
+        body="Get your London EPC sorted. Transparent pricing, fast delivery, no surprises."
         primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
       />
     </>

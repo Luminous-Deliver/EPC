@@ -11,12 +11,12 @@ import { site } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'EPC for Landlords London | MEES Compliance | Avoid £5,000 Fines',
   description:
-    'EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Fast turnaround, fixed prices from £49. Portfolio discounts available.',
+    'EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Fast turnaround, guide prices from £49. Portfolio discounts available.',
   alternates: { canonical: `${site.url}/landlords` },
   openGraph: {
     title: 'EPC for Landlords London | MEES Compliance | L&D Energy',
     description:
-      'EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Fast turnaround, fixed prices from £49. Portfolio discounts available.',
+      'EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Fast turnaround, guide prices from £49. Portfolio discounts available.',
     url: `${site.url}/landlords`,
   },
   twitter: {

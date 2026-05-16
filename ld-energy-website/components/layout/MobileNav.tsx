@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { Menu, X, Phone, MessageCircle } from 'lucide-react'
 import { navLinks, site } from '@/lib/site'
+import { cn } from '@/lib/cn'
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
@@ -80,11 +81,14 @@ export function MobileNav() {
 
       {/* Always rendered so nav links are present in SSR HTML for SEO */}
       <div
-        className={`fixed inset-0 z-50 lg:hidden${open ? '' : ' pointer-events-none'}`}
+        className={cn('fixed inset-0 z-50 lg:hidden', !open && 'pointer-events-none')}
         aria-hidden={open ? undefined : true}
       >
         <div
-          className={`absolute inset-0 bg-secondary-900/60 transition-opacity duration-200${open ? ' opacity-100' : ' opacity-0'}`}
+          className={cn(
+            'absolute inset-0 bg-secondary-900/60 transition-opacity duration-200',
+            open ? 'opacity-100' : 'opacity-0',
+          )}
           onClick={close}
           aria-hidden="true"
         />
@@ -94,21 +98,35 @@ export function MobileNav() {
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
-          className={`absolute right-0 top-0 h-full w-full max-w-xs bg-white shadow-xl flex flex-col transition-transform duration-200${open ? ' translate-x-0' : ' translate-x-full'}`}
+          style={{ backgroundColor: '#ffffff' }}
+          className={cn(
+            'absolute right-0 top-0 h-full w-full max-w-xs bg-white shadow-2xl flex flex-col transition-transform duration-200',
+            open ? 'translate-x-0' : 'translate-x-full',
+          )}
         >
-          <div className="flex items-center justify-between h-16 px-4 border-b border-secondary-100">
+          <div className="flex items-center justify-between h-16 px-4 border-b border-secondary-100 bg-white">
             <span className="font-display font-extrabold text-lg text-secondary-900">Menu</span>
             <button
               ref={closeRef}
               type="button"
               onClick={close}
-              className="inline-flex items-center justify-center w-10 h-10 rounded-md text-secondary-800 hover:bg-secondary-100"
+              className="inline-flex items-center justify-center w-11 h-11 rounded-md text-secondary-800 hover:bg-secondary-100"
               aria-label="Close menu"
             >
               <X className="w-6 h-6" aria-hidden="true" />
             </button>
           </div>
-          <nav aria-label="Mobile" className="flex-1 overflow-y-auto px-4 py-4">
+          <div className="px-4 pt-4 bg-white">
+            <Link
+              href="/contact"
+              onClick={close}
+              tabIndex={open ? undefined : -1}
+              className="flex items-center justify-center w-full bg-accent-500 hover:bg-accent-600 text-white font-semibold px-4 py-3 rounded-md min-h-[48px]"
+            >
+              Get a Quote
+            </Link>
+          </div>
+          <nav aria-label="Mobile" className="flex-1 overflow-y-auto px-4 py-4 bg-white">
             <ul className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -124,11 +142,11 @@ export function MobileNav() {
               ))}
             </ul>
           </nav>
-          <div className="border-t border-secondary-100 p-4 space-y-2">
+          <div className="border-t border-secondary-100 p-4 space-y-2 bg-white">
             <a
               href={site.phoneHref}
               tabIndex={open ? undefined : -1}
-              className="flex items-center justify-center gap-2 w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold px-4 py-3 rounded-md"
+              className="flex items-center justify-center gap-2 w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold px-4 py-3 rounded-md min-h-[48px]"
             >
               <Phone className="w-4 h-4" aria-hidden="true" />
               {site.phone}
@@ -136,7 +154,7 @@ export function MobileNav() {
             <a
               href={site.whatsappHref}
               tabIndex={open ? undefined : -1}
-              className="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-3 rounded-md"
+              className="flex items-center justify-center gap-2 w-full bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-3 rounded-md min-h-[48px]"
             >
               <MessageCircle className="w-4 h-4" aria-hidden="true" />
               WhatsApp Us

@@ -11,7 +11,7 @@ const services = [
     description:
       'Required by law for selling or renting residential property in England and Wales. We assess your home’s energy efficiency and provide an official certificate registered with the UK government.',
     bullets: [
-      'Fixed prices from £49',
+      'Guide prices from £49',
       '72-hour standard delivery',
       '10-year validity',
       'Improvement recommendations included',

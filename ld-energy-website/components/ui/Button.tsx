@@ -20,8 +20,8 @@ const variants: Record<Variant, string> = {
 }
 
 const sizes: Record<Size, string> = {
-  md: 'px-6 py-3 text-base',
-  lg: 'px-8 py-4 text-lg',
+  md: 'px-6 py-3 text-base min-h-[48px]',
+  lg: 'px-8 py-4 text-lg min-h-[52px]',
 }
 
 interface CommonProps {

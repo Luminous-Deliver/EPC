@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: 'Domestic EPC London | From £49 | L&D Energy',
     description:
-      'Elmhurst accredited domestic energy assessor. Fixed prices from £49. Next-day service available across all London boroughs.',
+      'Elmhurst accredited domestic energy assessor. Guide prices from £49. Next-day service available across all London boroughs.',
   },
   twitter: {
     card: 'summary_large_image',

@@ -141,7 +141,7 @@ export const fullFaq: FaqCategory[] = [
       },
       {
         q: 'Are there hidden fees?',
-        a: 'No. The price you see is the price you pay. There are no hidden fees, no call-out charges, and no travel surcharges for any property within our service area.',
+        a: 'No. The price we quote is the price you pay. Quotes are personalised based on property size and condition, so there are no surprise add-ons, call-out charges, or travel surcharges within our service area.',
       },
       {
         q: 'Do you charge for travel?',

@@ -12,7 +12,7 @@ const reasons = [
     Icon: BadgePoundSterling,
     title: 'Fixed, Transparent Pricing',
     body:
-      'No hidden fees. No travel surcharges. The price you see is the price you pay. Bundle your EPC with a floor plan to save 50%.',
+      'Transparent guide pricing. No travel surcharges. The quote we give is the price you pay — no surprise add-ons. Bundle your EPC with a floor plan to save 50%.',
   },
   {
     Icon: Zap,

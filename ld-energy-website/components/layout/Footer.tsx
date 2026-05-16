@@ -66,12 +66,20 @@ export function Footer() {
 
       <div className="border-t border-secondary-800">
         <Container className="py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-secondary-400">
-          <p>
+          <p className="text-center sm:text-left">
             © {year} {site.name}. Part of {site.legalName}.
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
             <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white">Terms of Service</Link>
+            <a
+              href="https://digital.luminousanddeliver.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              Made by <span className="font-semibold text-secondary-200">L&amp;D Digital</span>
+            </a>
           </div>
         </Container>
       </div>

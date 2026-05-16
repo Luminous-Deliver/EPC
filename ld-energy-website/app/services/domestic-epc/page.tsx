@@ -58,7 +58,7 @@ const personas = [
   {
     Icon: Building2,
     title: 'Landlords',
-    body: 'MEES regulations require all rental properties to have an EPC rated E or above. Fines reach £5,000 per non-compliant property. We help landlords stay compliant with fast, fixed-price service.',
+    body: 'MEES regulations require all rental properties to have an EPC rated E or above. Fines reach £5,000 per non-compliant property. We help landlords stay compliant with fast, transparent pricing.',
   },
   {
     Icon: Users,
@@ -151,7 +151,7 @@ export default function DomesticEpcPage() {
       <PageHero
         eyebrow="Domestic EPC Certificates"
         heading="Domestic EPC Certificates in London"
-        subheading="Official Energy Performance Certificates for selling or renting your home. Elmhurst accredited. Fixed prices from £49. Lodged on the government register."
+        subheading="Official Energy Performance Certificates for selling or renting your home. Elmhurst accredited. Guide prices from £49. Lodged on the government register."
         primaryCta={{ label: 'Book Your EPC', href: '#contact' }}
       />
 
@@ -251,7 +251,7 @@ export default function DomesticEpcPage() {
 
       <CtaStrip
         heading="Ready to Book Your EPC?"
-        body="Fast, fixed-price EPC certificates across London. We'll arrange your assessment at a time that suits you."
+        body="Fast, transparent-priced EPC certificates across London. We'll arrange your assessment at a time that suits you."
         primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
       />
     </>

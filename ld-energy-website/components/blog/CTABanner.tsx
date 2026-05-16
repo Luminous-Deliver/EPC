@@ -10,7 +10,7 @@ interface CTABannerProps {
 
 export function CTABanner({
   heading = 'Need an EPC in London?',
-  body = 'Elmhurst-accredited assessor. Fixed prices from £49. Certificate within 72 hours.',
+  body = 'Elmhurst-accredited assessor. Guide prices from £49. Certificate within 72 hours.',
   variant = 'inline',
 }: CTABannerProps) {
   const isFinal = variant === 'final'

@@ -28,16 +28,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `EPC ${data.name} | Domestic EPC Certificate`,
-    description: `Domestic EPC certificates in ${data.name}, London. Elmhurst accredited DEA. Fixed prices from £49. 72-hour turnaround, next-day available. Book your ${data.name} EPC today.`,
+    description: `Domestic EPC certificates in ${data.name}, London. Elmhurst accredited DEA. Guide prices from £49. 72-hour turnaround, next-day available. Book your ${data.name} EPC today.`,
     alternates: { canonical: `${site.url}/areas/${slug}` },
     openGraph: {
       title: `EPC ${data.name} | Domestic EPC Certificate | L&D Energy`,
-      description: `Domestic EPC certificates in ${data.name}, London. Fixed prices from £49. 72-hour turnaround.`,
+      description: `Domestic EPC certificates in ${data.name}, London. Guide prices from £49. 72-hour turnaround.`,
       url: `${site.url}/areas/${slug}`,
     },
     twitter: {
       title: `EPC ${data.name} | Domestic EPC Certificate`,
-      description: `Domestic EPC certificates in ${data.name}, London. Fixed prices from £49. 72-hour turnaround.`,
+      description: `Domestic EPC certificates in ${data.name}, London. Guide prices from £49. 72-hour turnaround.`,
     },
   }
 }
@@ -66,7 +66,7 @@ function boroughFaq(name: string): FaqItem[] {
 const sellingPoints = [
   'Local assessor with rapid response times',
   'Appointments 7 days a week, including evenings',
-  'Fixed prices — no travel surcharges',
+  'Transparent pricing — no travel surcharges',
   'Certificate within 72 hours, or next day for £12 extra',
 ]
 
@@ -120,7 +120,7 @@ export default async function BoroughPage({ params }: PageProps) {
       <PageHero
         eyebrow={`EPC Certificates · ${data.name}`}
         heading={`EPC Certificates in ${data.name}`}
-        subheading={`Local Elmhurst-accredited Domestic Energy Assessor covering ${data.name} and surrounding areas. Fixed prices from £49. Certificate within 72 hours.`}
+        subheading={`Local Elmhurst-accredited Domestic Energy Assessor covering ${data.name} and surrounding areas. Guide prices from £49. Certificate within 72 hours.`}
         primaryCta={{ label: `Book Your ${data.name} EPC`, href: '#contact' }}
       />
 
@@ -185,7 +185,7 @@ export default async function BoroughPage({ params }: PageProps) {
             Nearby Areas We Also Cover
           </h2>
           <p className="mt-5 text-secondary-700 leading-relaxed">
-            We cover {data.name} and all neighbouring boroughs with the same fixed prices and rapid turnaround.
+            We cover {data.name} and all neighbouring boroughs with the same transparent pricing and rapid turnaround.
           </p>
         </div>
         <ul className="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
@@ -220,7 +220,7 @@ export default async function BoroughPage({ params }: PageProps) {
 
       <CtaStrip
         heading={`Book Your ${data.name} EPC`}
-        body={`Fast, fixed-price EPC certificates in ${data.name}. Appointments 7 days a week.`}
+        body={`Fast, transparent-priced EPC certificates in ${data.name}. Appointments 7 days a week.`}
         primaryCta={{ label: 'Book Now', href: '/contact' }}
       />
     </>

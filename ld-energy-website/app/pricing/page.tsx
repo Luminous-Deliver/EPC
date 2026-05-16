@@ -10,20 +10,20 @@ import { pricing, site } from '@/lib/site'
 import type { FaqItem } from '@/lib/faq'
 
 export const metadata: Metadata = {
-  title: 'EPC Prices London | From £49 | Clear, Fixed Pricing',
+  title: 'EPC Prices London | From £49 | Transparent Guide Pricing',
   description:
-    'Fixed-price EPC services in London. From £49 for studios up to £79 for 5+ bedroom homes. Next-day service for £12. Floor plan bundles save up to £39. No hidden fees.',
+    'Guide prices for EPC services in London — from £49 for studios. Final price depends on property floor area (m²) and condition. Request a personalised quote.',
   alternates: { canonical: `${site.url}/pricing` },
   openGraph: {
-    title: 'EPC Prices London | From £49 | Clear, Fixed Pricing | L&D Energy',
+    title: 'EPC Prices London | From £49 | Transparent Guide Pricing | L&D Energy',
     description:
-      'Fixed-price EPC services in London. From £49 for studios up to £79 for 5+ bedroom homes. Next-day service for £12. Floor plan bundles save up to £39.',
+      'Guide prices for EPC services in London — from £49 for studios. Final price depends on floor area (m²) and condition. Request a personalised quote.',
     url: `${site.url}/pricing`,
   },
   twitter: {
-    title: 'EPC Prices London | From £49 | Clear, Fixed Pricing',
+    title: 'EPC Prices London | From £49 | Transparent Guide Pricing',
     description:
-      'Fixed-price EPC services in London. From £49. Next-day service for £12. No hidden fees.',
+      'Guide prices from £49. Final price depends on floor area (m²) and condition. Request a personalised quote.',
   },
 }
 
@@ -49,11 +49,11 @@ const notIncluded = [
 const pricingFaq: FaqItem[] = [
   {
     q: 'How much does an EPC cost in London?',
-    a: 'Our EPC prices are fixed by property size: £49 for studios, £60 for 1-bedroom, £65 for 2-bedroom, £67 for 3-bedroom, £69 for 4-bedroom, and £79 for 5+ bedroom homes. All prices are fully inclusive — no travel surcharges.',
+    a: 'Our guide prices start at £49 for studios, £60 for 1-bedroom, £65 for 2-bedroom, £67 for 3-bedroom, £69 for 4-bedroom, and £79 for 5+ bedroom homes. These are starting figures — the final price may vary depending on the property\'s floor area (m²) and condition. Travel is included for all properties in our service area.',
   },
   {
     q: 'Are there any hidden fees?',
-    a: 'No. The price you see is the price you pay. There are no hidden fees, no call-out charges, and no travel surcharges for any property within our service area.',
+    a: 'No. The price we quote is the price you pay. Quotes are personalised based on your property size and condition, so there are no surprise add-ons, call-out charges, or travel surcharges within our service area.',
   },
   {
     q: 'Do you charge for travel?',
@@ -114,8 +114,8 @@ export default function PricingPage() {
       <PageHero
         eyebrow="Pricing"
         heading="EPC and Floor Plan Pricing"
-        subheading="Clear, fixed pricing based on property type. No travel charges. No hidden fees. The price you see is the price you pay."
-        primaryCta={{ label: 'Book Now', href: '/contact' }}
+        subheading="Transparent guide prices based on property size. Final cost depends on floor area (m²) and property condition — request a personalised quote for an exact figure."
+        primaryCta={{ label: 'Request a Quote', href: '/contact' }}
       />
 
       {/* Full pricing table */}
@@ -123,11 +123,14 @@ export default function PricingPage() {
         <div className="max-w-3xl">
           <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">The Numbers</p>
           <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
-            Full Pricing Table
+            Guide Pricing Table
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
             All prices include assessment, certificate lodgement, and email delivery. Add next-day service for £12.
           </p>
+          <div className="mt-5 rounded-lg border border-accent-200 bg-accent-50 p-4 text-sm text-secondary-800">
+            <strong className="font-semibold">Please note:</strong> The figures below are guide-only starting prices. The final cost may vary depending on the property&rsquo;s floor area (m²), layout, and condition. <a href="/contact" className="text-primary-700 underline font-medium">Request a personalised quote</a> for an exact figure.
+          </div>
         </div>
 
         <div className="mt-10 overflow-x-auto rounded-lg border border-secondary-200">
@@ -214,9 +217,9 @@ export default function PricingPage() {
       </Section>
 
       <CtaStrip
-        heading="Fixed Prices. No Surprises."
-        body="Book your EPC today. We'll confirm your appointment within 2 hours."
-        primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
+        heading="Get a Personalised Quote"
+        body="Tell us your property size and we'll confirm an exact price within 2 hours."
+        primaryCta={{ label: 'Request a Quote', href: '/contact' }}
       />
     </>
   )

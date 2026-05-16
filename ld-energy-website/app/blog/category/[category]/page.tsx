@@ -89,7 +89,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
 
       <CtaStrip
         heading="Need an EPC? Book in 60 seconds."
-        body="Elmhurst-accredited assessor. Fixed prices from £49. Certificate within 72 hours."
+        body="Elmhurst-accredited assessor. Guide prices from £49. Certificate within 72 hours."
         primaryCta={{ label: 'Book Now', href: '/contact' }}
       />
     </>

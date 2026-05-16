@@ -15,7 +15,7 @@ import { homepageFaq } from '@/lib/faq'
 export const metadata: Metadata = {
   title: { absolute: 'Domestic EPC London | From £49 | Elmhurst Accredited | L&D Energy' },
   description:
-    'Fast, affordable EPC certificates across all London boroughs. Elmhurst accredited Domestic Energy Assessor. Fixed prices from £49, certificate within 72 hours, next-day service available. Book your EPC today.',
+    'Fast, affordable EPC certificates across all London boroughs. Elmhurst accredited Domestic Energy Assessor. Guide prices from £49, certificate within 72 hours, next-day service available. Book your EPC today.',
   keywords: [
     'EPC London',
     'domestic EPC',
@@ -29,13 +29,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Domestic EPC London | From £49 | Elmhurst Accredited | L&D Energy',
     description:
-      'Fast, affordable EPC certificates across all London boroughs. Elmhurst accredited DEA. Fixed prices from £49, certificate within 72 hours, next-day service available.',
+      'Fast, affordable EPC certificates across all London boroughs. Elmhurst accredited DEA. Guide prices from £49, certificate within 72 hours, next-day service available.',
     url: site.url,
   },
   twitter: {
     title: 'Domestic EPC London | From £49 | Elmhurst Accredited',
     description:
-      'Fast, affordable EPC certificates across all London boroughs. Fixed prices from £49. Book your EPC today.',
+      'Fast, affordable EPC certificates across all London boroughs. Guide prices from £49. Book your EPC today.',
   },
 }
 

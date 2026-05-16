@@ -11,18 +11,18 @@ import { site } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'EPC London — All Areas Covered',
   description:
-    'Domestic EPC certificates across all 32 London boroughs and surrounding areas. Elmhurst accredited, fixed prices from £49, 72-hour turnaround. Find your borough.',
+    'Domestic EPC certificates across all 32 London boroughs and surrounding areas. Elmhurst accredited, guide prices from £49, 72-hour turnaround. Find your borough.',
   alternates: { canonical: `${site.url}/areas` },
   openGraph: {
     title: 'EPC London — All Areas Covered | L&D Energy',
     description:
-      'Domestic EPC certificates across all London boroughs and surrounding areas. Elmhurst accredited, fixed prices from £49, 72-hour turnaround.',
+      'Domestic EPC certificates across all London boroughs and surrounding areas. Elmhurst accredited, guide prices from £49, 72-hour turnaround.',
     url: `${site.url}/areas`,
   },
   twitter: {
     title: 'EPC London — All Areas Covered',
     description:
-      'Domestic EPC certificates across all London boroughs. Elmhurst accredited, fixed prices from £49.',
+      'Domestic EPC certificates across all London boroughs. Elmhurst accredited, guide prices from £49.',
   },
 }
 
@@ -53,7 +53,7 @@ export default function AreasPage() {
       <PageHero
         eyebrow="Coverage"
         heading="EPC Certificates Across London"
-        subheading="Based in Stratford, East London — we cover all 32 London boroughs and the City of London. Fixed prices, 7-day availability, no travel surcharges."
+        subheading="Based in Stratford, East London — we cover all 32 London boroughs and the City of London. Transparent pricing, 7-day availability, no travel surcharges."
         primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
       />
 

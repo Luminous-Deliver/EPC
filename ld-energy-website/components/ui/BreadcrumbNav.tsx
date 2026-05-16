@@ -22,11 +22,14 @@ export function BreadcrumbNav({ items, className }: BreadcrumbNavProps) {
             <li key={item.label} className="flex items-center gap-1">
               {i > 0 && <ChevronRight className="w-3.5 h-3.5 text-secondary-400 shrink-0" aria-hidden="true" />}
               {item.href ? (
-                <Link href={item.href} className="text-secondary-500 hover:text-primary-700">
+                <Link
+                  href={item.href}
+                  className="inline-block px-1 py-2 -mx-1 text-secondary-600 hover:text-primary-700 underline-offset-4 hover:underline"
+                >
                   {item.label}
                 </Link>
               ) : (
-                <span className="font-medium text-secondary-800" aria-current="page">
+                <span className="px-1 py-2 font-medium text-secondary-900" aria-current="page">
                   {item.label}
                 </span>
               )}

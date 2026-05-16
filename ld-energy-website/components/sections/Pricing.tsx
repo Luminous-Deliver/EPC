@@ -10,10 +10,10 @@ export function Pricing() {
       <div className="max-w-3xl">
         <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Transparent Pricing</p>
         <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
-          Clear, Fixed Prices
+          Transparent Guide Prices
         </h2>
         <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-          No surprises, no hidden fees. Our EPC prices are fixed by property type. Need it faster? Add next-day service for just £12.
+          Guide prices by property type — final cost depends on floor area (m²) and condition. Request a personalised quote. Need it faster? Add next-day service for just £12.
         </p>
       </div>
 

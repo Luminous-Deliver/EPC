@@ -75,8 +75,8 @@ const commitments = [
   },
   {
     Icon: Users,
-    title: 'No hidden fees',
-    body: 'Fixed prices by property type. No travel surcharges. No call-out charges. The price quoted is the price you pay.',
+    title: 'No surprise fees',
+    body: 'Transparent guide prices by property type. No travel surcharges, no call-out charges. The quote we give is the price you pay.',
   },
 ]
 
@@ -93,7 +93,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Us"
         heading="About L&D Energy"
-        subheading="Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. We deliver fast, fixed-price EPC certificates and floor plans across every London borough."
+        subheading="Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. We deliver fast, transparent-priced EPC certificates and floor plans across every London borough."
         primaryCta={{ label: 'Get in Touch', href: '/contact' }}
       />
 
@@ -168,7 +168,7 @@ export default function AboutPage() {
               L&amp;D Energy is led by Abdul M Taher, an Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Abdul personally carries out assessments — you’re not handed off to a stranger after booking.
             </p>
             <p className="mt-4 text-secondary-700 leading-relaxed">
-              The service was set up because too many landlords and sellers told us the same story: unanswered phones, missed appointments, slow certificates, and surprise fees. We do the opposite — fixed pricing, clear timelines, and a real person who picks up.
+              The service was set up because too many landlords and sellers told us the same story: unanswered phones, missed appointments, slow certificates, and surprise fees. We do the opposite — transparent pricing, clear timelines, and a real person who picks up.
             </p>
           </div>
 

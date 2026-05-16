@@ -146,7 +146,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <CTABanner
             variant="final"
             heading="Need an EPC? Book in 60 seconds."
-            body="Elmhurst-accredited assessor. Fixed prices from £49. Certificate within 72 hours, or next day for £12 extra."
+            body="Elmhurst-accredited assessor. Guide prices from £49. Certificate within 72 hours, or next day for £12 extra."
           />
         </Container>
       </article>

@@ -16,11 +16,11 @@ export function Hero() {
             Fast, Affordable EPCs Across London
           </h1>
           <p className="mt-5 text-lg md:text-xl text-secondary-700 leading-relaxed max-w-2xl">
-            Elmhurst-accredited Domestic Energy Assessor. Fixed prices from{' '}
+            Elmhurst-accredited Domestic Energy Assessor. Guide prices from{' '}
             <span className="font-semibold text-secondary-900">£49</span>. Certificate within 72 hours, or next day for just £12 extra.
           </p>
           <p className="mt-3 text-sm text-secondary-600">
-            Covering all 32 London boroughs. 7 days a week. No hidden fees.
+            Covering all 32 London boroughs. 7 days a week. Final price depends on property size.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">

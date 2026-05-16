@@ -19,12 +19,12 @@ import { site } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'EPC for Selling Your Home London | From £49',
   description:
-    'EPC certificates for selling your London home. Required by law before marketing. Fast 72-hour turnaround, next-day available. Fixed prices from £49. Book today.',
+    'EPC certificates for selling your London home. Required by law before marketing. Fast 72-hour turnaround, next-day available. Guide prices from £49. Book today.',
   alternates: { canonical: `${site.url}/sellers` },
   openGraph: {
     title: 'EPC for Selling Your Home London | From £49 | L&D Energy',
     description:
-      'EPC certificates for selling your London home. Required by law before marketing. Fast 72-hour turnaround, next-day available. Fixed prices from £49.',
+      'EPC certificates for selling your London home. Required by law before marketing. Fast 72-hour turnaround, next-day available. Guide prices from £49.',
     url: `${site.url}/sellers`,
   },
   twitter: {
@@ -121,7 +121,7 @@ export default function SellersPage() {
       <PageHero
         eyebrow="For Home Sellers"
         heading="EPCs for Selling Your London Home"
-        subheading="An EPC is required by law before your property goes on the market. We provide fast, fixed-price certificates so your sale isn't held up — 72 hours standard, or next day for £12 extra."
+        subheading="An EPC is required by law before your property goes on the market. We provide fast, transparently priced certificates so your sale isn't held up — 72 hours standard, or next day for £12 extra."
         primaryCta={{ label: 'Book Your Seller EPC', href: '/contact' }}
       />
 

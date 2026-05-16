@@ -7,7 +7,7 @@ import { MobileNav } from './MobileNav'
 import { navLinks, site } from '@/lib/site'
 
 const primaryNav = navLinks.filter((l) =>
-  ['/services/domestic-epc', '/services/floor-plans', '/landlords', '/sellers', '/areas', '/pricing', '/faq'].includes(l.href),
+  ['/services/domestic-epc', '/services/floor-plans', '/landlords', '/sellers', '/areas', '/pricing', '/faq', '/blog'].includes(l.href),
 )
 
 export function Header() {
