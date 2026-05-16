@@ -98,10 +98,10 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="rounded-lg border border-secondary-200 bg-white p-6 md:p-8 shadow-sm"
+      className="rounded-xl border border-secondary-200 bg-white p-4 md:p-8 shadow-sm"
       aria-describedby="form-help"
     >
-      <p id="form-help" className="text-sm text-secondary-500">
+      <p id="form-help" className="text-xs text-secondary-500">
         Fields marked <span className="text-danger">*</span> are required.
       </p>
 
@@ -113,7 +113,7 @@ export function ContactForm() {
         </label>
       </div>
 
-      <div className="mt-5 grid gap-4 md:grid-cols-2">
+      <div className="mt-4 grid gap-3 md:grid-cols-2">
         <Field label="Full Name" htmlFor="name" required error={errors.name?.message}>
           <Input
             id="name"
@@ -197,7 +197,7 @@ export function ContactForm() {
         </Field>
       </div>
 
-      <fieldset className="mt-5">
+      <fieldset className="mt-4">
         <legend className="text-sm font-medium text-secondary-800">
           Service Required <span className="text-danger">*</span>
         </legend>
@@ -243,7 +243,7 @@ export function ContactForm() {
         )}
       </fieldset>
 
-      <fieldset className="mt-5">
+      <fieldset className="mt-4">
         <legend className="text-sm font-medium text-secondary-800">
           Service Speed <span className="text-danger">*</span>
         </legend>
@@ -270,16 +270,13 @@ export function ContactForm() {
         )}
       </fieldset>
 
-      <div className="mt-5 grid gap-4 md:grid-cols-2">
-        <Field label="Preferred Date" htmlFor="preferredDate" hint="Optional">
-          <Input id="preferredDate" type="date" {...register('preferredDate')} />
-        </Field>
-        <Field label="Additional Notes" htmlFor="notes" hint="Optional" className="md:col-span-2">
-          <Textarea id="notes" rows={3} {...register('notes')} />
+      <div className="mt-4">
+        <Field label="Additional Notes" htmlFor="notes" hint="Optional — preferred date, access info, etc.">
+          <Textarea id="notes" rows={2} {...register('notes')} />
         </Field>
       </div>
 
-      <div className="mt-5">
+      <div className="mt-4">
         <label className="flex items-start gap-2.5 text-sm text-secondary-700">
           <input
             type="checkbox"
@@ -312,7 +309,7 @@ export function ContactForm() {
         type="submit"
         variant="accent"
         size="lg"
-        className="mt-6 w-full"
+        className="mt-5 w-full"
         disabled={status === 'submitting'}
       >
         {status === 'submitting' ? (

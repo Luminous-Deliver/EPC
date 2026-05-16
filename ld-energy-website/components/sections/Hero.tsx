@@ -6,7 +6,7 @@ import { site } from '@/lib/site'
 export function Hero() {
   return (
     <section className="relative bg-gradient-to-b from-primary-50 via-white to-white border-b border-secondary-100">
-      <Container className="py-16 md:py-24 lg:py-28 grid gap-10 lg:grid-cols-12 lg:gap-12 items-center">
+      <Container className="py-10 md:py-20 lg:py-24 grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
         <div className="lg:col-span-7">
           <p className="inline-flex items-center gap-2 text-xs uppercase tracking-wide font-semibold text-primary-700 bg-primary-100 rounded-full px-3 py-1 animate-fade-in">
             <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
