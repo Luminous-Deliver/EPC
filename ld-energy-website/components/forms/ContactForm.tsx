@@ -113,7 +113,7 @@ export function ContactForm() {
         </label>
       </div>
 
-      <div className="mt-3 grid gap-2 md:grid-cols-2">
+      <div className="mt-3 grid grid-cols-2 gap-2">
         <Field label="Full Name" htmlFor="name" required error={errors.name?.message}>
           <Input
             id="name"
@@ -123,7 +123,7 @@ export function ContactForm() {
             {...register('name')}
           />
         </Field>
-        <Field label="Phone Number" htmlFor="phone" required error={errors.phone?.message}>
+        <Field label="Phone" htmlFor="phone" required error={errors.phone?.message}>
           <Input
             id="phone"
             type="tel"
@@ -139,7 +139,7 @@ export function ContactForm() {
           htmlFor="email"
           required
           error={errors.email?.message}
-          className="md:col-span-2"
+          className="col-span-2"
         >
           <Input
             id="email"
@@ -156,7 +156,7 @@ export function ContactForm() {
           htmlFor="address"
           required
           error={errors.address?.message}
-          className="md:col-span-2"
+          className="col-span-2"
         >
           <Textarea
             id="address"
@@ -205,7 +205,7 @@ export function ContactForm() {
           control={control}
           name="services"
           render={({ field }) => (
-            <div className="mt-1.5 grid gap-1.5 sm:grid-cols-3">
+            <div className="mt-1.5 grid grid-cols-2 gap-1.5 sm:grid-cols-3">
               {serviceOptions.map((s) => {
                 const checked = field.value?.includes(s)
                 return (
@@ -247,7 +247,7 @@ export function ContactForm() {
         <legend className="text-sm font-medium text-secondary-800">
           Service Speed <span className="text-danger">*</span>
         </legend>
-        <div className="mt-1.5 grid gap-1.5 sm:grid-cols-2">
+        <div className="mt-1.5 grid grid-cols-2 gap-1.5">
           {speeds.map((s) => (
             <label
               key={s}
@@ -270,7 +270,7 @@ export function ContactForm() {
         )}
       </fieldset>
 
-      <div className="mt-3 grid gap-2 sm:grid-cols-2">
+      <div className="mt-3 grid grid-cols-2 gap-2">
         <Field label="Preferred Date" htmlFor="preferredDate" hint="Optional">
           <Input id="preferredDate" type="date" {...register('preferredDate')} />
         </Field>

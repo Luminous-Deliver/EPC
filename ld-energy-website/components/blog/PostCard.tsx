@@ -14,7 +14,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
   const author = getAuthor(post.author)
   return (
     <article
-      className={`group flex flex-col h-full rounded-lg border border-secondary-200 bg-white overflow-hidden transition-shadow hover:shadow-md ${
+      className={`relative group flex flex-col h-full rounded-lg border border-secondary-200 bg-white overflow-hidden transition-shadow hover:shadow-md ${
         featured ? 'md:flex-row md:col-span-2' : ''
       }`}
     >
@@ -22,7 +22,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
         {cat && (
           <Link
             href={`/blog/category/${cat.slug}`}
-            className="text-xs uppercase tracking-wide font-semibold text-primary-700 hover:text-primary-800 self-start"
+            className="relative z-10 text-xs uppercase tracking-wide font-semibold text-primary-700 hover:text-primary-800 self-start"
           >
             {cat.name}
           </Link>
