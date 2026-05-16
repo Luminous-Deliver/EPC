@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Phone, MessageCircle } from 'lucide-react'
 import { navLinks, site } from '@/lib/site'
 import { cn } from '@/lib/cn'
 
@@ -12,7 +12,6 @@ export function MobileNav() {
   const closeRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
 
-  // Scroll lock
   useEffect(() => {
     if (!open) return
     const prev = document.body.style.overflow
@@ -20,7 +19,6 @@ export function MobileNav() {
     return () => { document.body.style.overflow = prev }
   }, [open])
 
-  // Escape to close
   useEffect(() => {
     if (!open) return
     const handler = (e: KeyboardEvent) => {
@@ -34,7 +32,6 @@ export function MobileNav() {
     if (open) closeRef.current?.focus()
   }, [open])
 
-  // Focus trap
   useEffect(() => {
     if (!open) return
     const panel = panelRef.current
@@ -77,7 +74,6 @@ export function MobileNav() {
         className={cn('fixed inset-0 z-50 lg:hidden', !open && 'pointer-events-none')}
         aria-hidden={open ? undefined : true}
       >
-        {/* Backdrop */}
         <div
           className={cn(
             'absolute inset-0 bg-secondary-900/60 transition-opacity duration-200',
@@ -87,7 +83,6 @@ export function MobileNav() {
           aria-hidden="true"
         />
 
-        {/* Panel */}
         <div
           id="mobile-nav-panel"
           ref={panelRef}
@@ -101,10 +96,8 @@ export function MobileNav() {
           )}
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-4 h-14 border-b border-secondary-100 shrink-0">
-            <span className="font-display font-extrabold text-base text-secondary-900">
-              {site.name}
-            </span>
+          <div className="flex items-center justify-between px-4 h-14 border-b border-secondary-100 shrink-0 bg-white">
+            <span className="font-display font-bold text-base text-secondary-900">Menu</span>
             <button
               ref={closeRef}
               type="button"
@@ -116,27 +109,16 @@ export function MobileNav() {
             </button>
           </div>
 
-          {/* Nav links — takes all remaining height, scrolls if needed */}
-          <nav aria-label="Mobile" className="flex-1 min-h-0 overflow-y-auto px-3 py-3">
-            <ul className="flex flex-col">
-              {/* Book CTA as first item */}
-              <li>
-                <Link
-                  href="/contact"
-                  onClick={close}
-                  tabIndex={open ? undefined : -1}
-                  className="flex items-center w-full bg-accent-500 hover:bg-accent-600 text-white font-bold px-4 py-3 rounded-xl mb-2 min-h-[48px]"
-                >
-                  Book Your EPC
-                </Link>
-              </li>
+          {/* All nav links — flex-1 so it fills available height, scrolls if needed */}
+          <nav aria-label="Mobile" className="flex-1 min-h-0 overflow-y-auto bg-white">
+            <ul className="px-2 py-2 flex flex-col">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={close}
                     tabIndex={open ? undefined : -1}
-                    className="flex items-center w-full px-3 py-3 rounded-lg text-base font-medium text-secondary-800 hover:bg-secondary-50 hover:text-primary-700 min-h-[48px]"
+                    className="flex items-center w-full px-3 py-2.5 rounded-lg text-[15px] font-medium text-secondary-800 hover:bg-secondary-50 hover:text-primary-700 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -145,9 +127,24 @@ export function MobileNav() {
             </ul>
           </nav>
 
-          {/* Hours footer */}
-          <div className="shrink-0 px-4 py-3 border-t border-secondary-100">
-            <p className="text-xs text-secondary-500 text-center">{site.hours}</p>
+          {/* Phone + WhatsApp at bottom */}
+          <div className="shrink-0 border-t border-secondary-100 bg-white p-3 grid grid-cols-2 gap-2">
+            <a
+              href={site.phoneHref}
+              tabIndex={open ? undefined : -1}
+              className="flex items-center justify-center gap-1.5 bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold px-3 py-2.5 rounded-lg min-h-[44px]"
+            >
+              <Phone className="w-4 h-4 shrink-0" aria-hidden="true" />
+              Call Us
+            </a>
+            <a
+              href={site.whatsappHref}
+              tabIndex={open ? undefined : -1}
+              className="flex items-center justify-center gap-1.5 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-3 py-2.5 rounded-lg min-h-[44px]"
+            >
+              <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
+              WhatsApp
+            </a>
           </div>
         </div>
       </div>

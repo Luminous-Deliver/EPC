@@ -113,7 +113,7 @@ export function ContactForm() {
         </label>
       </div>
 
-      <div className="mt-4 grid gap-3 md:grid-cols-2">
+      <div className="mt-3 grid gap-2 md:grid-cols-2">
         <Field label="Full Name" htmlFor="name" required error={errors.name?.message}>
           <Input
             id="name"
@@ -197,7 +197,7 @@ export function ContactForm() {
         </Field>
       </div>
 
-      <fieldset className="mt-4">
+      <fieldset className="mt-3">
         <legend className="text-sm font-medium text-secondary-800">
           Service Required <span className="text-danger">*</span>
         </legend>
@@ -205,14 +205,14 @@ export function ContactForm() {
           control={control}
           name="services"
           render={({ field }) => (
-            <div className="mt-2 grid gap-2 sm:grid-cols-3">
+            <div className="mt-1.5 grid gap-1.5 sm:grid-cols-3">
               {serviceOptions.map((s) => {
                 const checked = field.value?.includes(s)
                 return (
                   <label
                     key={s}
                     className={cn(
-                      'flex items-center gap-2 rounded-md border px-3 py-2.5 cursor-pointer text-sm',
+                      'flex items-center gap-2 rounded-md border px-3 py-2 cursor-pointer text-sm',
                       checked
                         ? 'border-primary-500 bg-primary-50 text-primary-900'
                         : 'border-secondary-200 bg-white text-secondary-800 hover:border-secondary-300',
@@ -243,15 +243,15 @@ export function ContactForm() {
         )}
       </fieldset>
 
-      <fieldset className="mt-4">
+      <fieldset className="mt-3">
         <legend className="text-sm font-medium text-secondary-800">
           Service Speed <span className="text-danger">*</span>
         </legend>
-        <div className="mt-2 grid gap-2 sm:grid-cols-2">
+        <div className="mt-1.5 grid gap-1.5 sm:grid-cols-2">
           {speeds.map((s) => (
             <label
               key={s}
-              className="flex items-center gap-2 rounded-md border border-secondary-200 bg-white px-3 py-2.5 cursor-pointer text-sm text-secondary-800 hover:border-secondary-300 has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50 has-[:checked]:text-primary-900"
+              className="flex items-center gap-2 rounded-md border border-secondary-200 bg-white px-3 py-2 cursor-pointer text-sm text-secondary-800 hover:border-secondary-300 has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50 has-[:checked]:text-primary-900"
             >
               <input
                 type="radio"
@@ -270,13 +270,16 @@ export function ContactForm() {
         )}
       </fieldset>
 
-      <div className="mt-4">
-        <Field label="Additional Notes" htmlFor="notes" hint="Optional — preferred date, access info, etc.">
-          <Textarea id="notes" rows={2} {...register('notes')} />
+      <div className="mt-3 grid gap-2 sm:grid-cols-2">
+        <Field label="Preferred Date" htmlFor="preferredDate" hint="Optional">
+          <Input id="preferredDate" type="date" {...register('preferredDate')} />
+        </Field>
+        <Field label="Additional Notes" htmlFor="notes" hint="Optional">
+          <Textarea id="notes" rows={1} {...register('notes')} />
         </Field>
       </div>
 
-      <div className="mt-4">
+      <div className="mt-3">
         <label className="flex items-start gap-2.5 text-sm text-secondary-700">
           <input
             type="checkbox"
@@ -309,7 +312,7 @@ export function ContactForm() {
         type="submit"
         variant="accent"
         size="lg"
-        className="mt-5 w-full"
+        className="mt-4 w-full"
         disabled={status === 'submitting'}
       >
         {status === 'submitting' ? (

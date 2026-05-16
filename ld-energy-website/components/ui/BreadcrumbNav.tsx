@@ -24,7 +24,7 @@ export function BreadcrumbNav({ items, className }: BreadcrumbNavProps) {
               {item.href && i < items.length - 1 ? (
                 <Link
                   href={item.href}
-                  className="inline-block px-1 py-2 -mx-1 text-primary-700 underline underline-offset-2 decoration-primary-300 hover:decoration-primary-600"
+                  className="inline-block px-1 py-1.5 text-secondary-600 hover:text-primary-700 hover:underline underline-offset-4"
                 >
                   {item.label}
                 </Link>
