@@ -149,7 +149,7 @@ export default function PricingPage() {
               {pricing.map((row) => (
                 <tr key={row.type} className="bg-white hover:bg-secondary-50">
                   <td className="px-4 py-3 font-medium text-secondary-900">{row.label}</td>
-                  <td className="px-4 py-3 text-right text-secondary-700">£{row.epc}</td>
+                  <td className="px-4 py-3 text-right text-secondary-700"><span className="text-secondary-400">≈</span>£{row.epc}</td>
                   <td className="px-4 py-3 text-right text-secondary-600">£{row.nextDay}</td>
                   <td className="px-4 py-3 text-right text-secondary-700">£{row.floorPlan}</td>
                   <td className="px-4 py-3 text-right font-bold text-primary-800 bg-primary-50">

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Award, MapPin, Clock, BadgeCheck, FileText, Users } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
@@ -171,8 +172,20 @@ export default function AboutPage() {
               The service was set up because too many landlords and sellers told us the same story: unanswered phones, missed appointments, slow certificates, and surprise fees. We do the opposite — transparent pricing, clear timelines, and a real person who picks up.
             </p>
 
+            {/* Elmhurst ID card image */}
+            <div className="mt-6 rounded-xl overflow-hidden border border-secondary-200 shadow-sm">
+              <Image
+                src="/elmhurst-id.jpeg"
+                alt="Elmhurst Energy accreditation ID card for Abdul Motaleb Taher, EES/036265"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+                priority
+              />
+            </div>
+
             {/* Verified assessor credential */}
-            <div className="mt-6 rounded-xl border border-primary-200 bg-white p-5 shadow-sm">
+            <div className="mt-4 rounded-xl border border-primary-200 bg-white p-5 shadow-sm">
               <div className="flex items-center gap-2 text-primary-700">
                 <BadgeCheck className="w-5 h-5 shrink-0" aria-hidden="true" />
                 <span className="text-xs font-bold uppercase tracking-wide">Elmhurst Energy Approved</span>

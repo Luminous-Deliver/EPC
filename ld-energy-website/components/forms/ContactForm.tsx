@@ -270,12 +270,12 @@ export function ContactForm() {
         )}
       </fieldset>
 
-      <div className="mt-3 grid grid-cols-2 gap-2">
+      <div className="mt-3 grid grid-cols-2 gap-2 items-start">
         <Field label="Preferred Date" htmlFor="preferredDate" hint="Optional">
           <Input id="preferredDate" type="date" {...register('preferredDate')} />
         </Field>
         <Field label="Additional Notes" htmlFor="notes" hint="Optional">
-          <Textarea id="notes" rows={1} {...register('notes')} />
+          <Input id="notes" placeholder="Any extra info…" {...register('notes')} />
         </Field>
       </div>
 

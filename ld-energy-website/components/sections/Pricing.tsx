@@ -22,7 +22,7 @@ export function Pricing() {
           <Card key={row.type} interactive className="flex flex-col p-5 md:p-6">
             <p className="text-sm font-semibold text-secondary-600">{row.label}</p>
             <p className="mt-1 text-4xl md:text-5xl font-extrabold font-display text-secondary-900">
-              £{row.epc}
+              <span className="text-2xl md:text-3xl font-semibold text-secondary-500">≈</span>£{row.epc}
             </p>
             <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-secondary-500">
               <Clock className="w-3.5 h-3.5" aria-hidden="true" /> {row.duration}
