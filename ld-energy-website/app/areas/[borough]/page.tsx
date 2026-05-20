@@ -10,7 +10,7 @@ import { CtaStrip } from '@/components/sections/CtaStrip'
 import { Accordion } from '@/components/ui/Accordion'
 import { ContactSection } from '@/components/sections/ContactSection'
 import { boroughMeta } from '@/lib/boroughs'
-import { site } from '@/lib/site'
+import { site, pricing } from '@/lib/site'
 import type { FaqItem } from '@/lib/faq'
 
 interface PageProps {
@@ -27,17 +27,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!data) return {}
 
   return {
-    title: `EPC ${data.name} | Domestic EPC Certificate`,
-    description: `Domestic EPC certificates in ${data.name}, London. Elmhurst accredited DEA. Guide prices from £49. 72-hour turnaround, next-day available. Book your ${data.name} EPC today.`,
+    title: `EPC in ${data.name} | From £49 | Elmhurst Accredited | L&D Energy`,
+    description: `Domestic EPC certificate in ${data.name} from £49. Elmhurst-accredited assessor, next-day service available, no travel surcharges. Book online or call today.`,
     alternates: { canonical: `${site.url}/areas/${slug}` },
     openGraph: {
-      title: `EPC ${data.name} | Domestic EPC Certificate | L&D Energy`,
-      description: `Domestic EPC certificates in ${data.name}, London. Guide prices from £49. 72-hour turnaround.`,
+      title: `EPC in ${data.name} | From £49 | L&D Energy`,
+      description: `Domestic EPC certificate in ${data.name} from £49. Next-day service available, no travel surcharges.`,
       url: `${site.url}/areas/${slug}`,
     },
     twitter: {
-      title: `EPC ${data.name} | Domestic EPC Certificate`,
-      description: `Domestic EPC certificates in ${data.name}, London. Guide prices from £49. 72-hour turnaround.`,
+      title: `EPC in ${data.name} | From £49 | L&D Energy`,
+      description: `Domestic EPC certificate in ${data.name} from £49. Next-day service available.`,
     },
   }
 }
@@ -46,7 +46,7 @@ function boroughFaq(name: string): FaqItem[] {
   return [
     {
       q: `How much does an EPC cost in ${name}?`,
-      a: `Our EPC prices in ${name} are fixed by property size: £49 for studios, £60 for 1-bedroom, £65 for 2-bedroom, £67 for 3-bedroom, £69 for 4-bedroom, and £79 for 5+ bedroom homes. Next-day service is available for £12 extra. No travel surcharges.`,
+      a: `Our guide EPC prices in ${name} start from £${pricing[0].epc} for studios, £${pricing[1].epc} for 1-bedroom, £${pricing[2].epc} for 2-bedroom, £${pricing[3].epc} for 3-bedroom, £${pricing[4].epc} for 4-bedroom, and £${pricing[5].epc}+ for 5+ bedroom homes. Final price depends on floor area (m²) and property condition. Next-day service is available for £12 extra. No travel surcharges.`,
     },
     {
       q: `How quickly can I get an EPC in ${name}?`,
@@ -106,12 +106,31 @@ export default async function BoroughPage({ params }: PageProps) {
     })),
   }
 
+  const boroughBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${site.url}/areas/${slug}#business`,
+    name: `L&D Energy — EPC ${data.name}`,
+    url: `${site.url}/areas/${slug}`,
+    telephone: site.phoneIntl,
+    email: site.email,
+    parentOrganization: { '@id': `${site.url}/#business` },
+    areaServed: { '@type': 'AdministrativeArea', name: data.name, containedInPlace: { '@type': 'City', name: 'London' } },
+    priceRange: '£',
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '08:00',
+      closes: '20:00',
+    },
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([breadcrumbSchema, faqSchema]),
+          __html: JSON.stringify([breadcrumbSchema, faqSchema, boroughBusinessSchema]),
         }}
       />
 

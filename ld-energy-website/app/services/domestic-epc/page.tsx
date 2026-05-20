@@ -8,12 +8,14 @@ import { PageHero } from '@/components/sections/PageHero'
 import { Pricing } from '@/components/sections/Pricing'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { Faq } from '@/components/sections/Faq'
-import { site } from '@/lib/site'
+import { site, pricing } from '@/lib/site'
+import type { FaqItem } from '@/lib/faq'
+import { Accordion } from '@/components/ui/Accordion'
 
 export const metadata: Metadata = {
-  title: 'Domestic EPC Certificate London | From £49 | Elmhurst Accredited',
+  title: 'Domestic EPC London | From £49 | Next-Day Available | Elmhurst Accredited',
   description:
-    'Get your domestic EPC certificate in London from £49. Elmhurst accredited assessor, 72-hour standard delivery, next-day available. Required for selling or renting your home. Book online today.',
+    'Domestic EPC certificate in London from £49. Elmhurst-accredited assessor, next-day service available, 72-hour standard delivery. Required for selling or renting. Book your EPC online today.',
   alternates: { canonical: `${site.url}/services/domestic-epc` },
   openGraph: {
     title: 'Domestic EPC Certificate London | From £49 | L&D Energy',
@@ -106,6 +108,39 @@ const assessed = [
   'Renewable energy systems (solar PV, heat pumps, etc.)',
 ]
 
+const serviceFaq: FaqItem[] = [
+  {
+    q: 'How much does a domestic EPC cost in London?',
+    a: `Our guide prices start from £${pricing[0].epc} for a studio and go up to £${pricing[5].epc}+ for 5+ bedroom properties. The final price depends on floor area (m²), extensions, and condition. Request a personalised quote for an exact figure.`,
+  },
+  {
+    q: 'Can I get a next-day EPC?',
+    a: 'Yes. Add our next-day service for £12 and we guarantee your certificate within 24 hours of the assessment. Book before noon for the best chance of a same-day or next-morning appointment.',
+  },
+  {
+    q: 'How long does an EPC assessment take?',
+    a: 'Assessments typically take 45 minutes for studios up to around 2 hours for larger 4–5 bedroom homes. You do not need to do any preparation — just normal access to all rooms.',
+  },
+  {
+    q: 'Do I legally need an EPC?',
+    a: 'Yes. You must have a valid EPC before marketing a property for sale or letting it to a new tenant. Estate agents cannot legally list a property without one, and landlords face fines of up to £30,000 for letting without a compliant EPC.',
+  },
+  {
+    q: 'How long is an EPC valid for?',
+    a: 'An EPC is valid for 10 years. You can use the same certificate for multiple lettings within that period as long as it remains on the government register.',
+  },
+]
+
+const serviceFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: serviceFaq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+}
+
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -118,14 +153,12 @@ const serviceSchema = {
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'EPC Pricing',
-    itemListElement: [
-      { '@type': 'Offer', name: 'Studio EPC', price: '49', priceCurrency: 'GBP' },
-      { '@type': 'Offer', name: '1 Bedroom EPC', price: '60', priceCurrency: 'GBP' },
-      { '@type': 'Offer', name: '2 Bedroom EPC', price: '65', priceCurrency: 'GBP' },
-      { '@type': 'Offer', name: '3 Bedroom EPC', price: '67', priceCurrency: 'GBP' },
-      { '@type': 'Offer', name: '4 Bedroom EPC', price: '69', priceCurrency: 'GBP' },
-      { '@type': 'Offer', name: '5+ Bedroom EPC', price: '79', priceCurrency: 'GBP' },
-    ],
+    itemListElement: pricing.map((p) => ({
+      '@type': 'Offer',
+      name: `${p.label} EPC`,
+      price: String(p.epc),
+      priceCurrency: 'GBP',
+    })),
   },
 }
 
@@ -143,7 +176,7 @@ export default function DomesticEpcPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([serviceSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([serviceSchema, serviceFaqSchema, breadcrumbSchema]) }}
       />
 
       <BreadcrumbNav items={breadcrumbs} />
@@ -247,6 +280,20 @@ export default function DomesticEpcPage() {
       </Section>
 
       <Pricing />
+
+      {/* Service-specific FAQ */}
+      <Section variant="muted" id="epc-faq">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Common Questions</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            Domestic EPC Questions
+          </h2>
+          <div className="mt-8">
+            <Accordion items={serviceFaq} />
+          </div>
+        </div>
+      </Section>
+
       <Faq />
 
       <CtaStrip

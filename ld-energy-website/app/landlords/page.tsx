@@ -78,12 +78,44 @@ const breadcrumbSchema = {
   ],
 }
 
+const landlordFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do I need an EPC to rent out my property?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Under MEES regulations, all rental properties in England and Wales must have a valid EPC rated E or above. You must provide this to tenants before they sign the tenancy agreement. Letting without a compliant EPC can result in fines up to £30,000 per property.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the minimum EPC rating for a rental property in London?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The current legal minimum is band E. The UK government has proposed raising this to band C by 2028 for new tenancies and 2030 for all existing tenancies, though exact dates may shift. Landlords should plan improvements now to avoid the installer bottleneck.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does a landlord EPC cost in London?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Our guide prices for landlord EPCs in London start from £49 for studios. Final price depends on the property\'s floor area (m²), extensions, and condition. Portfolio discounts are available for multiple properties — contact us for a tailored quote.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long is an EPC valid for rental properties?',
+      acceptedAnswer: { '@type': 'Answer', text: 'An EPC is valid for 10 years. You can use the same certificate for multiple consecutive tenancies within that period as long as it remains on the government register. If it expires, you must commission a new one before re-letting.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I get an EPC quickly if a tenancy is urgent?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Our next-day service guarantees your certificate within 24 hours of the assessment for an extra £12. We offer appointments 7 days a week including evenings. Book before noon for the best chance of a same-day slot.' },
+    },
+  ],
+}
+
 export default function LandlordsPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, landlordFaqSchema]) }}
       />
 
       <BreadcrumbNav items={breadcrumbs} />

@@ -108,12 +108,44 @@ const breadcrumbSchema = {
   ],
 }
 
+const sellerFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do I need an EPC before selling my home?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. You must have an EPC commissioned before your property is marketed for sale. Estate agents cannot legally list your property on Rightmove, Zoopla or any other portal without a valid EPC. It must also be made available to potential buyers on request.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take to get an EPC when selling?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Our standard service delivers your certificate within 72 hours of the assessment. If your estate agent is already chasing, our next-day service (+£12) guarantees the certificate within 24 hours. We offer appointments 7 days a week.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does an EPC cost when selling a house in London?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Our guide prices start from £49 for a studio and increase with property size. Final price depends on floor area (m²), any extensions, and condition. We provide a personalised quote within 2 hours of your enquiry.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does a higher EPC rating help sell my home?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, increasingly so. With rising energy bills and tighter mortgage stress-testing, more buyers now factor EPC rating into their offers. Properties rated C or above are easier to mortgage and may support a higher asking price. A lower rating gives buyers a negotiating point.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I improve my EPC rating before selling?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. The EPC certificate includes specific improvement recommendations. Quick wins for sellers include switching to LED lighting, upgrading to a modern condensing boiler with programmer controls, and adding loft or cavity wall insulation. Your assessor can advise which improvements will make the biggest difference for your property.' },
+    },
+  ],
+}
+
 export default function SellersPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, sellerFaqSchema]) }}
       />
 
       <BreadcrumbNav items={breadcrumbs} />

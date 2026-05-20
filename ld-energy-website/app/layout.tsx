@@ -4,7 +4,8 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { MobileCallBar } from '@/components/layout/MobileCallBar'
 import { CookieBanner } from '@/components/layout/CookieBanner'
-import { site } from '@/lib/site'
+import { site, pricing } from '@/lib/site'
+import { boroughMeta } from '@/lib/boroughs'
 import './globals.css'
 
 const inter = Inter({
@@ -93,14 +94,30 @@ const localBusinessSchema = {
     opens: '08:00',
     closes: '20:00',
   },
-  areaServed: {
-    '@type': 'City',
-    name: 'London',
-    addressCountry: 'GB',
-  },
-  priceRange: '££',
+  areaServed: [
+    { '@type': 'City', name: 'London', addressCountry: 'GB' },
+    ...Object.values(boroughMeta).map((b) => ({ '@type': 'AdministrativeArea', name: b.name, containedInPlace: { '@type': 'City', name: 'London' } })),
+  ],
+  priceRange: '£',
   currenciesAccepted: 'GBP',
   paymentAccepted: 'Cash, Credit Card, Bank Transfer',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'EPC and Floor Plan Services',
+    itemListElement: [
+      ...pricing.map((p) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: `${p.label} Domestic EPC Certificate` },
+        price: p.epc,
+        priceCurrency: 'GBP',
+      })),
+      {
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: 'Next-Day EPC Service', description: 'Certificate within 24 hours' },
+        priceSpecification: { '@type': 'PriceSpecification', price: 12, priceCurrency: 'GBP', description: 'Additional charge on top of base EPC price' },
+      },
+    ],
+  },
   hasCredential: {
     '@type': 'EducationalOccupationalCredential',
     credentialCategory: 'Domestic Energy Assessor Accreditation',
