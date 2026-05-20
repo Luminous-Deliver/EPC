@@ -18,6 +18,12 @@ export const site = {
     country: 'GB',
   },
   geo: { lat: 51.543, lng: -0.0005 },
+  assessor: {
+    name: 'Abdul Motaleb Taher',
+    accreditationNumber: 'EES/036265',
+    scheme: 'Elmhurst Energy Systems Ltd',
+    verifyUrl: 'https://www.elmhurstenergy.co.uk/find-an-assessor',
+  },
 } as const
 
 export const navLinks = [

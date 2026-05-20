@@ -104,7 +104,14 @@ const localBusinessSchema = {
   hasCredential: {
     '@type': 'EducationalOccupationalCredential',
     credentialCategory: 'Domestic Energy Assessor Accreditation',
-    recognizedBy: { '@type': 'Organization', name: 'Elmhurst Energy' },
+    identifier: site.assessor.accreditationNumber,
+    recognizedBy: { '@type': 'Organization', name: site.assessor.scheme },
+  },
+  employee: {
+    '@type': 'Person',
+    name: site.assessor.name,
+    jobTitle: 'Domestic Energy Assessor',
+    identifier: site.assessor.accreditationNumber,
   },
   sameAs: ['https://share.google/4LTPb4XMjeNq7TpXk'],
 }

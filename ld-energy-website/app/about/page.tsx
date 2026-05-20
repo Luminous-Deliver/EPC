@@ -170,6 +170,36 @@ export default function AboutPage() {
             <p className="mt-4 text-secondary-700 leading-relaxed">
               The service was set up because too many landlords and sellers told us the same story: unanswered phones, missed appointments, slow certificates, and surprise fees. We do the opposite — transparent pricing, clear timelines, and a real person who picks up.
             </p>
+
+            {/* Verified assessor credential */}
+            <div className="mt-6 rounded-xl border border-primary-200 bg-white p-5 shadow-sm">
+              <div className="flex items-center gap-2 text-primary-700">
+                <BadgeCheck className="w-5 h-5 shrink-0" aria-hidden="true" />
+                <span className="text-xs font-bold uppercase tracking-wide">Elmhurst Energy Approved</span>
+              </div>
+              <dl className="mt-4 space-y-2.5 text-sm">
+                <div className="flex justify-between gap-4">
+                  <dt className="text-secondary-500">Assessor</dt>
+                  <dd className="font-semibold text-secondary-900 text-right">{site.assessor.name}</dd>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <dt className="text-secondary-500">EES Number</dt>
+                  <dd className="font-semibold text-secondary-900 text-right">{site.assessor.accreditationNumber}</dd>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <dt className="text-secondary-500">Scheme</dt>
+                  <dd className="font-semibold text-secondary-900 text-right">{site.assessor.scheme}</dd>
+                </div>
+              </dl>
+              <a
+                href={site.assessor.verifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block text-sm font-semibold text-primary-700 hover:text-primary-800 underline underline-offset-4"
+              >
+                Verify this assessor on the Elmhurst register →
+              </a>
+            </div>
           </div>
 
           <div>

@@ -13,7 +13,7 @@ export function Pricing() {
           Transparent Guide Prices
         </h2>
         <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-          Guide prices by property type — final cost depends on floor area (m²) and condition. Request a personalised quote. Need it faster? Add next-day service for just £12.
+          The prices below are estimates only. Your final cost depends on the property&apos;s floor area (m²), any extensions or loft conversions, and overall condition. Request a personalised quote for an exact figure. Need it faster? Add next-day service for just £12.
         </p>
       </div>
 

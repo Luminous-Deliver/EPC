@@ -19,6 +19,9 @@ export function Footer() {
             <ShieldCheck className="w-4 h-4 text-primary-300" aria-hidden="true" />
             Elmhurst Accredited Domestic Energy Assessor
           </div>
+          <p className="mt-2 text-xs text-secondary-500">
+            {site.assessor.name} · {site.assessor.accreditationNumber}
+          </p>
         </div>
 
         <nav aria-label="Footer">
