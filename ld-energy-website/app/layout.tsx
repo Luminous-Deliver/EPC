@@ -130,7 +130,39 @@ const localBusinessSchema = {
     jobTitle: 'Domestic Energy Assessor',
     identifier: site.assessor.accreditationNumber,
   },
-  sameAs: ['https://share.google/4LTPb4XMjeNq7TpXk'],
+  sameAs: [
+    'https://share.google/4LTPb4XMjeNq7TpXk',
+    'https://www.elmhurstenergy.co.uk/find-an-assessor',
+  ],
+  knowsAbout: [
+    'Energy Performance Certificates',
+    'Domestic EPC',
+    'MEES Compliance',
+    'RdSAP Assessment',
+    'Elmhurst Energy Accreditation',
+  ],
+}
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${site.url}/#organization`,
+  name: 'L&D Energy',
+  legalName: site.legalName,
+  alternateName: ['LD Energy', 'L and D Energy'],
+  disambiguatingDescription: 'L&D Energy is a domestic Energy Performance Certificate (EPC) provider based in Stratford, East London. We provide official EPC certificates and floor plans for residential properties across all London boroughs. L&D Energy is not related to learning and development, oil and gas training, L&Q Energy, or LD Energy Solutions.',
+  description: 'Elmhurst-accredited domestic Energy Performance Certificate (EPC) provider serving all 32 London boroughs. Official EPC certificates for homeowners, landlords, and letting agents from £49.',
+  url: site.url,
+  telephone: site.phoneIntl,
+  email: site.email,
+  foundingLocation: { '@type': 'Place', name: 'Stratford, East London', address: { '@type': 'PostalAddress', addressLocality: 'Stratford', postalCode: 'E15', addressCountry: 'GB' } },
+  areaServed: { '@type': 'City', name: 'London', addressCountry: 'GB' },
+  serviceType: 'Energy Performance Certificate Assessment',
+  parentOrganization: { '@type': 'Organization', name: site.legalName },
+  sameAs: [
+    'https://share.google/4LTPb4XMjeNq7TpXk',
+    'https://www.elmhurstenergy.co.uk/find-an-assessor',
+  ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -140,7 +172,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([localBusinessSchema, organizationSchema]) }}
         />
         {cfBeaconToken ? (
           <script

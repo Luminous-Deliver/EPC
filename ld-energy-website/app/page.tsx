@@ -43,7 +43,11 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': `${site.url}/#organization`,
-  name: site.legalName,
+  name: 'L&D Energy',
+  legalName: site.legalName,
+  alternateName: ['LD Energy', 'L and D Energy'],
+  disambiguatingDescription: 'L&D Energy is a domestic Energy Performance Certificate (EPC) provider based in Stratford, East London — not related to learning and development, oil and gas training, L&Q Energy, or LD Energy Solutions.',
+  description: 'Elmhurst-accredited domestic EPC provider. Official Energy Performance Certificates for homeowners, landlords, and letting agents across all London boroughs.',
   url: site.url,
   logo: {
     '@type': 'ImageObject',
@@ -56,6 +60,10 @@ const organizationSchema = {
     areaServed: 'GB',
     availableLanguage: 'English',
   },
+  sameAs: [
+    'https://share.google/4LTPb4XMjeNq7TpXk',
+    'https://www.elmhurstenergy.co.uk/find-an-assessor',
+  ],
 }
 
 const websiteSchema = {
