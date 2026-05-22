@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { getRequestContext } from '@cloudflare/next-on-pages'
 import { contactSchema } from '@/lib/validators'
 
 export const runtime = 'edge'
@@ -97,9 +98,16 @@ export async function POST(req: Request) {
   const { text, html } = buildEmail(data)
   const subject = `EPC booking: ${data.name} — ${data.propertyType} (${data.postcode})`
 
-  const apiKey = process.env.RESEND_API_KEY
-  const from = process.env.RESEND_FROM || FROM_DEFAULT
-  const to = process.env.RESEND_TO || NOTIFY_TO
+  // On Cloudflare Pages, runtime secrets are in the Worker env bindings, not process.env
+  let cfEnv: Record<string, string> = {}
+  try {
+    cfEnv = getRequestContext().env as Record<string, string>
+  } catch {
+    // fallback to process.env when running locally
+  }
+  const apiKey = cfEnv.RESEND_API_KEY || process.env.RESEND_API_KEY
+  const from = cfEnv.RESEND_FROM || process.env.RESEND_FROM || FROM_DEFAULT
+  const to = cfEnv.RESEND_TO || process.env.RESEND_TO || NOTIFY_TO
 
   if (!apiKey) {
     console.warn('[contact] RESEND_API_KEY not set — submission accepted but not delivered.')
