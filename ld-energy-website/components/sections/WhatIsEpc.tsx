@@ -1,6 +1,6 @@
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
-import { CheckCircle2 } from 'lucide-react'
+import { CheckCircle2, BookOpen, FileText, Scale } from 'lucide-react'
 
 const contents = [
   'Current energy efficiency rating (A–G)',
@@ -19,20 +19,28 @@ const whenRequired = [
 
 export function WhatIsEpc() {
   return (
-    <Section variant="default" id="what-is-epc">
+    <Section variant="default" id="what-is-epc" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
-        <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">EPC Basics</p>
-        <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+        <span className="inline-flex items-center gap-2 rounded-full bg-primary-50 ring-1 ring-primary-100 px-3 py-1 text-xs uppercase tracking-wide font-semibold text-primary-700">
+          <BookOpen className="w-3.5 h-3.5" aria-hidden="true" />
+          EPC Basics
+        </span>
+        <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
           What is an Energy Performance Certificate?
         </h2>
-        <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
+        <p className="mt-4 text-lg text-secondary-700 leading-relaxed">
           An Energy Performance Certificate (EPC) is an official document that rates a property’s energy efficiency from A (most efficient) to G (least efficient). It is legally required in England and Wales when selling or renting any residential property, and remains valid for 10 years from the date of issue.
         </p>
       </div>
 
       <div className="mt-10 grid gap-6 md:grid-cols-2">
-        <Card>
-          <h3 className="text-xl font-semibold text-secondary-900">Your EPC includes</h3>
+        <Card interactive className="rounded-2xl ring-1 ring-secondary-900/5">
+          <div className="flex items-center gap-3">
+            <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10 shrink-0">
+              <FileText className="w-5 h-5" aria-hidden="true" />
+            </span>
+            <h3 className="text-xl font-semibold text-secondary-900">Your EPC includes</h3>
+          </div>
           <ul className="mt-4 space-y-2.5">
             {contents.map((item) => (
               <li key={item} className="flex items-start gap-2.5 text-secondary-700">
@@ -43,8 +51,13 @@ export function WhatIsEpc() {
           </ul>
         </Card>
 
-        <Card>
-          <h3 className="text-xl font-semibold text-secondary-900">EPCs are legally required when</h3>
+        <Card interactive className="rounded-2xl ring-1 ring-secondary-900/5">
+          <div className="flex items-center gap-3">
+            <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10 shrink-0">
+              <Scale className="w-5 h-5" aria-hidden="true" />
+            </span>
+            <h3 className="text-xl font-semibold text-secondary-900">EPCs are legally required when</h3>
+          </div>
           <ul className="mt-4 space-y-2.5">
             {whenRequired.map((item) => (
               <li key={item} className="flex items-start gap-2.5 text-secondary-700">

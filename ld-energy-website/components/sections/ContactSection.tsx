@@ -1,4 +1,4 @@
-import { Phone, MessageCircle, Mail } from 'lucide-react'
+import { Phone, MessageCircle, Mail, CalendarCheck, ShieldCheck } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { ContactForm } from '@/components/forms/ContactForm'
 import { Button } from '@/components/ui/Button'
@@ -30,13 +30,16 @@ const methods = [
 
 export function ContactSection() {
   return (
-    <Section variant="muted" id="contact">
+    <Section variant="muted" id="contact" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
-        <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Book Now</p>
-        <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+        <span className="inline-flex items-center gap-2 rounded-full bg-primary-50 ring-1 ring-primary-100 px-3 py-1 text-xs uppercase tracking-wide font-semibold text-primary-700">
+          <CalendarCheck className="w-3.5 h-3.5" aria-hidden="true" />
+          Book Now
+        </span>
+        <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
           Book Your EPC Today
         </h2>
-        <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
+        <p className="mt-4 text-lg text-secondary-700 leading-relaxed">
           Ready to book? Get in touch and we’ll arrange your assessment at a time that suits you. We respond within 2 hours during business hours.
         </p>
       </div>
@@ -44,9 +47,9 @@ export function ContactSection() {
       <div className="mt-10 grid gap-8 lg:grid-cols-12">
         <div className="lg:col-span-5 space-y-4">
           {methods.map((m) => (
-            <div key={m.title} className="rounded-lg bg-white border border-secondary-100 p-6 shadow-sm">
+            <div key={m.title} className="rounded-2xl bg-white ring-1 ring-secondary-900/5 p-6 shadow-sm transition-all duration-200 hover:shadow-premium">
               <div className="flex items-start gap-4">
-                <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-primary-100 text-primary-700 shrink-0">
+                <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10 shrink-0">
                   <m.Icon className="w-5 h-5" aria-hidden="true" />
                 </span>
                 <div className="flex-1">
@@ -66,9 +69,19 @@ export function ContactSection() {
               </div>
             </div>
           ))}
+          <p className="flex items-center gap-2 text-sm text-secondary-600">
+            <ShieldCheck className="w-4 h-4 text-primary-600 shrink-0" aria-hidden="true" />
+            No call-out fees · Free quote · 2-hour response (8am–8pm)
+          </p>
         </div>
 
         <div className="lg:col-span-7">
+          <div className="mb-4">
+            <h3 className="text-xl font-semibold text-secondary-900">Request your free quote</h3>
+            <p className="mt-1 text-sm text-secondary-500">
+              Tell us about your property and we’ll confirm an exact price. We never share your details.
+            </p>
+          </div>
           <ContactForm />
         </div>
       </div>

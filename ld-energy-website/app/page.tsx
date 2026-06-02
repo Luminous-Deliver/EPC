@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Hero } from '@/components/sections/Hero'
 import { TrustBar } from '@/components/sections/TrustBar'
+import { SocialProof } from '@/components/sections/SocialProof'
 import { WhatIsEpc } from '@/components/sections/WhatIsEpc'
 import { Pricing } from '@/components/sections/Pricing'
 import { HowItWorks } from '@/components/sections/HowItWorks'
@@ -110,11 +111,12 @@ export default function HomePage() {
 
       <Hero />
       <TrustBar />
-      <WhatIsEpc />
+      <SocialProof />
       <Pricing />
       <HowItWorks />
-      <ServicesOverview />
       <WhyChoose />
+      <WhatIsEpc />
+      <ServicesOverview />
       <Coverage />
       <Faq />
       <ContactSection />

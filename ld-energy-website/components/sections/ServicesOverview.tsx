@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
-import { ArrowRight, FileText, Ruler, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, FileText, Ruler, CheckCircle2, LayoutGrid } from 'lucide-react'
 
 const services = [
   {
@@ -34,18 +34,27 @@ const services = [
 
 export function ServicesOverview() {
   return (
-    <Section variant="muted" id="services">
+    <Section variant="muted" id="services" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
-        <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Services</p>
-        <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+        <span className="inline-flex items-center gap-2 rounded-full bg-primary-50 ring-1 ring-primary-100 px-3 py-1 text-xs uppercase tracking-wide font-semibold text-primary-700">
+          <LayoutGrid className="w-3.5 h-3.5" aria-hidden="true" />
+          Services
+        </span>
+        <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
           Our Services
         </h2>
       </div>
 
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         {services.map((service) => (
-          <Card key={service.title} interactive className="flex flex-col">
-            <service.Icon className="w-10 h-10 text-primary-600" aria-hidden="true" />
+          <Card
+            key={service.title}
+            interactive
+            className="group flex flex-col rounded-2xl ring-1 ring-secondary-900/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-premium"
+          >
+            <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10">
+              <service.Icon className="w-6 h-6" aria-hidden="true" />
+            </span>
             <h3 className="mt-4 text-2xl font-semibold text-secondary-900">{service.title}</h3>
             <p className="mt-3 text-secondary-700 leading-relaxed">{service.description}</p>
             <ul className="mt-5 space-y-2">
@@ -61,7 +70,7 @@ export function ServicesOverview() {
               className="mt-6 inline-flex items-center gap-1.5 text-primary-700 font-semibold hover:text-primary-800"
             >
               Learn more
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </Link>
           </Card>
         ))}

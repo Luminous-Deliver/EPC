@@ -8,14 +8,15 @@ import type { FaqItem } from '@/lib/faq'
 interface AccordionProps {
   items: FaqItem[]
   defaultOpenIndex?: number
+  className?: string
 }
 
-export function Accordion({ items, defaultOpenIndex }: AccordionProps) {
+export function Accordion({ items, defaultOpenIndex, className }: AccordionProps) {
   const [open, setOpen] = useState<number | null>(defaultOpenIndex ?? null)
   const baseId = useId()
 
   return (
-    <ul className="divide-y divide-secondary-200 rounded-lg border border-secondary-200 bg-white">
+    <ul className={cn('divide-y divide-secondary-200 rounded-lg border border-secondary-200 bg-white', className)}>
       {items.map((item, i) => {
         const isOpen = open === i
         const headerId = `${baseId}-h-${i}`
