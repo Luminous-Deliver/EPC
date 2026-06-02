@@ -2,14 +2,14 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, Phone, MessageCircle, ChevronDown } from 'lucide-react'
+import { Menu, X, Phone, MessageCircle } from 'lucide-react'
 import { navLinks, site } from '@/lib/site'
+import { cn } from '@/lib/cn'
 
 const mobileLinks = navLinks.filter(l => l.href !== '/')
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
-  const [openGroup, setOpenGroup] = useState<string | null>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
@@ -59,12 +59,7 @@ export function MobileNav() {
 
   function close() {
     setOpen(false)
-    setOpenGroup(null)
     triggerRef.current?.focus()
-  }
-
-  function toggleGroup(id: string) {
-    setOpenGroup((prev) => (prev === id ? null : id))
   }
 
   return (
