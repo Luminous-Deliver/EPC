@@ -8,18 +8,18 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-secondary-900 text-secondary-300 pb-20 md:pb-0">
+    <footer className="bg-green-950 text-green-100/70 pb-20 md:pb-0">
       <Container className="py-12 md:py-16 grid gap-10 md:grid-cols-3">
         <div>
           <Logo variant="light" />
-          <p className="mt-4 text-sm leading-relaxed text-secondary-400">
+          <p className="mt-4 text-sm leading-relaxed text-green-100/50">
             Domestic EPCs across London. Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Covering all 32 London boroughs.
           </p>
-          <div className="mt-4 inline-flex items-center gap-2 text-xs text-secondary-400">
-            <ShieldCheck className="w-4 h-4 text-primary-300" aria-hidden="true" />
+          <div className="mt-4 inline-flex items-center gap-2 text-xs text-green-100/50">
+            <ShieldCheck className="w-4 h-4 text-green-400" aria-hidden="true" />
             Elmhurst Accredited Domestic Energy Assessor
           </div>
-          <p className="mt-2 text-xs text-secondary-500">
+          <p className="mt-2 text-xs text-green-100/30">
             {site.assessor.name} · {site.assessor.accreditationNumber}
           </p>
         </div>
@@ -31,7 +31,7 @@ export function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-secondary-300 hover:text-white transition-colors"
+                  className="text-green-100/60 hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -44,31 +44,31 @@ export function Footer() {
           <h2 className="text-sm font-semibold uppercase tracking-wide text-white">Contact</h2>
           <ul className="mt-4 space-y-3 text-sm">
             <li>
-              <a href={site.phoneHref} className="inline-flex items-center gap-2 hover:text-white">
-                <Phone className="w-4 h-4 text-primary-300" aria-hidden="true" />
+              <a href={site.phoneHref} className="inline-flex items-center gap-2 text-green-100/70 hover:text-white">
+                <Phone className="w-4 h-4 text-green-400" aria-hidden="true" />
                 {site.phone}
               </a>
             </li>
             <li>
-              <a href={site.emailHref} className="inline-flex items-center gap-2 hover:text-white">
-                <Mail className="w-4 h-4 text-primary-300" aria-hidden="true" />
+              <a href={site.emailHref} className="inline-flex items-center gap-2 text-green-100/70 hover:text-white">
+                <Mail className="w-4 h-4 text-green-400" aria-hidden="true" />
                 {site.email}
               </a>
             </li>
-            <li className="inline-flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-primary-300" aria-hidden="true" />
+            <li className="inline-flex items-center gap-2 text-green-100/70">
+              <MapPin className="w-4 h-4 text-green-400" aria-hidden="true" />
               Stratford, East London E15
             </li>
-            <li className="inline-flex items-center gap-2">
-              <Clock className="w-4 h-4 text-primary-300" aria-hidden="true" />
+            <li className="inline-flex items-center gap-2 text-green-100/70">
+              <Clock className="w-4 h-4 text-green-400" aria-hidden="true" />
               {site.hours}
             </li>
           </ul>
         </div>
       </Container>
 
-      <div className="border-t border-secondary-800">
-        <Container className="py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-secondary-400">
+      <div className="border-t border-green-900">
+        <Container className="py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-green-100/40">
           <p className="text-center sm:text-left">
             © {year} {site.name}. Part of {site.legalName}.
           </p>
@@ -79,9 +79,9 @@ export function Footer() {
               href="https://share.google/4LTPb4XMjeNq7TpXk"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 hover:text-white"
+              className="inline-flex items-center gap-1 hover:text-white text-green-100/40"
             >
-              <Star className="w-3.5 h-3.5 text-accent-400" aria-hidden="true" />
+              <Star className="w-3.5 h-3.5 text-yellow-400" aria-hidden="true" />
               Google Reviews
             </a>
             <a
@@ -90,7 +90,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="hover:text-white"
             >
-              Made by <span className="font-semibold text-secondary-200">L&amp;D Digital</span>
+              Made by <span className="font-semibold text-green-200">L&amp;D Digital</span>
             </a>
           </div>
         </Container>

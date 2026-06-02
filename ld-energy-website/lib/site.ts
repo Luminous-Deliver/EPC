@@ -28,11 +28,34 @@ export const site = {
 
 export const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/#services', label: 'Services' },
-  { href: '/pricing', label: 'Pricing' },
+  { href: '/services/domestic-epc', label: 'Domestic EPC' },
+  { href: '/services/floor-plans', label: 'Floor Plans' },
+  { href: '/landlords', label: 'For Landlords' },
+  { href: '/sellers', label: 'For Sellers' },
   { href: '/areas', label: 'Areas' },
+  { href: '/pricing', label: 'Pricing' },
   { href: '/faq', label: 'FAQ' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
+] as const
+
+/** Top-level desktop nav items (Services is a dropdown; others are direct links) */
+export const topNav = [
+  { href: '/areas', label: 'Areas' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact' },
+] as const
+
+/** Links shown inside the Services dropdown */
+export const servicesDropdown = [
+  { href: '/services/domestic-epc', label: 'Domestic EPC', desc: 'Official certificates from £49' },
+  { href: '/services/floor-plans', label: 'Floor Plans', desc: 'Professional measured plans' },
+  { href: '/landlords', label: 'For Landlords', desc: 'Stay compliant & avoid fines' },
+  { href: '/sellers', label: 'For Sellers', desc: 'Boost your listing appeal' },
+  { href: '/about', label: 'About Us', desc: 'Meet your assessor' },
 ] as const
 
 export type PropertyType = 'studio' | '1-bed' | '2-bed' | '3-bed' | '4-bed' | '5-bed-plus'

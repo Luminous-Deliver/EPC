@@ -3,10 +3,8 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { Menu, X, Phone, MessageCircle } from 'lucide-react'
-import { navLinks, site } from '@/lib/site'
+import { servicesDropdown, topNav, site } from '@/lib/site'
 import { cn } from '@/lib/cn'
-
-const mobileLinks = navLinks.filter(l => l.href !== '/')
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
@@ -131,14 +129,35 @@ export function MobileNav() {
 
           {/* Nav */}
           <nav aria-label="Mobile" className="flex-1 min-h-0 overflow-y-auto px-3 py-2 bg-white">
-            <ul className="flex flex-col">
-              {mobileLinks.map((link) => (
+            {/* Services group */}
+            <p className="px-3 pt-3 pb-1 text-[10px] font-bold uppercase tracking-widest text-secondary-400">Services</p>
+            <ul className="flex flex-col mb-1">
+              {servicesDropdown.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={close}
                     tabIndex={open ? undefined : -1}
-                    className="flex items-center w-full px-3 py-3 rounded-lg text-[16px] font-semibold text-secondary-800 hover:bg-secondary-50 hover:text-primary-700 transition-colors"
+                    className="flex flex-col w-full px-3 py-2.5 rounded-lg hover:bg-primary-50 transition-colors group"
+                  >
+                    <span className="text-[15px] font-semibold text-secondary-800 group-hover:text-primary-700">{link.label}</span>
+                    <span className="text-xs text-secondary-400">{link.desc}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <div className="my-2 border-t border-secondary-100" />
+
+            {/* Other links */}
+            <ul className="flex flex-col">
+              {topNav.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={close}
+                    tabIndex={open ? undefined : -1}
+                    className="flex items-center w-full px-3 py-3 rounded-lg text-[15px] font-semibold text-secondary-800 hover:bg-secondary-50 hover:text-primary-700 transition-colors"
                   >
                     {link.label}
                   </Link>
