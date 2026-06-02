@@ -6,9 +6,7 @@ import { Button } from '@/components/ui/Button'
 import { MobileNav } from './MobileNav'
 import { navLinks, site } from '@/lib/site'
 
-const primaryNav = navLinks.filter((l) =>
-  ['/services/domestic-epc', '/services/floor-plans', '/landlords', '/sellers', '/areas', '/pricing', '/faq', '/blog'].includes(l.href),
-)
+const primaryNav = navLinks.filter((l) => l.href !== '/')
 
 export function Header() {
   return (
@@ -37,7 +35,7 @@ export function Header() {
             <Phone className="w-4 h-4" aria-hidden="true" />
             {site.phone}
           </a>
-          <Button href="/contact" className="hidden md:inline-flex" size="md">
+          <Button href="/contact" variant="accent" className="hidden md:inline-flex" size="md">
             Get a Quote
           </Button>
           <MobileNav />

@@ -3,36 +3,9 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { Menu, X, Phone, MessageCircle, ChevronDown } from 'lucide-react'
-import { site } from '@/lib/site'
-import { cn } from '@/lib/cn'
+import { navLinks, site } from '@/lib/site'
 
-const groups = [
-  {
-    id: 'services',
-    label: 'Services',
-    items: [
-      { href: '/services/domestic-epc', label: 'Domestic EPC' },
-      { href: '/services/floor-plans', label: 'Floor Plans' },
-    ],
-  },
-  {
-    id: 'for-you',
-    label: 'For You',
-    items: [
-      { href: '/landlords', label: 'For Landlords' },
-      { href: '/sellers', label: 'For Sellers' },
-    ],
-  },
-]
-
-const directLinks = [
-  { href: '/areas', label: 'Areas' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
-]
+const mobileLinks = navLinks.filter(l => l.href !== '/')
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
@@ -163,61 +136,14 @@ export function MobileNav() {
 
           {/* Nav */}
           <nav aria-label="Mobile" className="flex-1 min-h-0 overflow-y-auto px-3 py-2 bg-white">
-            {/* Accordion groups */}
-            {groups.map((group) => {
-              const isOpen = openGroup === group.id
-              return (
-                <div key={group.id} className="mb-1">
-                  <button
-                    type="button"
-                    onClick={() => toggleGroup(group.id)}
-                    tabIndex={open ? undefined : -1}
-                    aria-expanded={isOpen}
-                    className="flex items-center justify-between w-full px-3 py-2.5 rounded-lg text-[15px] font-semibold text-secondary-800 hover:bg-secondary-50 hover:text-primary-700 transition-colors"
-                  >
-                    {group.label}
-                    <ChevronDown
-                      className={cn(
-                        'w-4 h-4 text-secondary-400 transition-transform duration-200',
-                        isOpen && 'rotate-180',
-                      )}
-                      aria-hidden="true"
-                    />
-                  </button>
-
-                  {/* Sub-items */}
-                  <div className={cn('overflow-hidden transition-all duration-200', isOpen ? 'max-h-40' : 'max-h-0')}>
-                    <ul className="pl-3 py-1 border-l-2 border-primary-100 ml-3 mb-1">
-                      {group.items.map((item) => (
-                        <li key={item.href}>
-                          <Link
-                            href={item.href}
-                            onClick={close}
-                            tabIndex={open ? undefined : -1}
-                            className="flex items-center w-full px-3 py-2 rounded-lg text-sm font-medium text-secondary-700 hover:bg-secondary-50 hover:text-primary-700 transition-colors"
-                          >
-                            {item.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              )
-            })}
-
-            {/* Divider */}
-            <div className="my-2 border-t border-secondary-100" />
-
-            {/* Direct links */}
             <ul className="flex flex-col">
-              {directLinks.map((link) => (
+              {mobileLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={close}
                     tabIndex={open ? undefined : -1}
-                    className="flex items-center w-full px-3 py-2.5 rounded-lg text-[15px] font-medium text-secondary-800 hover:bg-secondary-50 hover:text-primary-700 transition-colors"
+                    className="flex items-center w-full px-3 py-3 rounded-lg text-[16px] font-semibold text-secondary-800 hover:bg-secondary-50 hover:text-primary-700 transition-colors"
                   >
                     {link.label}
                   </Link>

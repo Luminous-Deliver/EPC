@@ -28,15 +28,10 @@ export const site = {
 
 export const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/services/domestic-epc', label: 'Domestic EPC' },
-  { href: '/services/floor-plans', label: 'Floor Plans' },
-  { href: '/landlords', label: 'For Landlords' },
-  { href: '/sellers', label: 'For Sellers' },
-  { href: '/areas', label: 'Areas' },
+  { href: '/#services', label: 'Services' },
   { href: '/pricing', label: 'Pricing' },
+  { href: '/areas', label: 'Areas' },
   { href: '/faq', label: 'FAQ' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ] as const
 

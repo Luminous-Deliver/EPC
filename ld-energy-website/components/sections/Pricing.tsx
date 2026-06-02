@@ -31,8 +31,8 @@ export function Pricing() {
               key={row.type}
               interactive
               className={cn(
-                'relative flex flex-col p-5 md:p-6 rounded-2xl ring-1 ring-secondary-900/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-premium',
-                popular && 'ring-2 ring-primary-500 shadow-premium',
+                'relative flex flex-col p-6 md:p-8 rounded-2xl ring-1 ring-secondary-900/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-premium bg-white',
+                popular && 'ring-2 ring-accent-500 shadow-premium-lg bg-glass',
               )}
             >
               {popular && (
