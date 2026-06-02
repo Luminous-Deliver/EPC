@@ -49,11 +49,11 @@ export function WhyChoose() {
           <li
             key={r.title}
             className={cn(
-              'rounded-2xl ring-1 ring-secondary-900/5 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-premium animate-fade-in-up',
+              'rounded-2xl bg-glass card-glow-teal p-6 shadow-premium animate-fade-in-up',
               delays[i],
             )}
           >
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10">
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10 shadow-sm">
               <r.Icon className="w-6 h-6" aria-hidden="true" />
             </div>
             <h3 className="mt-4 text-lg font-semibold text-secondary-900">{r.title}</h3>

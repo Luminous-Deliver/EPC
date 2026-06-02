@@ -1,11 +1,62 @@
-import { Phone, ShieldCheck, Clock, MapPin, Star } from 'lucide-react'
+'use client'
+
+import { useState } from 'react'
+import { Phone, ShieldCheck, Clock, MapPin, Star, Sparkles, Check } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
 import { site } from '@/lib/site'
 
 const GOOGLE_REVIEWS_URL = 'https://share.google/4LTPb4XMjeNq7TpXk'
 
+interface Upgrade {
+  id: string
+  name: string
+  points: number
+  savings: number
+  description: string
+}
+
+const UPGRADES: Upgrade[] = [
+  { id: 'led', name: 'LED Lighting', points: 5, savings: 45, description: '100% low-energy bulbs' },
+  { id: 'thermostat', name: 'Smart Thermostat', points: 4, savings: 55, description: 'Heating control upgrades' },
+  { id: 'glazing', name: 'Double Glazing', points: 8, savings: 115, description: 'Replace single glazing' },
+  { id: 'loft', name: 'Loft Insulation', points: 12, savings: 185, description: 'To recommended 270mm' },
+  { id: 'panels', name: 'Solar PV Panels', points: 16, savings: 340, description: '3kW solar panel system' },
+]
+
+const BANDS = [
+  { band: 'A', color: 'bg-[#008054] text-white', range: [92, 100], displayRange: '92+' },
+  { band: 'B', color: 'bg-[#19B459] text-white', range: [81, 91], displayRange: '81–91' },
+  { band: 'C', color: 'bg-[#8DCE46] text-secondary-900', range: [69, 80], displayRange: '69–80' },
+  { band: 'D', color: 'bg-[#FFD500] text-secondary-900', range: [55, 68], displayRange: '55–68' },
+  { band: 'E', color: 'bg-[#FCAA1B] text-secondary-900', range: [39, 54], displayRange: '39–54' },
+  { band: 'F', color: 'bg-[#EF8023] text-white', range: [21, 38], displayRange: '21–38' },
+  { band: 'G', color: 'bg-[#E9153B] text-white', range: [1, 20], displayRange: '1–20' },
+]
+
+const BASE_SCORE = 46
+
 export function Hero() {
+  const [selectedUpgrades, setSelectedUpgrades] = useState<string[]>([])
+
+  const currentScore = selectedUpgrades.reduce((score, upgradeId) => {
+    const upgrade = UPGRADES.find((u) => u.id === upgradeId)
+    return score + (upgrade ? upgrade.points : 0)
+  }, BASE_SCORE)
+
+  const currentBand = BANDS.find((b) => currentScore >= b.range[0] && currentScore <= b.range[1])?.band || 'G'
+
+  const totalSavings = selectedUpgrades.reduce((savings, upgradeId) => {
+    const upgrade = UPGRADES.find((u) => u.id === upgradeId)
+    return savings + (upgrade ? upgrade.savings : 0)
+  }, 0)
+
+  const toggleUpgrade = (id: string) => {
+    setSelectedUpgrades((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    )
+  }
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white border-b border-secondary-100">
       {/* Decorative overlays */}
@@ -83,39 +134,99 @@ export function Hero() {
 
         <div className="lg:col-span-5">
           <div className="relative rounded-2xl bg-white shadow-premium-lg ring-1 ring-secondary-900/5 p-6 md:p-8 animate-fade-in animate-delay-300">
-            <div className="absolute -top-3 left-6 bg-gradient-to-r from-accent-500 to-accent-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-sm">
-              Sample Rating
+            <div className="absolute -top-3 left-6 bg-gradient-to-r from-teal-500 to-primary-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5" />
+              Interactive EPC Simulator
             </div>
-            <h2 className="text-lg font-semibold text-secondary-900">Energy Performance Certificate</h2>
-            <p className="text-sm text-secondary-500">Domestic · Indicative example</p>
-            <ul className="mt-5 space-y-1.5">
-              {[
-                { band: 'A', color: 'bg-[#008054] text-white', range: '92+' },
-                { band: 'B', color: 'bg-[#19B459] text-white', range: '81–91' },
-                { band: 'C', color: 'bg-[#8DCE46] text-secondary-900', range: '69–80' },
-                { band: 'D', color: 'bg-[#FFD500] text-secondary-900', range: '55–68' },
-                { band: 'E', color: 'bg-[#FCAA1B] text-secondary-900', range: '39–54' },
-                { band: 'F', color: 'bg-[#EF8023] text-white', range: '21–38' },
-                { band: 'G', color: 'bg-[#E9153B] text-white', range: '1–20' },
-              ].map((row, i) => (
-                <li key={row.band} className="flex items-center gap-3">
-                  <span
-                    className={`flex items-center justify-between w-full px-3 py-1.5 rounded font-bold ${row.color}`}
-                    style={{ width: `${100 - i * 8}%` }}
-                  >
-                    <span>{row.band}</span>
-                    <span className="text-xs font-medium opacity-90">{row.range}</span>
-                  </span>
-                </li>
-              ))}
+            
+            <div className="flex justify-between items-center mt-3">
+              <h2 className="text-lg font-bold text-secondary-900">Energy Efficiency Rating</h2>
+              <div className="text-right">
+                <span className="text-xs font-semibold text-secondary-500 block uppercase">Current Rating</span>
+                <span className="text-2xl font-black text-primary-700">
+                  {currentScore} <span className="text-lg font-bold text-secondary-600">({currentBand})</span>
+                </span>
+              </div>
+            </div>
+
+            <p className="text-xs text-secondary-500 mt-1 mb-4">
+              Toggle upgrades below to see how they boost your property rating.
+            </p>
+
+            <ul className="space-y-1.5">
+              {BANDS.map((row, i) => {
+                const isActive = currentBand === row.band
+                const widthPercent = 100 - i * 8
+                return (
+                  <li key={row.band} className="flex items-center gap-2">
+                    <div className="w-6 text-center text-sm font-bold text-secondary-600">
+                      {isActive ? '👉' : ''}
+                    </div>
+                    <div className="flex-1">
+                      <div
+                        className={`flex items-center justify-between px-3 py-1.5 rounded font-extrabold text-sm transition-all duration-300 ${row.color} ${
+                          isActive ? 'ring-2 ring-primary-600 ring-offset-1 scale-[1.03] shadow-md' : 'opacity-65'
+                        }`}
+                        style={{ width: `${widthPercent}%` }}
+                      >
+                        <span>{row.band}</span>
+                        <span className="text-xs font-semibold opacity-95">{row.range[0] === 92 ? '92+' : `${row.range[0]}–${row.range[1]}`}</span>
+                      </div>
+                    </div>
+                  </li>
+                )
+              })}
             </ul>
-            <div className="mt-5 flex items-center gap-2 text-xs text-secondary-500">
-              <Clock className="w-4 h-4" aria-hidden="true" />
-              Lodged on the UK Government EPC Register
+
+            <div className="mt-6 border-t border-secondary-100 pt-5">
+              <h3 className="text-sm font-bold text-secondary-900 mb-3 flex items-center gap-1">
+                🔧 Simulate Efficiency Upgrades:
+              </h3>
+              
+              <div className="grid grid-cols-2 gap-2">
+                {UPGRADES.map((upgrade) => {
+                  const isChecked = selectedUpgrades.includes(upgrade.id)
+                  return (
+                    <button
+                      key={upgrade.id}
+                      type="button"
+                      onClick={() => toggleUpgrade(upgrade.id)}
+                      className={`flex flex-col text-left p-2.5 rounded-xl border text-xs transition-all duration-200 hover:-translate-y-0.5 ${
+                        isChecked
+                          ? 'border-primary-500 bg-primary-50 ring-1 ring-primary-500'
+                          : 'border-secondary-200 bg-white hover:border-secondary-300 hover:bg-secondary-50'
+                      }`}
+                    >
+                      <span className="flex items-center justify-between w-full font-bold text-secondary-900">
+                        {upgrade.name}
+                        {isChecked ? (
+                          <Check className="w-3.5 h-3.5 text-primary-600 font-bold shrink-0" />
+                        ) : (
+                          <span className="text-[10px] text-primary-600 font-bold">+{upgrade.points} pts</span>
+                        )}
+                      </span>
+                      <span className="text-[10px] text-secondary-500 mt-0.5 leading-snug">{upgrade.description}</span>
+                    </button>
+                  )
+                })}
+              </div>
+
+              {selectedUpgrades.length > 0 && (
+                <div className="mt-4 p-3 bg-gradient-to-br from-primary-50 to-white ring-1 ring-primary-100 rounded-xl animate-fade-in">
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="font-semibold text-secondary-700">Simulated Annual Savings:</span>
+                    <span className="text-sm font-extrabold text-primary-700">£{totalSavings}/yr</span>
+                  </div>
+                  <p className="text-[10px] text-secondary-500 mt-1">
+                    Based on standard UK fuel costs. Exact gains require an in-person assessment.
+                  </p>
+                </div>
+              )}
             </div>
-            <div className="mt-1 flex items-center gap-2 text-xs text-secondary-500">
-              <MapPin className="w-4 h-4" aria-hidden="true" />
-              Valid for 10 years from issue
+
+            <div className="mt-5 flex items-center gap-2 text-xs text-secondary-500 border-t border-secondary-100 pt-3">
+              <Clock className="w-4 h-4 text-secondary-400 shrink-0" aria-hidden="true" />
+              Lodged on the UK Government EPC Register
             </div>
           </div>
         </div>
