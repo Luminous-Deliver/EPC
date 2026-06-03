@@ -24,7 +24,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <Section variant="default" id="how-it-works" className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="default" id="how-it-works" className="py-16 md:py-24 scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
         <span className="inline-flex items-center gap-2 rounded-full bg-primary-50 ring-1 ring-primary-100 px-3 py-1 text-xs uppercase tracking-wide font-semibold text-primary-700">
           <Route className="w-3.5 h-3.5" aria-hidden="true" />
@@ -41,6 +41,10 @@ export function HowItWorks() {
       <ol className="relative mt-12 grid gap-6 md:grid-cols-3">
         {/* Desktop connector */}
         <div className="hidden md:block pointer-events-none absolute left-0 right-0 top-1 h-px border-t-2 border-dashed border-primary-100" aria-hidden="true" />
+        
+        {/* Mobile vertical connector */}
+        <div className="md:hidden pointer-events-none absolute left-10 top-8 bottom-8 w-px border-l-2 border-dashed border-primary-100" aria-hidden="true" />
+
         {steps.map((step, i) => (
           <li
             key={step.title}
