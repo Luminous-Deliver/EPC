@@ -1,82 +1,117 @@
+'use client'
+
+import { useState } from 'react'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
-import { cn } from '@/lib/cn'
-import { ArrowRight, Sparkles, Clock, BadgePoundSterling } from 'lucide-react'
-import { pricing } from '@/lib/site'
-
-const POPULAR_TYPE = '2-bed'
+import { ArrowRight, Sparkles, Clock, BadgePoundSterling, Home, ChevronDown } from 'lucide-react'
+import { pricing, type PropertyType } from '@/lib/site'
 
 export function Pricing() {
+  const [selectedType, setSelectedType] = useState<PropertyType>('2-bed')
+
+  const currentPricing = pricing.find((p) => p.type === selectedType) || pricing[2]
+
   return (
     <Section variant="muted" id="pricing" className="scroll-mt-20 md:scroll-mt-24">
-      <div className="max-w-3xl">
+      <div className="max-w-3xl mx-auto text-center">
         <span className="inline-flex items-center gap-2 rounded-full bg-primary-50 ring-1 ring-primary-100 px-3 py-1 text-xs uppercase tracking-wide font-semibold text-primary-700">
           <BadgePoundSterling className="w-3.5 h-3.5" aria-hidden="true" />
           Transparent Pricing
         </span>
         <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
-          Transparent Guide Prices
+          Instant Price Estimator
         </h2>
         <p className="mt-4 text-lg text-secondary-700 leading-relaxed">
-          The prices below are estimates only. Your final cost depends on the property&apos;s floor area (m²), any extensions or loft conversions, and overall condition. Request a personalised quote for an exact figure. Need it faster? Add next-day service for just £12.
+          Select your property size below to instantly see your estimated EPC cost. Final prices may vary slightly based on extensions or complex layouts.
         </p>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-        {pricing.map((row) => {
-          const popular = row.type === POPULAR_TYPE
-          return (
-            <Card
-              key={row.type}
-              interactive
-              className={cn(
-                'relative flex flex-col p-6 md:p-8 rounded-2xl ring-1 ring-secondary-900/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-premium bg-white',
-                popular && 'ring-2 ring-accent-500 shadow-premium-lg bg-glass',
-              )}
-            >
-              {popular && (
-                <span className="absolute -top-2.5 right-4 rounded-full bg-gradient-to-r from-accent-500 to-accent-600 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow-sm">
-                  Popular
-                </span>
-              )}
-              <span className="h-1 w-10 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 mb-3" aria-hidden="true" />
-              <p className="text-sm font-semibold text-secondary-600">{row.label}</p>
-              <p className="mt-1 text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-secondary-900">
-                <span className="text-2xl md:text-3xl font-semibold text-secondary-500">≈</span>£{row.epc}
-              </p>
-              <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-secondary-500">
-                <Clock className="w-3.5 h-3.5" aria-hidden="true" /> {row.duration}
-              </p>
-              <p className="mt-3 text-xs text-secondary-600">
-                Next day available: <span className="font-semibold text-secondary-800">£{row.nextDay}</span>
-              </p>
-              <Button href="#contact" variant={popular ? 'accent' : 'primary'} className="mt-5 w-full" size="md">
-                Book Now
-              </Button>
-            </Card>
-          )
-        })}
-      </div>
+      <div className="mt-10 max-w-2xl mx-auto">
+        <Card className="p-6 md:p-8 rounded-2xl ring-1 ring-secondary-900/5 shadow-premium-lg bg-white">
+          <div className="flex flex-col gap-6">
+            
+            {/* Dropdown Selector */}
+            <div className="space-y-2">
+              <label htmlFor="property-size" className="block text-sm font-bold text-secondary-900">
+                Property Size
+              </label>
+              <div className="relative">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+                  <Home className="h-5 w-5 text-secondary-400" aria-hidden="true" />
+                </div>
+                <select
+                  id="property-size"
+                  name="property-size"
+                  value={selectedType}
+                  onChange={(e) => setSelectedType(e.target.value as PropertyType)}
+                  className="block w-full appearance-none rounded-xl border-0 py-4 pl-12 pr-10 text-secondary-900 ring-1 ring-inset ring-secondary-200 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-lg font-semibold bg-secondary-50 cursor-pointer hover:bg-secondary-100 transition-colors"
+                >
+                  {pricing.map((option) => (
+                    <option key={option.type} value={option.type}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4">
+                  <ChevronDown className="h-5 w-5 text-secondary-500" aria-hidden="true" />
+                </div>
+              </div>
+            </div>
 
-      <p className="mt-5 text-sm text-secondary-600">
-        Final price confirmed on quote · No travel surcharges within London · Next-day +£12
-      </p>
+            <div className="border-t border-secondary-100 my-2" />
 
-      <div className="mt-8 rounded-2xl bg-gradient-to-br from-primary-50 to-white ring-1 ring-primary-200 shadow-premium p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
-        <div className="inline-flex items-center justify-center w-12 h-12 shrink-0 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10">
-          <Sparkles className="w-6 h-6" aria-hidden="true" />
+            {/* Results Output */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+              <div>
+                <p className="text-sm font-semibold text-secondary-500 uppercase tracking-wide">Estimated Cost</p>
+                <div className="mt-1 flex items-baseline gap-2">
+                  <span className="text-5xl font-extrabold font-display text-secondary-900 tracking-tight">
+                    £{currentPricing.epc}
+                  </span>
+                  <span className="text-sm font-medium text-secondary-500">standard turnaround</span>
+                </div>
+                <div className="mt-4 space-y-2">
+                  <p className="inline-flex items-center gap-2 text-sm text-secondary-600 font-medium">
+                    <Clock className="w-4 h-4 text-primary-600" aria-hidden="true" /> 
+                    Assessment takes ~{currentPricing.duration}
+                  </p>
+                  <p className="inline-flex items-center gap-2 text-sm text-secondary-600 font-medium">
+                    <Sparkles className="w-4 h-4 text-accent-500" aria-hidden="true" /> 
+                    Next-day express available (+£12)
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <Button href="#contact" variant="accent" size="lg" className="w-full text-base">
+                  Book This EPC
+                </Button>
+                <Button href="/pricing" variant="secondary" className="w-full text-sm">
+                  View Full Price List
+                </Button>
+              </div>
+            </div>
+            
+          </div>
+        </Card>
+
+        <p className="mt-5 text-center text-sm text-secondary-500 font-medium">
+          No travel surcharges within London. Payment taken after the assessment.
+        </p>
+
+        {/* Upsell Banner */}
+        <div className="mt-8 rounded-2xl bg-gradient-to-br from-primary-50 to-white ring-1 ring-primary-200 shadow-sm p-5 md:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10">
+            <Sparkles className="w-5 h-5" aria-hidden="true" />
+          </div>
+          <div className="flex-1">
+            <h3 className="text-base font-bold text-secondary-900">Need a Floor Plan?</h3>
+            <p className="mt-0.5 text-sm text-secondary-700">
+              Bundle a floor plan with your EPC and save 50% on the floor plan price.
+            </p>
+          </div>
         </div>
-        <div className="flex-1">
-          <h3 className="text-lg font-semibold text-secondary-900">Save when you bundle.</h3>
-          <p className="mt-1 text-secondary-700">
-            Add a professional floor plan to any EPC for 50% off the standard floor plan price.
-          </p>
-        </div>
-        <Button href="/pricing" variant="secondary" className="md:self-center">
-          View All Services &amp; Pricing
-          <ArrowRight className="w-4 h-4" aria-hidden="true" />
-        </Button>
       </div>
     </Section>
   )

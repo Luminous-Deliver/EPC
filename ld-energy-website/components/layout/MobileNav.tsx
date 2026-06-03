@@ -115,17 +115,7 @@ export function MobileNav() {
             </button>
           </div>
 
-          {/* Book CTA */}
-          <div className="px-4 pt-4 pb-2 shrink-0 bg-white">
-            <Link
-              href="/contact"
-              onClick={close}
-              tabIndex={open ? undefined : -1}
-              className="flex items-center justify-center w-full bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-bold px-4 py-3 rounded-xl min-h-[48px] shadow-md"
-            >
-              Book Your EPC
-            </Link>
-          </div>
+
 
           {/* Nav */}
           <nav aria-label="Mobile" className="flex-1 min-h-0 overflow-y-auto px-3 py-2 bg-white">
@@ -166,24 +156,34 @@ export function MobileNav() {
             </ul>
           </nav>
 
-          {/* Phone + WhatsApp */}
-          <div className="shrink-0 border-t border-secondary-100 bg-white p-3 grid grid-cols-2 gap-2">
-            <a
-              href={site.phoneHref}
+          {/* Contact + CTA Footer */}
+          <div className="shrink-0 border-t border-secondary-100 bg-secondary-50/50 p-4 flex flex-col gap-3">
+            <Link
+              href="/contact"
+              onClick={close}
               tabIndex={open ? undefined : -1}
-              className="flex items-center justify-center gap-1.5 bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold px-3 py-2.5 rounded-lg min-h-[44px] transition-colors"
+              className="flex items-center justify-center w-full bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-bold px-4 py-3.5 rounded-xl shadow-md text-[15px]"
             >
-              <Phone className="w-4 h-4 shrink-0" aria-hidden="true" />
-              Call Us
-            </a>
-            <a
-              href={site.whatsappHref}
-              tabIndex={open ? undefined : -1}
-              className="flex items-center justify-center gap-1.5 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-3 py-2.5 rounded-lg min-h-[44px] transition-colors"
-            >
-              <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
-              WhatsApp
-            </a>
+              Book an EPC
+            </Link>
+            <div className="grid grid-cols-2 gap-2">
+              <a
+                href={site.phoneHref}
+                tabIndex={open ? undefined : -1}
+                className="flex items-center justify-center gap-1.5 bg-white border border-secondary-200 hover:bg-secondary-100 text-secondary-800 text-sm font-semibold px-3 py-2.5 rounded-lg transition-colors"
+              >
+                <Phone className="w-4 h-4 shrink-0" aria-hidden="true" />
+                Call Us
+              </a>
+              <a
+                href={site.whatsappHref}
+                tabIndex={open ? undefined : -1}
+                className="flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-sm font-semibold px-3 py-2.5 rounded-lg transition-colors"
+              >
+                <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -65,7 +65,7 @@ function ServicesDropdown() {
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-secondary-100">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-secondary-100 shadow-sm transition-shadow">
       <Container as="div" className="flex items-center justify-between h-16 md:h-20">
         <Logo />
 
@@ -92,7 +92,7 @@ export function Header() {
             {site.phone}
           </a>
           <Button href="/contact" variant="accent" className="hidden md:inline-flex" size="md">
-            Get a Quote
+            Book an EPC
           </Button>
           <MobileNav />
         </div>

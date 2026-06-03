@@ -75,8 +75,8 @@ export function Hero() {
             <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
             Elmhurst Accredited · All London Boroughs
           </p>
-          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-secondary-900 animate-fade-in-up animate-delay-100">
-            Fast, <span className="text-gradient-brand">Affordable</span> EPCs Across London
+          <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-secondary-900 animate-fade-in-up animate-delay-100">
+            Fast, <span className="text-gradient-brand">Reliable</span> &amp; Certified EPCs in the UK
           </h1>
           <p className="mt-5 text-lg md:text-xl text-secondary-700 leading-relaxed max-w-2xl animate-fade-in-up animate-delay-200">
             Elmhurst-accredited Domestic Energy Assessor. Guide prices from{' '}
@@ -87,12 +87,11 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <Button href="#contact" variant="accent" size="lg" className="w-full sm:w-auto">
-              Get Your EPC Quote
+            <Button href="#contact" variant="accent" size="lg" className="w-full sm:w-auto text-base">
+              Book Your EPC
             </Button>
-            <Button href={site.phoneHref} variant="secondary" size="lg" className="w-full sm:w-auto">
-              <Phone className="w-5 h-5" aria-hidden="true" />
-              Call {site.phone}
+            <Button href="#pricing" variant="secondary" size="lg" className="w-full sm:w-auto text-base">
+              View Pricing
             </Button>
           </div>
           <p className="mt-3 text-sm text-secondary-500">
@@ -132,9 +131,9 @@ export function Hero() {
           </dl>
         </div>
 
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-5 mt-10 lg:mt-0">
           <div className="relative rounded-2xl bg-white shadow-premium-lg ring-1 ring-secondary-900/5 p-6 md:p-8 animate-fade-in animate-delay-300">
-            <div className="absolute -top-3 left-6 bg-gradient-to-r from-teal-500 to-primary-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+            <div className="absolute -top-3 left-6 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               Interactive EPC Simulator
             </div>
@@ -191,21 +190,21 @@ export function Hero() {
                       key={upgrade.id}
                       type="button"
                       onClick={() => toggleUpgrade(upgrade.id)}
-                      className={`flex flex-col text-left p-2.5 rounded-xl border text-xs transition-all duration-200 hover:-translate-y-0.5 ${
+                      className={`flex flex-col text-left p-3 min-h-[56px] rounded-xl border text-xs transition-all duration-200 hover:-translate-y-0.5 active:scale-95 ${
                         isChecked
-                          ? 'border-primary-500 bg-primary-50 ring-1 ring-primary-500'
+                          ? 'border-emerald-500 bg-emerald-50/50 ring-1 ring-emerald-500'
                           : 'border-secondary-200 bg-white hover:border-secondary-300 hover:bg-secondary-50'
                       }`}
                     >
                       <span className="flex items-center justify-between w-full font-bold text-secondary-900">
                         {upgrade.name}
                         {isChecked ? (
-                          <Check className="w-3.5 h-3.5 text-primary-600 font-bold shrink-0" />
+                          <Check className="w-4 h-4 text-emerald-600 font-bold shrink-0" />
                         ) : (
-                          <span className="text-[10px] text-primary-600 font-bold">+{upgrade.points} pts</span>
+                          <span className="text-[10px] text-emerald-600 font-bold">+{upgrade.points} pts</span>
                         )}
                       </span>
-                      <span className="text-[10px] text-secondary-500 mt-0.5 leading-snug">{upgrade.description}</span>
+                      <span className="text-[11px] text-secondary-500 mt-0.5 leading-snug">{upgrade.description}</span>
                     </button>
                   )
                 })}
