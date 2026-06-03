@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
+import { Inter, Plus_Jakarta_Sans, Fraunces } from 'next/font/google'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { MobileCallBar } from '@/components/layout/MobileCallBar'
@@ -18,6 +18,14 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-jakarta',
   display: 'swap',
+})
+
+// Editorial display serif for headlines — warm, optical, distinctly not-Inter.
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-serif',
+  display: 'swap',
+  axes: ['SOFT', 'opsz'],
 })
 
 export const metadata: Metadata = {
@@ -168,7 +176,7 @@ const organizationSchema = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const cfBeaconToken = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN
   return (
-    <html lang="en-GB" className={`${inter.variable} ${jakarta.variable}`}>
+    <html lang="en-GB" className={`${inter.variable} ${jakarta.variable} ${fraunces.variable}`}>
       <head>
         <script
           type="application/ld+json"

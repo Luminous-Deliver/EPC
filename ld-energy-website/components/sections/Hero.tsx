@@ -20,11 +20,17 @@ export function Hero() {
 
       <Container className="relative py-10 md:py-20 lg:py-24 grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
         <div className="lg:col-span-7">
-          <p className="inline-flex items-center gap-2 text-xs uppercase tracking-wide font-semibold text-primary-700 bg-primary-50 ring-1 ring-primary-100 rounded-full px-3 py-1 animate-fade-in">
-            <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
-            Elmhurst Accredited · All London Boroughs
-          </p>
-          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-secondary-900 animate-fade-in-up animate-delay-100">
+          <div className="flex flex-wrap items-center gap-2 animate-fade-in">
+            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wide font-semibold text-primary-700 bg-primary-50 ring-1 ring-primary-100 rounded-full px-3 py-1">
+              <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
+              Based in Stratford, E15
+            </span>
+            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-wide font-semibold text-secondary-600 bg-white ring-1 ring-secondary-200 rounded-full px-3 py-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-primary-600" aria-hidden="true" />
+              Elmhurst Accredited
+            </span>
+          </div>
+          <h1 className="mt-4 text-[2rem] leading-[1.08] sm:text-5xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-secondary-900 animate-fade-in-up animate-delay-100">
             Fast, <span className="text-gradient-brand">Affordable</span> EPCs Across London
           </h1>
           <p className="mt-5 text-lg md:text-xl text-secondary-700 leading-relaxed max-w-2xl animate-fade-in-up animate-delay-200">
@@ -32,7 +38,7 @@ export function Hero() {
             <span className="font-semibold text-secondary-900">£49</span>. Certificate within 72 hours, or next day for just £12 extra.
           </p>
           <p className="mt-3 text-sm text-secondary-600">
-            Based in Stratford, East London — covering all 32 London boroughs, 7 days a week.
+            Covering all 32 London boroughs, 7 days a week.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -64,7 +70,7 @@ export function Hero() {
             <span className="text-primary-700">Read our reviews</span>
           </a>
 
-          <dl className="mt-10 grid grid-cols-3 gap-3 max-w-md">
+          <dl className="mt-10 grid grid-cols-3 gap-2.5 sm:gap-3 lg:max-w-md">
             {[
               { dt: 'From', dd: '£49' },
               { dt: 'Standard', dd: '72h' },
@@ -72,16 +78,16 @@ export function Hero() {
             ].map((stat) => (
               <div
                 key={stat.dt}
-                className="rounded-xl bg-white/70 ring-1 ring-secondary-900/5 backdrop-blur px-4 py-3"
+                className="rounded-xl bg-white/70 ring-1 ring-secondary-900/5 backdrop-blur px-3 py-3 sm:px-4"
               >
-                <dt className="text-xs uppercase tracking-wide font-medium text-secondary-500">{stat.dt}</dt>
-                <dd className="mt-1 text-2xl font-bold text-secondary-900">{stat.dd}</dd>
+                <dt className="text-[11px] sm:text-xs uppercase tracking-wide font-medium text-secondary-500">{stat.dt}</dt>
+                <dd className="mt-1 text-2xl sm:text-3xl font-bold text-secondary-900">{stat.dd}</dd>
               </div>
             ))}
           </dl>
         </div>
 
-        <div className="lg:col-span-5">
+        <div className="hidden lg:block lg:col-span-5">
           <div className="relative rounded-2xl bg-white shadow-premium-lg ring-1 ring-secondary-900/5 p-6 md:p-8 animate-fade-in animate-delay-300">
             <div className="absolute -top-3 left-6 bg-gradient-to-r from-accent-500 to-accent-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-sm">
               Sample Rating

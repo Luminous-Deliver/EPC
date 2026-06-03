@@ -19,7 +19,7 @@ const whenRequired = [
 
 export function WhatIsEpc() {
   return (
-    <Section variant="default" id="what-is-epc" className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="muted" id="what-is-epc" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
         <span className="inline-flex items-center gap-2 rounded-full bg-primary-50 ring-1 ring-primary-100 px-3 py-1 text-xs uppercase tracking-wide font-semibold text-primary-700">
           <BookOpen className="w-3.5 h-3.5" aria-hidden="true" />

@@ -2,7 +2,7 @@ import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/cn'
-import { ArrowRight, Sparkles, Clock, BadgePoundSterling } from 'lucide-react'
+import { ArrowRight, ArrowLeftRight, Sparkles, Clock, BadgePoundSterling } from 'lucide-react'
 import { pricing } from '@/lib/site'
 
 const POPULAR_TYPE = '2-bed'
@@ -23,7 +23,7 @@ export function Pricing() {
         </p>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+      <div className="mt-10 flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
         {pricing.map((row) => {
           const popular = row.type === POPULAR_TYPE
           return (
@@ -32,6 +32,7 @@ export function Pricing() {
               interactive
               className={cn(
                 'relative flex flex-col p-5 md:p-6 rounded-2xl ring-1 ring-secondary-900/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-premium',
+                'snap-center shrink-0 w-[72%] sm:w-[44%] md:w-auto',
                 popular && 'ring-2 ring-primary-500 shadow-premium',
               )}
             >
@@ -59,8 +60,13 @@ export function Pricing() {
         })}
       </div>
 
+      <p className="mt-3 md:hidden flex items-center gap-1.5 text-xs font-medium text-secondary-400">
+        <ArrowLeftRight className="w-3.5 h-3.5" aria-hidden="true" />
+        Swipe to see all sizes
+      </p>
+
       <p className="mt-5 text-sm text-secondary-600">
-        Final price confirmed on quote · No travel surcharges within London · Next-day +£12
+        Free quote · No upfront payment · No travel surcharges within London · Next-day +£12
       </p>
 
       <div className="mt-8 rounded-2xl bg-gradient-to-br from-primary-50 to-white ring-1 ring-primary-200 shadow-premium p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
