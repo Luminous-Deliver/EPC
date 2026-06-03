@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import Link from 'next/link'
 import { Menu, X, Phone, MessageCircle } from 'lucide-react'
 import { servicesDropdown, topNav, site } from '@/lib/site'
@@ -11,6 +12,11 @@ export function MobileNav() {
   const triggerRef = useRef<HTMLButtonElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   // Scroll lock
   useEffect(() => {
@@ -74,10 +80,11 @@ export function MobileNav() {
         <Menu className="w-6 h-6" aria-hidden="true" />
       </button>
 
-      <div
-        className={cn('fixed inset-0 z-50 lg:hidden', !open && 'pointer-events-none')}
-        aria-hidden={open ? undefined : true}
-      >
+      {mounted && createPortal(
+        <div
+          className={cn('fixed inset-0 z-50 lg:hidden', !open && 'pointer-events-none')}
+          aria-hidden={open ? undefined : true}
+        >
         {/* Backdrop */}
         <div
           className={cn(
@@ -186,7 +193,7 @@ export function MobileNav() {
             </div>
           </div>
         </div>
-      </div>
+      </div>, document.body)}
     </>
   )
 }

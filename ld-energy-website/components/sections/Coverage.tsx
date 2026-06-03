@@ -38,7 +38,16 @@ export function Coverage() {
         </p>
       </div>
 
-      <div className="mt-10 space-y-8">
+      <div className="mt-8 md:hidden rounded-2xl bg-white ring-1 ring-secondary-200 p-5 shadow-sm text-center">
+        <p className="text-secondary-800 font-medium leading-relaxed">
+          Based in Stratford, we cover all <span className="font-bold text-primary-700">32 London boroughs</span> across East, North, South, and West London.
+        </p>
+        <Link href="/areas" className="mt-3 inline-block font-semibold text-primary-700 hover:text-primary-800">
+          View all specific areas &rarr;
+        </Link>
+      </div>
+
+      <div className="hidden md:block mt-10 space-y-8">
         {groups.map((group) => (
           <div key={group.region}>
             <h3 className="flex items-center gap-2 text-sm font-semibold text-secondary-900">
@@ -66,7 +75,7 @@ export function Coverage() {
         ))}
       </div>
 
-      <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+      <div className="hidden md:flex mt-8 flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
         <Link
           href="/areas"
           className="inline-flex items-center gap-1.5 min-h-[44px] text-primary-700 font-semibold hover:text-primary-800"
