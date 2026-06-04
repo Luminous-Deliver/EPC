@@ -42,7 +42,7 @@ export default function TermsPage() {
 
       <h2>2. Booking and pricing</h2>
       <p>
-        Prices are fixed by property type and shown on our pricing page. The price quoted at booking is the price you pay — there are no travel surcharges within our service area. Express (next-day) service is available for £12 extra per EPC.
+        Prices are fixed by property type and shown on our pricing page. The price quoted at booking is the price you pay, there are no travel surcharges within our service area. Express (next-day) service is available for £12 extra per EPC.
       </p>
       <p>
         Bookings are confirmed once we reply with a confirmed appointment time. We may decline bookings for properties outside our service area or where we cannot deliver the agreed turnaround.

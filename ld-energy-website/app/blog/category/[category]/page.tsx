@@ -23,16 +23,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!cat) return {}
   const url = `${site.url}/blog/category/${cat.slug}`
   return {
-    title: `${cat.name} — EPC Guides`,
+    title: `${cat.name}, EPC Guides`,
     description: `${cat.description} Posts written by an Elmhurst-accredited London Domestic Energy Assessor.`,
     alternates: { canonical: url },
     openGraph: {
-      title: `${cat.name} — EPC Guides | L&D Energy`,
+      title: `${cat.name}, EPC Guides | L&D Energy`,
       description: cat.description,
       url,
     },
     twitter: {
-      title: `${cat.name} — EPC Guides`,
+      title: `${cat.name}, EPC Guides`,
       description: cat.description,
     },
   }
@@ -77,7 +77,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
 
       <Section variant="default">
         {posts.length === 0 ? (
-          <p className="text-secondary-700">No posts in this category yet — check back soon.</p>
+          <p className="text-secondary-700">No posts in this category yet, check back soon.</p>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((p) => (

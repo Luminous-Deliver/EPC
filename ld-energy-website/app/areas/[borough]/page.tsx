@@ -66,7 +66,7 @@ function boroughFaq(name: string): FaqItem[] {
 const sellingPoints = [
   'Local assessor with rapid response times',
   'Appointments 7 days a week, including evenings',
-  'Transparent pricing — no travel surcharges',
+  'Transparent pricing, no travel surcharges',
   'Certificate within 72 hours, or next day for £12 extra',
 ]
 
@@ -110,7 +110,7 @@ export default async function BoroughPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': `${site.url}/areas/${slug}#business`,
-    name: `L&D Energy — EPC ${data.name}`,
+    name: `L&D Energy, EPC ${data.name}`,
     url: `${site.url}/areas/${slug}`,
     telephone: site.phoneIntl,
     email: site.email,
@@ -171,7 +171,7 @@ export default async function BoroughPage({ params }: PageProps) {
           <p className="mt-3 text-secondary-700 leading-relaxed">{data.transport}</p>
 
           <p className="mt-8 text-secondary-700 leading-relaxed">
-            Whether you&rsquo;re selling a property in {data.name}, preparing for a new tenancy, or staying compliant with MEES regulations as a landlord, we&rsquo;ll deliver your EPC within 72 hours — or next day if you need it urgently.
+            Whether you&rsquo;re selling a property in {data.name}, preparing for a new tenancy, or staying compliant with MEES regulations as a landlord, we&rsquo;ll deliver your EPC within 72 hours, or next day if you need it urgently.
           </p>
         </div>
       </Section>

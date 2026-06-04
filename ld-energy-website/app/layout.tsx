@@ -21,7 +21,7 @@ const jakarta = Plus_Jakarta_Sans({
   display: 'swap',
 })
 
-// Editorial display serif for headlines — warm, optical, distinctly not-Inter.
+// Editorial display serif for headlines, warm, optical, distinctly not-Inter.
 const fraunces = Fraunces({
   subsets: ['latin'],
   variable: '--font-serif',
@@ -202,7 +202,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main" className="flex-1">
           {children}
         </main>
-        {/* Skyline transition — ivory canvas fades into forest dark */}
+        {/* Skyline transition, ivory canvas fades into forest dark */}
         <LondonSkyline className="text-[#07211e] -mb-1" />
         <Footer />
         <MobileCallBar />

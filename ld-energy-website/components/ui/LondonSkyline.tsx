@@ -1,4 +1,4 @@
-// Bespoke London skyline — left to right: low terraces, St Paul's dome, City cluster,
+// Bespoke London skyline, left to right: low terraces, St Paul's dome, City cluster,
 // Gherkin (bullet), Walkie-Talkie, Shard (tall taper), Tower Bridge pylons,
 // Elizabeth Tower/Big Ben, Westminster low line, London Eye wheel + support,
 // South-Bank terraces. Drawn to be recognisable at any width.
@@ -117,7 +117,7 @@ export function LondonSkyline({ className }: { className?: string }) {
           "
           className="fill-current"
         />
-        {/* London Eye spokes — 8 lines from hub to rim */}
+        {/* London Eye spokes, 8 lines from hub to rim */}
         <g className="fill-current" opacity="0.6" stroke="currentColor" strokeWidth="1.2" fill="none">
           <line x1="748" y1="105" x2="748" y2="87" />
           <line x1="748" y1="105" x2="748" y2="123" />

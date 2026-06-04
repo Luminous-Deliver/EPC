@@ -16,7 +16,7 @@ const methods = [
     Icon: MessageCircle,
     title: 'WhatsApp',
     value: site.phone,
-    detail: 'Quick responses — send a message',
+    detail: 'Quick responses, send a message',
     cta: { label: 'Open WhatsApp', href: site.whatsappHref, external: true },
   },
   {

@@ -12,7 +12,7 @@ import { site } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'EPC Insights & Guides for London Homeowners and Landlords',
   description:
-    'Expert guidance on Energy Performance Certificates, MEES compliance, and improving your EPC rating — written by an Elmhurst-accredited London DEA.',
+    'Expert guidance on Energy Performance Certificates, MEES compliance, and improving your EPC rating, written by an Elmhurst-accredited London DEA.',
   alternates: { canonical: `${site.url}/blog` },
   openGraph: {
     title: 'EPC Insights & Guides | L&D Energy Blog',
@@ -74,7 +74,7 @@ export default async function BlogIndexPage() {
       <PageHero
         eyebrow="EPC Blog"
         heading="EPC Insights & Guides"
-        subheading="Expert guidance on Energy Performance Certificates, MEES compliance, and improving your rating — written by a working London DEA."
+        subheading="Expert guidance on Energy Performance Certificates, MEES compliance, and improving your rating, written by a working London DEA."
         primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
       />
 

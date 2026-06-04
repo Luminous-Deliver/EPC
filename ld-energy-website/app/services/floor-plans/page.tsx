@@ -97,7 +97,7 @@ export default function FloorPlansPage() {
       <PageHero
         eyebrow="Floor Plans"
         heading="Professional Property Floor Plans"
-        subheading="Accurate, professionally measured floor plans for property marketing. Same price as your EPC standalone — half price when you bundle them together."
+        subheading="Accurate, professionally measured floor plans for property marketing. Same price as your EPC standalone, half price when you bundle them together."
         primaryCta={{ label: 'Get Your Floor Plan', href: '/contact' }}
       />
 
@@ -165,7 +165,7 @@ export default function FloorPlansPage() {
             Floor Plan Pricing
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-            Standalone floor plans are the same price as your EPC. Bundle both services and the floor plan is half price — saving you up to £{maxSaving.toFixed(2)}.
+            Standalone floor plans are the same price as your EPC. Bundle both services and the floor plan is half price, saving you up to £{maxSaving.toFixed(2)}.
           </p>
         </div>
 

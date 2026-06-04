@@ -65,7 +65,7 @@ export default function FaqPage() {
       <PageHero
         eyebrow="Frequently Asked Questions"
         heading="EPC Questions, Answered"
-        subheading="Everything we get asked about Energy Performance Certificates — what they are, the legal requirements, our process, pricing, and improvements."
+        subheading="Everything we get asked about Energy Performance Certificates, what they are, the legal requirements, our process, pricing, and improvements."
         primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
       />
 
@@ -112,7 +112,7 @@ export default function FaqPage() {
             Still have a question?
           </h2>
           <p className="mt-4 text-secondary-700 leading-relaxed">
-            Can&rsquo;t find what you&rsquo;re looking for? Get in touch — we respond to phone, WhatsApp and email within 2 hours during business hours.
+            Can&rsquo;t find what you&rsquo;re looking for? Get in touch, we respond to phone, WhatsApp and email within 2 hours during business hours.
           </p>
           <p className="mt-2 text-secondary-700">
             See our{' '}

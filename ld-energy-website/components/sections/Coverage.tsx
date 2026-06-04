@@ -34,7 +34,7 @@ export function Coverage() {
           Areas We Cover
         </h2>
         <p className="mt-4 text-lg text-secondary-700 leading-relaxed">
-          Based in Stratford (E15), we provide Elmhurst-accredited EPC assessments across East, North, South and West London — every one of the 32 boroughs, plus surrounding areas within a 1.5-hour radius.
+          Based in Stratford (E15), we provide Elmhurst-accredited EPC assessments across East, North, South and West London, every one of the 32 boroughs, plus surrounding areas within a 1.5-hour radius.
         </p>
       </div>
 
@@ -84,7 +84,7 @@ export function Coverage() {
           <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </Link>
         <p className="text-sm text-secondary-600">
-          Don’t see your area? We cover all 32 boroughs —{' '}
+          Don't see your area? We cover all 32 boroughs,{' '}
           <Link href="#contact" className="font-semibold text-primary-700 hover:text-primary-800">
             get in touch
           </Link>

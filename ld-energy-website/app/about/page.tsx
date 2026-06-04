@@ -10,12 +10,12 @@ import { site } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'About L&D Energy | London EPC Assessor | Elmhurst Accredited',
   description:
-    'L&D Energy — Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Professional EPC certificates and floor plans across all London boroughs.',
+    'L&D Energy, Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Professional EPC certificates and floor plans across all London boroughs.',
   alternates: { canonical: `${site.url}/about` },
   openGraph: {
     title: 'About L&D Energy | London EPC Assessor | Elmhurst Accredited',
     description:
-      'L&D Energy — Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Professional EPC certificates and floor plans across all London boroughs.',
+      'L&D Energy, Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Professional EPC certificates and floor plans across all London boroughs.',
     url: `${site.url}/about`,
   },
   twitter: {
@@ -43,12 +43,12 @@ const credentials = [
   {
     Icon: BadgeCheck,
     title: 'Elmhurst Energy Accreditation',
-    body: 'Accredited Domestic Energy Assessor (DEA) registered with Elmhurst Energy — the UK’s largest energy assessor accreditation scheme. Every certificate is lodged on the UK Government EPC Register.',
+    body: 'Accredited Domestic Energy Assessor (DEA) registered with Elmhurst Energy, the UK’s largest energy assessor accreditation scheme. Every certificate is lodged on the UK Government EPC Register.',
   },
   {
     Icon: FileText,
     title: 'Elmhurst SAP Software',
-    body: 'We assess using Elmhurst SAP with the current RdSAP 10 methodology (October 2025+) — the same official software used by all government-approved UK assessors.',
+    body: 'We assess using Elmhurst SAP with the current RdSAP 10 methodology (October 2025+), the same official software used by all government-approved UK assessors.',
   },
   {
     Icon: Award,
@@ -183,10 +183,10 @@ export default function AboutPage() {
               Meet Abdul
             </h2>
             <p className="mt-5 text-secondary-700 leading-relaxed">
-              L&amp;D Energy is led by Abdul M Taher, an Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Abdul personally carries out assessments — you’re not handed off to a stranger after booking.
+              L&amp;D Energy is led by Abdul M Taher, an Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Abdul personally carries out assessments, you’re not handed off to a stranger after booking.
             </p>
             <p className="mt-4 text-secondary-700 leading-relaxed">
-              The service was set up because too many landlords and sellers told us the same story: unanswered phones, missed appointments, slow certificates, and surprise fees. We do the opposite — transparent pricing, clear timelines, and a real person who picks up.
+              The service was set up because too many landlords and sellers told us the same story: unanswered phones, missed appointments, slow certificates, and surprise fees. We do the opposite, transparent pricing, clear timelines, and a real person who picks up.
             </p>
 
             {/* Elmhurst ID card image */}
@@ -232,7 +232,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div>
+          <div className="flex flex-col">
             <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               Coverage &amp; Parent Company
@@ -241,21 +241,40 @@ export default function AboutPage() {
               Where we work
             </h2>
             <p className="mt-5 text-secondary-700 leading-relaxed">
-              Based in Stratford (E15), we cover all 32 London boroughs, the City of London, and surrounding areas within a 1.5-hour radius — parts of Essex, Kent, Hertfordshire and Surrey included.
+              Based in Stratford (E15), we cover all 32 London boroughs, the City of London, and surrounding areas within a 1.5-hour radius, parts of Essex, Kent, Hertfordshire and Surrey included.
             </p>
             <p className="mt-4 text-secondary-700 leading-relaxed">
               L&amp;D Energy is the EPC trading division of {site.legalName}, a UK-registered company.
             </p>
-            <ul className="mt-6 space-y-2.5 text-secondary-700">
-              <li className="flex items-center gap-2.5">
-                <MapPin className="w-5 h-5 text-primary-600" aria-hidden="true" />
-                Stratford, East London E15
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Clock className="w-5 h-5 text-primary-600" aria-hidden="true" />
-                {site.hours}
-              </li>
-            </ul>
+
+            {/* Coverage stats grid */}
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              {[
+                { value: '32', label: 'London Boroughs' },
+                { value: '1.5hr', label: 'Travel radius' },
+                { value: '7 days', label: '8am–8pm' },
+                { value: '72hr', label: 'Standard delivery' },
+              ].map(({ value, label }) => (
+                <div key={label} className="rounded-xl bg-canvas ring-1 ring-secondary-900/5 p-4 text-center shadow-sm">
+                  <p className="text-2xl font-bold text-secondary-900">{value}</p>
+                  <p className="mt-0.5 text-xs text-secondary-500">{label}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Location + hours */}
+            <div className="mt-4 rounded-xl bg-primary-50 ring-1 ring-primary-100 p-5">
+              <ul className="space-y-3 text-secondary-700">
+                <li className="flex items-center gap-2.5">
+                  <MapPin className="w-5 h-5 text-primary-600 shrink-0" aria-hidden="true" />
+                  <span>Stratford, East London E15</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <Clock className="w-5 h-5 text-primary-600 shrink-0" aria-hidden="true" />
+                  <span>{site.hours}</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </Section>

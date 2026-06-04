@@ -63,7 +63,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Services + Company — side by side on mobile to avoid dead space */}
+          {/* Services + Company, side by side on mobile to avoid dead space */}
           <div className="grid grid-cols-2 gap-8 md:contents">
             {/* Services column */}
             <nav aria-label="Footer services" className="md:col-span-2">

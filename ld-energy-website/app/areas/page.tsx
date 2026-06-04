@@ -9,18 +9,18 @@ import { boroughList } from '@/lib/boroughs'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'EPC London — All Areas Covered',
+  title: 'EPC London, All Areas Covered',
   description:
     'Domestic EPC certificates across all 32 London boroughs and surrounding areas. Elmhurst accredited, guide prices from £49, 72-hour turnaround. Find your borough.',
   alternates: { canonical: `${site.url}/areas` },
   openGraph: {
-    title: 'EPC London — All Areas Covered | L&D Energy',
+    title: 'EPC London, All Areas Covered | L&D Energy',
     description:
       'Domestic EPC certificates across all London boroughs and surrounding areas. Elmhurst accredited, guide prices from £49, 72-hour turnaround.',
     url: `${site.url}/areas`,
   },
   twitter: {
-    title: 'EPC London — All Areas Covered',
+    title: 'EPC London, All Areas Covered',
     description:
       'Domestic EPC certificates across all London boroughs. Elmhurst accredited, guide prices from £49.',
   },
@@ -53,7 +53,7 @@ export default function AreasPage() {
       <PageHero
         eyebrow="Coverage"
         heading="EPC Certificates Across London"
-        subheading="Based in Stratford, East London — we cover all 32 London boroughs and the City of London. Transparent pricing, 7-day availability, no travel surcharges."
+        subheading="Based in Stratford, East London, we cover all 32 London boroughs and the City of London. Transparent pricing, 7-day availability, no travel surcharges."
         primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
       />
 
@@ -98,7 +98,7 @@ export default function AreasPage() {
             We're based in Stratford, East London (E15), and cover all 32 London boroughs plus the City of London. We also serve surrounding areas within a 1.5-hour radius, including parts of Essex, Kent, Hertfordshire and Surrey.
           </p>
           <p className="mt-4 text-secondary-700 leading-relaxed">
-            All prices are inclusive — there are no travel surcharges for any property within our service area. For properties outside this radius, contact us and we'll provide a tailored quote.
+            All prices are inclusive, there are no travel surcharges for any property within our service area. For properties outside this radius, contact us and we'll provide a tailored quote.
           </p>
         </div>
       </Section>

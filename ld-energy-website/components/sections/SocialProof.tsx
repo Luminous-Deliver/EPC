@@ -18,7 +18,7 @@ export function SocialProof() {
         <div className="bg-dot-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom_right,black,transparent_75%)]" aria-hidden="true" />
 
         <div className="relative">
-          {/* Large-scale primary element — Google rating badge */}
+          {/* Large-scale primary element, Google rating badge */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-12">
             <div className="md:max-w-sm">
               <p className="text-xs uppercase tracking-widest font-semibold text-primary-600">Trusted Locally</p>
@@ -44,7 +44,7 @@ export function SocialProof() {
               </a>
             </div>
 
-            {/* Secondary element — proof chips in 2×2 */}
+            {/* Secondary element, proof chips in 2×2 */}
             <ul className="grid grid-cols-2 gap-3 md:gap-4 md:w-auto md:min-w-[340px]">
               {proofPoints.map(({ Icon, value, label }) => (
                 <li

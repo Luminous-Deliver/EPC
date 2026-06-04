@@ -40,7 +40,7 @@ export const contactSchema = z.object({
   consent: z.literal(true, {
     errorMap: () => ({ message: 'Please confirm you agree to be contacted' }),
   }),
-  /** Honeypot — must remain empty */
+  /** Honeypot, must remain empty */
   website: z.string().max(0).optional().or(z.literal('')),
 })
 

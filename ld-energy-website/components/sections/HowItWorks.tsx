@@ -29,7 +29,7 @@ export function HowItWorks() {
       className="relative overflow-hidden py-16 md:py-24 scroll-mt-20 md:scroll-mt-24"
       style={{ background: 'linear-gradient(160deg, #07211e 0%, #0a2e29 50%, #07211e 100%)' }}
     >
-      {/* Atmospheric glow — reuses footer palette */}
+      {/* Atmospheric glow, reuses footer palette */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full opacity-[0.10]"

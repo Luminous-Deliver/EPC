@@ -53,7 +53,7 @@ const methods = [
     Icon: MessageCircle,
     title: 'WhatsApp',
     value: site.phone,
-    detail: 'Send a message — great for photos or property details.',
+    detail: 'Send a message, great for photos or property details.',
     href: site.whatsappHref,
     cta: 'Open WhatsApp',
     external: true,
@@ -153,7 +153,7 @@ export default function ContactPage() {
             Where we cover
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-            Based in Stratford (E15), we cover all 32 London boroughs and the City of London. We also serve areas within a 1.5-hour radius — including parts of Essex, Kent, Hertfordshire and Surrey. No travel surcharges within this area.
+            Based in Stratford (E15), we cover all 32 London boroughs and the City of London. We also serve areas within a 1.5-hour radius, including parts of Essex, Kent, Hertfordshire and Surrey. No travel surcharges within this area.
           </p>
         </div>
 

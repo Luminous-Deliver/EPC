@@ -50,7 +50,7 @@ const ourService = [
   {
     Icon: FileText,
     title: 'Portfolio discounts',
-    body: 'Multiple-property pricing for landlords and letting agents — contact us for a tailored quote.',
+    body: 'Multiple-property pricing for landlords and letting agents, contact us for a tailored quote.',
   },
   {
     Icon: ShieldCheck,
@@ -60,7 +60,7 @@ const ourService = [
   {
     Icon: Clock,
     title: 'Same-week appointments',
-    body: 'Fast turnaround for urgent tenancies — including evening and weekend slots.',
+    body: 'Fast turnaround for urgent tenancies, including evening and weekend slots.',
   },
   {
     Icon: CalendarRange,
@@ -95,7 +95,7 @@ const landlordFaqSchema = {
     {
       '@type': 'Question',
       name: 'How much does a landlord EPC cost in London?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Our guide prices for landlord EPCs in London start from £49 for studios. Final price depends on the property\'s floor area (m²), extensions, and condition. Portfolio discounts are available for multiple properties — contact us for a tailored quote.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Our guide prices for landlord EPCs in London start from £49 for studios. Final price depends on the property\'s floor area (m²), extensions, and condition. Portfolio discounts are available for multiple properties, contact us for a tailored quote.' },
     },
     {
       '@type': 'Question',
@@ -123,7 +123,7 @@ export default function LandlordsPage() {
       <PageHero
         eyebrow="For Landlords"
         heading="EPCs for London Landlords"
-        subheading="Stay compliant with MEES regulations. Avoid fines of up to £5,000 per property. Get your rental property's EPC sorted in 72 hours — or next day if you need it urgently."
+        subheading="Stay compliant with MEES regulations. Avoid fines of up to £5,000 per property. Get your rental property's EPC sorted in 72 hours, or next day if you need it urgently."
         primaryCta={{ label: 'Book Your Landlord EPC', href: '/contact' }}
       />
 

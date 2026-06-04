@@ -1,7 +1,7 @@
 import { Section } from '@/components/ui/Section'
 import { Accordion } from '@/components/ui/Accordion'
 import { Button } from '@/components/ui/Button'
-import { HelpCircle, Phone, MessageCircle } from 'lucide-react'
+import { Phone, MessageCircle } from 'lucide-react'
 import { homepageFaq } from '@/lib/faq'
 import { site } from '@/lib/site'
 
@@ -16,7 +16,7 @@ export function Faq() {
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               FAQ
             </div>
-            <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
+            <h2 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight text-secondary-900">
               Common Questions About EPCs
             </h2>
             <p className="mt-4 text-lg text-secondary-700 leading-relaxed">
@@ -26,9 +26,9 @@ export function Faq() {
             <div className="mt-6 rounded-2xl bg-secondary-50 ring-1 ring-secondary-900/5 p-5">
               <p className="text-sm font-semibold text-secondary-900">Still have questions?</p>
               <p className="mt-1 text-sm text-secondary-600">
-                Call {site.phone} or message us on WhatsApp — we reply within 2 hours.
+                Call {site.phone} or message us on WhatsApp, we reply within 2 hours.
               </p>
-              <div className="mt-4 flex flex-col sm:flex-row lg:flex-col gap-2.5">
+              <div className="mt-4 flex flex-col gap-2.5">
                 <Button href={site.phoneHref} variant="primary" size="md" className="w-full">
                   <Phone className="w-4 h-4" aria-hidden="true" />
                   Call Us

@@ -62,7 +62,7 @@ const improvements = [
   {
     Icon: Lightbulb,
     title: 'LED lighting',
-    body: 'Low-cost swap. Increases the proportion of low-energy lighting recorded — a direct EPC factor.',
+    body: 'Low-cost swap. Increases the proportion of low-energy lighting recorded, a direct EPC factor.',
   },
   {
     Icon: Thermometer,
@@ -77,7 +77,7 @@ const improvements = [
   {
     Icon: Sun,
     title: 'Renewables',
-    body: 'Solar PV or a heat pump can move a property up several bands — useful if you’re aiming for EPC C or above.',
+    body: 'Solar PV or a heat pump can move a property up several bands, useful if you’re aiming for EPC C or above.',
   },
 ]
 
@@ -85,7 +85,7 @@ const whyMatters = [
   {
     Icon: Clock,
     title: 'Legal requirement',
-    body: 'You must have an EPC commissioned before your property is marketed for sale in England and Wales — and your estate agent cannot legally list it without one.',
+    body: 'You must have an EPC commissioned before your property is marketed for sale in England and Wales, and your estate agent cannot legally list it without one.',
   },
   {
     Icon: TrendingUp,
@@ -153,7 +153,7 @@ export default function SellersPage() {
       <PageHero
         eyebrow="For Home Sellers"
         heading="EPCs for Selling Your London Home"
-        subheading="An EPC is required by law before your property goes on the market. We provide fast, transparently priced certificates so your sale isn't held up — 72 hours standard, or next day for £12 extra."
+        subheading="An EPC is required by law before your property goes on the market. We provide fast, transparently priced certificates so your sale isn't held up, 72 hours standard, or next day for £12 extra."
         primaryCta={{ label: 'Book Your Seller EPC', href: '/contact' }}
       />
 

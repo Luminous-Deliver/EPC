@@ -72,7 +72,7 @@ const personas = [
 const process = [
   {
     title: 'Book your appointment',
-    body: 'Online form, phone, WhatsApp, or email — whichever suits you.',
+    body: 'Online form, phone, WhatsApp, or email, whichever suits you.',
   },
   {
     title: 'We confirm details',
@@ -84,7 +84,7 @@ const process = [
   },
   {
     title: 'Software processing',
-    body: 'Data is processed through Elmhurst SAP (RdSAP 10) — the same software used by all registered UK assessors.',
+    body: 'Data is processed through Elmhurst SAP (RdSAP 10), the same software used by all registered UK assessors.',
   },
   {
     title: 'Certificate delivered',
@@ -119,7 +119,7 @@ const serviceFaq: FaqItem[] = [
   },
   {
     q: 'How long does an EPC assessment take?',
-    a: 'Assessments typically take 45 minutes for studios up to around 2 hours for larger 4–5 bedroom homes. You do not need to do any preparation — just normal access to all rooms.',
+    a: 'Assessments typically take 45 minutes for studios up to around 2 hours for larger 4–5 bedroom homes. You do not need to do any preparation, just normal access to all rooms.',
   },
   {
     q: 'Do I legally need an EPC?',
@@ -267,7 +267,7 @@ export default function DomesticEpcPage() {
               Our EPC Process
             </h2>
             <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-              From booking to certificate in your inbox — usually within 72 hours.
+              From booking to certificate in your inbox, usually within 72 hours.
             </p>
             <StepList steps={process} className="mt-8" />
           </div>
@@ -281,7 +281,7 @@ export default function DomesticEpcPage() {
               What We Assess
             </h2>
             <p className="mt-5 text-secondary-700 leading-relaxed">
-              Our DEA records the following during the on-site visit. No preparation is needed — just normal access to all rooms.
+              Our DEA records the following during the on-site visit. No preparation is needed, just normal access to all rooms.
             </p>
             <ul className="mt-6 space-y-2">
               {assessed.map((item) => (

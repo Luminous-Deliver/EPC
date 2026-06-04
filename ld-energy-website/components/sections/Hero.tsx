@@ -83,7 +83,7 @@ export function Hero() {
             <span className="font-semibold text-secondary-900">£49</span>. Certificate within 72 hours, or next day for just £12 extra.
           </p>
           <p className="mt-3 text-sm text-secondary-600">
-            Based in Stratford, East London — covering all 32 London boroughs, 7 days a week.
+            Based in Stratford, East London, covering all 32 London boroughs, 7 days a week.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
