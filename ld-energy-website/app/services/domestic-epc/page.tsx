@@ -13,9 +13,9 @@ import type { FaqItem } from '@/lib/faq'
 import { Accordion } from '@/components/ui/Accordion'
 
 export const metadata: Metadata = {
-  title: 'Domestic EPC London | From £49 | Next-Day Available | Elmhurst Accredited',
+  title: 'Domestic EPC London | From £49 | Next-Day',
   description:
-    'Domestic EPC certificate in London from £49. Elmhurst-accredited assessor, next-day service available, 72-hour standard delivery. Required for selling or renting. Book your EPC online today.',
+    'Domestic EPC certificate in London from £49. Elmhurst-accredited assessor, next-day available, 72-hour standard delivery. Book your EPC online today.',
   alternates: { canonical: `${site.url}/services/domestic-epc` },
   openGraph: {
     title: 'Domestic EPC Certificate London | From £49 | L&D Energy',

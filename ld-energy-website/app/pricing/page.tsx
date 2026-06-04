@@ -10,7 +10,7 @@ import { pricing, site } from '@/lib/site'
 import type { FaqItem } from '@/lib/faq'
 
 export const metadata: Metadata = {
-  title: 'EPC Prices London | From £49 | Transparent Guide Pricing',
+  title: 'EPC Prices London | From £49',
   description:
     'Guide prices for EPC services in London, from £49 for studios. Final price depends on property floor area (m²) and condition. Request a personalised quote.',
   alternates: { canonical: `${site.url}/pricing` },

@@ -8,7 +8,7 @@ import { ContactForm } from '@/components/forms/ContactForm'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Contact L&D Energy | Book Your London EPC | 07492 575 396',
+  title: 'Contact | Book Your London EPC',
   description:
     'Book your London EPC certificate. Call, WhatsApp, email or use our booking form. We respond within 2 hours during business hours (Mon–Sun, 8am–8pm).',
   alternates: { canonical: `${site.url}/contact` },

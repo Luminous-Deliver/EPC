@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!data) return {}
 
   return {
-    title: `EPC in ${data.name} | From £49 | Elmhurst Accredited | L&D Energy`,
-    description: `Domestic EPC certificate in ${data.name} from £49. Elmhurst-accredited assessor, next-day service available, no travel surcharges. Book online or call today.`,
+    title: `EPC in ${data.name} | From £49`,
+    description: `Domestic EPC certificate in ${data.name} from £49. Elmhurst-accredited assessor, next-day available, no travel surcharges. Book online today.`,
     alternates: { canonical: `${site.url}/areas/${slug}` },
     openGraph: {
       title: `EPC in ${data.name} | From £49 | L&D Energy`,

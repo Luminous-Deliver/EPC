@@ -9,9 +9,9 @@ import { boroughList } from '@/lib/boroughs'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'EPC London, All Areas Covered',
+  title: 'EPC London | All 32 Boroughs Covered',
   description:
-    'Domestic EPC certificates across all 32 London boroughs and surrounding areas. Elmhurst accredited, guide prices from £49, 72-hour turnaround. Find your borough.',
+    'Domestic EPC certificates across all 32 London boroughs. Elmhurst accredited, guide prices from £49, 72-hour turnaround. Find your borough.',
   alternates: { canonical: `${site.url}/areas` },
   openGraph: {
     title: 'EPC London, All Areas Covered | L&D Energy',

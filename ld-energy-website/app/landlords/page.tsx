@@ -9,9 +9,9 @@ import { CtaStrip } from '@/components/sections/CtaStrip'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'EPC for Landlords London | MEES Compliance | Avoid £5,000 Fines',
+  title: 'EPC for Landlords London | MEES Compliance',
   description:
-    'EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Fast turnaround, guide prices from £49. Portfolio discounts available.',
+    'EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Fast turnaround, guide prices from £49.',
   alternates: { canonical: `${site.url}/landlords` },
   openGraph: {
     title: 'EPC for Landlords London | MEES Compliance | L&D Energy',

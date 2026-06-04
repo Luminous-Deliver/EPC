@@ -8,9 +8,9 @@ import { CtaStrip } from '@/components/sections/CtaStrip'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'About L&D Energy | London EPC Assessor | Elmhurst Accredited',
+  title: 'London EPC Assessor | Elmhurst Accredited',
   description:
-    'L&D Energy, Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Professional EPC certificates and floor plans across all London boroughs.',
+    'Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. EPC certificates and floor plans across all 32 London boroughs.',
   alternates: { canonical: `${site.url}/about` },
   openGraph: {
     title: 'About L&D Energy | London EPC Assessor | Elmhurst Accredited',

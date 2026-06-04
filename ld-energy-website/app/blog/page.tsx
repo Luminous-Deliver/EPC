@@ -10,7 +10,7 @@ import { categories } from '@/lib/blog-categories'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'EPC Insights & Guides for London Homeowners and Landlords',
+  title: 'EPC Guides for London Homeowners & Landlords',
   description:
     'Expert guidance on Energy Performance Certificates, MEES compliance, and improving your EPC rating, written by an Elmhurst-accredited London DEA.',
   alternates: { canonical: `${site.url}/blog` },

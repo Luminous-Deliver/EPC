@@ -24,9 +24,9 @@ import type { FaqItem } from '@/lib/faq'
 const PATH = '/domestic-energy-assessor-london'
 
 export const metadata: Metadata = {
-  title: 'Domestic Energy Assessor London | Elmhurst Accredited | L&D Energy',
+  title: 'Domestic Energy Assessor in London',
   description:
-    'Looking for a domestic energy assessor in London? L&D Energy is an Elmhurst-accredited DEA based in Stratford, producing official EPC certificates across all 32 boroughs. Guide prices from £49, next-day available.',
+    'Elmhurst-accredited domestic energy assessor in Stratford, covering all 32 London boroughs. Official EPC certificates from £49, next-day available.',
   alternates: { canonical: `${site.url}${PATH}` },
   openGraph: {
     title: 'Domestic Energy Assessor London | Elmhurst Accredited | L&D Energy',
