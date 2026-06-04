@@ -9,11 +9,13 @@
   }
 
   body {
-    @apply bg-white text-secondary-800 font-sans antialiased;
+    @apply bg-canvas text-secondary-800 font-sans antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display text-secondary-900;
+    @apply font-serif text-secondary-900;
+    font-optical-sizing: auto;
+    letter-spacing: -0.01em;
   }
 
   :focus-visible {
@@ -157,6 +159,12 @@
     box-shadow: 0 0 25px 2px rgba(245, 158, 11, 0.12),
                 0 10px 15px -3px rgba(15, 23, 42, 0.05);
     transform: translateY(-4px);
+  }
+
+  /* Warm card — sits on canvas/sand backgrounds */
+  .card-warm {
+    background-color: #FBFAF7;
+    border: 1px solid rgb(15 23 42 / 0.06);
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -8,8 +8,8 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const variantStyles: Record<NonNullable<SectionProps['variant']>, string> = {
-  default: 'bg-white',
-  muted: 'bg-secondary-50',
+  default: 'bg-canvas',
+  muted: 'bg-sand',
   primary: 'bg-primary-600 text-white',
   dark: 'bg-secondary-900 text-secondary-100',
 }

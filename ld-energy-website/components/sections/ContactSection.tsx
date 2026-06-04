@@ -47,7 +47,7 @@ export function ContactSection() {
       <div className="mt-10 grid gap-8 lg:grid-cols-12">
         <div className="lg:col-span-5 space-y-4">
           {methods.map((m) => (
-            <div key={m.title} className="rounded-2xl bg-white ring-1 ring-secondary-900/5 p-6 shadow-sm transition-all duration-200 hover:shadow-premium">
+            <div key={m.title} className="rounded-2xl bg-canvas ring-1 ring-secondary-900/5 p-6 shadow-sm transition-all duration-200 hover:shadow-premium">
               <div className="flex items-start gap-4">
                 <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10 shrink-0">
                   <m.Icon className="w-5 h-5" aria-hidden="true" />

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Phone, ShieldCheck, Clock, MapPin, Star, Sparkles, Check } from 'lucide-react'
+import { Phone, ShieldCheck, Clock, MapPin, Star, Sparkles, Check, Wrench, ChevronRight } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
 import { site } from '@/lib/site'
@@ -58,7 +58,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white border-b border-secondary-100">
+    <section className="relative overflow-hidden bg-gradient-to-b from-primary-50 via-canvas to-canvas border-b border-secondary-100">
       {/* Decorative overlays */}
       <div
         className="bg-dot-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]"
@@ -75,8 +75,8 @@ export function Hero() {
             <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
             Elmhurst Accredited · All London Boroughs
           </p>
-          <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-secondary-900 animate-fade-in-up animate-delay-100">
-            Fast, <span className="text-gradient-brand">Reliable</span> &amp; Certified EPCs in the UK
+          <h1 className="mt-4 text-[2.1rem] leading-[1.07] sm:text-5xl md:text-6xl font-semibold tracking-tight text-secondary-900 animate-fade-in-up animate-delay-100">
+            Fast, <span className="text-gradient-brand">Reliable</span> &amp; Certified EPCs in London
           </h1>
           <p className="mt-5 text-lg md:text-xl text-secondary-700 leading-relaxed max-w-2xl animate-fade-in-up animate-delay-200">
             Elmhurst-accredited Domestic Energy Assessor. Guide prices from{' '}
@@ -139,7 +139,7 @@ export function Hero() {
             </div>
             
             <div className="flex justify-between items-center mt-3">
-              <h2 className="text-lg font-bold text-secondary-900">Energy Efficiency Rating</h2>
+              <h2 className="font-sans text-lg font-bold text-secondary-900">Energy Efficiency Rating</h2>
               <div className="text-right">
                 <span className="text-xs font-semibold text-secondary-500 block uppercase">Current Rating</span>
                 <span className="text-2xl font-black text-primary-700">
@@ -158,8 +158,8 @@ export function Hero() {
                 const widthPercent = 100 - i * 8
                 return (
                   <li key={row.band} className="flex items-center gap-2">
-                    <div className="w-6 text-center text-sm font-bold text-secondary-600">
-                      {isActive ? '👉' : ''}
+                    <div className="w-6 flex justify-center text-primary-600">
+                      {isActive ? <ChevronRight className="w-4 h-4" aria-hidden="true" /> : null}
                     </div>
                     <div className="flex-1">
                       <div
@@ -178,8 +178,9 @@ export function Hero() {
             </ul>
 
             <div className="mt-6 border-t border-secondary-100 pt-5">
-              <h3 className="text-sm font-bold text-secondary-900 mb-3 flex items-center gap-1">
-                🔧 Simulate Efficiency Upgrades:
+              <h3 className="font-sans text-sm font-bold text-secondary-900 mb-3 flex items-center gap-1.5">
+                <Wrench className="w-4 h-4 text-secondary-500" aria-hidden="true" />
+                Simulate Efficiency Upgrades
               </h3>
               
               <div className="grid grid-cols-2 gap-2">
