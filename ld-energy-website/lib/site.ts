@@ -29,6 +29,7 @@ export const site = {
 export const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/services/domestic-epc', label: 'Domestic EPC' },
+  { href: '/domestic-energy-assessor-london', label: 'Energy Assessor' },
   { href: '/services/floor-plans', label: 'Floor Plans' },
   { href: '/landlords', label: 'For Landlords' },
   { href: '/sellers', label: 'For Sellers' },
@@ -52,6 +53,7 @@ export const topNav = [
 /** Links shown inside the Services dropdown */
 export const servicesDropdown = [
   { href: '/services/domestic-epc', label: 'Domestic EPC', desc: 'Official certificates from £49' },
+  { href: '/domestic-energy-assessor-london', label: 'Energy Assessor', desc: 'Your accredited London DEA' },
   { href: '/services/floor-plans', label: 'Floor Plans', desc: 'Professional measured plans' },
   { href: '/landlords', label: 'For Landlords', desc: 'Stay compliant & avoid fines' },
   { href: '/sellers', label: 'For Sellers', desc: 'Boost your listing appeal' },

@@ -6,6 +6,7 @@ import { categories } from '@/lib/blog-categories'
 const staticRoutes: Array<{ path: string; priority: number; changeFreq: MetadataRoute.Sitemap[number]['changeFrequency'] }> = [
   { path: '/',                        priority: 1.0, changeFreq: 'weekly'  },
   { path: '/services/domestic-epc',   priority: 0.9, changeFreq: 'monthly' },
+  { path: '/domestic-energy-assessor-london', priority: 0.9, changeFreq: 'monthly' },
   { path: '/services/floor-plans',    priority: 0.9, changeFreq: 'monthly' },
   { path: '/landlords',               priority: 0.8, changeFreq: 'monthly' },
   { path: '/sellers',                 priority: 0.8, changeFreq: 'monthly' },

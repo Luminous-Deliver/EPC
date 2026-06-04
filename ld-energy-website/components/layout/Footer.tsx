@@ -5,7 +5,7 @@ import { Logo } from '@/components/ui/Logo'
 import { navLinks, site } from '@/lib/site'
 
 const services = navLinks.filter(l =>
-  ['/services/domestic-epc', '/services/floor-plans', '/landlords', '/sellers'].includes(l.href)
+  ['/services/domestic-epc', '/domestic-energy-assessor-london', '/services/floor-plans', '/landlords', '/sellers'].includes(l.href)
 )
 const otherLinks = navLinks.filter(l =>
   ['/areas', '/pricing', '/faq', '/blog', '/about'].includes(l.href)
