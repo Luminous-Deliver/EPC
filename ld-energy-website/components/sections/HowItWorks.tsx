@@ -70,7 +70,7 @@ export function HowItWorks() {
           {steps.map((step, i) => (
             <li
               key={step.title}
-              className="relative rounded-2xl p-6 md:p-8 transition-all duration-200 hover:-translate-y-1 animate-fade-in-up"
+              className="relative rounded-2xl p-6 md:p-8 transition-all duration-200 hover:-translate-y-1 animate-reveal"
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(52,211,153,0.12)' }}
             >
               <div

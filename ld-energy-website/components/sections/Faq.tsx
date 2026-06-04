@@ -12,10 +12,10 @@ export function Faq() {
         {/* Left rail */}
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-24">
-            <span className="inline-flex items-center gap-2 rounded-full bg-primary-50 ring-1 ring-primary-100 px-3 py-1 text-xs uppercase tracking-wide font-semibold text-primary-700">
-              <HelpCircle className="w-3.5 h-3.5" aria-hidden="true" />
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+              <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               FAQ
-            </span>
+            </div>
             <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
               Common Questions About EPCs
             </h2>

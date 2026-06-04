@@ -15,10 +15,11 @@ export function Pricing() {
   return (
     <Section variant="muted" id="pricing" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl mx-auto text-center">
-        <span className="inline-flex items-center gap-2 rounded-full bg-primary-50 ring-1 ring-primary-100 px-3 py-1 text-xs uppercase tracking-wide font-semibold text-primary-700">
-          <BadgePoundSterling className="w-3.5 h-3.5" aria-hidden="true" />
+        <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
           Transparent Pricing
-        </span>
+          <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+        </div>
         <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
           Instant Price Estimator
         </h2>
