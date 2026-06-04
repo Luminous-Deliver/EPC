@@ -21,9 +21,28 @@ export const metadata: Metadata = {
   },
 }
 
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Terms of Service',
+  url: `${site.url}/terms`,
+  description: 'Terms of service governing the supply of EPC certificates and floor plans by L&D Energy.',
+  publisher: { '@id': `${site.url}/#organization` },
+  inLanguage: 'en-GB',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'Terms of Service', item: `${site.url}/terms` },
+    ],
+  },
+}
+
 export default function TermsPage() {
   return (
-    <LegalPage
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+      <LegalPage
       title="Terms of Service"
       lastUpdated="May 2026"
       breadcrumbs={[
@@ -101,5 +120,6 @@ export default function TermsPage() {
         <a href={site.phoneHref}>{site.phone}</a> · <a href={site.emailHref}>{site.email}</a>.
       </p>
     </LegalPage>
+    </>
   )
 }

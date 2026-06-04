@@ -61,11 +61,28 @@ export default async function BlogCategoryPage({ params }: PageProps) {
     })),
   }
 
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `${cat.name} — EPC Guides`,
+    description: cat.description,
+    url: `${site.url}/blog/category/${cat.slug}`,
+    publisher: { '@id': `${site.url}/#organization` },
+    hasPart: posts.map((p) => ({
+      '@type': 'Article',
+      headline: p.title,
+      description: p.description,
+      url: `${site.url}/blog/${p.slug}`,
+      datePublished: p.publishedAt,
+      dateModified: p.updatedAt || p.publishedAt,
+    })),
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, collectionSchema]) }}
       />
       <BreadcrumbNav items={breadcrumbs} />
       <PageHero
