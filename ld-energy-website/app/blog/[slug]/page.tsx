@@ -140,7 +140,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         readingTime={post.readingTime}
       />
       <article className="py-10 md:py-14">
-        <Container className="max-w-4xl">
+        <Container className="max-w-5xl">
           <KeyTakeaways takeaways={post.keyTakeaways} />
           <TableOfContents items={toc} />
           <PostContent source={post.content} />

@@ -25,7 +25,7 @@ export function PostHeader({
   const cat = getCategory(category)
   return (
     <header className="bg-gradient-to-b from-primary-50 via-white to-white border-b border-secondary-100">
-      <Container className="py-10 md:py-14 max-w-4xl">
+      <Container className="py-10 md:py-14 max-w-5xl">
         {cat && (
           <Link
             href={`/blog/category/${cat.slug}`}
