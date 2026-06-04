@@ -189,46 +189,48 @@ export default function AboutPage() {
               The service was set up because too many landlords and sellers told us the same story: unanswered phones, missed appointments, slow certificates, and surprise fees. We do the opposite, transparent pricing, clear timelines, and a real person who picks up.
             </p>
 
-            {/* Elmhurst ID card image */}
-            <div className="mt-6 rounded-xl overflow-hidden border border-secondary-200 shadow-sm">
-              <Image
-                src="/elmhurst-id.jpeg"
-                alt="Elmhurst Energy accreditation ID card for Abdul Motaleb Taher, EES/036265"
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover"
-                priority
-              />
-            </div>
-
-            {/* Verified assessor credential */}
-            <div className="mt-4 rounded-xl border border-primary-200 bg-white p-5 shadow-sm">
-              <div className="flex items-center gap-2 text-primary-700">
-                <BadgeCheck className="w-5 h-5 shrink-0" aria-hidden="true" />
-                <span className="text-xs font-bold uppercase tracking-wide">Elmhurst Energy Approved</span>
+            {/* Verified assessor credential — ID card beside details */}
+            <div className="mt-6 flex flex-col sm:flex-row gap-5 rounded-2xl border border-primary-200 bg-white p-5 shadow-sm">
+              {/* Elmhurst ID card — true portrait ratio, constrained width */}
+              <div className="shrink-0 mx-auto sm:mx-0 w-36 rounded-lg overflow-hidden border border-secondary-200 shadow-sm">
+                <Image
+                  src="/elmhurst-id.jpeg"
+                  alt="Elmhurst Energy accreditation ID card for Abdul Motaleb Taher, EES/036265"
+                  width={625}
+                  height={961}
+                  className="w-full h-auto"
+                  priority
+                />
               </div>
-              <dl className="mt-4 space-y-2.5 text-sm">
-                <div className="flex justify-between gap-4">
-                  <dt className="text-secondary-500">Assessor</dt>
-                  <dd className="font-semibold text-secondary-900 text-right">{site.assessor.name}</dd>
+              {/* Credential details */}
+              <div className="flex-1">
+                <div className="flex items-center gap-2 text-primary-700">
+                  <BadgeCheck className="w-5 h-5 shrink-0" aria-hidden="true" />
+                  <span className="text-xs font-bold uppercase tracking-wide">Elmhurst Energy Approved</span>
                 </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-secondary-500">EES Number</dt>
-                  <dd className="font-semibold text-secondary-900 text-right">{site.assessor.accreditationNumber}</dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-secondary-500">Scheme</dt>
-                  <dd className="font-semibold text-secondary-900 text-right">{site.assessor.scheme}</dd>
-                </div>
-              </dl>
-              <a
-                href={site.assessor.verifyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-block text-sm font-semibold text-primary-700 hover:text-primary-800 underline underline-offset-4"
-              >
-                Verify this assessor on the Elmhurst register →
-              </a>
+                <dl className="mt-4 space-y-2.5 text-sm">
+                  <div className="flex justify-between gap-4">
+                    <dt className="text-secondary-500">Assessor</dt>
+                    <dd className="font-semibold text-secondary-900 text-right">{site.assessor.name}</dd>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <dt className="text-secondary-500">EES Number</dt>
+                    <dd className="font-semibold text-secondary-900 text-right">{site.assessor.accreditationNumber}</dd>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <dt className="text-secondary-500">Scheme</dt>
+                    <dd className="font-semibold text-secondary-900 text-right">{site.assessor.scheme}</dd>
+                  </div>
+                </dl>
+                <a
+                  href={site.assessor.verifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block text-sm font-semibold text-primary-700 hover:text-primary-800 underline underline-offset-4"
+                >
+                  Verify on the Elmhurst register →
+                </a>
+              </div>
             </div>
           </div>
 
