@@ -8,6 +8,7 @@ import { HowItWorks } from '@/components/sections/HowItWorks'
 import { ServicesOverview } from '@/components/sections/ServicesOverview'
 import { WhyChoose } from '@/components/sections/WhyChoose'
 import { Coverage } from '@/components/sections/Coverage'
+import { FromTheBlog } from '@/components/sections/FromTheBlog'
 import { Faq } from '@/components/sections/Faq'
 import { ContactSection } from '@/components/sections/ContactSection'
 import { site } from '@/lib/site'
@@ -118,6 +119,7 @@ export default function HomePage() {
       <WhatIsEpc />
       <ServicesOverview />
       <Coverage />
+      <FromTheBlog />
       <Faq />
       <ContactSection />
     </>
