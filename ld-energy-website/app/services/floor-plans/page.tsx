@@ -104,8 +104,11 @@ export default function FloorPlansPage() {
       {/* Why Floor Plans */}
       <Section variant="default" id="why-floor-plans">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Why They Matter</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+            Why They Matter
+          </div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             Why Floor Plans?
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
@@ -118,8 +121,11 @@ export default function FloorPlansPage() {
       <Section variant="muted" id="included">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
           <div>
-            <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">The Deliverable</p>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+              <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+              The Deliverable
+            </div>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
               What&rsquo;s Included
             </h2>
             <p className="mt-5 text-secondary-700 leading-relaxed">
@@ -136,8 +142,11 @@ export default function FloorPlansPage() {
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">The Process</p>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+              <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+              The Process
+            </div>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
               How It Works
             </h2>
             <StepList steps={process} className="mt-8" />
@@ -148,8 +157,11 @@ export default function FloorPlansPage() {
       {/* Pricing Table */}
       <Section variant="default" id="pricing">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Pricing</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+            Pricing
+          </div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             Floor Plan Pricing
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">

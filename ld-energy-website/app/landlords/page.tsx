@@ -222,19 +222,24 @@ export default function LandlordsPage() {
       {/* Our Landlord Service */}
       <Section variant="muted" id="our-service">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">For Portfolios &amp; Single Lets</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+            For Portfolios &amp; Single Lets
+          </div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             Our Landlord Service
           </h2>
         </div>
-        <ul className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {ourService.map((s) => (
-            <li key={s.title} className="rounded-lg bg-white border border-secondary-100 p-6">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-700">
-                <s.Icon className="w-6 h-6" aria-hidden="true" />
+            <li key={s.title} className="flex sm:flex-col items-start gap-4 sm:gap-0 rounded-2xl bg-canvas ring-1 ring-secondary-900/5 p-5 md:p-6 shadow-sm">
+              <div className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary-50 ring-1 ring-primary-100 text-primary-700">
+                <s.Icon className="w-5 h-5" aria-hidden="true" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-secondary-900">{s.title}</h3>
-              <p className="mt-2 text-sm text-secondary-700 leading-relaxed">{s.body}</p>
+              <div className="sm:mt-4">
+                <h3 className="text-base md:text-lg font-semibold text-secondary-900">{s.title}</h3>
+                <p className="mt-1.5 text-sm text-secondary-700 leading-relaxed">{s.body}</p>
+              </div>
             </li>
           ))}
         </ul>

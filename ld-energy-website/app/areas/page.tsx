@@ -59,8 +59,11 @@ export default function AreasPage() {
 
       <Section variant="default" id="all-areas">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">All Coverage Areas</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+            All Coverage Areas
+          </div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             All London Boroughs
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">

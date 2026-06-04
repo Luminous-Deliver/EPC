@@ -191,8 +191,11 @@ export default function DomesticEpcPage() {
       {/* What is a Domestic EPC */}
       <Section variant="default" id="what-is-epc">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">What Is It?</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+            What Is It?
+          </div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             What is a Domestic EPC?
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
@@ -229,18 +232,25 @@ export default function DomesticEpcPage() {
       {/* Who Needs an EPC */}
       <Section variant="muted" id="who-needs-epc">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Who Is It For?</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+            Who Is It For?
+          </div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             Who Needs a Domestic EPC?
           </h2>
         </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {personas.map((p) => (
-            <Card key={p.title} interactive>
-              <p.Icon className="w-10 h-10 text-primary-600" aria-hidden="true" />
-              <h3 className="mt-4 text-xl font-semibold text-secondary-900">{p.title}</h3>
-              <p className="mt-3 text-secondary-700 leading-relaxed">{p.body}</p>
-            </Card>
+            <div key={p.title} className="flex sm:flex-col items-start gap-4 sm:gap-0 rounded-2xl bg-canvas ring-1 ring-secondary-900/5 p-5 md:p-6 shadow-sm">
+              <div className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary-50 ring-1 ring-primary-100 text-primary-700">
+                <p.Icon className="w-5 h-5" aria-hidden="true" />
+              </div>
+              <div className="sm:mt-4">
+                <h3 className="text-base md:text-lg font-semibold text-secondary-900">{p.title}</h3>
+                <p className="mt-1.5 text-sm text-secondary-700 leading-relaxed">{p.body}</p>
+              </div>
+            </div>
           ))}
         </div>
       </Section>
@@ -249,8 +259,11 @@ export default function DomesticEpcPage() {
       <Section variant="default" id="epc-process">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">The Process</p>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+              <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+              The Process
+            </div>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
               Our EPC Process
             </h2>
             <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
@@ -260,8 +273,11 @@ export default function DomesticEpcPage() {
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">What We Record</p>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+              <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+              What We Record
+            </div>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
               What We Assess
             </h2>
             <p className="mt-5 text-secondary-700 leading-relaxed">
@@ -284,8 +300,11 @@ export default function DomesticEpcPage() {
       {/* Service-specific FAQ */}
       <Section variant="muted" id="epc-faq">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Common Questions</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+            Common Questions
+          </div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             Domestic EPC Questions
           </h2>
           <div className="mt-8">

@@ -63,45 +63,48 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Services column */}
-          <nav aria-label="Footer services" className="md:col-span-2">
-            <h2 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(52,211,153,0.7)' }}>
-              Services
-            </h2>
-            <ul className="space-y-2.5">
-              {services.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm transition-colors hover:text-white"
-                    style={{ color: 'rgba(209,250,229,0.6)' }}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          {/* Services + Company — side by side on mobile to avoid dead space */}
+          <div className="grid grid-cols-2 gap-8 md:contents">
+            {/* Services column */}
+            <nav aria-label="Footer services" className="md:col-span-2">
+              <h2 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(52,211,153,0.7)' }}>
+                Services
+              </h2>
+              <ul className="space-y-2.5">
+                {services.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm transition-colors hover:text-white"
+                      style={{ color: 'rgba(209,250,229,0.6)' }}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          {/* Other links column */}
-          <nav aria-label="Footer links" className="md:col-span-2">
-            <h2 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(52,211,153,0.7)' }}>
-              Company
-            </h2>
-            <ul className="space-y-2.5">
-              {otherLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm transition-colors hover:text-white"
-                    style={{ color: 'rgba(209,250,229,0.6)' }}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            {/* Other links column */}
+            <nav aria-label="Footer links" className="md:col-span-2">
+              <h2 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(52,211,153,0.7)' }}>
+                Company
+              </h2>
+              <ul className="space-y-2.5">
+                {otherLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm transition-colors hover:text-white"
+                      style={{ color: 'rgba(209,250,229,0.6)' }}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
 
           {/* Contact column */}
           <div className="md:col-span-4">
