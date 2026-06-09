@@ -205,7 +205,7 @@ export default function LandlordsPage() {
             </ul>
           </div>
 
-          <Card>
+          <Card className="p-5 md:p-8">
             <h3 className="text-xl font-semibold text-secondary-900">What landlords need</h3>
             <ul className="mt-4 space-y-2.5">
               {landlordNeeds.map((item) => (

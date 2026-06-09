@@ -64,7 +64,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
   const collectionSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: `${cat.name} — EPC Guides`,
+    name: `${cat.name}, EPC Guides`,
     description: cat.description,
     url: `${site.url}/blog/category/${cat.slug}`,
     publisher: { '@id': `${site.url}/#organization` },

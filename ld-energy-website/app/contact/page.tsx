@@ -91,7 +91,7 @@ export default function ContactPage() {
         <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5 space-y-4">
             {methods.map((m) => (
-              <div key={m.title} className="rounded-lg bg-white border border-secondary-200 p-6 shadow-sm">
+              <div key={m.title} className="rounded-lg bg-white border border-secondary-200 p-4 sm:p-6 shadow-sm">
                 <div className="flex items-start gap-4">
                   <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-primary-100 text-primary-700 shrink-0">
                     <m.Icon className="w-5 h-5" aria-hidden="true" />

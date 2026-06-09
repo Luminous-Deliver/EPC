@@ -174,8 +174,8 @@ export default function PricingPage() {
 
       {/* What's included / not included */}
       <Section variant="muted" id="whats-included">
-        <div className="grid gap-8 md:grid-cols-2">
-          <Card>
+        <div className="grid gap-5 md:gap-8 md:grid-cols-2">
+          <Card className="p-5 md:p-8">
             <h2 className="text-xl font-semibold text-secondary-900">What&rsquo;s included in every EPC</h2>
             <ul className="mt-5 space-y-2.5">
               {included.map((item) => (
@@ -186,7 +186,7 @@ export default function PricingPage() {
               ))}
             </ul>
           </Card>
-          <Card>
+          <Card className="p-5 md:p-8">
             <h2 className="text-xl font-semibold text-secondary-900">What&rsquo;s not included</h2>
             <ul className="mt-5 space-y-2.5">
               {notIncluded.map((item) => (

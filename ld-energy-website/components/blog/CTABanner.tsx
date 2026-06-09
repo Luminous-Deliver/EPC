@@ -16,7 +16,7 @@ export function CTABanner({
   const isFinal = variant === 'final'
   return (
     <div
-      className={`not-prose rounded-lg p-6 md:p-8 ${
+      className={`not-prose rounded-lg p-5 md:p-8 ${
         isFinal ? 'my-12 bg-secondary-900 text-white' : 'my-12 bg-primary-600 text-white'
       }`}
     >

@@ -29,7 +29,7 @@ export function Pricing() {
       </div>
 
       <div className="mt-10 max-w-2xl mx-auto">
-        <Card className="p-6 md:p-8 rounded-2xl ring-1 ring-secondary-900/5 shadow-premium-lg bg-white">
+        <Card className="p-5 md:p-8 rounded-2xl ring-1 ring-secondary-900/5 shadow-premium-lg bg-white">
           <div className="flex flex-col gap-6">
             
             {/* Dropdown Selector */}

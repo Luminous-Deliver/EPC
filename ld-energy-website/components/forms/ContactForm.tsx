@@ -390,7 +390,7 @@ export function ContactForm() {
             <h4 className="text-lg font-bold text-secondary-900">Enter Contact & Property Address</h4>
             <p className="text-xs text-secondary-500">Provide the property details and where we should send the invoice and certificate.</p>
             
-            <div className="grid gap-3 grid-cols-2">
+            <div className="grid gap-3 grid-cols-1 sm:grid-cols-2">
               <Field label="Full Name" htmlFor="name" required error={errors.name?.message}>
                 <Input
                   id="name"
@@ -534,7 +534,7 @@ export function ContactForm() {
       </form>
 
       {/* Live Quote Summary Sidebar */}
-      <div className="lg:col-span-4 rounded-2xl border border-secondary-200 bg-glass p-5 md:p-6 shadow-premium sticky top-24 lg:mt-0 mt-4">
+      <div className="lg:col-span-4 rounded-2xl border border-secondary-200 bg-glass p-5 md:p-6 shadow-premium lg:sticky lg:top-24 lg:mt-0 mt-4">
         <h4 className="text-sm font-bold text-secondary-900 tracking-wider uppercase flex items-center gap-1.5 border-b border-secondary-100 pb-3 mb-4">
           <BadgePoundSterling className="w-4 h-4 text-primary-650" />
           Live Price Estimate
