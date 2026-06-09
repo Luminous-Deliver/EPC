@@ -45,7 +45,7 @@ export default async function BlogIndexPage() {
   const allPosts = await getAllPosts()
   const featured = await getFeaturedPosts(3)
   const featuredSlugs = new Set(featured.map((p) => p.slug))
-  const recent = allPosts.filter((p) => !featuredSlugs.has(p.slug)).slice(0, 9)
+  const recent = allPosts.filter((p) => !featuredSlugs.has(p.slug))
 
   const blogSchema = {
     '@context': 'https://schema.org',

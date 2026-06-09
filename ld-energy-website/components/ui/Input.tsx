@@ -26,7 +26,7 @@ export function Field({ label, htmlFor, required, error, hint, children, classNa
       {children}
       {hint && !error && <p className="text-xs text-secondary-500">{hint}</p>}
       {error && (
-        <p className="text-xs text-danger" role="alert">
+        <p className="text-sm text-danger" role="alert">
           {error}
         </p>
       )}

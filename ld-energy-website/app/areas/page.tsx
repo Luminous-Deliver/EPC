@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { MapPin, ArrowRight } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
+import { BoroughFinder } from '@/components/sections/BoroughFinder'
 import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { CtaStrip } from '@/components/sections/CtaStrip'
@@ -71,22 +70,7 @@ export default function AreasPage() {
           </p>
         </div>
 
-        <ul className="mt-10 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {boroughList.map((borough) => (
-            <li key={borough.slug}>
-              <Link
-                href={`/areas/${borough.slug}`}
-                className="group flex items-center justify-between gap-2 rounded-lg border border-secondary-200 bg-white px-4 py-3 text-sm font-medium text-secondary-800 transition-colors hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700"
-              >
-                <span className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-secondary-400 group-hover:text-primary-500" aria-hidden="true" />
-                  {borough.name}
-                </span>
-                <ArrowRight className="w-3.5 h-3.5 text-secondary-400 group-hover:text-primary-500" aria-hidden="true" />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <BoroughFinder boroughs={boroughList.map(({ slug, name }) => ({ slug, name }))} />
       </Section>
 
       <Section variant="muted" id="coverage-info">

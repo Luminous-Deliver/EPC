@@ -21,10 +21,10 @@ export function Pricing() {
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
         </div>
         <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
-          Instant Price Estimator
+          What your EPC costs
         </h2>
         <p className="mt-4 text-lg text-secondary-700 leading-relaxed">
-          Select your property size below to instantly see your estimated EPC cost. Final prices may vary slightly based on extensions or complex layouts.
+          Choose your property size to see your guide price. Final prices may vary slightly for extensions or complex layouts.
         </p>
       </div>
 
