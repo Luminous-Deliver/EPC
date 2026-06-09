@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `EPC in ${data.name} | From £49`,
-    description: `Domestic EPC certificate in ${data.name} from £49. Elmhurst-accredited assessor, next-day available, no travel surcharges. Book online today.`,
+    description: `Domestic EPC certificate in ${data.name} from £49. Elmhurst-accredited assessor, next-day available, no travel surcharges. Floor plans too. Book today.`,
     alternates: { canonical: `${site.url}/areas/${slug}` },
     openGraph: {
       title: `EPC in ${data.name} | From £49 | L&D Energy`,
@@ -59,6 +59,10 @@ function boroughFaq(name: string): FaqItem[] {
     {
       q: `Do I need an EPC to sell my home in ${name}?`,
       a: `Yes. You're legally required to have an EPC commissioned before marketing your property for sale. Estate agents cannot legally list your ${name} property without one.`,
+    },
+    {
+      q: `Do you also provide floor plans in ${name}?`,
+      a: `Yes. We produce professional, accurately measured floor plans for properties in ${name}, ideal for sales listings and lettings marketing. Floor plans start from £${pricing[0].floorPlan}, and are half price when booked together with an EPC in the same visit.`,
     },
   ]
 }
@@ -123,6 +127,40 @@ export default async function BoroughPage({ params }: PageProps) {
       opens: '08:00',
       closes: '20:00',
     },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `EPC and floor plan services in ${data.name}`,
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: `Domestic EPC in ${data.name}`,
+            serviceType: 'Energy Performance Certificate',
+            areaServed: { '@type': 'AdministrativeArea', name: data.name },
+          },
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            minPrice: pricing[0].epc,
+            priceCurrency: 'GBP',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: `Property floor plans in ${data.name}`,
+            serviceType: 'Property Floor Plan',
+            areaServed: { '@type': 'AdministrativeArea', name: data.name },
+          },
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            minPrice: pricing[0].floorPlan,
+            priceCurrency: 'GBP',
+          },
+        },
+      ],
+    },
   }
 
   return (
@@ -141,6 +179,7 @@ export default async function BoroughPage({ params }: PageProps) {
         heading={`EPC Certificates in ${data.name}`}
         subheading={`Local Elmhurst-accredited Domestic Energy Assessor covering ${data.name} and surrounding areas. Guide prices from £49. Certificate within 72 hours.`}
         primaryCta={{ label: `Book Your ${data.name} EPC`, href: '#contact' }}
+        secondaryCta={{ label: `Call ${site.phone}`, href: site.phoneHref }}
       />
 
       {/* Local intro */}
@@ -195,6 +234,26 @@ export default async function BoroughPage({ params }: PageProps) {
       </Section>
 
       <Pricing />
+
+      {/* Floor plans cross-sell */}
+      <Section variant="default" id="floor-plans">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Floor Plans</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            Floor Plans in {data.name}
+          </h2>
+          <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
+            Selling or letting in {data.name}? We also produce professional, accurately measured floor plans, the same high-resolution plans estate agents use in sales and lettings listings. Floor plans start from £{pricing[0].floorPlan}, and are <strong className="font-semibold text-secondary-900">half price when booked with an EPC</strong> in the same visit, since we measure your property anyway during the assessment.
+          </p>
+          <Link
+            href="/services/floor-plans"
+            className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 transition-colors hover:text-primary-800"
+          >
+            Learn more about our floor plans
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </Section>
 
       {/* Nearby areas */}
       <Section variant="default" id="nearby-areas">
