@@ -34,7 +34,7 @@ const services = [
 
 export function ServicesOverview() {
   return (
-    <Section variant="default" id="services" className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="muted" id="services" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
         <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
