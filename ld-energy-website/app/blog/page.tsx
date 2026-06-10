@@ -10,9 +10,9 @@ import { categories } from '@/lib/blog-categories'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'EPC Insights & Guides for London Homeowners and Landlords',
+  title: 'EPC Guides for London Homeowners & Landlords',
   description:
-    'Expert guidance on Energy Performance Certificates, MEES compliance, and improving your EPC rating — written by an Elmhurst-accredited London DEA.',
+    'Expert guidance on Energy Performance Certificates, MEES compliance, and improving your EPC rating, written by an Elmhurst-accredited London DEA.',
   alternates: { canonical: `${site.url}/blog` },
   openGraph: {
     title: 'EPC Insights & Guides | L&D Energy Blog',
@@ -45,7 +45,7 @@ export default async function BlogIndexPage() {
   const allPosts = await getAllPosts()
   const featured = await getFeaturedPosts(3)
   const featuredSlugs = new Set(featured.map((p) => p.slug))
-  const recent = allPosts.filter((p) => !featuredSlugs.has(p.slug)).slice(0, 9)
+  const recent = allPosts.filter((p) => !featuredSlugs.has(p.slug))
 
   const blogSchema = {
     '@context': 'https://schema.org',
@@ -74,7 +74,7 @@ export default async function BlogIndexPage() {
       <PageHero
         eyebrow="EPC Blog"
         heading="EPC Insights & Guides"
-        subheading="Expert guidance on Energy Performance Certificates, MEES compliance, and improving your rating — written by a working London DEA."
+        subheading="Expert guidance on Energy Performance Certificates, MEES compliance, and improving your rating, written by a working London DEA."
         primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
       />
 

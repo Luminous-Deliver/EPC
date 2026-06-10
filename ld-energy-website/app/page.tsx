@@ -8,15 +8,16 @@ import { HowItWorks } from '@/components/sections/HowItWorks'
 import { ServicesOverview } from '@/components/sections/ServicesOverview'
 import { WhyChoose } from '@/components/sections/WhyChoose'
 import { Coverage } from '@/components/sections/Coverage'
+import { FromTheBlog } from '@/components/sections/FromTheBlog'
 import { Faq } from '@/components/sections/Faq'
 import { ContactSection } from '@/components/sections/ContactSection'
 import { site } from '@/lib/site'
 import { homepageFaq } from '@/lib/faq'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Domestic EPC London | From £49 | Elmhurst Accredited | L&D Energy' },
+  title: { absolute: 'EPC London from £49 | Elmhurst Accredited | L&D Energy' },
   description:
-    'Fast, affordable EPC certificates across all London boroughs. Elmhurst accredited Domestic Energy Assessor. Guide prices from £49, certificate within 72 hours, next-day service available. Book your EPC today.',
+    'Fast EPC certificates across all 32 London boroughs. Elmhurst-accredited assessor, from £49, ready within 72 hours, next-day available. Book today.',
   keywords: [
     'EPC London',
     'domestic EPC',
@@ -47,7 +48,7 @@ const organizationSchema = {
   name: 'L&D Energy',
   legalName: site.legalName,
   alternateName: ['LD Energy', 'L and D Energy'],
-  disambiguatingDescription: 'L&D Energy is a domestic Energy Performance Certificate (EPC) provider based in Stratford, East London — not related to learning and development, oil and gas training, L&Q Energy, or LD Energy Solutions.',
+  disambiguatingDescription: 'L&D Energy is a domestic Energy Performance Certificate (EPC) provider based in Stratford, East London, not related to learning and development, oil and gas training, L&Q Energy, or LD Energy Solutions.',
   description: 'Elmhurst-accredited domestic EPC provider. Official Energy Performance Certificates for homeowners, landlords, and letting agents across all London boroughs.',
   url: site.url,
   logo: {
@@ -118,6 +119,7 @@ export default function HomePage() {
       <WhatIsEpc />
       <ServicesOverview />
       <Coverage />
+      <FromTheBlog />
       <Faq />
       <ContactSection />
     </>

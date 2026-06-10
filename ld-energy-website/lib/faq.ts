@@ -30,7 +30,7 @@ export const homepageFaq: FaqItem[] = [
   },
   {
     q: 'What does the assessor check during an EPC?',
-    a: 'Our assessor measures the property, then records construction details, insulation, heating systems, hot water, lighting, windows, and ventilation. No preparation is needed from you — just normal access to all rooms.',
+    a: 'Our assessor measures the property, then records construction details, insulation, heating systems, hot water, lighting, windows, and ventilation. No preparation is needed from you, just normal access to all rooms.',
   },
   {
     q: 'Can I improve my EPC rating?',
@@ -75,7 +75,7 @@ export const fullFaq: FaqCategory[] = [
       },
       {
         q: 'How is the EPC rating calculated?',
-        a: 'The rating is calculated using the Reduced data Standard Assessment Procedure (RdSAP) — currently RdSAP 10. The assessor records construction details, insulation, heating, hot water, lighting, windows, and ventilation. The software calculates a Standard Assessment Procedure (SAP) score from 1–100, which maps to a band from A to G.',
+        a: 'The rating is calculated using the Reduced data Standard Assessment Procedure (RdSAP), currently RdSAP 10. The assessor records construction details, insulation, heating, hot water, lighting, windows, and ventilation. The software calculates a Standard Assessment Procedure (SAP) score from 1–100, which maps to a band from A to G.',
       },
     ],
   },

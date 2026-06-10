@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'L&D Energy — Domestic EPC London from £49'
+export const alt = 'L&D Energy, Domestic EPC London from £49'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 

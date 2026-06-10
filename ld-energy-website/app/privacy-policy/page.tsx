@@ -20,9 +20,28 @@ export const metadata: Metadata = {
   },
 }
 
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Privacy Policy',
+  url: `${site.url}/privacy-policy`,
+  description: 'How L&D Energy collects, uses, and protects your personal data. UK GDPR compliant.',
+  publisher: { '@id': `${site.url}/#organization` },
+  inLanguage: 'en-GB',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'Privacy Policy', item: `${site.url}/privacy-policy` },
+    ],
+  },
+}
+
 export default function PrivacyPolicyPage() {
   return (
-    <LegalPage
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+      <LegalPage
       title="Privacy Policy"
       lastUpdated="May 2026"
       breadcrumbs={[
@@ -107,5 +126,6 @@ export default function PrivacyPolicyPage() {
         We may update this policy from time to time. The &ldquo;Last updated&rdquo; date at the top of this page indicates when it was last revised.
       </p>
     </LegalPage>
+    </>
   )
 }

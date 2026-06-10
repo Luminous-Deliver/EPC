@@ -16,7 +16,7 @@ const methods = [
     Icon: MessageCircle,
     title: 'WhatsApp',
     value: site.phone,
-    detail: 'Quick responses — send a message',
+    detail: 'Quick responses, send a message',
     cta: { label: 'Open WhatsApp', href: site.whatsappHref, external: true },
   },
   {
@@ -32,10 +32,10 @@ export function ContactSection() {
   return (
     <Section variant="muted" id="contact" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-primary-50 ring-1 ring-primary-100 px-3 py-1 text-xs uppercase tracking-wide font-semibold text-primary-700">
-          <CalendarCheck className="w-3.5 h-3.5" aria-hidden="true" />
+        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
           Book Now
-        </span>
+        </div>
         <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
           Book Your EPC Today
         </h2>
@@ -47,7 +47,7 @@ export function ContactSection() {
       <div className="mt-10 grid gap-8 lg:grid-cols-12">
         <div className="lg:col-span-5 space-y-4">
           {methods.map((m) => (
-            <div key={m.title} className="rounded-2xl bg-white ring-1 ring-secondary-900/5 p-6 shadow-sm transition-all duration-200 hover:shadow-premium">
+            <div key={m.title} className="rounded-2xl bg-canvas ring-1 ring-secondary-900/5 p-6 shadow-sm transition-all duration-200 hover:shadow-premium">
               <div className="flex items-start gap-4">
                 <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10 shrink-0">
                   <m.Icon className="w-5 h-5" aria-hidden="true" />

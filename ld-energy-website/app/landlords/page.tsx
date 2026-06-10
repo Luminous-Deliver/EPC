@@ -9,9 +9,9 @@ import { CtaStrip } from '@/components/sections/CtaStrip'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'EPC for Landlords London | MEES Compliance | Avoid £5,000 Fines',
+  title: 'EPC for Landlords London | MEES Compliance',
   description:
-    'EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Fast turnaround, guide prices from £49. Portfolio discounts available.',
+    'EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Fast turnaround, guide prices from £49.',
   alternates: { canonical: `${site.url}/landlords` },
   openGraph: {
     title: 'EPC for Landlords London | MEES Compliance | L&D Energy',
@@ -50,7 +50,7 @@ const ourService = [
   {
     Icon: FileText,
     title: 'Portfolio discounts',
-    body: 'Multiple-property pricing for landlords and letting agents — contact us for a tailored quote.',
+    body: 'Multiple-property pricing for landlords and letting agents, contact us for a tailored quote.',
   },
   {
     Icon: ShieldCheck,
@@ -60,7 +60,7 @@ const ourService = [
   {
     Icon: Clock,
     title: 'Same-week appointments',
-    body: 'Fast turnaround for urgent tenancies — including evening and weekend slots.',
+    body: 'Fast turnaround for urgent tenancies, including evening and weekend slots.',
   },
   {
     Icon: CalendarRange,
@@ -95,7 +95,7 @@ const landlordFaqSchema = {
     {
       '@type': 'Question',
       name: 'How much does a landlord EPC cost in London?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Our guide prices for landlord EPCs in London start from £49 for studios. Final price depends on the property\'s floor area (m²), extensions, and condition. Portfolio discounts are available for multiple properties — contact us for a tailored quote.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Our guide prices for landlord EPCs in London start from £49 for studios. Final price depends on the property\'s floor area (m²), extensions, and condition. Portfolio discounts are available for multiple properties, contact us for a tailored quote.' },
     },
     {
       '@type': 'Question',
@@ -123,7 +123,7 @@ export default function LandlordsPage() {
       <PageHero
         eyebrow="For Landlords"
         heading="EPCs for London Landlords"
-        subheading="Stay compliant with MEES regulations. Avoid fines of up to £5,000 per property. Get your rental property's EPC sorted in 72 hours — or next day if you need it urgently."
+        subheading="Stay compliant with MEES regulations. Avoid fines of up to £5,000 per property. Get your rental property's EPC sorted in 72 hours, or next day if you need it urgently."
         primaryCta={{ label: 'Book Your Landlord EPC', href: '/contact' }}
       />
 
@@ -205,7 +205,7 @@ export default function LandlordsPage() {
             </ul>
           </div>
 
-          <Card>
+          <Card className="p-5 md:p-8">
             <h3 className="text-xl font-semibold text-secondary-900">What landlords need</h3>
             <ul className="mt-4 space-y-2.5">
               {landlordNeeds.map((item) => (
@@ -222,19 +222,24 @@ export default function LandlordsPage() {
       {/* Our Landlord Service */}
       <Section variant="muted" id="our-service">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">For Portfolios &amp; Single Lets</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+            For Portfolios &amp; Single Lets
+          </div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             Our Landlord Service
           </h2>
         </div>
-        <ul className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {ourService.map((s) => (
-            <li key={s.title} className="rounded-lg bg-white border border-secondary-100 p-6">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-700">
-                <s.Icon className="w-6 h-6" aria-hidden="true" />
+            <li key={s.title} className="flex sm:flex-col items-start gap-4 sm:gap-0 rounded-2xl bg-canvas ring-1 ring-secondary-900/5 p-5 md:p-6 shadow-sm">
+              <div className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary-50 ring-1 ring-primary-100 text-primary-700">
+                <s.Icon className="w-5 h-5" aria-hidden="true" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-secondary-900">{s.title}</h3>
-              <p className="mt-2 text-sm text-secondary-700 leading-relaxed">{s.body}</p>
+              <div className="sm:mt-4">
+                <h3 className="text-base md:text-lg font-semibold text-secondary-900">{s.title}</h3>
+                <p className="mt-1.5 text-sm text-secondary-700 leading-relaxed">{s.body}</p>
+              </div>
             </li>
           ))}
         </ul>

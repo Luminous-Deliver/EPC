@@ -8,7 +8,7 @@ import { ContactForm } from '@/components/forms/ContactForm'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Contact L&D Energy | Book Your London EPC | 07492 575 396',
+  title: 'Contact | Book Your London EPC',
   description:
     'Book your London EPC certificate. Call, WhatsApp, email or use our booking form. We respond within 2 hours during business hours (Mon–Sun, 8am–8pm).',
   alternates: { canonical: `${site.url}/contact` },
@@ -53,7 +53,7 @@ const methods = [
     Icon: MessageCircle,
     title: 'WhatsApp',
     value: site.phone,
-    detail: 'Send a message — great for photos or property details.',
+    detail: 'Send a message, great for photos or property details.',
     href: site.whatsappHref,
     cta: 'Open WhatsApp',
     external: true,
@@ -91,7 +91,7 @@ export default function ContactPage() {
         <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5 space-y-4">
             {methods.map((m) => (
-              <div key={m.title} className="rounded-lg bg-white border border-secondary-200 p-6 shadow-sm">
+              <div key={m.title} className="rounded-lg bg-white border border-secondary-200 p-4 sm:p-6 shadow-sm">
                 <div className="flex items-start gap-4">
                   <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-primary-100 text-primary-700 shrink-0">
                     <m.Icon className="w-5 h-5" aria-hidden="true" />
@@ -153,7 +153,7 @@ export default function ContactPage() {
             Where we cover
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-            Based in Stratford (E15), we cover all 32 London boroughs and the City of London. We also serve areas within a 1.5-hour radius — including parts of Essex, Kent, Hertfordshire and Surrey. No travel surcharges within this area.
+            Based in Stratford (E15), we cover all 32 London boroughs and the City of London. We also serve areas within a 1.5-hour radius, including parts of Essex, Kent, Hertfordshire and Surrey. No travel surcharges within this area.
           </p>
         </div>
 

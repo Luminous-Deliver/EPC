@@ -1,11 +1,11 @@
-import { ShieldCheck, BadgePoundSterling, Clock, MapPin } from 'lucide-react'
+import { ShieldCheck, Landmark, CalendarCheck, MapPin } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 
 const items = [
   { Icon: ShieldCheck, label: 'Elmhurst Accredited' },
-  { Icon: BadgePoundSterling, label: 'Free Quote · No Hidden Fees' },
-  { Icon: Clock, label: '72-Hour Standard Delivery' },
-  { Icon: MapPin, label: 'All 32 London Boroughs' },
+  { Icon: Landmark, label: 'Lodged on UK Gov Register' },
+  { Icon: CalendarCheck, label: 'Valid for 10 years' },
+  { Icon: MapPin, label: 'Over 32 Boroughs Covered' },
 ]
 
 export function TrustBar() {

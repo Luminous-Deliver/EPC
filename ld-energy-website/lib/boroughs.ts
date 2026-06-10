@@ -18,37 +18,37 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'stratford',
     name: 'Stratford',
     blurb:
-      'Our local home base in the E15 and E20 postcodes — covering Westfield, the Olympic Park and surrounding new-build apartments and Victorian terraces.',
+      'Our local home base in the E15 and E20 postcodes, covering Westfield, the Olympic Park and surrounding new-build apartments and Victorian terraces.',
     housingStock:
       'Stratford spans the East Village apartments of the former athletes’ village, 2010s towers around the International Quarter, long Victorian terraces near Maryland and Forest Lane, and post-war ex-local-authority blocks. It is one of the fastest-changing housing markets in East London, with new E20 stock sitting alongside much older E15 terraced streets.',
     epcIssues:
-      'New-build flats in East Village and the International Quarter typically rate B or C thanks to modern insulation and communal heat networks. The Victorian terraces around Maryland are a different story — solid brick walls, original sash windows and partial loft insulation regularly land them in band E or F, so internal wall insulation and glazing upgrades are the usual route to compliance.',
+      'New-build flats in East Village and the International Quarter typically rate B or C thanks to modern insulation and communal heat networks. The Victorian terraces around Maryland are a different story, solid brick walls, original sash windows and partial loft insulation regularly land them in band E or F, so internal wall insulation and glazing upgrades are the usual route to compliance.',
     transport:
-      'Stratford and Stratford International stations give us the Elizabeth line, Jubilee, Central, DLR, Overground and c2c — so we can reach most appointments quickly, even at short notice.',
+      'Stratford and Stratford International stations give us the Elizabeth line, Jubilee, Central, DLR, Overground and c2c, so we can reach most appointments quickly, even at short notice.',
     neighbours: ['newham', 'hackney', 'tower-hamlets', 'waltham-forest', 'greenwich'],
   },
   hackney: {
     slug: 'hackney',
     name: 'Hackney',
     blurb:
-      'Covering E2, E5, E8, E9, N1 and N16 — from Victorian conversions in Dalston and Stoke Newington to new-build apartments in Hackney Wick.',
+      'Covering E2, E5, E8, E9, N1 and N16, from Victorian conversions in Dalston and Stoke Newington to new-build apartments in Hackney Wick.',
     housingStock:
       'Hackney’s housing is dominated by Victorian and Georgian terraces in De Beauvoir, London Fields and Stoke Newington, warehouse conversions around Hackney Wick, and large ex-local-authority estates in Clapton and Homerton. Period conversions split into flats are especially common across the E8 and N16 postcodes.',
     epcIssues:
       'Conservation-area restrictions across much of Hackney limit external alterations, so solid-wall terraces and converted flats commonly score D or E. Ground-floor conversions lose significant heat through uninsulated suspended timber floors, and original single glazing in protected streets caps the achievable rating without internal upgrades.',
     transport:
-      'The London Overground spine — Dalston Junction, Hackney Central and Hackney Wick — plus Stoke Newington and Rectory Road rail give us good coverage despite Hackney’s limited Underground access.',
+      'The London Overground spine, Dalston Junction, Hackney Central and Hackney Wick, plus Stoke Newington and Rectory Road rail give us good coverage despite Hackney’s limited Underground access.',
     neighbours: ['islington', 'tower-hamlets', 'newham', 'waltham-forest', 'haringey'],
   },
   'tower-hamlets': {
     slug: 'tower-hamlets',
     name: 'Tower Hamlets',
     blurb:
-      'Serving E1, E2, E3, E14 and the wider Canary Wharf, Whitechapel, Bow and Isle of Dogs area — riverside flats, period terraces and modern developments.',
+      'Serving E1, E2, E3, E14 and the wider Canary Wharf, Whitechapel, Bow and Isle of Dogs area, riverside flats, period terraces and modern developments.',
     housingStock:
       'Tower Hamlets ranges from Canary Wharf and Isle of Dogs high-rise apartments to Georgian townhouses in Spitalfields and Bow, riverside developments at Wapping, and dense post-war estates throughout. The E14 postcode in particular is dominated by modern apartment blocks.',
     epcIssues:
-      'High-rise flats are constrained — owners cannot alter the building fabric — so ratings hinge on heating systems and glazing, and most modern blocks score B or C. Protected Georgian stock in Spitalfields and Bow, with solid walls and sash windows, tends to score E and needs internal insulation to improve.',
+      'High-rise flats are constrained, owners cannot alter the building fabric, so ratings hinge on heating systems and glazing, and most modern blocks score B or C. Protected Georgian stock in Spitalfields and Bow, with solid walls and sash windows, tends to score E and needs internal insulation to improve.',
     transport:
       'The Jubilee line, DLR across the Isle of Dogs, and the Elizabeth line at Whitechapel and Canary Wharf make Tower Hamlets one of the quickest boroughs for us to cover.',
     neighbours: ['hackney', 'newham', 'southwark', 'city-of-london', 'greenwich'],
@@ -57,7 +57,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'newham',
     name: 'Newham',
     blurb:
-      'Covering E6, E7, E12, E13, E15 and E16 — including Stratford, East Ham, Forest Gate, Plaistow and Royal Docks new builds.',
+      'Covering E6, E7, E12, E13, E15 and E16, including Stratford, East Ham, Forest Gate, Plaistow and Royal Docks new builds.',
     housingStock:
       'Newham is built around long Victorian terraces in Forest Gate, East Ham and Plaistow, the Royal Docks and Royal Wharf new-build developments, and a significant volume of ex-local-authority and HMO-converted stock. It has one of the largest private rental markets in London.',
     epcIssues:
@@ -70,7 +70,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'greenwich',
     name: 'Greenwich',
     blurb:
-      'Covering SE3, SE7, SE10 and SE18 — Greenwich, Blackheath, Charlton and Woolwich, with a mix of period homes and new riverside developments.',
+      'Covering SE3, SE7, SE10 and SE18, Greenwich, Blackheath, Charlton and Woolwich, with a mix of period homes and new riverside developments.',
     housingStock:
       'Greenwich combines Georgian and early-Victorian houses around the town centre and Blackheath, 1930s semis in Charlton, and large new riverside developments at Greenwich Peninsula and Woolwich. The contrast between protected period streets and modern towers is stark.',
     epcIssues:
@@ -83,7 +83,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'islington',
     name: 'Islington',
     blurb:
-      'Covering N1, N5, N7 and N19 — Georgian and Victorian terraces in Angel, Highbury and Archway plus modern conversions near King’s Cross.',
+      'Covering N1, N5, N7 and N19, Georgian and Victorian terraces in Angel, Highbury and Archway plus modern conversions near King’s Cross.',
     housingStock:
       'Islington is defined by Georgian and Victorian terraces and garden squares in Barnsbury, Canonbury and Highbury, period houses subdivided into flats throughout, and newer developments around King’s Cross and Archway. It is one of the most conservation-controlled boroughs in London.',
     epcIssues:
@@ -96,7 +96,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'southwark',
     name: 'Southwark',
     blurb:
-      'Covering SE1, SE5, SE15, SE16 and SE17 — Bermondsey, Peckham, Camberwell and Bankside, from warehouse conversions to Victorian terraces.',
+      'Covering SE1, SE5, SE15, SE16 and SE17, Bermondsey, Peckham, Camberwell and Bankside, from warehouse conversions to Victorian terraces.',
     housingStock:
       'Southwark mixes Bankside and Bermondsey warehouse conversions, Victorian terraces in Peckham and Camberwell, large estates in Walworth, and riverside towers along the Thames. The SE1 and SE16 postcodes carry much of the modern apartment stock.',
     epcIssues:
@@ -109,11 +109,11 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'lewisham',
     name: 'Lewisham',
     blurb:
-      'Covering SE4, SE6, SE13, SE14, SE23 and SE26 — Brockley, Catford, Forest Hill, Sydenham and New Cross terraces and converted flats.',
+      'Covering SE4, SE6, SE13, SE14, SE23 and SE26, Brockley, Catford, Forest Hill, Sydenham and New Cross terraces and converted flats.',
     housingStock:
       'Lewisham is largely Victorian and Edwardian terraces in Brockley, Forest Hill and Hither Green, 1930s semis in Catford, and a high volume of converted flats, with a growing number of new developments around Lewisham town centre.',
     epcIssues:
-      'The borough’s large stock of converted Victorian flats — solid walls, suspended timber floors, partial loft cover — typically rates D or E. Many of these benefit quickly and cheaply from loft top-ups and heating control upgrades, which is good news for landlords facing MEES deadlines.',
+      'The borough’s large stock of converted Victorian flats, solid walls, suspended timber floors, partial loft cover, typically rates D or E. Many of these benefit quickly and cheaply from loft top-ups and heating control upgrades, which is good news for landlords facing MEES deadlines.',
     transport:
       'Southeastern rail, the DLR terminus at Lewisham, and the Overground through Brockley, Honor Oak Park and Forest Hill cover the borough well despite the absence of the Underground.',
     neighbours: ['greenwich', 'southwark', 'bromley', 'bexley', 'lambeth'],
@@ -122,11 +122,11 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'barking-dagenham',
     name: 'Barking & Dagenham',
     blurb:
-      'Covering IG11, RM8, RM9 and RM10 — Barking, Dagenham, Becontree estate and surrounding new-build developments.',
+      'Covering IG11, RM8, RM9 and RM10, Barking, Dagenham, Becontree estate and surrounding new-build developments.',
     housingStock:
-      'The borough is dominated by the vast 1920s–30s Becontree estate of cottage-style houses — one of the largest public housing developments ever built — alongside post-war semis and major new-build regeneration at Barking Riverside.',
+      'The borough is dominated by the vast 1920s–30s Becontree estate of cottage-style houses, one of the largest public housing developments ever built, alongside post-war semis and major new-build regeneration at Barking Riverside.',
     epcIssues:
-      'Becontree-era houses often have solid or early cavity walls and dated heating systems, regularly scoring D or E. With a large and growing landlord base, MEES upgrades — cavity insulation where possible, loft top-ups and new boilers — are a frequent requirement before re-letting.',
+      'Becontree-era houses often have solid or early cavity walls and dated heating systems, regularly scoring D or E. With a large and growing landlord base, MEES upgrades, cavity insulation where possible, loft top-ups and new boilers, are a frequent requirement before re-letting.',
     transport:
       'The District and Hammersmith & City lines, c2c, the Overground, and the new Barking Riverside extension give us reliable access across all four postcodes.',
     neighbours: ['newham', 'havering', 'redbridge', 'waltham-forest', 'greenwich'],
@@ -135,9 +135,9 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'waltham-forest',
     name: 'Waltham Forest',
     blurb:
-      'Covering E4, E10, E11 and E17 — Walthamstow, Leyton, Leytonstone and Chingford, popular with first-time landlords and growing families.',
+      'Covering E4, E10, E11 and E17, Walthamstow, Leyton, Leytonstone and Chingford, popular with first-time landlords and growing families.',
     housingStock:
-      'Waltham Forest is mostly Victorian and Edwardian terraces in Walthamstow and Leyton, 1930s semis in Chingford, and a large number of period houses converted into flats — stock that is popular with first-time buyers and landlords alike.',
+      'Waltham Forest is mostly Victorian and Edwardian terraces in Walthamstow and Leyton, 1930s semis in Chingford, and a large number of period houses converted into flats, stock that is popular with first-time buyers and landlords alike.',
     epcIssues:
       'Terraced and converted stock with solid walls and original windows typically rates D or E. Period flats often have uninsulated ground floors and only partial loft cover; improvements usually combine internal insulation, draught-proofing and heating control upgrades.',
     transport:
@@ -148,7 +148,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'camden',
     name: 'Camden',
     blurb:
-      'Covering NW1, NW3, NW5 and WC1 — Camden Town, Belsize Park, Kentish Town and Bloomsbury, with a wide mix of period and contemporary stock.',
+      'Covering NW1, NW3, NW5 and WC1, Camden Town, Belsize Park, Kentish Town and Bloomsbury, with a wide mix of period and contemporary stock.',
     housingStock:
       'Camden spans grand Georgian and Victorian houses in Hampstead, Belsize Park and Primrose Hill, Bloomsbury mansion blocks, and period conversions and ex-local-authority estates in Kentish Town and Camden Town.',
     epcIssues:
@@ -161,7 +161,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'westminster',
     name: 'Westminster',
     blurb:
-      'Covering W1, W2, SW1 and NW8 — Mayfair, Marylebone, Pimlico and St John’s Wood, including mansion-block flats and period townhouses.',
+      'Covering W1, W2, SW1 and NW8, Mayfair, Marylebone, Pimlico and St John’s Wood, including mansion-block flats and period townhouses.',
     housingStock:
       'Westminster is dominated by mansion blocks in Marylebone, Pimlico and Maida Vale, period townhouses in Mayfair and Belgravia, and a mix of mews houses and modern apartments. Listed and conservation-area stock makes up a large share of the borough.',
     epcIssues:
@@ -174,7 +174,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'lambeth',
     name: 'Lambeth',
     blurb:
-      'Covering SE1, SE11, SE24, SW2, SW4, SW8, SW9 and SW16 — Brixton, Clapham, Kennington, Streatham and Vauxhall.',
+      'Covering SE1, SE11, SE24, SW2, SW4, SW8, SW9 and SW16, Brixton, Clapham, Kennington, Streatham and Vauxhall.',
     housingStock:
       'Lambeth combines Victorian terraces and converted flats in Clapham, Brixton and Herne Hill, large estates in Stockwell and Vauxhall, and new towers along the Albert Embankment and the Nine Elms fringe.',
     epcIssues:
@@ -187,20 +187,20 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'wandsworth',
     name: 'Wandsworth',
     blurb:
-      'Covering SW8, SW11, SW12, SW15, SW17 and SW18 — Battersea, Balham, Tooting, Putney and Earlsfield.',
+      'Covering SW8, SW11, SW12, SW15, SW17 and SW18, Battersea, Balham, Tooting, Putney and Earlsfield.',
     housingStock:
       'Wandsworth is known for the Victorian “tonsils” terraces of Tooting and Balham, larger period houses around Putney and Wandsworth Common, and major new riverside developments at Battersea and Nine Elms.',
     epcIssues:
       'Period terraces and conversions with solid walls and bay windows typically rate D or E, and the borough’s many converted flats often need loft and heating upgrades. Battersea and Nine Elms new-builds, by contrast, usually score B thanks to communal heat networks.',
     transport:
-      'The Northern line extension at Battersea and Nine Elms, plus National Rail at Clapham Junction — one of the UK’s busiest interchanges — give us excellent access.',
+      'The Northern line extension at Battersea and Nine Elms, plus National Rail at Clapham Junction, one of the UK’s busiest interchanges, give us excellent access.',
     neighbours: ['lambeth', 'merton', 'hammersmith-fulham', 'kensington-chelsea', 'richmond'],
   },
   brent: {
     slug: 'brent',
     name: 'Brent',
     blurb:
-      'Covering NW2, NW6, NW9, NW10 and HA0 — Wembley, Willesden, Kilburn and Harlesden, including a high volume of letting properties.',
+      'Covering NW2, NW6, NW9, NW10 and HA0, Wembley, Willesden, Kilburn and Harlesden, including a high volume of letting properties.',
     housingStock:
       'Brent mixes Victorian and Edwardian terraces in Kilburn and Willesden, 1930s semis in Wembley and Kingsbury, and a large and growing cluster of new towers around Wembley Park.',
     epcIssues:
@@ -213,7 +213,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'ealing',
     name: 'Ealing',
     blurb:
-      'Covering W3, W5, W7, W13 and UB1 — Ealing, Acton, Hanwell, Southall and West Ealing, with strong demand from family lets.',
+      'Covering W3, W5, W7, W13 and UB1, Ealing, Acton, Hanwell, Southall and West Ealing, with strong demand from family lets.',
     housingStock:
       'Ealing is largely Edwardian and 1930s family houses across Ealing and Hanwell, Victorian terraces in Acton, and denser terraced and converted stock in Southall.',
     epcIssues:
@@ -226,7 +226,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'hounslow',
     name: 'Hounslow',
     blurb:
-      'Covering TW3, TW4, TW7, TW8 and TW13 — Hounslow, Brentford, Isleworth, Chiswick and Feltham.',
+      'Covering TW3, TW4, TW7, TW8 and TW13, Hounslow, Brentford, Isleworth, Chiswick and Feltham.',
     housingStock:
       'Hounslow combines 1930s semis and terraces in Hounslow and Feltham, period houses in Chiswick and Isleworth, and riverside new-builds in Brentford.',
     epcIssues:
@@ -239,7 +239,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'richmond',
     name: 'Richmond upon Thames',
     blurb:
-      'Covering TW1, TW2, TW9, TW10, KT2 and SW14 — Richmond, Twickenham, Kew, Teddington and East Sheen.',
+      'Covering TW1, TW2, TW9, TW10, KT2 and SW14, Richmond, Twickenham, Kew, Teddington and East Sheen.',
     housingStock:
       'Richmond is largely Georgian and Victorian houses in Richmond, Kew and Twickenham, 1930s semis in Whitton and Hampton, and riverside conversions and apartments.',
     epcIssues:
@@ -252,11 +252,11 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'kingston',
     name: 'Kingston upon Thames',
     blurb:
-      'Covering KT1, KT2, KT3, KT5 and KT6 — Kingston, New Malden, Surbiton and Tolworth.',
+      'Covering KT1, KT2, KT3, KT5 and KT6, Kingston, New Malden, Surbiton and Tolworth.',
     housingStock:
       'Kingston mixes Victorian and Edwardian terraces near the town centre, 1930s semis in New Malden and Tolworth, and Surbiton’s period villas and mansion flats.',
     epcIssues:
-      'Inter-war semis and period terraces with solid or early cavity walls commonly rate D or E. Surbiton’s mansion flats often depend on shared heating systems, which limits what an individual owner can change — so improvements focus on glazing, controls and insulation.',
+      'Inter-war semis and period terraces with solid or early cavity walls commonly rate D or E. Surbiton’s mansion flats often depend on shared heating systems, which limits what an individual owner can change, so improvements focus on glazing, controls and insulation.',
     transport:
       'South Western Railway runs from Kingston, Surbiton and New Malden into Waterloo; the borough has no Underground, so we plan appointments around the rail network.',
     neighbours: ['richmond', 'merton', 'sutton', 'wandsworth', 'hounslow'],
@@ -265,7 +265,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'croydon',
     name: 'Croydon',
     blurb:
-      'Covering CR0, CR2, CR7 and SE25 — Croydon, Thornton Heath, South Norwood and Purley.',
+      'Covering CR0, CR2, CR7 and SE25, Croydon, Thornton Heath, South Norwood and Purley.',
     housingStock:
       'Croydon spans Victorian and Edwardian terraces in Thornton Heath and South Norwood, 1930s semis across Addiscombe and Shirley, larger period houses in Purley, and town-centre towers.',
     epcIssues:
@@ -278,7 +278,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'enfield',
     name: 'Enfield',
     blurb:
-      'Covering EN1, EN2, EN3, N9, N13, N14, N18 and N21 — Enfield Town, Edmonton, Palmers Green and Southgate.',
+      'Covering EN1, EN2, EN3, N9, N13, N14, N18 and N21, Enfield Town, Edmonton, Palmers Green and Southgate.',
     housingStock:
       'Enfield is largely 1930s semis throughout Enfield Town, Southgate and Palmers Green, Victorian terraces in Edmonton, and larger period houses in Winchmore Hill.',
     epcIssues:
@@ -291,11 +291,11 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'haringey',
     name: 'Haringey',
     blurb:
-      'Covering N4, N8, N15, N17 and N22 — Tottenham, Wood Green, Crouch End, Hornsey and Muswell Hill.',
+      'Covering N4, N8, N15, N17 and N22, Tottenham, Wood Green, Crouch End, Hornsey and Muswell Hill.',
     housingStock:
       'Haringey ranges from large Victorian houses and conversions in Crouch End and Muswell Hill to terraced stock in Tottenham and Wood Green, with major regeneration underway around Tottenham Hale.',
     epcIssues:
-      'Solid-wall Victorian conversions across Crouch End and Hornsey typically rate D or E, with conservation controls limiting external work. Tottenham’s older rental terraces frequently need MEES upgrades — insulation, heating controls and new boilers.',
+      'Solid-wall Victorian conversions across Crouch End and Hornsey typically rate D or E, with conservation controls limiting external work. Tottenham’s older rental terraces frequently need MEES upgrades, insulation, heating controls and new boilers.',
     transport:
       'The Victoria and Piccadilly lines, plus Overground and Great Northern services and the Tottenham Hale interchange, keep the borough well connected.',
     neighbours: ['enfield', 'hackney', 'islington', 'camden', 'barnet'],
@@ -304,7 +304,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'redbridge',
     name: 'Redbridge',
     blurb:
-      'Covering IG1, IG2, IG4, IG5, IG6 and E18 — Ilford, Wanstead, Woodford and Barkingside.',
+      'Covering IG1, IG2, IG4, IG5, IG6 and E18, Ilford, Wanstead, Woodford and Barkingside.',
     housingStock:
       'Redbridge is mostly 1930s semis and terraces across Ilford and Barkingside, larger Edwardian houses in Wanstead and Woodford, and converted flats near the Central line.',
     epcIssues:
@@ -317,7 +317,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'havering',
     name: 'Havering',
     blurb:
-      'Covering RM1, RM2, RM3, RM11, RM12, RM13 and RM14 — Romford, Hornchurch, Upminster and Rainham.',
+      'Covering RM1, RM2, RM3, RM11, RM12, RM13 and RM14, Romford, Hornchurch, Upminster and Rainham.',
     housingStock:
       'Havering is dominated by 1930s semis in Romford and Hornchurch, Victorian cottages in Upminster, post-war estates in Harold Hill, and newer developments near Romford.',
     epcIssues:
@@ -330,7 +330,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'bexley',
     name: 'Bexley',
     blurb:
-      'Covering DA1, DA5, DA6, DA7, DA8, DA14, DA15, DA16 and DA17 — Bexleyheath, Welling, Sidcup and Erith.',
+      'Covering DA1, DA5, DA6, DA7, DA8, DA14, DA15, DA16 and DA17, Bexleyheath, Welling, Sidcup and Erith.',
     housingStock:
       'Bexley is largely 1930s semis across Bexleyheath, Welling and Sidcup, post-war housing in Erith and Thamesmead, and pockets of Victorian stock in Old Bexley.',
     epcIssues:
@@ -343,9 +343,9 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'bromley',
     name: 'Bromley',
     blurb:
-      'Covering BR1–BR8, SE9, SE19, SE20 and SE26 — Bromley, Beckenham, Orpington, Chislehurst and Penge.',
+      'Covering BR1–BR8, SE9, SE19, SE20 and SE26, Bromley, Beckenham, Orpington, Chislehurst and Penge.',
     housingStock:
-      'Bromley — London’s largest borough by area — is mostly 1930s semis and detached houses across Bromley, Beckenham and Orpington, Victorian villas in Chislehurst and Penge, and post-war estates in Mottingham.',
+      'Bromley, London’s largest borough by area, is mostly 1930s semis and detached houses across Bromley, Beckenham and Orpington, Victorian villas in Chislehurst and Penge, and post-war estates in Mottingham.',
     epcIssues:
       'Large inter-war and detached homes with solid or early cavity walls frequently rate D or E. The bigger floor areas mean heating and insulation upgrades have a strong impact on the score, so loft insulation and modern boilers are well worth it.',
     transport:
@@ -356,7 +356,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'sutton',
     name: 'Sutton',
     blurb:
-      'Covering SM1–SM7 — Sutton, Cheam, Wallington, Carshalton and Worcester Park.',
+      'Covering SM1–SM7, Sutton, Cheam, Wallington, Carshalton and Worcester Park.',
     housingStock:
       'Sutton is dominated by 1930s semis across Sutton, Cheam and Worcester Park, with Victorian terraces in Carshalton and Wallington and a number of post-war estates.',
     epcIssues:
@@ -369,7 +369,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'merton',
     name: 'Merton',
     blurb:
-      'Covering SW19, SW20, CR4, KT3 and SM4 — Wimbledon, Mitcham, Morden and Colliers Wood.',
+      'Covering SW19, SW20, CR4, KT3 and SM4, Wimbledon, Mitcham, Morden and Colliers Wood.',
     housingStock:
       'Merton combines Victorian and Edwardian houses in Wimbledon and Wimbledon Park, 1930s semis in Raynes Park and Morden, and denser terraced stock in Mitcham and Colliers Wood.',
     epcIssues:
@@ -382,7 +382,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'hammersmith-fulham',
     name: 'Hammersmith & Fulham',
     blurb:
-      'Covering W6, W12, W14, SW6 and SW10 — Hammersmith, Fulham, Shepherd’s Bush and Parsons Green.',
+      'Covering W6, W12, W14, SW6 and SW10, Hammersmith, Fulham, Shepherd’s Bush and Parsons Green.',
     housingStock:
       'Hammersmith & Fulham is largely Victorian terraces and mansion blocks in Fulham and Hammersmith, period conversions in Shepherd’s Bush, and riverside apartments along the Thames.',
     epcIssues:
@@ -395,11 +395,11 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'kensington-chelsea',
     name: 'Kensington & Chelsea',
     blurb:
-      'Covering W8, W10, W11, SW3, SW5, SW7 and SW10 — Notting Hill, Chelsea, Kensington and Earl’s Court.',
+      'Covering W8, W10, W11, SW3, SW5, SW7 and SW10, Notting Hill, Chelsea, Kensington and Earl’s Court.',
     housingStock:
       'Kensington & Chelsea is defined by grand stucco-fronted terraces and townhouses in Chelsea, Kensington and Notting Hill, mansion blocks in Earl’s Court, and period houses converted into flats throughout.',
     epcIssues:
-      'The borough is almost entirely conservation-controlled and heavily listed. Solid walls, sash windows and communal systems mean townhouses and mansion flats commonly score D or E, with very limited fabric options — heating controls and lighting do most of the achievable improvement.',
+      'The borough is almost entirely conservation-controlled and heavily listed. Solid walls, sash windows and communal systems mean townhouses and mansion flats commonly score D or E, with very limited fabric options, heating controls and lighting do most of the achievable improvement.',
     transport:
       'The District, Circle, Central and Piccadilly lines, plus the Overground at Latimer Road and Kensington (Olympia), give us fast access across the borough.',
     neighbours: ['westminster', 'hammersmith-fulham', 'wandsworth', 'brent', 'camden'],
@@ -408,9 +408,9 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'city-of-london',
     name: 'City of London',
     blurb:
-      'Covering EC1, EC2, EC3 and EC4 — the Square Mile and Barbican apartments, plus Smithfield and Fleet Street conversions.',
+      'Covering EC1, EC2, EC3 and EC4, the Square Mile and Barbican apartments, plus Smithfield and Fleet Street conversions.',
     housingStock:
-      'Residential stock in the City is predominantly apartments — the Barbican and Golden Lane estates, modern riverside and converted-office developments, and a small number of period conversions around Smithfield and Fleet Street.',
+      'Residential stock in the City is predominantly apartments, the Barbican and Golden Lane estates, modern riverside and converted-office developments, and a small number of period conversions around Smithfield and Fleet Street.',
     epcIssues:
       'Because flats dominate, ratings depend largely on glazing, heating and communal systems rather than wall fabric. The Barbican’s distinctive concrete construction has limited improvement scope, so most gains come from heating controls and lighting.',
     transport:
@@ -421,7 +421,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'barnet',
     name: 'Barnet',
     blurb:
-      'Covering EN4, EN5, HA8, N2, N3, N10, N11, N12, N14, N20, NW2, NW4, NW7, NW9 and NW11 — Barnet, Finchley, Hendon, Edgware and Mill Hill.',
+      'Covering EN4, EN5, HA8, N2, N3, N10, N11, N12, N14, N20, NW2, NW4, NW7, NW9 and NW11, Barnet, Finchley, Hendon, Edgware and Mill Hill.',
     housingStock:
       'Barnet is dominated by 1930s semis across Finchley, Hendon, Edgware and Mill Hill, with Victorian terraces in High Barnet and larger detached houses and Hampstead Garden Suburb stock in the south.',
     epcIssues:
@@ -434,9 +434,9 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'harrow',
     name: 'Harrow',
     blurb:
-      'Covering HA1, HA2, HA3, HA5, HA7 and HA8 — Harrow, Pinner, Stanmore and Wealdstone.',
+      'Covering HA1, HA2, HA3, HA5, HA7 and HA8, Harrow, Pinner, Stanmore and Wealdstone.',
     housingStock:
-      'Harrow is largely 1930s semis across Harrow, Pinner and Stanmore — classic Metro-land stock — with detached houses, Victorian cottages in Pinner village, and post-war estates in Wealdstone.',
+      'Harrow is largely 1930s semis across Harrow, Pinner and Stanmore, classic Metro-land stock, with detached houses, Victorian cottages in Pinner village, and post-war estates in Wealdstone.',
     epcIssues:
       'Inter-war Metro-land semis with early cavity walls and original windows typically rate D or E. Many owner-occupied homes still have older boilers, so heating upgrades alongside cavity and loft insulation are the usual improvements.',
     transport:
@@ -447,7 +447,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'hillingdon',
     name: 'Hillingdon',
     blurb:
-      'Covering UB3, UB4, UB7, UB8, UB9, UB10, HA4 and HA6 — Uxbridge, Hayes, Ruislip, Hillingdon and Northwood.',
+      'Covering UB3, UB4, UB7, UB8, UB9, UB10, HA4 and HA6, Uxbridge, Hayes, Ruislip, Hillingdon and Northwood.',
     housingStock:
       'Hillingdon is mostly 1930s semis across Uxbridge, Hayes and Ruislip, post-war estates in Hayes and West Drayton, and larger detached houses in Northwood and Ruislip.',
     epcIssues:

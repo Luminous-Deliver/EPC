@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = await getPostBySlug(slug)
   if (!post) return {}
   const url = `${site.url}/blog/${post.slug}`
+  const ogImage = post.ogImage ? `${site.url}${post.ogImage}` : `${site.url}/opengraph-image`
   return {
     title: post.title,
     description: post.description,
@@ -42,10 +43,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
       authors: [getAuthor(post.author)?.name ?? 'L&D Energy'],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
+      card: 'summary_large_image',
       title: post.title,
       description: post.description,
+      images: [ogImage],
     },
   }
 }
@@ -136,7 +140,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         readingTime={post.readingTime}
       />
       <article className="py-10 md:py-14">
-        <Container className="max-w-3xl">
+        <Container className="max-w-5xl">
           <KeyTakeaways takeaways={post.keyTakeaways} />
           <TableOfContents items={toc} />
           <PostContent source={post.content} />

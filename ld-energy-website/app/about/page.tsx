@@ -2,21 +2,20 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Award, MapPin, Clock, BadgeCheck, FileText, Users } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
-import { Card } from '@/components/ui/Card'
 import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'About L&D Energy | London EPC Assessor | Elmhurst Accredited',
+  title: 'London EPC Assessor | Elmhurst Accredited',
   description:
-    'L&D Energy — Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Professional EPC certificates and floor plans across all London boroughs.',
+    'Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. EPC certificates and floor plans across all 32 London boroughs.',
   alternates: { canonical: `${site.url}/about` },
   openGraph: {
     title: 'About L&D Energy | London EPC Assessor | Elmhurst Accredited',
     description:
-      'L&D Energy — Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Professional EPC certificates and floor plans across all London boroughs.',
+      'L&D Energy, Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Professional EPC certificates and floor plans across all London boroughs.',
     url: `${site.url}/about`,
   },
   twitter: {
@@ -40,16 +39,39 @@ const breadcrumbSchema = {
   ],
 }
 
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${site.url}/about#assessor`,
+  name: site.assessor.name,
+  jobTitle: 'Domestic Energy Assessor (DEA)',
+  worksFor: { '@id': `${site.url}/#organization` },
+  knowsAbout: [
+    'Energy Performance Certificates',
+    'Domestic EPC assessment',
+    'RdSAP 10 methodology',
+    'MEES compliance',
+    'Energy efficiency improvements',
+  ],
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'Accreditation',
+    recognizedBy: { '@type': 'Organization', name: site.assessor.scheme },
+    identifier: site.assessor.accreditationNumber,
+  },
+  url: `${site.url}/about`,
+}
+
 const credentials = [
   {
     Icon: BadgeCheck,
     title: 'Elmhurst Energy Accreditation',
-    body: 'Accredited Domestic Energy Assessor (DEA) registered with Elmhurst Energy — the UK’s largest energy assessor accreditation scheme. Every certificate is lodged on the UK Government EPC Register.',
+    body: 'Accredited Domestic Energy Assessor (DEA) registered with Elmhurst Energy, the UK’s largest energy assessor accreditation scheme. Every certificate is lodged on the UK Government EPC Register.',
   },
   {
     Icon: FileText,
     title: 'Elmhurst SAP Software',
-    body: 'We assess using Elmhurst SAP with the current RdSAP 10 methodology (October 2025+) — the same official software used by all government-approved UK assessors.',
+    body: 'We assess using Elmhurst SAP with the current RdSAP 10 methodology (October 2025+), the same official software used by all government-approved UK assessors.',
   },
   {
     Icon: Award,
@@ -86,7 +108,7 @@ export default function AboutPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, personSchema]) }}
       />
 
       <BreadcrumbNav items={breadcrumbs} />
@@ -101,8 +123,11 @@ export default function AboutPage() {
       {/* Who we are */}
       <Section variant="default" id="who-we-are">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Who We Are</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+            Who We Are
+          </div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             A specialist EPC service for London
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
@@ -117,19 +142,24 @@ export default function AboutPage() {
       {/* Our approach */}
       <Section variant="muted" id="approach">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Our Approach</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+            Our Approach
+          </div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             How we work
           </h2>
         </div>
-        <ul className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {commitments.map((c) => (
-            <li key={c.title} className="rounded-lg bg-white border border-secondary-100 p-6 shadow-sm">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-700">
-                <c.Icon className="w-6 h-6" aria-hidden="true" />
+            <li key={c.title} className="flex sm:flex-col items-start gap-4 sm:gap-0 rounded-2xl bg-canvas ring-1 ring-secondary-900/5 p-5 md:p-6 shadow-sm">
+              <div className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary-50 ring-1 ring-primary-100 text-primary-700">
+                <c.Icon className="w-5 h-5" aria-hidden="true" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-secondary-900">{c.title}</h3>
-              <p className="mt-2 text-sm text-secondary-700 leading-relaxed">{c.body}</p>
+              <div className="sm:mt-4">
+                <h3 className="text-base md:text-lg font-semibold text-secondary-900">{c.title}</h3>
+                <p className="mt-1.5 text-sm text-secondary-700 leading-relaxed">{c.body}</p>
+              </div>
             </li>
           ))}
         </ul>
@@ -138,21 +168,28 @@ export default function AboutPage() {
       {/* Credentials */}
       <Section variant="default" id="credentials">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Credentials</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+            Credentials
+          </div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             Accreditation &amp; Credentials
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
             Only an accredited Domestic Energy Assessor (DEA) can produce a domestic EPC that’s recognised by the UK Government EPC Register.
           </p>
         </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {credentials.map((c) => (
-            <Card key={c.title} interactive>
-              <c.Icon className="w-10 h-10 text-primary-600" aria-hidden="true" />
-              <h3 className="mt-4 text-xl font-semibold text-secondary-900">{c.title}</h3>
-              <p className="mt-3 text-secondary-700 leading-relaxed">{c.body}</p>
-            </Card>
+            <div key={c.title} className="flex sm:flex-col items-start gap-4 sm:gap-0 rounded-2xl bg-canvas ring-1 ring-secondary-900/5 p-5 md:p-6 shadow-sm">
+              <div className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary-50 ring-1 ring-primary-100 text-primary-700">
+                <c.Icon className="w-5 h-5" aria-hidden="true" />
+              </div>
+              <div className="sm:mt-4">
+                <h3 className="text-base md:text-lg font-semibold text-secondary-900">{c.title}</h3>
+                <p className="mt-1.5 text-sm text-secondary-700 leading-relaxed">{c.body}</p>
+              </div>
+            </div>
           ))}
         </div>
       </Section>
@@ -161,81 +198,108 @@ export default function AboutPage() {
       <Section variant="muted" id="founder-coverage">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">The Founder</p>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+              <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+              The Founder
+            </div>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
               Meet Abdul
             </h2>
             <p className="mt-5 text-secondary-700 leading-relaxed">
-              L&amp;D Energy is led by Abdul M Taher, an Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Abdul personally carries out assessments — you’re not handed off to a stranger after booking.
+              L&amp;D Energy is led by Abdul M Taher, an Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. Abdul personally carries out assessments, you’re not handed off to a stranger after booking.
             </p>
             <p className="mt-4 text-secondary-700 leading-relaxed">
-              The service was set up because too many landlords and sellers told us the same story: unanswered phones, missed appointments, slow certificates, and surprise fees. We do the opposite — transparent pricing, clear timelines, and a real person who picks up.
+              The service was set up because too many landlords and sellers told us the same story: unanswered phones, missed appointments, slow certificates, and surprise fees. We do the opposite, transparent pricing, clear timelines, and a real person who picks up.
             </p>
 
-            {/* Elmhurst ID card image */}
-            <div className="mt-6 rounded-xl overflow-hidden border border-secondary-200 shadow-sm">
-              <Image
-                src="/elmhurst-id.jpeg"
-                alt="Elmhurst Energy accreditation ID card for Abdul Motaleb Taher, EES/036265"
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover"
-                priority
-              />
-            </div>
-
-            {/* Verified assessor credential */}
-            <div className="mt-4 rounded-xl border border-primary-200 bg-white p-5 shadow-sm">
-              <div className="flex items-center gap-2 text-primary-700">
-                <BadgeCheck className="w-5 h-5 shrink-0" aria-hidden="true" />
-                <span className="text-xs font-bold uppercase tracking-wide">Elmhurst Energy Approved</span>
+            {/* Verified assessor credential — ID card beside details */}
+            <div className="mt-6 flex flex-col sm:flex-row gap-5 rounded-2xl border border-primary-200 bg-white p-5 shadow-sm">
+              {/* Elmhurst ID card — true portrait ratio, constrained width */}
+              <div className="shrink-0 mx-auto sm:mx-0 w-36 rounded-lg overflow-hidden border border-secondary-200 shadow-sm">
+                <Image
+                  src="/elmhurst-id.jpeg"
+                  alt="Elmhurst Energy accreditation ID card for Abdul Motaleb Taher, EES/036265"
+                  width={625}
+                  height={961}
+                  className="w-full h-auto"
+                  priority
+                />
               </div>
-              <dl className="mt-4 space-y-2.5 text-sm">
-                <div className="flex justify-between gap-4">
-                  <dt className="text-secondary-500">Assessor</dt>
-                  <dd className="font-semibold text-secondary-900 text-right">{site.assessor.name}</dd>
+              {/* Credential details */}
+              <div className="flex-1">
+                <div className="flex items-center gap-2 text-primary-700">
+                  <BadgeCheck className="w-5 h-5 shrink-0" aria-hidden="true" />
+                  <span className="text-xs font-bold uppercase tracking-wide">Elmhurst Energy Approved</span>
                 </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-secondary-500">EES Number</dt>
-                  <dd className="font-semibold text-secondary-900 text-right">{site.assessor.accreditationNumber}</dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-secondary-500">Scheme</dt>
-                  <dd className="font-semibold text-secondary-900 text-right">{site.assessor.scheme}</dd>
-                </div>
-              </dl>
-              <a
-                href={site.assessor.verifyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-block text-sm font-semibold text-primary-700 hover:text-primary-800 underline underline-offset-4"
-              >
-                Verify this assessor on the Elmhurst register →
-              </a>
+                <dl className="mt-4 space-y-2.5 text-sm">
+                  <div className="flex justify-between gap-4">
+                    <dt className="text-secondary-500">Assessor</dt>
+                    <dd className="font-semibold text-secondary-900 text-right">{site.assessor.name}</dd>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <dt className="text-secondary-500">EES Number</dt>
+                    <dd className="font-semibold text-secondary-900 text-right">{site.assessor.accreditationNumber}</dd>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <dt className="text-secondary-500">Scheme</dt>
+                    <dd className="font-semibold text-secondary-900 text-right">{site.assessor.scheme}</dd>
+                  </div>
+                </dl>
+                <a
+                  href={site.assessor.verifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block text-sm font-semibold text-primary-700 hover:text-primary-800 underline underline-offset-4"
+                >
+                  Verify on the Elmhurst register →
+                </a>
+              </div>
             </div>
           </div>
 
-          <div>
-            <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Coverage &amp; Parent Company</p>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex flex-col">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+              <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+              Coverage &amp; Parent Company
+            </div>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
               Where we work
             </h2>
             <p className="mt-5 text-secondary-700 leading-relaxed">
-              Based in Stratford (E15), we cover all 32 London boroughs, the City of London, and surrounding areas within a 1.5-hour radius — parts of Essex, Kent, Hertfordshire and Surrey included.
+              Based in Stratford (E15), we cover all 32 London boroughs, the City of London, and surrounding areas within a 1.5-hour radius, parts of Essex, Kent, Hertfordshire and Surrey included.
             </p>
             <p className="mt-4 text-secondary-700 leading-relaxed">
               L&amp;D Energy is the EPC trading division of {site.legalName}, a UK-registered company.
             </p>
-            <ul className="mt-6 space-y-2.5 text-secondary-700">
-              <li className="flex items-center gap-2.5">
-                <MapPin className="w-5 h-5 text-primary-600" aria-hidden="true" />
-                Stratford, East London E15
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Clock className="w-5 h-5 text-primary-600" aria-hidden="true" />
-                {site.hours}
-              </li>
-            </ul>
+
+            {/* Coverage stats grid */}
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              {[
+                { value: '32', label: 'London Boroughs' },
+                { value: '1.5hr', label: 'Travel radius' },
+                { value: '7 days', label: '8am–8pm' },
+                { value: '72hr', label: 'Standard delivery' },
+              ].map(({ value, label }) => (
+                <div key={label} className="rounded-xl bg-canvas ring-1 ring-secondary-900/5 p-4 text-center shadow-sm">
+                  <p className="text-2xl font-bold text-secondary-900">{value}</p>
+                  <p className="mt-0.5 text-xs text-secondary-500">{label}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Location + hours */}
+            <div className="mt-4 rounded-xl bg-primary-50 ring-1 ring-primary-100 p-5">
+              <ul className="space-y-3 text-secondary-700">
+                <li className="flex items-center gap-2.5">
+                  <MapPin className="w-5 h-5 text-primary-600 shrink-0" aria-hidden="true" />
+                  <span>Stratford, East London E15</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <Clock className="w-5 h-5 text-primary-600 shrink-0" aria-hidden="true" />
+                  <span>{site.hours}</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </Section>

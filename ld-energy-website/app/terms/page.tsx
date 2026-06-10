@@ -21,9 +21,28 @@ export const metadata: Metadata = {
   },
 }
 
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Terms of Service',
+  url: `${site.url}/terms`,
+  description: 'Terms of service governing the supply of EPC certificates and floor plans by L&D Energy.',
+  publisher: { '@id': `${site.url}/#organization` },
+  inLanguage: 'en-GB',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'Terms of Service', item: `${site.url}/terms` },
+    ],
+  },
+}
+
 export default function TermsPage() {
   return (
-    <LegalPage
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+      <LegalPage
       title="Terms of Service"
       lastUpdated="May 2026"
       breadcrumbs={[
@@ -42,7 +61,7 @@ export default function TermsPage() {
 
       <h2>2. Booking and pricing</h2>
       <p>
-        Prices are fixed by property type and shown on our pricing page. The price quoted at booking is the price you pay — there are no travel surcharges within our service area. Express (next-day) service is available for £12 extra per EPC.
+        Prices are fixed by property type and shown on our pricing page. The price quoted at booking is the price you pay, there are no travel surcharges within our service area. Express (next-day) service is available for £12 extra per EPC.
       </p>
       <p>
         Bookings are confirmed once we reply with a confirmed appointment time. We may decline bookings for properties outside our service area or where we cannot deliver the agreed turnaround.
@@ -101,5 +120,6 @@ export default function TermsPage() {
         <a href={site.phoneHref}>{site.phone}</a> · <a href={site.emailHref}>{site.email}</a>.
       </p>
     </LegalPage>
+    </>
   )
 }

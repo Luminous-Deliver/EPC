@@ -23,16 +23,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!cat) return {}
   const url = `${site.url}/blog/category/${cat.slug}`
   return {
-    title: `${cat.name} — EPC Guides`,
+    title: `${cat.name}, EPC Guides`,
     description: `${cat.description} Posts written by an Elmhurst-accredited London Domestic Energy Assessor.`,
     alternates: { canonical: url },
     openGraph: {
-      title: `${cat.name} — EPC Guides | L&D Energy`,
+      title: `${cat.name}, EPC Guides | L&D Energy`,
       description: cat.description,
       url,
     },
     twitter: {
-      title: `${cat.name} — EPC Guides`,
+      title: `${cat.name}, EPC Guides`,
       description: cat.description,
     },
   }
@@ -61,11 +61,28 @@ export default async function BlogCategoryPage({ params }: PageProps) {
     })),
   }
 
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `${cat.name}, EPC Guides`,
+    description: cat.description,
+    url: `${site.url}/blog/category/${cat.slug}`,
+    publisher: { '@id': `${site.url}/#organization` },
+    hasPart: posts.map((p) => ({
+      '@type': 'Article',
+      headline: p.title,
+      description: p.description,
+      url: `${site.url}/blog/${p.slug}`,
+      datePublished: p.publishedAt,
+      dateModified: p.updatedAt || p.publishedAt,
+    })),
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, collectionSchema]) }}
       />
       <BreadcrumbNav items={breadcrumbs} />
       <PageHero
@@ -77,7 +94,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
 
       <Section variant="default">
         {posts.length === 0 ? (
-          <p className="text-secondary-700">No posts in this category yet — check back soon.</p>
+          <p className="text-secondary-700">No posts in this category yet, check back soon.</p>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((p) => (

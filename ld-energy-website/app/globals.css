@@ -9,12 +9,13 @@
   }
 
   body {
-    @apply bg-white text-secondary-800 font-sans antialiased;
+    @apply bg-canvas text-secondary-800 font-sans antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif text-secondary-900;
     font-optical-sizing: auto;
+    letter-spacing: -0.01em;
   }
 
   :focus-visible {
@@ -105,6 +106,19 @@
   .animate-delay-400 { animation-delay: 400ms; }
   .animate-delay-500 { animation-delay: 500ms; }
 
+  /* Subtle reveal — smaller travel (6px), slight blur, fills forward */
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(6px); filter: blur(2px); }
+    to   { opacity: 1; transform: translateY(0);   filter: blur(0); }
+  }
+  .animate-reveal {
+    animation: reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-reveal { animation: none; opacity: 1; }
+  }
+
   /* Premium soft shadows (slate-tinted) */
   .shadow-premium {
     box-shadow: 0 1px 2px -1px rgb(15 23 42 / 0.08),
@@ -132,7 +146,42 @@
     background-image: radial-gradient(60% 50% at 50% 0%, rgb(204 251 241 / 0.55) 0%, transparent 70%);
   }
 
+  /* Premium Glassmorphism and Border Glow utilities */
+  .bg-glass {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .card-glow-teal {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-glow-teal:hover {
+    border-color: rgba(20, 184, 166, 0.4);
+    box-shadow: 0 0 25px 2px rgba(20, 184, 166, 0.12),
+                0 10px 15px -3px rgba(15, 23, 42, 0.05);
+    transform: translateY(-4px);
+  }
+
+  .card-glow-amber {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-glow-amber:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    box-shadow: 0 0 25px 2px rgba(245, 158, 11, 0.12),
+                0 10px 15px -3px rgba(15, 23, 42, 0.05);
+    transform: translateY(-4px);
+  }
+
+  /* Warm card — sits on canvas/sand backgrounds */
+  .card-warm {
+    background-color: #FBFAF7;
+    border: 1px solid rgb(15 23 42 / 0.06);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hover\:-translate-y-1:hover { transform: none; }
+    .card-glow-teal:hover, .card-glow-amber:hover { transform: none; }
   }
 }

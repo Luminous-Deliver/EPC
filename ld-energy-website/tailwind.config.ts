@@ -46,6 +46,15 @@ const config: Config = {
         success: '#22C55E',
         warning: '#F59E0B',
         danger: '#EF4444',
+        // Warm editorial canvas — ivory page, sand for muted bands
+        canvas: '#FBFAF7',
+        sand: '#F3F0E8',
+        forest: {
+          900: '#061a18',
+          800: '#07211e',
+          700: '#0a2e29',
+          accent: '#34d399',
+        },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],

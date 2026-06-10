@@ -62,7 +62,7 @@ const improvements = [
   {
     Icon: Lightbulb,
     title: 'LED lighting',
-    body: 'Low-cost swap. Increases the proportion of low-energy lighting recorded — a direct EPC factor.',
+    body: 'Low-cost swap. Increases the proportion of low-energy lighting recorded, a direct EPC factor.',
   },
   {
     Icon: Thermometer,
@@ -77,7 +77,7 @@ const improvements = [
   {
     Icon: Sun,
     title: 'Renewables',
-    body: 'Solar PV or a heat pump can move a property up several bands — useful if you’re aiming for EPC C or above.',
+    body: 'Solar PV or a heat pump can move a property up several bands, useful if you’re aiming for EPC C or above.',
   },
 ]
 
@@ -85,7 +85,7 @@ const whyMatters = [
   {
     Icon: Clock,
     title: 'Legal requirement',
-    body: 'You must have an EPC commissioned before your property is marketed for sale in England and Wales — and your estate agent cannot legally list it without one.',
+    body: 'You must have an EPC commissioned before your property is marketed for sale in England and Wales, and your estate agent cannot legally list it without one.',
   },
   {
     Icon: TrendingUp,
@@ -153,15 +153,18 @@ export default function SellersPage() {
       <PageHero
         eyebrow="For Home Sellers"
         heading="EPCs for Selling Your London Home"
-        subheading="An EPC is required by law before your property goes on the market. We provide fast, transparently priced certificates so your sale isn't held up — 72 hours standard, or next day for £12 extra."
+        subheading="An EPC is required by law before your property goes on the market. We provide fast, transparently priced certificates so your sale isn't held up, 72 hours standard, or next day for £12 extra."
         primaryCta={{ label: 'Book Your Seller EPC', href: '/contact' }}
       />
 
       {/* Why it matters */}
       <Section variant="default" id="why-it-matters">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Why It Matters</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+            Why It Matters
+          </div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             Why You Need an EPC to Sell
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
@@ -169,14 +172,16 @@ export default function SellersPage() {
           </p>
         </div>
 
-        <ul className="mt-10 grid gap-6 md:grid-cols-3">
+        <ul className="mt-8 grid gap-4 sm:grid-cols-3">
           {whyMatters.map((m) => (
-            <li key={m.title} className="rounded-lg border border-secondary-100 bg-white p-6 shadow-sm">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-700">
-                <m.Icon className="w-6 h-6" aria-hidden="true" />
+            <li key={m.title} className="flex sm:flex-col items-start gap-4 sm:gap-0 rounded-2xl bg-canvas ring-1 ring-secondary-900/5 p-5 md:p-6 shadow-sm">
+              <div className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary-50 ring-1 ring-primary-100 text-primary-700">
+                <m.Icon className="w-5 h-5" aria-hidden="true" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-secondary-900">{m.title}</h3>
-              <p className="mt-2 text-secondary-700 leading-relaxed text-sm">{m.body}</p>
+              <div className="sm:mt-4">
+                <h3 className="text-base md:text-lg font-semibold text-secondary-900">{m.title}</h3>
+                <p className="mt-1.5 text-sm text-secondary-700 leading-relaxed">{m.body}</p>
+              </div>
             </li>
           ))}
         </ul>
@@ -186,8 +191,11 @@ export default function SellersPage() {
       <Section variant="muted" id="sale-price">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
           <div>
-            <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Sale Price &amp; Speed</p>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+              <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+              Sale Price &amp; Speed
+            </div>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
               How Your EPC Affects Your Sale
             </h2>
             <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
@@ -218,8 +226,11 @@ export default function SellersPage() {
       {/* Timeline */}
       <Section variant="default" id="timeline">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Timeline</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
+            Timeline
+          </div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             When to Book Your EPC
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">

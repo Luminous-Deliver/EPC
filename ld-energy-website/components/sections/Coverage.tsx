@@ -26,19 +26,28 @@ export function Coverage() {
   return (
     <Section variant="muted" id="areas" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-primary-50 ring-1 ring-primary-100 px-3 py-1 text-xs uppercase tracking-wide font-semibold text-primary-700">
-          <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
+        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
           Coverage · London-wide
-        </span>
+        </div>
         <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
           Areas We Cover
         </h2>
         <p className="mt-4 text-lg text-secondary-700 leading-relaxed">
-          Based in Stratford (E15), we provide Elmhurst-accredited EPC assessments across East, North, South and West London — every one of the 32 boroughs, plus surrounding areas within a 1.5-hour radius.
+          Based in Stratford (E15), we provide Elmhurst-accredited EPC assessments across East, North, South and West London, every one of the 32 boroughs, plus surrounding areas within a 1.5-hour radius.
         </p>
       </div>
 
-      <div className="mt-10 space-y-8">
+      <div className="mt-8 md:hidden rounded-2xl bg-white ring-1 ring-secondary-200 p-5 shadow-sm text-center">
+        <p className="text-secondary-800 font-medium leading-relaxed">
+          Based in Stratford, we cover all <span className="font-bold text-primary-700">32 London boroughs</span> across East, North, South, and West London.
+        </p>
+        <Link href="/areas" className="mt-3 inline-block font-semibold text-primary-700 hover:text-primary-800">
+          View all specific areas &rarr;
+        </Link>
+      </div>
+
+      <div className="hidden md:block mt-10 space-y-8">
         {groups.map((group) => (
           <div key={group.region}>
             <h3 className="flex items-center gap-2 text-sm font-semibold text-secondary-900">
@@ -66,7 +75,7 @@ export function Coverage() {
         ))}
       </div>
 
-      <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+      <div className="hidden md:flex mt-8 flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
         <Link
           href="/areas"
           className="inline-flex items-center gap-1.5 min-h-[44px] text-primary-700 font-semibold hover:text-primary-800"
@@ -75,7 +84,7 @@ export function Coverage() {
           <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </Link>
         <p className="text-sm text-secondary-600">
-          Don’t see your area? We cover all 32 boroughs —{' '}
+          Don't see your area? We cover all 32 boroughs,{' '}
           <Link href="#contact" className="font-semibold text-primary-700 hover:text-primary-800">
             get in touch
           </Link>
