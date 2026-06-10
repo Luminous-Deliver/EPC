@@ -10,9 +10,13 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <section className="bg-gradient-to-b from-primary-50 via-white to-white min-h-[70vh] flex items-center">
-      <Container className="py-20 text-center">
-        <p className="text-8xl font-extrabold text-primary-600 tracking-tight">404</p>
+    <section className="relative overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white min-h-[70vh] flex items-center">
+      <div
+        className="bg-dot-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]"
+        aria-hidden="true"
+      />
+      <Container className="relative py-20 text-center">
+        <p className="text-7xl sm:text-8xl font-extrabold tracking-tight text-gradient-brand">404</p>
         <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold text-secondary-900">
           Page not found
         </h1>
@@ -44,7 +48,7 @@ export default function NotFound() {
             <Link
               key={href}
               href={href}
-              className="block px-4 py-3 rounded-xl bg-white border border-secondary-200 text-secondary-700 hover:border-primary-300 hover:text-primary-700 hover:shadow-sm transition-all font-medium"
+              className="block min-h-[44px] px-4 py-3 rounded-xl bg-white ring-1 ring-secondary-200 text-secondary-700 hover:ring-primary-300 hover:text-primary-700 hover:shadow-premium transition-all font-medium"
             >
               {label}
             </Link>
