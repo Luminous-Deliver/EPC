@@ -22,27 +22,18 @@ export default async function OpengraphImage() {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-          {/* LD monogram icon block */}
+          {/* White pill containing the JPEG logo mark */}
           <div
             style={{
-              width: 72,
-              height: 72,
-              borderRadius: 14,
-              background: 'linear-gradient(135deg, #1B2A4A 0%, #0D9488 100%)',
+              background: '#ffffff',
+              borderRadius: 12,
+              padding: '8px 16px',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              fontWeight: 900,
-              fontSize: 36,
-              color: '#ffffff',
-              letterSpacing: '-2px',
             }}
           >
-            LD
-          </div>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-            <span style={{ fontSize: 36, fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>L&D</span>
-            <span style={{ fontSize: 36, fontWeight: 700, color: '#5EEAD4', letterSpacing: '-0.02em' }}>Energy</span>
+            <span style={{ fontSize: 30, fontWeight: 900, color: '#1B2A4A', letterSpacing: '-1px' }}>LD</span>
+            <span style={{ fontSize: 30, fontWeight: 700, color: '#2E7E8A', marginLeft: 6 }}>Energy</span>
           </div>
         </div>
 
