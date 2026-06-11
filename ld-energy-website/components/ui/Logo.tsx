@@ -5,29 +5,27 @@ import { cn } from '@/lib/cn'
 interface LogoProps {
   className?: string
   href?: string | null
-  /** 'light' = used on dark backgrounds (footer) — wraps image in a white pill */
   variant?: 'dark' | 'light'
   size?: 'sm' | 'md' | 'lg'
 }
 
-// The JPEG canvas is 2752×1536 but the actual logo content sits roughly
-// in the centre third — effective content aspect ≈ 3.2:1 after visual crop.
-// We display at a taller height so it's legible in the header bar.
-const displayHeights: Record<string, number> = { sm: 36, md: 44, lg: 56 }
+const displayHeights: Record<string, number> = { sm: 32, md: 40, lg: 52 }
 
 export function Logo({ className, href = '/', variant = 'dark', size = 'md' }: LogoProps) {
   const h = displayHeights[size]
 
   const img = (
     <Image
-      src="/LDenergy-cropped.png"
+      src="/LDenergy-clean.svg"
       alt="L&D Energy"
       width={2105}
       height={651}
       priority
       className={cn(
         'block object-contain',
-        variant === 'light' && 'rounded-lg bg-white px-2 py-1',
+        // SVG has transparent bg — invert on dark backgrounds so the
+        // navy mark reads clearly against the dark footer
+        variant === 'light' && 'brightness-0 invert',
       )}
       style={{ height: h, width: 'auto' }}
     />
