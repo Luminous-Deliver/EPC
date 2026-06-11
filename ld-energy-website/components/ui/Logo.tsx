@@ -1,32 +1,42 @@
 import Link from 'next/link'
-import { Zap } from 'lucide-react'
+import Image from 'next/image'
 import { cn } from '@/lib/cn'
 
 interface LogoProps {
   className?: string
   href?: string | null
   variant?: 'dark' | 'light'
+  size?: 'sm' | 'md' | 'lg'
 }
 
-export function Logo({ className, href = '/', variant = 'dark' }: LogoProps) {
-  const textColor = variant === 'light' ? 'text-white' : 'text-secondary-900'
-  const accent = variant === 'light' ? 'text-primary-200' : 'text-primary-600'
+const displayHeights: Record<string, number> = { sm: 32, md: 40, lg: 52 }
 
-  const content = (
-    <span className={cn('flex items-center gap-2', className)}>
-      <span className="w-8 h-8 bg-primary-600 rounded-md flex items-center justify-center shrink-0">
-        <Zap className="w-5 h-5 text-white" aria-hidden="true" />
-      </span>
-      <span className={cn('text-xl font-extrabold font-display', textColor)}>
-        L&amp;D <span className={accent}>Energy</span>
-      </span>
-    </span>
+export function Logo({ className, href = '/', variant = 'dark', size = 'md' }: LogoProps) {
+  const h = displayHeights[size]
+
+  const img = (
+    <Image
+      src="/logo.webp"
+      alt="L&D Energy"
+      width={336}
+      height={104}
+      priority
+      className={cn(
+        'block object-contain',
+        // SVG has transparent bg — invert on dark backgrounds so the
+        // navy mark reads clearly against the dark footer
+        variant === 'light' && 'brightness-0 invert',
+      )}
+      style={{ height: h, width: 'auto' }}
+    />
   )
+
+  const content = <span className={cn('inline-flex items-center shrink-0', className)}>{img}</span>
 
   if (!href) return content
 
   return (
-    <Link href={href} aria-label="L&D Energy home" className="inline-flex">
+    <Link href={href} aria-label="L&D Energy — home" className="inline-flex shrink-0">
       {content}
     </Link>
   )

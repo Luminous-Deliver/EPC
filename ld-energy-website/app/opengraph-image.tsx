@@ -22,24 +22,18 @@ export default async function OpengraphImage() {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+          {/* White pill containing the JPEG logo mark */}
           <div
             style={{
-              width: 72,
-              height: 72,
-              borderRadius: 16,
-              background: '#F59E0B',
+              background: '#ffffff',
+              borderRadius: 12,
+              padding: '8px 16px',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: 44,
-              fontWeight: 800,
-              color: '#0D9488',
             }}
           >
-            ⚡
-          </div>
-          <div style={{ fontSize: 36, fontWeight: 700, letterSpacing: '-0.02em' }}>
-            L&D Energy
+            <span style={{ fontSize: 30, fontWeight: 900, color: '#1B2A4A', letterSpacing: '-1px' }}>LD</span>
+            <span style={{ fontSize: 30, fontWeight: 700, color: '#2E7E8A', marginLeft: 6 }}>Energy</span>
           </div>
         </div>
 

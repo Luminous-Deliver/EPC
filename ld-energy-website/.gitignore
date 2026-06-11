@@ -8,3 +8,6 @@ build
 .DS_Store
 *.log
 *.tsbuildinfo
+
+# local dev utilities
+screenshot.js

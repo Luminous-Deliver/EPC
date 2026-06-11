@@ -61,10 +61,26 @@ ${rows
   return { text, html }
 }
 
+const MAX_BODY_BYTES = 10_000
+const ALLOWED_ORIGINS = [
+  'https://epc.luminousanddeliver.co.uk',
+  'http://localhost:3000',
+]
+
 export async function POST(req: Request) {
+  // Reject cross-site submissions; browsers always send Origin on POST.
+  const origin = req.headers.get('origin')
+  if (origin && !ALLOWED_ORIGINS.includes(origin)) {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+  }
+
   let payload: unknown
   try {
-    payload = await req.json()
+    const raw = await req.text()
+    if (raw.length > MAX_BODY_BYTES) {
+      return NextResponse.json({ error: 'Request too large' }, { status: 413 })
+    }
+    payload = JSON.parse(raw)
   } catch {
     return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })
   }

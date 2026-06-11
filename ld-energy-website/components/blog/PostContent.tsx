@@ -45,13 +45,18 @@ const components = {
     )
   },
   table: ({ children, ...props }: TableProps) => (
-    <div className="not-prose my-8 -mx-4 sm:mx-0 overflow-x-auto">
-      <table
-        className="w-full min-w-[480px] border-collapse text-sm md:text-base"
-        {...props}
-      >
-        {children}
-      </table>
+    <div className="not-prose my-8">
+      <div className="-mx-4 sm:mx-0 overflow-x-auto overscroll-x-contain px-4 sm:px-0 [scrollbar-width:thin]">
+        <table
+          className="w-full min-w-[640px] border-collapse text-sm md:text-base"
+          {...props}
+        >
+          {children}
+        </table>
+      </div>
+      <p className="mt-2 text-xs font-medium text-secondary-400 sm:hidden" aria-hidden="true">
+        Swipe sideways to see the full table
+      </p>
     </div>
   ),
   thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
@@ -59,7 +64,7 @@ const components = {
   ),
   th: (props: React.ThHTMLAttributes<HTMLTableCellElement>) => (
     <th
-      className="text-left font-semibold text-secondary-900 px-3 md:px-4 py-2.5 md:py-3 border border-secondary-200"
+      className="text-left font-semibold text-secondary-900 px-3 md:px-4 py-2.5 md:py-3 border border-secondary-200 whitespace-nowrap"
       {...props}
     />
   ),
