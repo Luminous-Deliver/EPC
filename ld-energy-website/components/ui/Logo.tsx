@@ -16,10 +16,10 @@ export function Logo({ className, href = '/', variant = 'dark', size = 'md' }: L
 
   const img = (
     <Image
-      src="/LDenergy-clean.svg"
+      src="/logo.webp"
       alt="L&D Energy"
-      width={2105}
-      height={651}
+      width={336}
+      height={104}
       priority
       className={cn(
         'block object-contain',
