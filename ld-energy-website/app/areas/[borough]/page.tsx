@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!data) return {}
 
   return {
-    title: `EPC in ${data.name} | From £49`,
+    title: { absolute: data.metaTitle },
     description: `Domestic EPC certificate in ${data.name} from £49. Elmhurst-accredited assessor, next-day available, no travel surcharges. Floor plans too. Book today.`,
     alternates: { canonical: `${site.url}/areas/${slug}` },
     openGraph: {
@@ -42,8 +42,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
-function boroughFaq(name: string): FaqItem[] {
+function boroughFaq(name: string, postcodeFaq: { q: string; a: string }): FaqItem[] {
   return [
+    { q: postcodeFaq.q, a: postcodeFaq.a },
     {
       q: `How much does an EPC cost in ${name}?`,
       a: `Our guide EPC prices in ${name} start from £${pricing[0].epc} for studios, £${pricing[1].epc} for 1-bedroom, £${pricing[2].epc} for 2-bedroom, £${pricing[3].epc} for 3-bedroom, £${pricing[4].epc} for 4-bedroom, and £${pricing[5].epc}+ for 5+ bedroom homes. Final price depends on floor area (m²) and property condition. Next-day service is available for £12 extra. No travel surcharges.`,
@@ -103,7 +104,7 @@ export default async function BoroughPage({ params }: PageProps) {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: boroughFaq(data.name).map((item) => ({
+    mainEntity: boroughFaq(data.name, data.postcodeFaq).map((item) => ({
       '@type': 'Question',
       name: item.q,
       acceptedAnswer: { '@type': 'Answer', text: item.a },
@@ -260,9 +261,10 @@ export default async function BoroughPage({ params }: PageProps) {
         <div className="max-w-3xl">
           <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Also Nearby</p>
           <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
-            Nearby Areas We Also Cover
+            Areas We Cover in {data.name}
           </h2>
-          <p className="mt-5 text-secondary-700 leading-relaxed">
+          <p className="mt-5 text-secondary-700 leading-relaxed">{data.areasCovered}</p>
+          <p className="mt-4 text-secondary-700 leading-relaxed">
             We cover {data.name} and all neighbouring boroughs with the same transparent pricing and rapid turnaround.
           </p>
         </div>
@@ -289,7 +291,7 @@ export default async function BoroughPage({ params }: PageProps) {
             EPC Questions for {data.name}
           </h2>
           <div className="mt-8">
-            <Accordion items={boroughFaq(data.name)} />
+            <Accordion items={boroughFaq(data.name, data.postcodeFaq)} />
           </div>
         </div>
       </Section>

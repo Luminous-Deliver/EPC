@@ -11,6 +11,12 @@ export interface BoroughMeta {
   transport: string
   /** 5–6 neighbouring borough slugs for internal linking */
   neighbours: string[]
+  /** Area-rich SEO meta title (used as absolute title) */
+  metaTitle: string
+  /** 'Areas Covered' block naming neighbourhoods + postcode districts */
+  areasCovered: string
+  /** Postcode-targeted FAQ (feeds accordion + FAQPage schema) */
+  postcodeFaq: { q: string; a: string }
 }
 
 export const boroughMeta: Record<string, BoroughMeta> = {
@@ -26,6 +32,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'Stratford and Stratford International stations give us the Elizabeth line, Jubilee, Central, DLR, Overground and c2c, so we can reach most appointments quickly, even at short notice.',
     neighbours: ['newham', 'hackney', 'tower-hamlets', 'waltham-forest', 'greenwich'],
+    metaTitle: "EPC Assessor Stratford | Fast Certificates in E15 & E20",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across Stratford and the surrounding area. We cover all local districts including Stratford (E15), Maryland (E15), Forest Lane (E15), East Village (E20) and the Queen Elizabeth Olympic Park.",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Stratford (E15) or East Village (E20)?",
+      a: "If your property is located in E15, E20, or anywhere across the Stratford area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   hackney: {
     slug: 'hackney',
@@ -39,6 +52,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The London Overground spine, Dalston Junction, Hackney Central and Hackney Wick, plus Stoke Newington and Rectory Road rail give us good coverage despite Hackney’s limited Underground access.',
     neighbours: ['islington', 'tower-hamlets', 'newham', 'waltham-forest', 'haringey'],
+    metaTitle: "EPC Assessor Hackney | Fast Certificates in Dalston E8, Clapton E5",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Hackney. We cover all local districts including Dalston (E8), Stoke Newington (N16), Clapton (E5), Hackney Wick (E9), De Beauvoir (N1) and Homerton (E9).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Dalston (E8) or Stoke Newington (N16)?",
+      a: "If your property is located in E8, N16, or anywhere across the Hackney area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   'tower-hamlets': {
     slug: 'tower-hamlets',
@@ -52,6 +72,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Jubilee line, DLR across the Isle of Dogs, and the Elizabeth line at Whitechapel and Canary Wharf make Tower Hamlets one of the quickest boroughs for us to cover.',
     neighbours: ['hackney', 'newham', 'southwark', 'city-of-london', 'greenwich'],
+    metaTitle: "EPC Assessor Tower Hamlets | Canary Wharf E14, Bow E3",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Tower Hamlets. We cover all local districts including Canary Wharf (E14), Whitechapel (E1), Bow (E3), Spitalfields (E1), Wapping (E1) and the Isle of Dogs (E14).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Canary Wharf (E14) or Bow (E3)?",
+      a: "If your property is located in E14, E3, or anywhere across the Tower Hamlets area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   newham: {
     slug: 'newham',
@@ -65,6 +92,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Elizabeth line, DLR through the Royal Docks, c2c and the District and Hammersmith & City lines give us fast, flexible access across all six Newham postcodes.',
     neighbours: ['stratford', 'tower-hamlets', 'barking-dagenham', 'waltham-forest', 'greenwich'],
+    metaTitle: "EPC Assessor Newham | Forest Gate E7, East Ham E6",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Newham. We cover all local districts including Forest Gate (E7), East Ham (E6), Plaistow (E13), Canning Town (E16), Manor Park (E12) and the Royal Docks (E16).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Forest Gate (E7) or East Ham (E6)?",
+      a: "If your property is located in E7, E6, or anywhere across the Newham area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   greenwich: {
     slug: 'greenwich',
@@ -78,6 +112,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The DLR, the Elizabeth line at Woolwich, Southeastern rail and the Jubilee line at North Greenwich together cover the borough’s spread-out riverside geography well.',
     neighbours: ['lewisham', 'bexley', 'tower-hamlets', 'southwark', 'bromley'],
+    metaTitle: "EPC Assessor Greenwich | Blackheath SE3, Woolwich SE18",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire Royal Borough of Greenwich. We cover all local districts including Greenwich (SE10), Blackheath (SE3), Charlton (SE7), Woolwich (SE18) and Greenwich Peninsula (SE10).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Greenwich (SE10) or Blackheath (SE3)?",
+      a: "If your property is located in SE10, SE3, or anywhere across the Greenwich area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   islington: {
     slug: 'islington',
@@ -91,6 +132,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Victoria and Northern lines, plus Overground services and the major King’s Cross and Highbury & Islington interchanges, keep appointment access straightforward.',
     neighbours: ['camden', 'hackney', 'haringey', 'city-of-london', 'westminster'],
+    metaTitle: "EPC Assessor Islington | Angel N1, Highbury N5",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Islington. We cover all local districts including Angel (N1), Highbury (N5), Holloway (N7), Archway (N19) and Canonbury (N1).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Angel (N1) or Highbury (N5)?",
+      a: "If your property is located in N1, N5, or anywhere across the Islington area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   southwark: {
     slug: 'southwark',
@@ -104,6 +152,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Jubilee line, Thameslink, the Overground at Peckham and Bermondsey, and the Northern line at Borough and Elephant & Castle give us strong coverage across Southwark.',
     neighbours: ['lambeth', 'lewisham', 'tower-hamlets', 'city-of-london', 'wandsworth'],
+    metaTitle: "EPC Assessor Southwark | Peckham SE15, Bermondsey SE16",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Southwark. We cover all local districts including Bermondsey (SE16), Peckham (SE15), Camberwell (SE5), Walworth (SE17) and Bankside (SE1).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Peckham (SE15) or Bermondsey (SE16)?",
+      a: "If your property is located in SE15, SE16, or anywhere across the Southwark area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   lewisham: {
     slug: 'lewisham',
@@ -117,6 +172,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'Southeastern rail, the DLR terminus at Lewisham, and the Overground through Brockley, Honor Oak Park and Forest Hill cover the borough well despite the absence of the Underground.',
     neighbours: ['greenwich', 'southwark', 'bromley', 'bexley', 'lambeth'],
+    metaTitle: "EPC Assessor Lewisham | Brockley SE4, Forest Hill SE23",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Lewisham. We cover all local districts including Brockley (SE4), Catford (SE6), Lewisham (SE13), New Cross (SE14), Forest Hill (SE23) and Sydenham (SE26).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Brockley (SE4) or Forest Hill (SE23)?",
+      a: "If your property is located in SE4, SE23, or anywhere across the Lewisham area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   'barking-dagenham': {
     slug: 'barking-dagenham',
@@ -130,6 +192,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The District and Hammersmith & City lines, c2c, the Overground, and the new Barking Riverside extension give us reliable access across all four postcodes.',
     neighbours: ['newham', 'havering', 'redbridge', 'waltham-forest', 'greenwich'],
+    metaTitle: "EPC Assessor Barking & Dagenham | Barking IG11, Dagenham RM10",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Barking and Dagenham. We cover all local districts including Barking (IG11), Dagenham (RM10), the Becontree estate (RM9) and Chadwell Heath (RM8).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Barking (IG11) or Dagenham (RM10)?",
+      a: "If your property is located in IG11, RM10, or anywhere across the Barking and Dagenham area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   'waltham-forest': {
     slug: 'waltham-forest',
@@ -143,6 +212,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Victoria line at Walthamstow Central, the Overground to Chingford, and Central line stations at Leyton and Leytonstone make the borough quick to cover.',
     neighbours: ['hackney', 'haringey', 'redbridge', 'newham', 'enfield'],
+    metaTitle: "EPC Assessor Waltham Forest | Walthamstow E17, Leyton E10",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Waltham Forest. We cover all local districts including Walthamstow (E17), Leyton (E10), Leytonstone (E11) and Chingford (E4).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Walthamstow (E17) or Leyton (E10)?",
+      a: "If your property is located in E17, E10, or anywhere across the Waltham Forest area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   camden: {
     slug: 'camden',
@@ -156,6 +232,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Northern line runs the length of the borough, supported by the Metropolitan, Jubilee and Overground services and several major interchanges.',
     neighbours: ['islington', 'westminster', 'haringey', 'brent', 'barnet'],
+    metaTitle: "EPC Assessor Camden | Camden Town NW1, Kentish Town NW5",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Camden. We cover all local districts including Camden Town (NW1), Belsize Park (NW3), Kentish Town (NW5), Bloomsbury (WC1) and Hampstead (NW3).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Camden Town (NW1) or Kentish Town (NW5)?",
+      a: "If your property is located in NW1, NW5, or anywhere across the Camden area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   westminster: {
     slug: 'westminster',
@@ -169,6 +252,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Bakerloo, Central, Jubilee, Victoria and Circle lines, plus the Paddington, Victoria and Marylebone termini, make Westminster very fast for us to reach.',
     neighbours: ['camden', 'kensington-chelsea', 'islington', 'lambeth', 'city-of-london'],
+    metaTitle: "EPC Assessor Westminster | Marylebone W1, Pimlico SW1",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire City of Westminster. We cover all local districts including Marylebone (W1), Paddington (W2), Pimlico (SW1), St John's Wood (NW8) and Maida Vale (W9).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Marylebone (W1) or Pimlico (SW1)?",
+      a: "If your property is located in W1, SW1, or anywhere across the Westminster area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   lambeth: {
     slug: 'lambeth',
@@ -182,6 +272,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Victoria and Northern lines, the Overground at Clapham High Street and Brixton, and extensive National Rail services cover Lambeth’s long north–south spread.',
     neighbours: ['southwark', 'wandsworth', 'westminster', 'lewisham', 'merton'],
+    metaTitle: "EPC Assessor Lambeth | Brixton SW2, Clapham SW4",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Lambeth. We cover all local districts including Brixton (SW2), Clapham (SW4), Kennington (SE11), Streatham (SW16), Stockwell (SW9) and Herne Hill (SE24).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Brixton (SW2) or Clapham (SW4)?",
+      a: "If your property is located in SW2, SW4, or anywhere across the Lambeth area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   wandsworth: {
     slug: 'wandsworth',
@@ -195,6 +292,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Northern line extension at Battersea and Nine Elms, plus National Rail at Clapham Junction, one of the UK’s busiest interchanges, give us excellent access.',
     neighbours: ['lambeth', 'merton', 'hammersmith-fulham', 'kensington-chelsea', 'richmond'],
+    metaTitle: "EPC Assessor Wandsworth | Battersea SW11, Tooting SW17",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Wandsworth. We cover all local districts including Battersea (SW11), Balham (SW12), Tooting (SW17), Putney (SW15) and Earlsfield (SW18).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Battersea (SW11) or Tooting (SW17)?",
+      a: "If your property is located in SW11, SW17, or anywhere across the Wandsworth area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   brent: {
     slug: 'brent',
@@ -208,6 +312,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Jubilee, Metropolitan, Bakerloo and Overground lines, with interchanges at Wembley Park and Wembley Central, keep the borough well connected for appointments.',
     neighbours: ['camden', 'ealing', 'harrow', 'barnet', 'hammersmith-fulham'],
+    metaTitle: "EPC Assessor Brent | Wembley HA0, Willesden NW10",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Brent. We cover all local districts including Wembley (HA0), Willesden (NW10), Kilburn (NW6), Harlesden (NW10) and Cricklewood (NW2).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Wembley (HA0) or Willesden (NW10)?",
+      a: "If your property is located in HA0, NW10, or anywhere across the Brent area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   ealing: {
     slug: 'ealing',
@@ -221,6 +332,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Elizabeth line through Ealing Broadway, Acton and Southall, plus the Central, District and Piccadilly lines, make Ealing one of the better-connected outer boroughs.',
     neighbours: ['hounslow', 'hillingdon', 'brent', 'hammersmith-fulham', 'harrow'],
+    metaTitle: "EPC Assessor Ealing | Acton W3, Southall UB1",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Ealing. We cover all local districts including Ealing (W5), Acton (W3), Hanwell (W7), West Ealing (W13) and Southall (UB1).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Ealing (W5) or Southall (UB1)?",
+      a: "If your property is located in W5, UB1, or anywhere across the Ealing area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   hounslow: {
     slug: 'hounslow',
@@ -234,6 +352,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Piccadilly line runs through Hounslow with the Elizabeth line nearby, supported by South Western Railway at Brentford and Isleworth.',
     neighbours: ['ealing', 'richmond', 'hillingdon', 'hammersmith-fulham', 'kingston'],
+    metaTitle: "EPC Assessor Hounslow | Chiswick W4, Brentford TW8",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Hounslow. We cover all local districts including Hounslow (TW3), Brentford (TW8), Isleworth (TW7), Chiswick (W4) and Feltham (TW13).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Chiswick (W4) or Brentford (TW8)?",
+      a: "If your property is located in W4, TW8, or anywhere across the Hounslow area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   richmond: {
     slug: 'richmond',
@@ -247,6 +372,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The District line and Overground terminus at Richmond, plus South Western Railway across Twickenham, Teddington and Kew, cover this riverside borough well.',
     neighbours: ['hounslow', 'kingston', 'wandsworth', 'hammersmith-fulham', 'merton'],
+    metaTitle: "EPC Assessor Richmond | Twickenham TW1, Kew TW9",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Richmond upon Thames. We cover all local districts including Richmond (TW9), Twickenham (TW1), Kew (TW9), Teddington (TW11) and East Sheen (SW14).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Richmond (TW9) or Twickenham (TW1)?",
+      a: "If your property is located in TW9, TW1, or anywhere across the Richmond area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   kingston: {
     slug: 'kingston',
@@ -260,6 +392,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'South Western Railway runs from Kingston, Surbiton and New Malden into Waterloo; the borough has no Underground, so we plan appointments around the rail network.',
     neighbours: ['richmond', 'merton', 'sutton', 'wandsworth', 'hounslow'],
+    metaTitle: "EPC Assessor Kingston | New Malden KT3, Surbiton KT6",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire Royal Borough of Kingston upon Thames. We cover all local districts including Kingston (KT1), New Malden (KT3), Surbiton (KT6) and Tolworth (KT6).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in New Malden (KT3) or Surbiton (KT6)?",
+      a: "If your property is located in KT3, KT6, or anywhere across the Kingston area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   croydon: {
     slug: 'croydon',
@@ -273,6 +412,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'Southern and Thameslink rail, plus the extensive Tramlink network, give us good access across this large southern borough.',
     neighbours: ['sutton', 'bromley', 'lambeth', 'merton', 'lewisham'],
+    metaTitle: "EPC Assessor Croydon | Thornton Heath CR7, Purley CR2",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Croydon. We cover all local districts including Croydon (CR0), Thornton Heath (CR7), South Norwood (SE25) and Purley (CR2).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Thornton Heath (CR7) or Purley (CR2)?",
+      a: "If your property is located in CR7, CR2, or anywhere across the Croydon area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   enfield: {
     slug: 'enfield',
@@ -286,6 +432,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Piccadilly line at Southgate and Oakwood, plus Great Northern and Overground rail across the borough, cover Enfield’s spread-out geography.',
     neighbours: ['haringey', 'waltham-forest', 'barnet', 'redbridge', 'hackney'],
+    metaTitle: "EPC Assessor Enfield | Edmonton N9, Palmers Green N13",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Enfield. We cover all local districts including Enfield Town (EN2), Edmonton (N9), Palmers Green (N13), Southgate (N14) and Winchmore Hill (N21).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Edmonton (N9) or Palmers Green (N13)?",
+      a: "If your property is located in N9, N13, or anywhere across the Enfield area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   haringey: {
     slug: 'haringey',
@@ -299,6 +452,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Victoria and Piccadilly lines, plus Overground and Great Northern services and the Tottenham Hale interchange, keep the borough well connected.',
     neighbours: ['enfield', 'hackney', 'islington', 'camden', 'barnet'],
+    metaTitle: "EPC Assessor Haringey | Tottenham N17, Crouch End N8",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Haringey. We cover all local districts including Tottenham (N17), Wood Green (N22), Crouch End (N8), Finsbury Park (N4) and South Tottenham (N15).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Tottenham (N17) or Crouch End (N8)?",
+      a: "If your property is located in N17, N8, or anywhere across the Haringey area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   redbridge: {
     slug: 'redbridge',
@@ -312,6 +472,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Central line through Wanstead, Woodford and Barkingside, plus the Elizabeth line at Ilford, make the borough straightforward to cover.',
     neighbours: ['waltham-forest', 'havering', 'newham', 'barking-dagenham', 'enfield'],
+    metaTitle: "EPC Assessor Redbridge | Ilford IG1, Woodford E18",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Redbridge. We cover all local districts including Ilford (IG1), Barkingside (IG6), Woodford (E18) and Wanstead (E11).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Ilford (IG1) or Woodford (E18)?",
+      a: "If your property is located in IG1, E18, or anywhere across the Redbridge area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   havering: {
     slug: 'havering',
@@ -325,6 +492,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Elizabeth line at Romford, Gidea Park and Harold Wood, plus c2c and the District line at Upminster, give us reliable access across this large outer borough.',
     neighbours: ['redbridge', 'barking-dagenham', 'bexley', 'newham', 'greenwich'],
+    metaTitle: "EPC Assessor Havering | Romford RM1, Hornchurch RM11",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Havering. We cover all local districts including Romford (RM1), Hornchurch (RM11), Upminster (RM14) and Rainham (RM13).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Romford (RM1) or Hornchurch (RM11)?",
+      a: "If your property is located in RM1, RM11, or anywhere across the Havering area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   bexley: {
     slug: 'bexley',
@@ -338,6 +512,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'Southeastern rail serves Bexleyheath, Sidcup and Erith; the borough has no Underground, so appointments are planned around the rail timetable.',
     neighbours: ['greenwich', 'bromley', 'lewisham', 'havering', 'barking-dagenham'],
+    metaTitle: "EPC Assessor Bexley | Bexleyheath DA6, Sidcup DA14",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Bexley. We cover all local districts including Bexleyheath (DA6), Welling (DA16), Sidcup (DA14) and Erith (DA8).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Bexleyheath (DA6) or Sidcup (DA14)?",
+      a: "If your property is located in DA6, DA14, or anywhere across the Bexley area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   bromley: {
     slug: 'bromley',
@@ -351,6 +532,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'Southeastern rail covers the borough, with Tramlink at Beckenham; there is no Underground, so we work around the rail network.',
     neighbours: ['lewisham', 'greenwich', 'bexley', 'croydon', 'southwark'],
+    metaTitle: "EPC Assessor Bromley | Beckenham BR3, Orpington BR6",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Bromley. We cover all local districts including Bromley (BR1), Beckenham (BR3), Orpington (BR6), Chislehurst (BR7) and Penge (SE20).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Beckenham (BR3) or Orpington (BR6)?",
+      a: "If your property is located in BR3, BR6, or anywhere across the Bromley area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   sutton: {
     slug: 'sutton',
@@ -364,6 +552,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'Southern and Thameslink rail serve Sutton, Carshalton and Cheam; with no Underground in the borough, appointments are scheduled around the rail network.',
     neighbours: ['croydon', 'merton', 'kingston', 'lambeth', 'wandsworth'],
+    metaTitle: "EPC Assessor Sutton | Cheam SM3, Carshalton SM5",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Sutton. We cover all local districts including Sutton (SM1), Cheam (SM3), Wallington (SM6) and Carshalton (SM5).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Cheam (SM3) or Carshalton (SM5)?",
+      a: "If your property is located in SM3, SM5, or anywhere across the Sutton area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   merton: {
     slug: 'merton',
@@ -377,6 +572,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The District line and the Northern line terminus at Morden, Tramlink across Mitcham, and South Western Railway and Thameslink services cover the borough well.',
     neighbours: ['wandsworth', 'lambeth', 'sutton', 'kingston', 'croydon'],
+    metaTitle: "EPC Assessor Merton | Wimbledon SW19, Mitcham CR4",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Merton. We cover all local districts including Wimbledon (SW19), Mitcham (CR4), Morden (SM4), Colliers Wood (SW19) and Raynes Park (SW20).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Wimbledon (SW19) or Mitcham (CR4)?",
+      a: "If your property is located in SW19, CR4, or anywhere across the Merton area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   'hammersmith-fulham': {
     slug: 'hammersmith-fulham',
@@ -390,6 +592,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Piccadilly, District, Circle and Hammersmith & City lines, plus the Overground at Shepherd’s Bush and Imperial Wharf, make the borough quick to reach.',
     neighbours: ['kensington-chelsea', 'wandsworth', 'ealing', 'brent', 'richmond'],
+    metaTitle: "EPC Assessor Hammersmith & Fulham | Fulham SW6, Shepherd's Bush W12",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Hammersmith and Fulham. We cover all local districts including Hammersmith (W6), Fulham (SW6), Shepherd's Bush (W12) and Parsons Green (SW6).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Fulham (SW6) or Shepherd's Bush (W12)?",
+      a: "If your property is located in SW6, W12, or anywhere across the Hammersmith and Fulham area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   'kensington-chelsea': {
     slug: 'kensington-chelsea',
@@ -403,6 +612,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The District, Circle, Central and Piccadilly lines, plus the Overground at Latimer Road and Kensington (Olympia), give us fast access across the borough.',
     neighbours: ['westminster', 'hammersmith-fulham', 'wandsworth', 'brent', 'camden'],
+    metaTitle: "EPC Assessor Kensington & Chelsea | Notting Hill W11, Chelsea SW3",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire Royal Borough of Kensington and Chelsea. We cover all local districts including Notting Hill (W11), Chelsea (SW3), Kensington (W8) and Earl's Court (SW5).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Notting Hill (W11) or Chelsea (SW3)?",
+      a: "If your property is located in W11, SW3, or anywhere across the Kensington and Chelsea area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   'city-of-london': {
     slug: 'city-of-london',
@@ -416,6 +632,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Central, Circle, Northern, Metropolitan, Hammersmith & City and Elizabeth lines, plus Thameslink and the City termini, make this the most connected square mile in the country.',
     neighbours: ['islington', 'tower-hamlets', 'southwark', 'westminster', 'hackney'],
+    metaTitle: "EPC Assessor City of London | Barbican EC2, Smithfield EC1",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire City of London. We cover all local districts including the Barbican (EC2), Smithfield (EC1), Fleet Street (EC4) and the Square Mile (EC3).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in the Barbican (EC2) or Smithfield (EC1)?",
+      a: "If your property is located in EC2, EC1, or anywhere across the City of London, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   barnet: {
     slug: 'barnet',
@@ -429,6 +652,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Northern line runs across Finchley, Edgware and High Barnet, supported by Thameslink at Mill Hill and Hendon.',
     neighbours: ['enfield', 'haringey', 'camden', 'brent', 'harrow'],
+    metaTitle: "EPC Assessor Barnet | Finchley N3, Edgware HA8",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Barnet. We cover all local districts including Finchley (N3), Hendon (NW4), Edgware (HA8), Mill Hill (NW7) and High Barnet (EN5).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Finchley (N3) or Edgware (HA8)?",
+      a: "If your property is located in N3, HA8, or anywhere across the Barnet area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   harrow: {
     slug: 'harrow',
@@ -442,6 +672,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Metropolitan, Jubilee and Bakerloo lines, plus the Overground and Chiltern Railways at Harrow-on-the-Hill, cover the borough well.',
     neighbours: ['brent', 'barnet', 'hillingdon', 'ealing', 'enfield'],
+    metaTitle: "EPC Assessor Harrow | Pinner HA5, Stanmore HA7",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Harrow. We cover all local districts including Harrow (HA1), Pinner (HA5), Stanmore (HA7) and Wealdstone (HA3).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Pinner (HA5) or Stanmore (HA7)?",
+      a: "If your property is located in HA5, HA7, or anywhere across the Harrow area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
   hillingdon: {
     slug: 'hillingdon',
@@ -455,6 +692,13 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Metropolitan and Piccadilly lines, plus the Elizabeth line at Hayes & Harlington and West Drayton, give us solid access across London’s westernmost borough.',
     neighbours: ['ealing', 'harrow', 'hounslow', 'brent', 'havering'],
+    metaTitle: "EPC Assessor Hillingdon | Uxbridge UB8, Ruislip HA4",
+    areasCovered:
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Hillingdon. We cover all local districts including Uxbridge (UB8), Hayes (UB3), Ruislip (HA4), Northwood (HA6) and West Drayton (UB7).",
+    postcodeFaq: {
+      q: "How fast can I get an EPC in Uxbridge (UB8) or Ruislip (HA4)?",
+      a: "If your property is located in UB8, HA4, or anywhere across the Hillingdon area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
+    }
   },
 }
 
