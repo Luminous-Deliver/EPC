@@ -454,7 +454,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     neighbours: ['enfield', 'hackney', 'islington', 'camden', 'barnet'],
     metaTitle: "EPC Assessor Haringey | Tottenham N17, Crouch End N8",
     areasCovered:
-      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Haringey. We cover all local districts including Tottenham (N17), Wood Green (N22), Crouch End (N8), Finsbury Park (N4) and South Tottenham (N15).",
+      "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Haringey. We cover all local districts including Tottenham (N17), Wood Green (N22), Crouch End (N8), Muswell Hill (N10) and South Tottenham (N15).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Tottenham (N17) or Crouch End (N8)?",
       a: "If your property is located in N17, N8, or anywhere across the Haringey area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your official certificate is lodged on the digital register the very same day as the assessment.",
