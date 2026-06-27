@@ -52,7 +52,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The London Overground spine, Dalston Junction, Hackney Central and Hackney Wick, plus Stoke Newington and Rectory Road rail give us good coverage despite Hackney’s limited Underground access.',
     neighbours: ['islington', 'tower-hamlets', 'newham', 'waltham-forest', 'haringey'],
-    metaTitle: "EPC Assessor Hackney | Fast Certificates in Dalston E8, Clapton E5",
+    metaTitle: "EPC Assessor Hackney | Dalston E8, Clapton E5",
     areasCovered:
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Hackney. We cover all local districts including Dalston (E8), Stoke Newington (N16), Clapton (E5), Hackney Wick (E9), De Beauvoir (N1) and Homerton (E9).",
     postcodeFaq: {
@@ -192,7 +192,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The District and Hammersmith & City lines, c2c, the Overground, and the new Barking Riverside extension give us reliable access across all four postcodes.',
     neighbours: ['newham', 'havering', 'redbridge', 'waltham-forest', 'greenwich'],
-    metaTitle: "EPC Assessor Barking & Dagenham | Barking IG11, Dagenham RM10",
+    metaTitle: "EPC Barking & Dagenham | Barking IG11, Dagenham RM10",
     areasCovered:
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Barking and Dagenham. We cover all local districts including Barking (IG11), Dagenham (RM10), the Becontree estate (RM9) and Chadwell Heath (RM8).",
     postcodeFaq: {
@@ -592,7 +592,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The Piccadilly, District, Circle and Hammersmith & City lines, plus the Overground at Shepherd’s Bush and Imperial Wharf, make the borough quick to reach.',
     neighbours: ['kensington-chelsea', 'wandsworth', 'ealing', 'brent', 'richmond'],
-    metaTitle: "EPC Assessor Hammersmith & Fulham | Fulham SW6, Shepherd's Bush W12",
+    metaTitle: "EPC Hammersmith & Fulham | Fulham SW6, Shepherd's Bush W12",
     areasCovered:
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Hammersmith and Fulham. We cover all local districts including Hammersmith (W6), Fulham (SW6), Shepherd's Bush (W12) and Parsons Green (SW6).",
     postcodeFaq: {
@@ -612,7 +612,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     transport:
       'The District, Circle, Central and Piccadilly lines, plus the Overground at Latimer Road and Kensington (Olympia), give us fast access across the borough.',
     neighbours: ['westminster', 'hammersmith-fulham', 'wandsworth', 'brent', 'camden'],
-    metaTitle: "EPC Assessor Kensington & Chelsea | Notting Hill W11, Chelsea SW3",
+    metaTitle: "EPC Kensington & Chelsea | Notting Hill W11, Chelsea SW3",
     areasCovered:
       "Our accredited energy assessors regularly provide EPCs across the entire Royal Borough of Kensington and Chelsea. We cover all local districts including Notting Hill (W11), Chelsea (SW3), Kensington (W8) and Earl's Court (SW5).",
     postcodeFaq: {

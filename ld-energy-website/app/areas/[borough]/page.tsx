@@ -85,6 +85,12 @@ export default async function BoroughPage({ params }: PageProps) {
     .map((s) => boroughMeta[s])
     .filter(Boolean)
 
+  // Postcode districts this page serves, parsed from the Areas Covered copy.
+  // Powers the structured geo signal in areaServed below.
+  const postcodes = Array.from(
+    new Set([...data.areasCovered.matchAll(/\(([A-Z]{1,2}\d{1,2}[A-Z]?)\)/g)].map((m) => m[1])),
+  )
+
   const breadcrumbs = [
     { href: '/', label: 'Home' },
     { href: '/areas', label: 'Areas' },
@@ -120,7 +126,14 @@ export default async function BoroughPage({ params }: PageProps) {
     telephone: site.phoneIntl,
     email: site.email,
     parentOrganization: { '@id': `${site.url}/#business` },
-    areaServed: { '@type': 'AdministrativeArea', name: data.name, containedInPlace: { '@type': 'City', name: 'London' } },
+    areaServed: [
+      { '@type': 'AdministrativeArea', name: data.name, containedInPlace: { '@type': 'City', name: 'London' } },
+      ...postcodes.map((pc) => ({
+        '@type': 'PostalCodeRange' as const,
+        postalCode: pc,
+        addressCountry: 'GB',
+      })),
+    ],
     priceRange: '£',
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
