@@ -44,22 +44,22 @@ export function CookieBanner() {
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={accept}
-            className="px-4 py-2 bg-primary-600 hover:bg-primary-500 text-white text-sm font-semibold rounded-xl transition-colors min-h-[40px]"
+            className="inline-flex items-center justify-center px-4 min-h-[44px] bg-primary-600 hover:bg-primary-500 text-white text-sm font-semibold rounded-xl transition-colors"
           >
             Accept
           </button>
           <button
             onClick={decline}
-            className="px-4 py-2 bg-transparent hover:bg-secondary-700 text-secondary-300 hover:text-white text-sm font-medium rounded-xl transition-colors min-h-[40px] border border-secondary-700"
+            className="inline-flex items-center justify-center px-4 min-h-[44px] bg-transparent hover:bg-secondary-700 text-secondary-300 hover:text-white text-sm font-medium rounded-xl transition-colors border border-secondary-700"
           >
             Decline
           </button>
           <button
             onClick={decline}
-            className="p-2 text-secondary-400 hover:text-white rounded-lg transition-colors"
+            className="inline-flex items-center justify-center w-11 h-11 shrink-0 text-secondary-400 hover:text-white rounded-lg transition-colors"
             aria-label="Dismiss cookie banner"
           >
-            <X className="w-4 h-4" aria-hidden="true" />
+            <X className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
       </div>

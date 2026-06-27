@@ -103,7 +103,7 @@ export default function ContactPage() {
                     <a
                       href={m.href}
                       {...(m.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                      className="mt-3 inline-flex items-center gap-2 rounded-md border border-secondary-200 bg-white hover:bg-secondary-50 text-secondary-800 font-semibold px-4 py-2 text-sm"
+                      className="mt-3 inline-flex items-center gap-2 min-h-[44px] rounded-md border border-secondary-200 bg-white hover:bg-secondary-50 text-secondary-800 font-semibold px-4 text-sm"
                     >
                       {m.cta}
                     </a>

@@ -494,7 +494,7 @@ export function ContactForm() {
             <button
               type="button"
               onClick={handleBack}
-              className="inline-flex items-center gap-1.5 font-bold text-sm text-secondary-700 hover:text-secondary-900 py-2.5 px-4 rounded-xl border border-secondary-200 hover:bg-secondary-50"
+              className="inline-flex items-center gap-1.5 min-h-[44px] font-bold text-sm text-secondary-700 hover:text-secondary-900 px-4 rounded-xl border border-secondary-200 hover:bg-secondary-50"
             >
               <ChevronLeft className="w-4 h-4" />
               Back
@@ -507,7 +507,7 @@ export function ContactForm() {
             <button
               type="button"
               onClick={handleNext}
-              className="inline-flex items-center gap-1.5 font-bold text-sm bg-primary-600 text-white hover:bg-primary-700 py-2.5 px-5 rounded-xl shadow-sm hover:shadow-md transition-all ml-auto"
+              className="inline-flex items-center gap-1.5 min-h-[44px] font-bold text-sm bg-primary-600 text-white hover:bg-primary-700 px-5 rounded-xl shadow-sm hover:shadow-md transition-all ml-auto"
             >
               Next Step
               <ChevronRight className="w-4 h-4" />

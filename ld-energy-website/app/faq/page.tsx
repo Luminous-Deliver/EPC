@@ -77,7 +77,7 @@ export default function FaqPage() {
               <li key={cat.id}>
                 <a
                   href={`#${cat.id}`}
-                  className="inline-flex items-center rounded-full border border-secondary-200 bg-white px-3 py-1.5 text-sm font-medium text-secondary-800 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700"
+                  className="inline-flex items-center min-h-[44px] rounded-full border border-secondary-200 bg-white px-4 text-sm font-medium text-secondary-800 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700"
                 >
                   {cat.title}
                 </a>
