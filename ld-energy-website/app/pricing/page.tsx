@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { CheckCircle2, XCircle, Sparkles } from 'lucide-react'
+import { CheckCircle2, XCircle, Sparkles, Ruler, Info } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
 import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
@@ -75,6 +75,17 @@ const pricingFaq: FaqItem[] = [
 
 const maxSaving = Math.max(...pricing.map((p) => p.saving))
 
+// Typical internal floor-area ranges by property size (guide only) — reinforces
+// that floor area is the biggest driver of the final price.
+const typicalArea: Record<string, string> = {
+  studio: '18–37 m²',
+  '1-bed': '37–52 m²',
+  '2-bed': '52–70 m²',
+  '3-bed': '70–95 m²',
+  '4-bed': '95–120 m²',
+  '5-bed-plus': '120 m²+',
+}
+
 const offerCatalog = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -126,42 +137,83 @@ export default function PricingPage() {
             Guide Pricing Table
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-            All prices include assessment, certificate lodgement, and email delivery. Add next-day service for £12.
+            Every EPC includes the assessment, certificate lodgement, and email delivery. Next-day service is £12 extra.
           </p>
-          <div className="mt-5 rounded-lg border border-accent-200 bg-accent-50 p-4 text-sm text-secondary-800">
-            <strong className="font-semibold">Please note:</strong> The figures below are estimates only and act as starting prices. Your final cost depends on the property&rsquo;s floor area (m²), any extensions or loft conversions, layout, and condition, a larger or extended property costs more to assess. There&rsquo;s no charge for travel or mileage, though properties more than about 45 minutes away add a little for the extra time. <a href="/contact" className="text-primary-700 underline font-medium">Request a personalised quote</a> for an exact figure.
+        </div>
+
+        {/* Two prominent callouts — read at a glance, even if nothing else is */}
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 max-w-3xl">
+          <div className="flex gap-3 rounded-xl border border-accent-200 bg-accent-50 p-4">
+            <Info className="w-5 h-5 text-accent-600 shrink-0 mt-0.5" aria-hidden="true" />
+            <div>
+              <p className="font-semibold text-secondary-900">These are starting prices</p>
+              <p className="mt-1 text-sm text-secondary-700 leading-relaxed">
+                Every figure below is a guide estimate, not a fixed quote. You get an exact price confirmed before you book.
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-3 rounded-xl border border-primary-200 bg-primary-50 p-4">
+            <Ruler className="w-5 h-5 text-primary-700 shrink-0 mt-0.5" aria-hidden="true" />
+            <div>
+              <p className="font-semibold text-secondary-900">Floor area is the biggest factor</p>
+              <p className="mt-1 text-sm text-secondary-700 leading-relaxed">
+                Your price is driven mainly by internal floor area (m²). Extensions, loft conversions, layout and condition also count.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="mt-10 overflow-x-auto rounded-lg border border-secondary-200">
-          <table className="w-full text-sm min-w-[700px]">
-            <thead>
-              <tr className="bg-secondary-50 border-b border-secondary-200">
-                <th className="px-4 py-3 text-left font-semibold text-secondary-700">Property</th>
-                <th className="px-4 py-3 text-right font-semibold text-secondary-700">EPC</th>
-                <th className="px-4 py-3 text-right font-semibold text-secondary-700">EPC Next Day</th>
-                <th className="px-4 py-3 text-right font-semibold text-secondary-700">Floor Plan</th>
-                <th className="px-4 py-3 text-right font-semibold text-primary-800 bg-primary-50">Bundle</th>
-                <th className="px-4 py-3 text-right font-semibold text-success">Saving</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-secondary-100">
-              {pricing.map((row) => (
-                <tr key={row.type} className="bg-white hover:bg-secondary-50">
-                  <td className="px-4 py-3 font-medium text-secondary-900">{row.label}</td>
-                  <td className="px-4 py-3 text-right text-secondary-700"><span className="text-secondary-400">≈</span>£{row.epc}</td>
-                  <td className="px-4 py-3 text-right text-secondary-600">£{row.nextDay}</td>
-                  <td className="px-4 py-3 text-right text-secondary-700">£{row.floorPlan}</td>
-                  <td className="px-4 py-3 text-right font-bold text-primary-800 bg-primary-50">
-                    £{row.bundle.toFixed(2)}
-                  </td>
-                  <td className="px-4 py-3 text-right font-semibold text-success">
-                    £{row.saving.toFixed(2)}
+        <div className="mt-8 overflow-hidden rounded-2xl border border-secondary-200 shadow-premium">
+          <div className="overflow-x-auto overscroll-x-contain [scrollbar-width:thin]">
+            <table className="w-full text-sm min-w-[720px]">
+              <thead>
+                <tr className="bg-secondary-50 border-b border-secondary-200">
+                  <th className="px-5 py-3.5 text-left font-semibold text-secondary-700">Property</th>
+                  <th className="px-4 py-3.5 text-right font-semibold text-secondary-900">EPC</th>
+                  <th className="px-4 py-3.5 text-right font-semibold text-secondary-600">Next Day</th>
+                  <th className="px-4 py-3.5 text-right font-semibold text-secondary-600">Floor Plan</th>
+                  <th className="px-4 py-3.5 text-right font-semibold text-primary-800 bg-primary-50">Bundle</th>
+                  <th className="px-5 py-3.5 text-right font-semibold text-success">You Save</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-secondary-100">
+                {pricing.map((row) => (
+                  <tr key={row.type} className="bg-white hover:bg-secondary-50/70 transition-colors">
+                    <td className="px-5 py-3.5">
+                      <span className="block font-semibold text-secondary-900">{row.label}</span>
+                      <span className="mt-0.5 flex items-center gap-1 text-xs text-secondary-500">
+                        <Ruler className="w-3 h-3 shrink-0" aria-hidden="true" />
+                        {typicalArea[row.type]} typical
+                      </span>
+                    </td>
+                    <td className="px-4 py-3.5 text-right whitespace-nowrap">
+                      <span className="text-xs font-medium text-secondary-400">from</span>{' '}
+                      <span className="text-base font-bold text-secondary-900">£{row.epc}</span>
+                    </td>
+                    <td className="px-4 py-3.5 text-right text-secondary-600 whitespace-nowrap">£{row.nextDay}</td>
+                    <td className="px-4 py-3.5 text-right text-secondary-600 whitespace-nowrap">£{row.floorPlan}</td>
+                    <td className="px-4 py-3.5 text-right font-bold text-primary-800 bg-primary-50 whitespace-nowrap">
+                      £{row.bundle.toFixed(2)}
+                    </td>
+                    <td className="px-5 py-3.5 text-right font-semibold text-success whitespace-nowrap">
+                      £{row.saving.toFixed(2)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr className="bg-secondary-50 border-t border-secondary-200">
+                  <td colSpan={6} className="px-5 py-3 text-xs text-secondary-500 leading-relaxed">
+                    All figures are guide estimates and act as starting prices. Floor area (m²) is the single biggest factor in the final price, alongside extensions, loft conversions, layout and condition. There&rsquo;s no charge for travel or mileage; properties more than about 45 minutes away add a little for the extra time.{' '}
+                    <a href="/contact" className="font-medium text-primary-700 underline">Request an exact quote</a>.
                   </td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </tfoot>
+            </table>
+          </div>
+          <p className="bg-secondary-50 px-5 pb-3 text-xs font-medium text-secondary-400 sm:hidden" aria-hidden="true">
+            Swipe sideways to see every column
+          </p>
         </div>
 
         <div className="mt-6 rounded-xl bg-primary-50 border border-primary-200 p-6 flex items-start gap-4">
