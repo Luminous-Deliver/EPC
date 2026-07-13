@@ -49,7 +49,7 @@ const notIncluded = [
 const pricingFaq: FaqItem[] = [
   {
     q: 'How much does an EPC cost in London?',
-    a: 'Our guide prices start at £49 for studios, £60 for 1-bedroom, £70 for 2-bedroom, £79 for 3-bedroom, £91 for 4-bedroom, and £101 for 5+ bedroom homes. These are estimates only, the final price depends on the property\'s floor area (m²), any extensions or loft conversions, overall condition, and how far the property is. Travel is included within our core London service area.',
+    a: 'Our guide prices start at £49 for studios, £60 for 1-bedroom, £70 for 2-bedroom, £79 for 3-bedroom, £91 for 4-bedroom, and £101 for 5+ bedroom homes. These are estimates only, the final price depends on the property\'s floor area (m²), any extensions or loft conversions, and overall condition. We don\'t charge for travel or mileage, though properties more than about 45 minutes away add a little for the extra time.',
   },
   {
     q: 'Are there any hidden fees?',
@@ -57,7 +57,7 @@ const pricingFaq: FaqItem[] = [
   },
   {
     q: 'Do you charge for travel?',
-    a: 'No. Travel is included in the standard price for all properties within our service area (all 32 London boroughs plus a 1.5-hour radius of Stratford, East London).',
+    a: 'We don\'t charge for travel or mileage itself. For properties more than about 45 minutes from us, a small amount is added for the extra time involved, not the distance. This is always confirmed in your personalised quote before you book, so there are no surprises.',
   },
   {
     q: 'Can I get a discount for multiple properties?',
@@ -114,7 +114,7 @@ export default function PricingPage() {
       <PageHero
         eyebrow="Pricing"
         heading="EPC and Floor Plan Pricing"
-        subheading="The prices shown are estimates only and act as starting prices. Your final cost depends on the property's floor area (m²), any extensions or loft conversions, layout, and condition, as well as how far the property is, request a personalised quote for an exact figure."
+        subheading="The prices shown are estimates only and act as starting prices. Your final cost depends on the property's floor area (m²), any extensions or loft conversions, layout, and condition, plus a little extra travel time for properties more than 45 minutes away, request a personalised quote for an exact figure."
         primaryCta={{ label: 'Request a Quote', href: '/contact' }}
       />
 
@@ -129,7 +129,7 @@ export default function PricingPage() {
             All prices include assessment, certificate lodgement, and email delivery. Add next-day service for £12.
           </p>
           <div className="mt-5 rounded-lg border border-accent-200 bg-accent-50 p-4 text-sm text-secondary-800">
-            <strong className="font-semibold">Please note:</strong> The figures below are estimates only and act as starting prices. Your final cost depends on the property&rsquo;s floor area (m²), any extensions or loft conversions, layout, and condition, a larger or extended property costs more to assess, as well as how far the property is. <a href="/contact" className="text-primary-700 underline font-medium">Request a personalised quote</a> for an exact figure.
+            <strong className="font-semibold">Please note:</strong> The figures below are estimates only and act as starting prices. Your final cost depends on the property&rsquo;s floor area (m²), any extensions or loft conversions, layout, and condition, a larger or extended property costs more to assess. There&rsquo;s no charge for travel or mileage, though properties more than about 45 minutes away add a little for the extra time. <a href="/contact" className="text-primary-700 underline font-medium">Request a personalised quote</a> for an exact figure.
           </div>
         </div>
 

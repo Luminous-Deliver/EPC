@@ -105,8 +105,9 @@ export function Pricing() {
           <p className="leading-relaxed">
             <strong className="font-semibold text-secondary-900">These figures are estimates only and act as starting prices.</strong>{' '}
             Your final cost depends on the property&rsquo;s floor area (m²), any extensions or loft conversions,
-            layout, and condition — a larger or extended property costs more to assess — as well as how far the
-            property is. No travel surcharge within our core London service area; payment is taken after the assessment.{' '}
+            layout, and condition — a larger or extended property costs more to assess. There&rsquo;s no charge for
+            travel or mileage; properties more than about 45 minutes away add a little for the extra time. Payment is
+            taken after the assessment.{' '}
             <a href="/contact" className="font-medium text-primary-700 underline">Request an exact quote</a>.
           </p>
         </div>

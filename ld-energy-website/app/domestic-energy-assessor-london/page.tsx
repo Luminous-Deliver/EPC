@@ -103,7 +103,7 @@ const deaFaq: FaqItem[] = [
   },
   {
     q: 'How much does a domestic energy assessor charge in London?',
-    a: 'Our guide prices start from £49 for a studio and rise with property size, up to £101 for a 5+ bedroom home. These are estimates only, the final price depends on floor area (m²), extensions, condition, and how far the property is. There are no travel surcharges within our core London service area or call-out fees, and you get a personalised quote within 2 hours of enquiring.',
+    a: 'Our guide prices start from £49 for a studio and rise with property size, up to £101 for a 5+ bedroom home. These are estimates only, the final price depends on floor area (m²), extensions, and condition. There are no travel or call-out charges; properties more than about 45 minutes away add a little for the extra time, not the distance. You get a personalised quote within 2 hours of enquiring.',
   },
   {
     q: 'Do I need an accredited assessor for an EPC?',
