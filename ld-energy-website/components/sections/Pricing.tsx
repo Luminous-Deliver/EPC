@@ -24,7 +24,7 @@ export function Pricing() {
           What your EPC costs
         </h2>
         <p className="mt-4 text-lg text-secondary-700 leading-relaxed">
-          Choose your property size to see your guide price. Final prices may vary slightly for extensions or complex layouts.
+          Choose your property size to see your guide price. Every figure below is a starting estimate, not a fixed quote.
         </p>
       </div>
 
@@ -65,13 +65,17 @@ export function Pricing() {
             {/* Results Output */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
               <div>
-                <p className="text-sm font-semibold text-secondary-500 uppercase tracking-wide">Estimated Cost</p>
+                <p className="text-sm font-semibold text-secondary-500 uppercase tracking-wide">Estimated Starting Price</p>
                 <div className="mt-1 flex items-baseline gap-2">
+                  <span className="text-lg font-semibold text-secondary-400">from</span>
                   <span className="text-5xl font-extrabold font-display text-secondary-900 tracking-tight">
                     £{currentPricing.epc}
                   </span>
                   <span className="text-sm font-medium text-secondary-500">standard turnaround</span>
                 </div>
+                <p className="mt-1.5 inline-flex items-center gap-1.5 rounded-md bg-accent-50 px-2 py-1 text-xs font-semibold text-accent-700 ring-1 ring-accent-200">
+                  Estimate only — final price confirmed on quote
+                </p>
                 <div className="mt-4 space-y-2">
                   <p className="inline-flex items-center gap-2 text-sm text-secondary-600 font-medium">
                     <Clock className="w-4 h-4 text-primary-600" aria-hidden="true" /> 
@@ -97,9 +101,15 @@ export function Pricing() {
           </div>
         </Card>
 
-        <p className="mt-5 text-center text-sm text-secondary-500 font-medium">
-          No travel surcharges within London. Payment taken after the assessment.
-        </p>
+        <div className="mt-5 rounded-xl border border-accent-200 bg-accent-50 p-4 text-sm text-secondary-800">
+          <p className="leading-relaxed">
+            <strong className="font-semibold text-secondary-900">These figures are estimates only and act as starting prices.</strong>{' '}
+            Your final cost depends on the property&rsquo;s floor area (m²), any extensions or loft conversions,
+            layout, and condition — a larger or extended property costs more to assess — as well as how far the
+            property is. No travel surcharge within our core London service area; payment is taken after the assessment.{' '}
+            <a href="/contact" className="font-medium text-primary-700 underline">Request an exact quote</a>.
+          </p>
+        </div>
 
         {/* Upsell Banner */}
         <div className="mt-8 rounded-2xl bg-gradient-to-br from-primary-50 to-white ring-1 ring-primary-200 shadow-sm p-5 md:p-6 flex flex-col sm:flex-row sm:items-center gap-4">

@@ -49,7 +49,7 @@ const notIncluded = [
 const pricingFaq: FaqItem[] = [
   {
     q: 'How much does an EPC cost in London?',
-    a: 'Our guide prices start at £49 for studios, £60 for 1-bedroom, £65 for 2-bedroom, £67 for 3-bedroom, £69 for 4-bedroom, and £79 for 5+ bedroom homes. These are estimates only, the final price depends on the property\'s floor area (m²), any extensions or loft conversions, and overall condition. Travel is included for all properties in our service area.',
+    a: 'Our guide prices start at £49 for studios, £60 for 1-bedroom, £70 for 2-bedroom, £79 for 3-bedroom, £91 for 4-bedroom, and £101 for 5+ bedroom homes. These are estimates only, the final price depends on the property\'s floor area (m²), any extensions or loft conversions, overall condition, and how far the property is. Travel is included within our core London service area.',
   },
   {
     q: 'Are there any hidden fees?',
@@ -69,7 +69,7 @@ const pricingFaq: FaqItem[] = [
   },
   {
     q: 'How much does a floor plan cost?',
-    a: 'A standalone floor plan costs the same as your EPC for that property size, from £49. When you bundle an EPC and floor plan together, the floor plan is 50% off, saving you up to £39.50.',
+    a: 'A standalone floor plan costs the same as your EPC for that property size, from £49. When you bundle an EPC and floor plan together, the floor plan is 50% off, saving you up to £50.50.',
   },
 ]
 
@@ -114,7 +114,7 @@ export default function PricingPage() {
       <PageHero
         eyebrow="Pricing"
         heading="EPC and Floor Plan Pricing"
-        subheading="The prices shown are estimates only. Your final cost depends on the property's floor area (m²), any extensions or loft conversions, and overall condition, request a personalised quote for an exact figure."
+        subheading="The prices shown are estimates only and act as starting prices. Your final cost depends on the property's floor area (m²), any extensions or loft conversions, layout, and condition, as well as how far the property is, request a personalised quote for an exact figure."
         primaryCta={{ label: 'Request a Quote', href: '/contact' }}
       />
 
@@ -129,7 +129,7 @@ export default function PricingPage() {
             All prices include assessment, certificate lodgement, and email delivery. Add next-day service for £12.
           </p>
           <div className="mt-5 rounded-lg border border-accent-200 bg-accent-50 p-4 text-sm text-secondary-800">
-            <strong className="font-semibold">Please note:</strong> The figures below are estimates only and act as starting prices. Your final cost depends on the property&rsquo;s floor area (m²), any extensions or loft conversions, layout, and condition, a larger or extended property costs more to assess. <a href="/contact" className="text-primary-700 underline font-medium">Request a personalised quote</a> for an exact figure.
+            <strong className="font-semibold">Please note:</strong> The figures below are estimates only and act as starting prices. Your final cost depends on the property&rsquo;s floor area (m²), any extensions or loft conversions, layout, and condition, a larger or extended property costs more to assess, as well as how far the property is. <a href="/contact" className="text-primary-700 underline font-medium">Request a personalised quote</a> for an exact figure.
           </div>
         </div>
 

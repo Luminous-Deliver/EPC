@@ -75,9 +75,9 @@ export const pricing: Array<{
   { type: 'studio', label: 'Studio', epc: 49, duration: '45 minutes', nextDay: 61, floorPlan: 49, bundle: 73.5, saving: 24.5 },
   { type: '1-bed', label: '1 Bedroom', epc: 60, duration: '1 hour', nextDay: 72, floorPlan: 60, bundle: 90, saving: 30 },
   { type: '2-bed', label: '2 Bedroom', epc: 70, duration: '1.5 hours', nextDay: 82, floorPlan: 70, bundle: 105, saving: 35 },
-  { type: '3-bed', label: '3 Bedroom', epc: 75, duration: '1.5 hours', nextDay: 87, floorPlan: 75, bundle: 112.5, saving: 37.5 },
-  { type: '4-bed', label: '4 Bedroom', epc: 81, duration: '2 hours', nextDay: 93, floorPlan: 81, bundle: 121.5, saving: 40.5 },
-  { type: '5-bed-plus', label: '5+ Bedroom', epc: 90, duration: '2 hours', nextDay: 102, floorPlan: 90, bundle: 135, saving: 45 },
+  { type: '3-bed', label: '3 Bedroom', epc: 79, duration: '1.5 hours', nextDay: 91, floorPlan: 79, bundle: 118.5, saving: 39.5 },
+  { type: '4-bed', label: '4 Bedroom', epc: 91, duration: '2 hours', nextDay: 103, floorPlan: 91, bundle: 136.5, saving: 45.5 },
+  { type: '5-bed-plus', label: '5+ Bedroom', epc: 101, duration: '2 hours', nextDay: 113, floorPlan: 101, bundle: 151.5, saving: 50.5 },
 ]
 
 export const boroughs = [

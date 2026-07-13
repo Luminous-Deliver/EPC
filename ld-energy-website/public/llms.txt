@@ -11,16 +11,16 @@ L&D Energy is the EPC trading division of Luminous & Deliver Ltd. We are an Elmh
 - Hours: Monday–Sunday, 8am–8pm
 
 ## Services and pricing
-All prices are fixed — no travel surcharges within our service area.
+All figures are guide estimates and act as starting prices. The final cost depends on the property's floor area (m²), any extensions or loft conversions, layout, condition, and how far the property is. No travel surcharge within our core London service area.
 
 | Property size | EPC only | EPC + floor plan bundle |
 |---------------|----------|------------------------|
 | Studio        | £49      | £73.50 (save £24.50)   |
 | 1 bedroom     | £60      | £90 (save £30)         |
-| 2 bedroom     | £65      | £97.50 (save £32.50)   |
-| 3 bedroom     | £67      | £100.50 (save £33.50)  |
-| 4 bedroom     | £69      | £103.50 (save £34.50)  |
-| 5+ bedrooms   | £79      | £118.50 (save £39.50)  |
+| 2 bedroom     | £70      | £105 (save £35)        |
+| 3 bedroom     | £79      | £118.50 (save £39.50)  |
+| 4 bedroom     | £91      | £136.50 (save £45.50)  |
+| 5+ bedrooms   | £101     | £151.50 (save £50.50)  |
 
 Next-day EPC service: add £12 to the EPC price above.
 
