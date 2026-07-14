@@ -2,7 +2,8 @@ import { Star, ShieldCheck, MapPin, Clock, ArrowRight } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { site } from '@/lib/site'
 
-const GOOGLE_REVIEWS_URL = 'https://share.google/4LTPb4XMjeNq7TpXk'
+const GOOGLE_REVIEWS_URL = site.reviews.profileUrl
+const GOOGLE_WRITE_REVIEW_URL = site.reviews.writeUrl
 
 const proofPoints = [
   { Icon: ShieldCheck, value: 'Elmhurst Accredited', label: `Assessor ${site.assessor.accreditationNumber}` },
@@ -22,26 +23,41 @@ export function SocialProof() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-12">
             <div className="md:max-w-sm">
               <p className="text-xs uppercase tracking-widest font-semibold text-primary-600">Trusted Locally</p>
-              <div className="mt-4 flex items-center gap-1.5" aria-hidden="true">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-8 h-8 fill-accent-500 text-accent-500" />
-                ))}
+              <div className="mt-4 flex items-center gap-3">
+                <div className="flex items-center gap-1" aria-hidden="true">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-7 h-7 fill-accent-500 text-accent-500" />
+                  ))}
+                </div>
+                <span className="text-3xl font-bold text-secondary-900 font-serif">
+                  {site.reviews.ratingValue.toFixed(1)}
+                </span>
               </div>
               <p className="mt-3 text-4xl md:text-5xl font-bold tracking-tight text-secondary-900 font-serif">
                 Rated on Google
               </p>
               <p className="mt-3 text-secondary-600 leading-relaxed">
-                London homeowners, landlords and letting agents trust us for fast, honest EPC service.
+                Based on {site.reviews.reviewCount} Google reviews from London homeowners, landlords and letting agents who trust us for fast, honest EPC service.
               </p>
-              <a
-                href={GOOGLE_REVIEWS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-1.5 min-h-[44px] text-sm font-semibold text-primary-700 hover:text-primary-800"
-              >
-                Read our reviews
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </a>
+              <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+                <a
+                  href={GOOGLE_REVIEWS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 min-h-[44px] text-sm font-semibold text-primary-700 hover:text-primary-800"
+                >
+                  Read our reviews
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </a>
+                <a
+                  href={GOOGLE_WRITE_REVIEW_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 min-h-[44px] text-sm font-semibold text-secondary-600 hover:text-secondary-800"
+                >
+                  Leave a review
+                </a>
+              </div>
             </div>
 
             {/* Secondary element, proof chips in 2×2 */}

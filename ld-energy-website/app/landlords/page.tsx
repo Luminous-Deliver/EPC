@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import { AlertTriangle, CheckCircle2, Clock, ShieldCheck, FileText, CalendarRange } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
+import { Accordion } from '@/components/ui/Accordion'
 import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { Pricing } from '@/components/sections/Pricing'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { site, pricing } from '@/lib/site'
 import { areaServedLondon } from '@/lib/boroughs'
+import type { FaqItem } from '@/lib/faq'
 
 export const metadata: Metadata = {
   title: 'EPC for Landlords London | MEES Compliance',
@@ -92,36 +94,37 @@ const serviceSchema = {
   offers: { '@type': 'Offer', price: String(pricing[0].epc), priceCurrency: 'GBP', availability: 'https://schema.org/InStock' },
 }
 
+const landlordFaq: FaqItem[] = [
+  {
+    q: 'When do I need to give my tenant the EPC?',
+    a: 'You must make the EPC available to prospective tenants before they view or rent the property, and provide a copy before the tenancy begins. In practice, have it ready before you start marketing the let so nothing holds up move-in.',
+  },
+  {
+    q: 'Do I need a new EPC for every new tenant?',
+    a: 'No. An EPC lasts 10 years and covers consecutive tenancies within that period, as long as it stays valid on the government register. You only need a new one when it expires or after major works that change the property’s energy performance.',
+  },
+  {
+    q: 'What happens if I let a property without a valid EPC?',
+    a: 'It is a breach of MEES. Local authorities can currently issue civil penalties of up to £5,000 per property (the government has proposed raising this to £30,000 under future EPC C standards). A property rated F or G cannot be let at all unless you have a registered exemption.',
+  },
+  {
+    q: 'My rental is rated F or G — what are my options?',
+    a: 'You must either improve it to at least band E before re-letting, or register a valid exemption on the PRS Exemptions Register. Your EPC report lists the specific improvements; common routes are loft and cavity insulation, LED lighting, and a modern boiler with controls.',
+  },
+  {
+    q: 'Can you handle EPCs for my whole portfolio in one booking?',
+    a: 'Yes. We offer portfolio rates for landlords and letting agents and can schedule several properties together across London. Send us the addresses and we’ll arrange a coordinated visit and a tailored quote.',
+  },
+]
+
 const landlordFaqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Do I need an EPC to rent out my property?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Under MEES regulations, all rental properties in England and Wales must have a valid EPC rated E or above. You must provide this to tenants before they sign the tenancy agreement. Letting without a compliant EPC can currently result in fines of up to £5,000 per property, with the government proposing to raise this to £30,000 under future EPC C standards.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the minimum EPC rating for a rental property in London?',
-      acceptedAnswer: { '@type': 'Answer', text: 'The current legal minimum is band E. The UK government has proposed raising this to band C by 2028 for new tenancies and 2030 for all existing tenancies, though exact dates may shift. Landlords should plan improvements now to avoid the installer bottleneck.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'How much does a landlord EPC cost in London?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Our guide prices for landlord EPCs in London start from £49 for studios. Final price depends on the property\'s floor area (m²), extensions, and condition. Portfolio discounts are available for multiple properties, contact us for a tailored quote.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'How long is an EPC valid for rental properties?',
-      acceptedAnswer: { '@type': 'Answer', text: 'An EPC is valid for 10 years. You can use the same certificate for multiple consecutive tenancies within that period as long as it remains on the government register. If it expires, you must commission a new one before re-letting.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I get an EPC quickly if a tenancy is urgent?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Our next-day service guarantees your certificate within 24 hours of the assessment for an extra £12. We offer appointments 7 days a week including evenings. Book before noon for the best chance of a same-day slot.' },
-    },
-  ],
+  mainEntity: landlordFaq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
 }
 
 export default function LandlordsPage() {
@@ -260,6 +263,19 @@ export default function LandlordsPage() {
       </Section>
 
       <Pricing />
+
+      {/* Landlord FAQ */}
+      <Section variant="default" id="landlord-faq">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Landlord Questions</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            EPC FAQs for London Landlords
+          </h2>
+          <div className="mt-8">
+            <Accordion items={landlordFaq} />
+          </div>
+        </div>
+      </Section>
 
       <CtaStrip
         heading="Protect Your Rental Income"

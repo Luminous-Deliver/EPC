@@ -110,6 +110,13 @@ const localBusinessSchema = {
   priceRange: '£',
   currenciesAccepted: 'GBP',
   paymentAccepted: 'Cash, Credit Card, Bank Transfer',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: String(site.reviews.ratingValue),
+    reviewCount: String(site.reviews.reviewCount),
+    bestRating: '5',
+    worstRating: '1',
+  },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'EPC and Floor Plan Services',
@@ -140,7 +147,7 @@ const localBusinessSchema = {
     identifier: site.assessor.accreditationNumber,
   },
   sameAs: [
-    'https://share.google/4LTPb4XMjeNq7TpXk',
+    site.reviews.profileUrl,
     'https://www.elmhurstenergy.co.uk/find-an-assessor',
   ],
   knowsAbout: [
@@ -177,7 +184,7 @@ const organizationSchema = {
   serviceType: 'Energy Performance Certificate Assessment',
   parentOrganization: { '@type': 'Organization', name: site.legalName },
   sameAs: [
-    'https://share.google/4LTPb4XMjeNq7TpXk',
+    site.reviews.profileUrl,
     'https://www.elmhurstenergy.co.uk/find-an-assessor',
   ],
 }

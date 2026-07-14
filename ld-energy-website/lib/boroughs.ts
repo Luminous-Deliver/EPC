@@ -84,7 +84,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
     slug: 'newham',
     name: 'Newham',
     blurb:
-      'Covering E6, E7, E12, E13, E15 and E16, including Stratford, East Ham, Forest Gate, Plaistow and Royal Docks new builds.',
+      'Covering E6, E7, E12, E13 and E16, including East Ham, Forest Gate, Plaistow, Canning Town and the Royal Docks new builds.',
     housingStock:
       'Newham is built around long Victorian terraces in Forest Gate, East Ham and Plaistow, the Royal Docks and Royal Wharf new-build developments, and a significant volume of ex-local-authority and HMO-converted stock. It has one of the largest private rental markets in London.',
     epcIssues:

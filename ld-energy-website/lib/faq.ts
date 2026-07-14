@@ -18,7 +18,7 @@ export const homepageFaq: FaqItem[] = [
   },
   {
     q: 'How much does an EPC cost in London?',
-    a: 'Our EPC prices in London are fixed by property size: £49 for studios, £60 for 1-bedroom, £65 for 2-bedroom, £67 for 3-bedroom, £69 for 4-bedroom, and £79 for 5+ bedroom homes. Next-day service is available for £12 extra.',
+    a: 'Our guide EPC prices in London start at £49 for studios, £60 for 1-bedroom, £70 for 2-bedroom, £79 for 3-bedroom, £91 for 4-bedroom, and £101 for 5+ bedroom homes. Next-day service is available for £12 extra.',
   },
   {
     q: 'How long does an EPC assessment take?',
@@ -137,7 +137,7 @@ export const fullFaq: FaqCategory[] = [
     items: [
       {
         q: 'How much does an EPC cost?',
-        a: 'Our EPC prices are fixed by property size: £49 for studios, £60 for 1-bedroom, £65 for 2-bedroom, £67 for 3-bedroom, £69 for 4-bedroom, and £79 for 5+ bedroom homes. Next-day service is available for £12 extra.',
+        a: 'Our guide EPC prices start at £49 for studios, £60 for 1-bedroom, £70 for 2-bedroom, £79 for 3-bedroom, £91 for 4-bedroom, and £101 for 5+ bedroom homes. Next-day service is available for £12 extra.',
       },
       {
         q: 'Are there hidden fees?',

@@ -24,6 +24,13 @@ export const site = {
     scheme: 'Elmhurst Energy Systems Ltd',
     verifyUrl: 'https://www.elmhurstenergy.co.uk/find-an-assessor',
   },
+  // Google Business Profile reviews. Keep in sync with the live profile.
+  reviews: {
+    ratingValue: 5,
+    reviewCount: 3,
+    profileUrl: 'https://share.google/UkIv0ZTOezQ5KqPQx',
+    writeUrl: 'https://g.page/r/CWdJZan0XQzDEAI/review',
+  },
 } as const
 
 export const navLinks = [

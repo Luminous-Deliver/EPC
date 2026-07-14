@@ -10,12 +10,14 @@ import {
 } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
+import { Accordion } from '@/components/ui/Accordion'
 import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { Pricing } from '@/components/sections/Pricing'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { site, pricing } from '@/lib/site'
 import { areaServedLondon } from '@/lib/boroughs'
+import type { FaqItem } from '@/lib/faq'
 
 export const metadata: Metadata = {
   title: 'EPC for Selling Your Home London | From £49',
@@ -122,36 +124,37 @@ const serviceSchema = {
   offers: { '@type': 'Offer', price: String(pricing[0].epc), priceCurrency: 'GBP', availability: 'https://schema.org/InStock' },
 }
 
+const sellerFaq: FaqItem[] = [
+  {
+    q: 'Do I need the EPC before or after I list my home?',
+    a: 'Before. You must have commissioned an EPC before your property is marketed for sale — estate agents cannot legally advertise your home on Rightmove, Zoopla or any portal without one. Booking it early means nothing delays your listing going live.',
+  },
+  {
+    q: 'Should I arrange the EPC myself or leave it to my estate agent?',
+    a: 'Either works, but booking directly is often faster and cheaper than an agent-arranged panel provider. You keep control of the timing and can have the certificate ready the moment you instruct your agent.',
+  },
+  {
+    q: 'Does a higher EPC rating actually help my sale?',
+    a: 'Increasingly, yes. With higher energy bills and tighter mortgage stress-testing, more buyers factor the EPC rating into their offers. A better rating can support your asking price and speed up the sale, while a poor one gives buyers a reason to negotiate down.',
+  },
+  {
+    q: 'Should I improve my rating before selling, or sell as-is?',
+    a: 'It depends on your timeline. Cheap quick wins like LED lighting and topping up loft insulation can lift the rating before you list. If you need to move fast, selling as-is is perfectly fine — the improvement recommendations on your certificate simply pass to the buyer.',
+  },
+  {
+    q: 'I already have an EPC from when I bought the property — can I reuse it?',
+    a: 'Yes, as long as it is still within its 10-year validity. The certificate is tied to the property, not the owner. If it has expired, or you have made significant changes since, you will need a fresh assessment before marketing.',
+  },
+]
+
 const sellerFaqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Do I need an EPC before selling my home?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes. You must have an EPC commissioned before your property is marketed for sale. Estate agents cannot legally list your property on Rightmove, Zoopla or any other portal without a valid EPC. It must also be made available to potential buyers on request.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'How long does it take to get an EPC when selling?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Our standard service delivers your certificate within 72 hours of the assessment. If your estate agent is already chasing, our next-day service (+£12) guarantees the certificate within 24 hours. We offer appointments 7 days a week.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'How much does an EPC cost when selling a house in London?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Our guide prices start from £49 for a studio and increase with property size. Final price depends on floor area (m²), any extensions, and condition. We provide a personalised quote within 2 hours of your enquiry.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Does a higher EPC rating help sell my home?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes, increasingly so. With rising energy bills and tighter mortgage stress-testing, more buyers now factor EPC rating into their offers. Properties rated C or above are easier to mortgage and may support a higher asking price. A lower rating gives buyers a negotiating point.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I improve my EPC rating before selling?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes. The EPC certificate includes specific improvement recommendations. Quick wins for sellers include switching to LED lighting, upgrading to a modern condensing boiler with programmer controls, and adding loft or cavity wall insulation. Your assessor can advise which improvements will make the biggest difference for your property.' },
-    },
-  ],
+  mainEntity: sellerFaq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
 }
 
 export default function SellersPage() {
@@ -274,6 +277,19 @@ export default function SellersPage() {
       </Section>
 
       <Pricing />
+
+      {/* Seller FAQ */}
+      <Section variant="default" id="seller-faq">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">Seller Questions</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
+            EPC FAQs for Home Sellers in London
+          </h2>
+          <div className="mt-8">
+            <Accordion items={sellerFaq} />
+          </div>
+        </div>
+      </Section>
 
       <CtaStrip
         heading="Don’t Let an EPC Delay Your Sale"
