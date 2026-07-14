@@ -703,3 +703,17 @@ export const boroughMeta: Record<string, BoroughMeta> = {
 }
 
 export const boroughList = Object.values(boroughMeta)
+
+/**
+ * Reusable schema.org areaServed value: London plus every borough as an
+ * AdministrativeArea. Shared by the sitewide LocalBusiness and the per-service
+ * Service nodes so their service-area signals stay consistent.
+ */
+export const areaServedLondon = [
+  { '@type': 'City', name: 'London', addressCountry: 'GB' },
+  ...boroughList.map((b) => ({
+    '@type': 'AdministrativeArea',
+    name: b.name,
+    containedInPlace: { '@type': 'City', name: 'London' },
+  })),
+]

@@ -19,6 +19,7 @@ import { PageHero } from '@/components/sections/PageHero'
 import { Pricing } from '@/components/sections/Pricing'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { site } from '@/lib/site'
+import { areaServedLondon } from '@/lib/boroughs'
 import type { FaqItem } from '@/lib/faq'
 
 const PATH = '/domestic-energy-assessor-london'
@@ -145,7 +146,7 @@ const serviceSchema = {
   name: 'Domestic Energy Assessor in London',
   description:
     'Elmhurst-accredited domestic energy assessor producing official EPC certificates for residential properties across all 32 London boroughs.',
-  areaServed: { '@type': 'City', name: 'London', addressCountry: 'GB' },
+  areaServed: areaServedLondon,
   provider: { '@id': `${site.url}/#business` },
   url: `${site.url}${PATH}`,
 }

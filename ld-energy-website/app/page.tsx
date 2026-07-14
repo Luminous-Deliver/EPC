@@ -41,33 +41,6 @@ export const metadata: Metadata = {
   },
 }
 
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': `${site.url}/#organization`,
-  name: 'L&D Energy',
-  legalName: site.legalName,
-  alternateName: ['LD Energy', 'L and D Energy'],
-  disambiguatingDescription: 'L&D Energy is a domestic Energy Performance Certificate (EPC) provider based in Stratford, East London, not related to learning and development, oil and gas training, L&Q Energy, or LD Energy Solutions.',
-  description: 'Elmhurst-accredited domestic EPC provider. Official Energy Performance Certificates for homeowners, landlords, and letting agents across all London boroughs.',
-  url: site.url,
-  logo: {
-    '@type': 'ImageObject',
-    url: `${site.url}/logo.png`,
-  },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: site.phoneIntl,
-    contactType: 'customer service',
-    areaServed: 'GB',
-    availableLanguage: 'English',
-  },
-  sameAs: [
-    'https://share.google/4LTPb4XMjeNq7TpXk',
-    'https://www.elmhurstenergy.co.uk/find-an-assessor',
-  ],
-}
-
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -101,16 +74,15 @@ export default function HomePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationSchema, websiteSchema, faqSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([websiteSchema, faqSchema]) }}
       />
+      <Hero />
       <section aria-label="Page summary" className="sr-only">
         <h2>About L&amp;D Energy</h2>
         <p>
           L&amp;D Energy is an Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. We provide official Energy Performance Certificates (EPCs) and floor plans for residential properties across all London boroughs. Standard turnaround is 72 hours; next-day service available for £12 extra. Guide prices start at £49 for studios and £101 for 5+ bedroom homes. All EPCs are lodged on the UK government&rsquo;s official EPC Register. Contact: 07492 575 396 or contact@luminousanddeliver.co.uk.
         </p>
       </section>
-
-      <Hero />
       <TrustBar />
       <SocialProof />
       <Pricing />

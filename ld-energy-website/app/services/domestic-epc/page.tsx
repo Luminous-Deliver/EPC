@@ -9,6 +9,7 @@ import { Pricing } from '@/components/sections/Pricing'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { Faq } from '@/components/sections/Faq'
 import { site, pricing } from '@/lib/site'
+import { areaServedLondon } from '@/lib/boroughs'
 import type { FaqItem } from '@/lib/faq'
 import { Accordion } from '@/components/ui/Accordion'
 
@@ -123,7 +124,7 @@ const serviceFaq: FaqItem[] = [
   },
   {
     q: 'Do I legally need an EPC?',
-    a: 'Yes. You must have a valid EPC before marketing a property for sale or letting it to a new tenant. Estate agents cannot legally list a property without one, and landlords face fines of up to £30,000 for letting without a compliant EPC.',
+    a: 'Yes. You must have a valid EPC before marketing a property for sale or letting it to a new tenant. Estate agents cannot legally list a property without one, and landlords currently face fines of up to £5,000 per property for letting without a compliant EPC (the government has proposed raising this to £30,000 under future EPC C standards).',
   },
   {
     q: 'How long is an EPC valid for?',
@@ -149,7 +150,8 @@ const serviceSchema = {
   description:
     'Official Energy Performance Certificate for residential properties, required for selling or renting in England and Wales.',
   provider: { '@id': `${site.url}/#business` },
-  areaServed: { '@type': 'City', name: 'London' },
+  url: `${site.url}/services/domestic-epc`,
+  areaServed: areaServedLondon,
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'EPC Pricing',

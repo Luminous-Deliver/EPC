@@ -88,9 +88,10 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
+    inLanguage: 'en-GB',
     author: author
       ? {
           '@type': 'Person',
@@ -99,7 +100,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           worksFor: { '@id': `${site.url}/#business` },
         }
       : undefined,
-    publisher: { '@id': `${site.url}/#business` },
+    publisher: { '@id': `${site.url}/#organization` },
     datePublished: post.publishedAt,
     dateModified: post.updatedAt || post.publishedAt,
     image: post.ogImage ? `${site.url}${post.ogImage}` : `${site.url}/opengraph-image`,

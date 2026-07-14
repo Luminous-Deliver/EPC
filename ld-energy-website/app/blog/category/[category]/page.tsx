@@ -21,11 +21,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { category: slug } = await params
   const cat = getCategory(slug)
   if (!cat) return {}
+  const posts = await getPostsByCategory(slug)
   const url = `${site.url}/blog/category/${cat.slug}`
   return {
     title: `${cat.name}, EPC Guides`,
     description: `${cat.description} Posts written by an Elmhurst-accredited London Domestic Energy Assessor.`,
     alternates: { canonical: url },
+    // Don't index a category page until it actually has posts.
+    robots: posts.length === 0 ? { index: false, follow: true } : undefined,
     openGraph: {
       title: `${cat.name}, EPC Guides | L&D Energy`,
       description: cat.description,
@@ -87,7 +90,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
       <BreadcrumbNav items={breadcrumbs} />
       <PageHero
         eyebrow="EPC Blog"
-        heading={cat.name}
+        heading={`${cat.name}: EPC Guides for London`}
         subheading={cat.description}
         primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
       />

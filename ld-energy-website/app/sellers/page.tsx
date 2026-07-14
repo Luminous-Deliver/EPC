@@ -14,12 +14,13 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { Pricing } from '@/components/sections/Pricing'
 import { CtaStrip } from '@/components/sections/CtaStrip'
-import { site } from '@/lib/site'
+import { site, pricing } from '@/lib/site'
+import { areaServedLondon } from '@/lib/boroughs'
 
 export const metadata: Metadata = {
   title: 'EPC for Selling Your Home London | From £49',
   description:
-    'EPC certificates for selling your London home. Required by law before marketing. Fast 72-hour turnaround, next-day available. Guide prices from £49. Book today.',
+    'EPC certificates for selling your London home. Required by law before marketing. 72-hour turnaround, next-day available. Guide prices from £49.',
   alternates: { canonical: `${site.url}/sellers` },
   openGraph: {
     title: 'EPC for Selling Your Home London | From £49 | L&D Energy',
@@ -108,6 +109,19 @@ const breadcrumbSchema = {
   ],
 }
 
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Energy Performance Certificate',
+  name: 'EPC for Selling a Home',
+  description:
+    'Domestic EPC certificates for homeowners selling in London. Legally required before marketing, delivered within 72 hours or next day.',
+  provider: { '@id': `${site.url}/#business` },
+  url: `${site.url}/sellers`,
+  areaServed: areaServedLondon,
+  offers: { '@type': 'Offer', price: String(pricing[0].epc), priceCurrency: 'GBP', availability: 'https://schema.org/InStock' },
+}
+
 const sellerFaqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -145,7 +159,7 @@ export default function SellersPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, sellerFaqSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, serviceSchema, sellerFaqSchema]) }}
       />
 
       <BreadcrumbNav items={breadcrumbs} />

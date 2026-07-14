@@ -54,7 +54,7 @@ export default async function BlogIndexPage() {
     name: 'L&D Energy Blog',
     description:
       'Expert guidance on EPCs, MEES compliance, and improving energy efficiency from a working London DEA.',
-    publisher: { '@id': `${site.url}/#business` },
+    publisher: { '@id': `${site.url}/#organization` },
     blogPost: allPosts.slice(0, 20).map((p) => ({
       '@type': 'BlogPosting',
       headline: p.title,
@@ -73,7 +73,7 @@ export default async function BlogIndexPage() {
 
       <PageHero
         eyebrow="EPC Blog"
-        heading="EPC Insights & Guides"
+        heading="EPC Insights & Guides for London Homeowners & Landlords"
         subheading="Expert guidance on Energy Performance Certificates, MEES compliance, and improving your rating, written by a working London DEA."
         primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
       />

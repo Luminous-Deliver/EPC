@@ -74,6 +74,17 @@ const components = {
       {...props}
     />
   ),
+  img: ({ src = '', alt = '', ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={typeof src === 'string' ? src : ''}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      className="my-6 h-auto w-full rounded-lg border border-secondary-200"
+      {...props}
+    />
+  ),
   CTABanner,
 }
 

@@ -6,7 +6,8 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { Pricing } from '@/components/sections/Pricing'
 import { CtaStrip } from '@/components/sections/CtaStrip'
-import { site } from '@/lib/site'
+import { site, pricing } from '@/lib/site'
+import { areaServedLondon } from '@/lib/boroughs'
 
 export const metadata: Metadata = {
   title: 'EPC for Landlords London | MEES Compliance',
@@ -78,6 +79,19 @@ const breadcrumbSchema = {
   ],
 }
 
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Energy Performance Certificate',
+  name: 'EPC for Landlords (MEES Compliance)',
+  description:
+    'Domestic EPC certificates for London landlords, helping you meet MEES minimum energy efficiency standards for rental properties. Portfolio rates available.',
+  provider: { '@id': `${site.url}/#business` },
+  url: `${site.url}/landlords`,
+  areaServed: areaServedLondon,
+  offers: { '@type': 'Offer', price: String(pricing[0].epc), priceCurrency: 'GBP', availability: 'https://schema.org/InStock' },
+}
+
 const landlordFaqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -85,7 +99,7 @@ const landlordFaqSchema = {
     {
       '@type': 'Question',
       name: 'Do I need an EPC to rent out my property?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Under MEES regulations, all rental properties in England and Wales must have a valid EPC rated E or above. You must provide this to tenants before they sign the tenancy agreement. Letting without a compliant EPC can result in fines up to £30,000 per property.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Under MEES regulations, all rental properties in England and Wales must have a valid EPC rated E or above. You must provide this to tenants before they sign the tenancy agreement. Letting without a compliant EPC can currently result in fines of up to £5,000 per property, with the government proposing to raise this to £30,000 under future EPC C standards.' },
     },
     {
       '@type': 'Question',
@@ -115,7 +129,7 @@ export default function LandlordsPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, landlordFaqSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, serviceSchema, landlordFaqSchema]) }}
       />
 
       <BreadcrumbNav items={breadcrumbs} />

@@ -121,7 +121,8 @@ export default async function BoroughPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': `${site.url}/areas/${slug}#business`,
-    name: `L&D Energy, EPC ${data.name}`,
+    name: site.name,
+    description: `Elmhurst-accredited domestic EPC certificates and floor plans in ${data.name}, London.`,
     url: `${site.url}/areas/${slug}`,
     telephone: site.phoneIntl,
     email: site.email,
@@ -129,9 +130,9 @@ export default async function BoroughPage({ params }: PageProps) {
     areaServed: [
       { '@type': 'AdministrativeArea', name: data.name, containedInPlace: { '@type': 'City', name: 'London' } },
       ...postcodes.map((pc) => ({
-        '@type': 'PostalCodeRange' as const,
-        postalCode: pc,
-        addressCountry: 'GB',
+        '@type': 'Place' as const,
+        name: pc,
+        address: { '@type': 'PostalAddress', postalCode: pc, addressCountry: 'GB' },
       })),
     ],
     priceRange: '£',

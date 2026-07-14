@@ -98,6 +98,8 @@ const offerCatalog = {
       name: `${row.label} EPC`,
       price: row.epc,
       priceCurrency: 'GBP',
+      availability: 'https://schema.org/InStock',
+      url: `${site.url}/contact`,
       seller: { '@id': `${site.url}/#business` },
     },
   })),

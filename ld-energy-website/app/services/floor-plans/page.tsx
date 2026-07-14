@@ -8,6 +8,7 @@ import { PageHero } from '@/components/sections/PageHero'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { pricing } from '@/lib/site'
 import { site } from '@/lib/site'
+import { areaServedLondon } from '@/lib/boroughs'
 
 export const metadata: Metadata = {
   title: 'Property Floor Plans London | From £49',
@@ -70,7 +71,18 @@ const serviceSchema = {
   description:
     'Accurate, professionally measured floor plans for property marketing across London.',
   provider: { '@id': `${site.url}/#business` },
-  areaServed: { '@type': 'City', name: 'London' },
+  url: `${site.url}/services/floor-plans`,
+  areaServed: areaServedLondon,
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Floor Plan Pricing',
+    itemListElement: pricing.map((p) => ({
+      '@type': 'Offer',
+      name: `${p.label} Floor Plan`,
+      price: String(p.floorPlan),
+      priceCurrency: 'GBP',
+    })),
+  },
 }
 
 const breadcrumbSchema = {
