@@ -37,7 +37,7 @@ export function SocialProof() {
                 Rated on Google
               </p>
               <p className="mt-3 text-secondary-600 leading-relaxed">
-                Based on {site.reviews.reviewCount} Google reviews from London homeowners, landlords and letting agents who trust us for fast, honest EPC service.
+                London homeowners, landlords and letting agents trust us for fast, honest EPC service.
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
                 <a
