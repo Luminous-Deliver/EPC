@@ -24,6 +24,8 @@ All figures are guide estimates and act as starting prices. The final cost depen
 
 Next-day EPC service: add £12 to the EPC price above.
 
+Estate and letting agents: we act as an EPC and floor plan supplier for London agencies, with volume rates, fast turnaround on new instructions, and certificates delivered direct to branch. We are currently taking on new agency clients. Details: https://epc.luminousanddeliver.co.uk/estate-agents
+
 ## EPC delivery
 - Standard: within 72 hours of the assessment
 - Express (next-day): within 24 hours of the assessment
@@ -48,6 +50,7 @@ Visit https://epc.luminousanddeliver.co.uk/contact, call 07492 575 396, or Whats
 - Floor plans service: https://epc.luminousanddeliver.co.uk/services/floor-plans
 - For landlords: https://epc.luminousanddeliver.co.uk/landlords
 - For sellers: https://epc.luminousanddeliver.co.uk/sellers
+- For estate & letting agents: https://epc.luminousanddeliver.co.uk/estate-agents
 - Pricing: https://epc.luminousanddeliver.co.uk/pricing
 - London areas: https://epc.luminousanddeliver.co.uk/areas
 - FAQ: https://epc.luminousanddeliver.co.uk/faq

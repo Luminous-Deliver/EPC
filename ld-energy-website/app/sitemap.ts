@@ -10,6 +10,7 @@ const staticRoutes: Array<{ path: string; priority: number; changeFreq: Metadata
   { path: '/services/floor-plans',    priority: 0.9, changeFreq: 'monthly' },
   { path: '/landlords',               priority: 0.8, changeFreq: 'monthly' },
   { path: '/sellers',                 priority: 0.8, changeFreq: 'monthly' },
+  { path: '/estate-agents',           priority: 0.8, changeFreq: 'monthly' },
   { path: '/pricing',                 priority: 0.8, changeFreq: 'monthly' },
   { path: '/areas',                   priority: 0.7, changeFreq: 'monthly' },
   { path: '/faq',                     priority: 0.7, changeFreq: 'monthly' },

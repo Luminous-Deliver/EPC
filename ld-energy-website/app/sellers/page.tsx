@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import {
   TrendingUp,
   Clock,
@@ -186,6 +187,14 @@ export default function SellersPage() {
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
             An EPC is legally required before any residential property is marketed for sale in England and Wales. It must be commissioned before your property is advertised and provided to potential buyers on request.
+          </p>
+          <p className="mt-4 text-secondary-700 leading-relaxed">
+            You can book directly with us, often faster and cheaper than an agent-arranged panel provider, and if
+            you work in property,{' '}
+            <Link href="/estate-agents" className="text-primary-700 underline underline-offset-2 hover:text-primary-800 font-medium">
+              estate and letting agents can partner with us
+            </Link>{' '}
+            for all their listings.
           </p>
         </div>
 

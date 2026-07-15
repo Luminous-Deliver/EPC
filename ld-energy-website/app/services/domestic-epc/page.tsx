@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { CheckCircle2, User, Building2, Users } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
@@ -255,6 +256,13 @@ export default function DomesticEpcPage() {
             </div>
           ))}
         </div>
+        <p className="mt-6 text-secondary-700">
+          Estate or letting agent instructing on behalf of clients?{' '}
+          <Link href="/estate-agents" className="text-primary-700 underline underline-offset-2 hover:text-primary-800 font-medium">
+            See our dedicated EPC service for agents
+          </Link>
+          , with volume rates and fast turnaround on new instructions.
+        </p>
       </Section>
 
       {/* Process */}

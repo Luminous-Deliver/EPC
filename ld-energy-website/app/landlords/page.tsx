@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { AlertTriangle, CheckCircle2, Clock, ShieldCheck, FileText, CalendarRange } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
@@ -246,6 +247,13 @@ export default function LandlordsPage() {
           <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             Our Landlord Service
           </h2>
+          <p className="mt-4 text-secondary-700 leading-relaxed">
+            Letting agent managing properties for landlords?{' '}
+            <Link href="/estate-agents" className="text-primary-700 underline underline-offset-2 hover:text-primary-800 font-medium">
+              See our dedicated service for agents
+            </Link>
+            , with agency rates and direct-to-branch certificate delivery.
+          </p>
         </div>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {ourService.map((s) => (

@@ -40,6 +40,7 @@ export const navLinks = [
   { href: '/services/floor-plans', label: 'Floor Plans' },
   { href: '/landlords', label: 'For Landlords' },
   { href: '/sellers', label: 'For Sellers' },
+  { href: '/estate-agents', label: 'For Agents' },
   { href: '/areas', label: 'Areas' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/faq', label: 'FAQ' },
@@ -64,6 +65,7 @@ export const servicesDropdown = [
   { href: '/services/floor-plans', label: 'Floor Plans', desc: 'Professional measured plans' },
   { href: '/landlords', label: 'For Landlords', desc: 'Stay compliant & avoid fines' },
   { href: '/sellers', label: 'For Sellers', desc: 'Boost your listing appeal' },
+  { href: '/estate-agents', label: 'For Agents', desc: 'EPC partner for new instructions' },
   { href: '/about', label: 'About Us', desc: 'Meet your assessor' },
 ] as const
 

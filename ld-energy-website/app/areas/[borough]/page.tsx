@@ -205,7 +205,8 @@ export default async function BoroughPage({ params }: PageProps) {
             EPC Service in {data.name}
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-            Need an EPC in {data.name}? L&amp;D Energy provides fast, affordable domestic Energy Performance Certificates across {data.name} and all surrounding London areas. As an Elmhurst-accredited Domestic Energy Assessor based in East London, we offer flexible appointment times and rapid turnaround for homeowners, landlords, and letting agents.
+            Need an EPC in {data.name}? L&amp;D Energy provides fast, affordable domestic Energy Performance Certificates across {data.name} and all surrounding London areas. As an Elmhurst-accredited Domestic Energy Assessor based in East London, we offer flexible appointment times and rapid turnaround for homeowners, landlords, and{' '}
+            <Link href="/estate-agents" className="text-primary-700 underline underline-offset-2 hover:text-primary-800">letting agents</Link>.
           </p>
           <p className="mt-4 text-secondary-700 leading-relaxed">{data.blurb}</p>
 
