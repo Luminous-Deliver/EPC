@@ -111,7 +111,7 @@ export function Hero() {
             </span>
             <span className="font-semibold">Rated on Google</span>
             <span className="text-secondary-400">·</span>
-            <span className="text-primary-700">Read our reviews</span>
+            <span className="text-secondary-400 underline underline-offset-2 decoration-secondary-300 hover:text-secondary-600">Read our reviews</span>
           </a>
 
           <dl className="mt-10 grid grid-cols-3 gap-3 max-w-md">
