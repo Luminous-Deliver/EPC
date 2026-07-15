@@ -16,7 +16,7 @@ export default async function OpengraphImage() {
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: '80px',
-          background: 'linear-gradient(135deg, #0D9488 0%, #115E59 100%)',
+          background: 'linear-gradient(135deg, #33507F 0%, #1D3050 100%)',
           color: 'white',
           fontFamily: 'sans-serif',
         }}
@@ -32,8 +32,8 @@ export default async function OpengraphImage() {
               alignItems: 'center',
             }}
           >
-            <span style={{ fontSize: 30, fontWeight: 900, color: '#1B2A4A', letterSpacing: '-1px' }}>LD</span>
-            <span style={{ fontSize: 30, fontWeight: 700, color: '#2E7E8A', marginLeft: 6 }}>Energy</span>
+            <span style={{ fontSize: 30, fontWeight: 900, color: '#182848', letterSpacing: '-1px' }}>LD</span>
+            <span style={{ fontSize: 30, fontWeight: 700, color: '#EF7A28', marginLeft: 6 }}>Energy</span>
           </div>
         </div>
 
@@ -58,7 +58,7 @@ export default async function OpengraphImage() {
           }}
         >
           <span>epc.luminousanddeliver.co.uk</span>
-          <span style={{ color: '#FCD34D' }}>07492 575 396</span>
+          <span style={{ color: '#F8B47D' }}>07492 575 396</span>
         </div>
       </div>
     ),

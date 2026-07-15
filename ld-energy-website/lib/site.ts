@@ -58,15 +58,24 @@ export const topNav = [
   { href: '/contact', label: 'Contact' },
 ] as const
 
-/** Links shown inside the Services dropdown */
-export const servicesDropdown = [
-  { href: '/services/domestic-epc', label: 'Domestic EPC', desc: 'Official certificates from £49' },
-  { href: '/domestic-energy-assessor-london', label: 'Energy Assessor', desc: 'Your accredited London DEA' },
-  { href: '/services/floor-plans', label: 'Floor Plans', desc: 'Professional measured plans' },
-  { href: '/landlords', label: 'For Landlords', desc: 'Stay compliant & avoid fines' },
-  { href: '/sellers', label: 'For Sellers', desc: 'Boost your listing appeal' },
-  { href: '/estate-agents', label: 'For Agents', desc: 'EPC partner for new instructions' },
-  { href: '/about', label: 'About Us', desc: 'Meet your assessor' },
+/** Grouped links for the Services menu (desktop dropdown + mobile drawer) */
+export const servicesMenu = [
+  {
+    heading: 'Services',
+    links: [
+      { href: '/services/domestic-epc', label: 'Domestic EPC', desc: 'Official certificates from £49' },
+      { href: '/services/floor-plans', label: 'Floor Plans', desc: 'Professional measured plans' },
+      { href: '/domestic-energy-assessor-london', label: 'Energy Assessor', desc: 'Your accredited London DEA' },
+    ],
+  },
+  {
+    heading: 'Who we help',
+    links: [
+      { href: '/landlords', label: 'For Landlords', desc: 'Stay compliant & avoid fines' },
+      { href: '/sellers', label: 'For Sellers', desc: 'Boost your listing appeal' },
+      { href: '/estate-agents', label: 'For Agents', desc: 'EPC partner for new instructions' },
+    ],
+  },
 ] as const
 
 export type PropertyType = 'studio' | '1-bed' | '2-bed' | '3-bed' | '4-bed' | '5-bed-plus'

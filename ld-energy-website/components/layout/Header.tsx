@@ -7,7 +7,7 @@ import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/ui/Logo'
 import { Button } from '@/components/ui/Button'
 import { MobileNav } from './MobileNav'
-import { topNav, servicesDropdown, site } from '@/lib/site'
+import { topNav, servicesMenu, site } from '@/lib/site'
 import { cn } from '@/lib/cn'
 import { useScrollDirection } from '@/lib/useScrollDirection'
 
@@ -44,21 +44,31 @@ function ServicesDropdown() {
         <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl bg-white shadow-premium-lg ring-1 ring-secondary-900/5 overflow-hidden z-50">
           {/* Arrow pointer */}
           <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 ring-1 ring-secondary-900/5" aria-hidden="true" />
-          <ul className="py-2" role="menu">
-            {servicesDropdown.map((item) => (
-              <li key={item.href} role="none">
-                <Link
-                  href={item.href}
-                  role="menuitem"
-                  onClick={() => setOpen(false)}
-                  className="flex flex-col px-4 py-3 hover:bg-primary-50 transition-colors group"
-                >
-                  <span className="text-sm font-semibold text-secondary-900 group-hover:text-primary-700">{item.label}</span>
-                  <span className="text-xs text-secondary-500 mt-0.5">{item.desc}</span>
-                </Link>
-              </li>
+          <div className="py-2" role="menu">
+            {servicesMenu.map((group, gi) => (
+              <div key={group.heading}>
+                {gi > 0 && <div className="my-1 border-t border-secondary-100" aria-hidden="true" />}
+                <p className="px-4 pt-2 pb-1 text-[10px] font-bold uppercase tracking-widest text-secondary-400">
+                  {group.heading}
+                </p>
+                <ul role="none">
+                  {group.links.map((item) => (
+                    <li key={item.href} role="none">
+                      <Link
+                        href={item.href}
+                        role="menuitem"
+                        onClick={() => setOpen(false)}
+                        className="flex flex-col px-4 py-2.5 hover:bg-primary-50 transition-colors group"
+                      >
+                        <span className="text-sm font-semibold text-secondary-900 group-hover:text-primary-700">{item.label}</span>
+                        <span className="text-xs text-secondary-500 mt-0.5">{item.desc}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       )}
     </div>

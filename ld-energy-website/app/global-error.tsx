@@ -23,7 +23,7 @@ export default function GlobalError({
             color: '#0F172A',
           }}
         >
-          <p style={{ fontSize: '64px', fontWeight: 800, color: '#0D9488', margin: 0 }}>Oops</p>
+          <p style={{ fontSize: '64px', fontWeight: 800, color: '#33507F', margin: 0 }}>Oops</p>
           <h1 style={{ fontSize: '28px', fontWeight: 800, margin: 0 }}>Something went wrong</h1>
           <p style={{ color: '#475569', maxWidth: '420px', margin: 0 }}>
             An unexpected error occurred. Try again, or call us on 07492 575 396 to book your EPC.
@@ -36,7 +36,7 @@ export default function GlobalError({
               padding: '12px 28px',
               borderRadius: '12px',
               border: 'none',
-              background: '#0D9488',
+              background: '#33507F',
               color: '#fff',
               fontSize: '16px',
               fontWeight: 600,

@@ -71,7 +71,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0D9488',
+  themeColor: '#33507F',
   width: 'device-width',
   initialScale: 1,
 }
@@ -221,7 +221,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         {/* Skyline transition, ivory canvas fades into forest dark */}
-        <LondonSkyline className="text-[#07211e] -mb-1" />
+        <LondonSkyline className="text-[#0D1B33] -mb-1" />
         <Footer />
         <MobileCallBar />
         <CookieBanner />

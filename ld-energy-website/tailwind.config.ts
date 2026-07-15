@@ -9,18 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Brand navy, derived from the logo wordmark (#182848)
         primary: {
-          50: '#F0FDFA',
-          100: '#CCFBF1',
-          200: '#99F6E4',
-          300: '#5EEAD4',
-          400: '#2DD4BF',
-          500: '#14B8A6',
-          600: '#0D9488',
-          700: '#0F766E',
-          800: '#115E59',
-          900: '#134E4A',
-          950: '#042F2E',
+          50: '#F2F5FA',
+          100: '#E1E9F4',
+          200: '#C4D2E8',
+          300: '#9BB2D4',
+          400: '#6C8CBC',
+          500: '#48699F',
+          600: '#33507F',
+          700: '#263E64',
+          800: '#1D3050',
+          900: '#182848',
+          950: '#0D1729',
         },
         secondary: {
           50: '#F8FAFC',
@@ -35,13 +36,14 @@ const config: Config = {
           900: '#0F172A',
           950: '#020617',
         },
+        // Brand orange, derived from the logo roof mark (#EF7A28)
         accent: {
-          50: '#FFFBEB',
-          100: '#FEF3C7',
-          400: '#FBBF24',
-          500: '#F59E0B',
-          600: '#D97706',
-          700: '#B45309',
+          50: '#FEF5EE',
+          100: '#FDE7D4',
+          400: '#F5923F',
+          500: '#EF7A28',
+          600: '#DC6314',
+          700: '#B64F10',
         },
         success: '#22C55E',
         warning: '#F59E0B',
@@ -49,11 +51,12 @@ const config: Config = {
         // Warm editorial canvas — ivory page, sand for muted bands
         canvas: '#FBFAF7',
         sand: '#F3F0E8',
+        // Dark brand band (footer, HowItWorks) — deep navy, was forest green
         forest: {
-          900: '#061a18',
-          800: '#07211e',
-          700: '#0a2e29',
-          accent: '#34d399',
+          900: '#091324',
+          800: '#0D1B33',
+          700: '#142644',
+          accent: '#F5923F',
         },
       },
       fontFamily: {

@@ -129,9 +129,9 @@
                 0 16px 40px -8px rgb(15 23 42 / 0.14);
   }
 
-  /* Brand teal → amber clip-text accent */
+  /* Brand navy → orange clip-text accent */
   .text-gradient-brand {
-    background-image: linear-gradient(135deg, #0F766E 0%, #0D9488 45%, #F59E0B 130%);
+    background-image: linear-gradient(135deg, #263E64 0%, #33507F 45%, #EF7A28 130%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -139,11 +139,11 @@
 
   /* Decorative overlays (use as pointer-events-none absolute inside overflow-hidden parents) */
   .bg-dot-grid {
-    background-image: radial-gradient(rgb(13 148 136 / 0.10) 1px, transparent 1px);
+    background-image: radial-gradient(rgb(51 80 127 / 0.10) 1px, transparent 1px);
     background-size: 22px 22px;
   }
   .bg-hero-glow {
-    background-image: radial-gradient(60% 50% at 50% 0%, rgb(204 251 241 / 0.55) 0%, transparent 70%);
+    background-image: radial-gradient(60% 50% at 50% 0%, rgb(225 233 244 / 0.55) 0%, transparent 70%);
   }
 
   /* Premium Glassmorphism and Border Glow utilities */
@@ -158,8 +158,8 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .card-glow-teal:hover {
-    border-color: rgba(20, 184, 166, 0.4);
-    box-shadow: 0 0 25px 2px rgba(20, 184, 166, 0.12),
+    border-color: rgba(72, 105, 159, 0.4);
+    box-shadow: 0 0 25px 2px rgba(72, 105, 159, 0.12),
                 0 10px 15px -3px rgba(15, 23, 42, 0.05);
     transform: translateY(-4px);
   }
@@ -168,8 +168,8 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .card-glow-amber:hover {
-    border-color: rgba(245, 158, 11, 0.4);
-    box-shadow: 0 0 25px 2px rgba(245, 158, 11, 0.12),
+    border-color: rgba(239, 122, 40, 0.4);
+    box-shadow: 0 0 25px 2px rgba(239, 122, 40, 0.12),
                 0 10px 15px -3px rgba(15, 23, 42, 0.05);
     transform: translateY(-4px);
   }
