@@ -14,7 +14,7 @@ const variants: Record<Variant, string> = {
   secondary:
     'bg-white hover:bg-secondary-50 text-secondary-800 border border-secondary-200 hover:border-secondary-300 hover:shadow-sm',
   accent:
-    'bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-bold shadow-md hover:shadow-lg',
+    'bg-gradient-to-r from-accent-700 to-accent-800 hover:from-accent-800 hover:to-accent-900 text-white font-bold shadow-md hover:shadow-lg',
   ghost:
     'bg-transparent hover:bg-secondary-100 text-secondary-800',
 }

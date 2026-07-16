@@ -36,16 +36,33 @@ const config: Config = {
           900: '#0F172A',
           950: '#020617',
         },
-        // Brand orange, derived from the logo roof mark (#EF7A28)
+        // Brand green, derived from the logo roof mark (EPC A-rating green)
         accent: {
+          50: '#F3FAEC',
+          100: '#E3F3D3',
+          200: '#C8E8AB',
+          300: '#A5D97C',
+          400: '#83C853',
+          500: '#63B233',
+          600: '#4C9424',
+          700: '#3A731D',
+          800: '#315C1C',
+          900: '#2A4E1B',
+          950: '#14290A',
+        },
+        // Warm tertiary (former brand orange) — use sparingly: cautionary
+        // notes, fines/warnings, and future heating/electrical services
+        warm: {
           50: '#FEF5EE',
           100: '#FDE7D4',
+          200: '#FACDAA',
           400: '#F5923F',
           500: '#EF7A28',
           600: '#DC6314',
           700: '#B64F10',
+          800: '#93400F',
         },
-        success: '#22C55E',
+        success: '#3A731D',
         warning: '#F59E0B',
         danger: '#EF4444',
         // Warm editorial canvas — ivory page, sand for muted bands
@@ -56,7 +73,7 @@ const config: Config = {
           900: '#091324',
           800: '#0D1B33',
           700: '#142644',
-          accent: '#F5923F',
+          accent: '#83C853',
         },
       },
       fontFamily: {

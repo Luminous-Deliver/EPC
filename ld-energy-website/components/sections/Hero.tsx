@@ -106,7 +106,7 @@ export function Hero() {
           >
             <span className="flex items-center gap-0.5" aria-hidden="true">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-accent-500 text-accent-500" />
+                <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
               ))}
             </span>
             <span className="font-semibold">Rated on Google</span>
@@ -133,7 +133,7 @@ export function Hero() {
 
         <div className="lg:col-span-5 mt-10 lg:mt-0">
           <div className="relative rounded-2xl bg-white shadow-premium-lg ring-1 ring-secondary-900/5 p-6 md:p-8 animate-fade-in animate-delay-300">
-            <div className="absolute -top-3 left-6 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+            <div className="absolute -top-3 left-6 bg-gradient-to-r from-accent-700 to-accent-800 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               Interactive EPC Simulator
             </div>
@@ -193,16 +193,16 @@ export function Hero() {
                       onClick={() => toggleUpgrade(upgrade.id)}
                       className={`flex flex-col text-left p-3 min-h-[56px] rounded-xl border text-xs transition-all duration-200 hover:-translate-y-0.5 active:scale-95 ${
                         isChecked
-                          ? 'border-emerald-500 bg-emerald-50/50 ring-1 ring-emerald-500'
+                          ? 'border-accent-500 bg-accent-50/50 ring-1 ring-accent-500'
                           : 'border-secondary-200 bg-white hover:border-secondary-300 hover:bg-secondary-50'
                       }`}
                     >
                       <span className="flex items-center justify-between w-full font-bold text-secondary-900">
                         {upgrade.name}
                         {isChecked ? (
-                          <Check className="w-4 h-4 text-emerald-600 font-bold shrink-0" />
+                          <Check className="w-4 h-4 text-accent-700 font-bold shrink-0" />
                         ) : (
-                          <span className="text-[10px] text-emerald-600 font-bold">+{upgrade.points} pts</span>
+                          <span className="text-[10px] text-accent-700 font-bold">+{upgrade.points} pts</span>
                         )}
                       </span>
                       <span className="text-[11px] text-secondary-500 mt-0.5 leading-snug">{upgrade.description}</span>

@@ -129,9 +129,9 @@
                 0 16px 40px -8px rgb(15 23 42 / 0.14);
   }
 
-  /* Brand navy → orange clip-text accent */
+  /* Brand navy → green clip-text accent */
   .text-gradient-brand {
-    background-image: linear-gradient(135deg, #263E64 0%, #33507F 45%, #EF7A28 130%);
+    background-image: linear-gradient(135deg, #263E64 0%, #33507F 45%, #63B233 130%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -154,26 +154,6 @@
     border: 1px solid rgba(255, 255, 255, 0.5);
   }
   
-  .card-glow-teal {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .card-glow-teal:hover {
-    border-color: rgba(72, 105, 159, 0.4);
-    box-shadow: 0 0 25px 2px rgba(72, 105, 159, 0.12),
-                0 10px 15px -3px rgba(15, 23, 42, 0.05);
-    transform: translateY(-4px);
-  }
-
-  .card-glow-amber {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .card-glow-amber:hover {
-    border-color: rgba(239, 122, 40, 0.4);
-    box-shadow: 0 0 25px 2px rgba(239, 122, 40, 0.12),
-                0 10px 15px -3px rgba(15, 23, 42, 0.05);
-    transform: translateY(-4px);
-  }
-
   /* Warm card — sits on canvas/sand backgrounds */
   .card-warm {
     background-color: #FBFAF7;
@@ -182,6 +162,5 @@
 
   @media (prefers-reduced-motion: reduce) {
     .hover\:-translate-y-1:hover { transform: none; }
-    .card-glow-teal:hover, .card-glow-amber:hover { transform: none; }
   }
 }

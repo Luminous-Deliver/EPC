@@ -33,14 +33,14 @@ export function HowItWorks() {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full opacity-[0.10]"
-        style={{ background: 'radial-gradient(ellipse, #EF7A28 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse, #63B233 0%, transparent 70%)' }}
       />
 
       <Container className="relative">
         <div className="max-w-3xl">
           <span
             className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs uppercase tracking-wide font-semibold"
-            style={{ background: 'rgba(239,122,40,0.1)', border: '1px solid rgba(239,122,40,0.2)', color: '#F8B47D' }}
+            style={{ background: 'rgba(99,178,51,0.1)', border: '1px solid rgba(99,178,51,0.25)', color: '#A5D97C' }}
           >
             <Route className="w-3.5 h-3.5" aria-hidden="true" />
             The Process
@@ -57,13 +57,13 @@ export function HowItWorks() {
           {/* Desktop connector */}
           <div
             className="hidden md:block pointer-events-none absolute left-0 right-0 top-1 h-px border-t border-dashed"
-            style={{ borderColor: 'rgba(239,122,40,0.2)' }}
+            style={{ borderColor: 'rgba(99,178,51,0.25)' }}
             aria-hidden="true"
           />
           {/* Mobile vertical connector */}
           <div
             className="md:hidden pointer-events-none absolute left-10 top-8 bottom-8 w-px border-l border-dashed"
-            style={{ borderColor: 'rgba(239,122,40,0.2)' }}
+            style={{ borderColor: 'rgba(99,178,51,0.25)' }}
             aria-hidden="true"
           />
 
@@ -71,15 +71,15 @@ export function HowItWorks() {
             <li
               key={step.title}
               className="relative rounded-2xl p-6 md:p-8 transition-all duration-200 hover:-translate-y-1 animate-reveal"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(239,122,40,0.12)' }}
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(99,178,51,0.15)' }}
             >
               <div
                 className="absolute -top-4 left-6 inline-flex items-center justify-center w-9 h-9 rounded-xl font-bold text-sm shadow-sm"
-                style={{ background: 'linear-gradient(135deg, #EF7A28, #DC6314)', color: '#fff', boxShadow: '0 0 0 4px #0D1B33' }}
+                style={{ background: 'linear-gradient(135deg, #83C853, #63B233)', color: '#0D1B33', boxShadow: '0 0 0 4px #0D1B33' }}
               >
                 {i + 1}
               </div>
-              <step.Icon className="mt-3 w-9 h-9" style={{ color: '#F8B47D' }} aria-hidden="true" />
+              <step.Icon className="mt-3 w-9 h-9" style={{ color: '#A5D97C' }} aria-hidden="true" />
               <h3 className="mt-4 text-xl font-semibold text-white">{step.title}</h3>
               <p className="mt-2 leading-relaxed text-sm" style={{ color: 'rgba(214,225,240,0.6)' }}>{step.body}</p>
             </li>

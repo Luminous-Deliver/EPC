@@ -25,12 +25,12 @@ export function Footer() {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-24 left-1/4 w-[500px] h-[300px] rounded-full opacity-[0.07]"
-        style={{ background: 'radial-gradient(ellipse, #EF7A28 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse, #63B233 0%, transparent 70%)' }}
       />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute bottom-0 right-0 w-[400px] h-[200px] rounded-full opacity-[0.05]"
-        style={{ background: 'radial-gradient(ellipse, #F8B47D 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse, #A5D97C 0%, transparent 70%)' }}
       />
 
       {/* Main content */}
@@ -48,9 +48,9 @@ export function Footer() {
             {/* Accreditation badge */}
             <div
               className="mt-5 inline-flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-xs font-medium"
-              style={{ background: 'rgba(239,122,40,0.08)', border: '1px solid rgba(239,122,40,0.2)' }}
+              style={{ background: 'rgba(99,178,51,0.08)', border: '1px solid rgba(99,178,51,0.25)' }}
             >
-              <ShieldCheck className="w-4 h-4 shrink-0" style={{ color: '#EF7A28' }} aria-hidden="true" />
+              <ShieldCheck className="w-4 h-4 shrink-0" style={{ color: '#83C853' }} aria-hidden="true" />
               <span style={{ color: 'rgba(214,225,240,0.75)' }}>
                 Elmhurst Accredited · {site.assessor.accreditationNumber}
               </span>
@@ -58,7 +58,7 @@ export function Footer() {
 
             {/* Hours */}
             <div className="mt-4 flex items-center gap-2 text-xs" style={{ color: 'rgba(214,225,240,0.4)' }}>
-              <Clock className="w-3.5 h-3.5 shrink-0" style={{ color: '#EF7A28' }} aria-hidden="true" />
+              <Clock className="w-3.5 h-3.5 shrink-0" style={{ color: '#83C853' }} aria-hidden="true" />
               {site.hours}
             </div>
           </div>
@@ -67,7 +67,7 @@ export function Footer() {
           <div className="grid grid-cols-2 gap-8 md:contents">
             {/* Services column */}
             <nav aria-label="Footer services" className="md:col-span-2">
-              <h2 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(239,122,40,0.7)' }}>
+              <h2 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(165,217,124,0.75)' }}>
                 Services
               </h2>
               <ul className="space-y-2.5">
@@ -87,7 +87,7 @@ export function Footer() {
 
             {/* Other links column */}
             <nav aria-label="Footer links" className="md:col-span-2">
-              <h2 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(239,122,40,0.7)' }}>
+              <h2 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(165,217,124,0.75)' }}>
                 Company
               </h2>
               <ul className="space-y-2.5">
@@ -108,7 +108,7 @@ export function Footer() {
 
           {/* Contact column */}
           <div className="md:col-span-4">
-            <h2 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(239,122,40,0.7)' }}>
+            <h2 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(165,217,124,0.75)' }}>
               Get in Touch
             </h2>
             <ul className="space-y-3">
@@ -120,9 +120,9 @@ export function Footer() {
                 >
                   <span
                     className="inline-flex items-center justify-center w-8 h-8 rounded-lg shrink-0"
-                    style={{ background: 'rgba(239,122,40,0.12)' }}
+                    style={{ background: 'rgba(99,178,51,0.15)' }}
                   >
-                    <Phone className="w-3.5 h-3.5" style={{ color: '#EF7A28' }} aria-hidden="true" />
+                    <Phone className="w-3.5 h-3.5" style={{ color: '#83C853' }} aria-hidden="true" />
                   </span>
                   {site.phone}
                 </a>
@@ -135,9 +135,9 @@ export function Footer() {
                 >
                   <span
                     className="inline-flex items-center justify-center w-8 h-8 rounded-lg shrink-0"
-                    style={{ background: 'rgba(239,122,40,0.12)' }}
+                    style={{ background: 'rgba(99,178,51,0.15)' }}
                   >
-                    <Mail className="w-3.5 h-3.5" style={{ color: '#EF7A28' }} aria-hidden="true" />
+                    <Mail className="w-3.5 h-3.5" style={{ color: '#83C853' }} aria-hidden="true" />
                   </span>
                   {site.email}
                 </a>
@@ -148,9 +148,9 @@ export function Footer() {
               >
                 <span
                   className="inline-flex items-center justify-center w-8 h-8 rounded-lg shrink-0"
-                  style={{ background: 'rgba(239,122,40,0.12)' }}
+                  style={{ background: 'rgba(99,178,51,0.15)' }}
                 >
-                  <MapPin className="w-3.5 h-3.5" style={{ color: '#EF7A28' }} aria-hidden="true" />
+                  <MapPin className="w-3.5 h-3.5" style={{ color: '#83C853' }} aria-hidden="true" />
                 </span>
                 Stratford, East London E15
               </li>
@@ -163,12 +163,12 @@ export function Footer() {
               rel="noopener noreferrer"
               className="mt-5 inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all hover:brightness-110"
               style={{
-                background: 'rgba(239,122,40,0.1)',
-                border: '1px solid rgba(239,122,40,0.2)',
+                background: 'rgba(99,178,51,0.1)',
+                border: '1px solid rgba(99,178,51,0.25)',
                 color: 'rgba(214,225,240,0.85)',
               }}
             >
-              <Star className="w-4 h-4 text-yellow-400" aria-hidden="true" />
+              <Star className="w-4 h-4 fill-amber-400 text-amber-400" aria-hidden="true" />
               View our Google Reviews
               <ArrowUpRight className="w-3.5 h-3.5 opacity-60" aria-hidden="true" />
             </a>
@@ -177,7 +177,7 @@ export function Footer() {
       </Container>
 
       {/* Bottom bar */}
-      <div style={{ borderTop: '1px solid rgba(239,122,40,0.1)' }}>
+      <div style={{ borderTop: '1px solid rgba(99,178,51,0.12)' }}>
         <Container className="py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs" style={{ color: 'rgba(214,225,240,0.35)' }}>
           <p className="text-center sm:text-left">
             © {year} {site.name}. Part of {site.legalName}.

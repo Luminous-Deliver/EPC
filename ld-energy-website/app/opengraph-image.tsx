@@ -33,7 +33,7 @@ export default async function OpengraphImage() {
             }}
           >
             <span style={{ fontSize: 30, fontWeight: 900, color: '#182848', letterSpacing: '-1px' }}>LD</span>
-            <span style={{ fontSize: 30, fontWeight: 700, color: '#EF7A28', marginLeft: 6 }}>Energy</span>
+            <span style={{ fontSize: 30, fontWeight: 700, color: '#4C9424', marginLeft: 6 }}>Energy</span>
           </div>
         </div>
 
@@ -58,7 +58,7 @@ export default async function OpengraphImage() {
           }}
         >
           <span>epc.luminousanddeliver.co.uk</span>
-          <span style={{ color: '#F8B47D' }}>07492 575 396</span>
+          <span style={{ color: '#A5D97C' }}>07492 575 396</span>
         </div>
       </div>
     ),
