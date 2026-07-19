@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og'
+import { ogLogo } from './og-logo-data'
 
 export const runtime = 'edge'
 export const alt = 'L&D Energy, Domestic EPC London from £49'
@@ -22,24 +23,23 @@ export default async function OpengraphImage() {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-          {/* White pill containing the JPEG logo mark */}
           <div
             style={{
               background: '#ffffff',
-              borderRadius: 12,
-              padding: '8px 16px',
+              borderRadius: 16,
+              padding: '18px 28px',
               display: 'flex',
               alignItems: 'center',
             }}
           >
-            <span style={{ fontSize: 30, fontWeight: 900, color: '#182848', letterSpacing: '-1px' }}>LD</span>
-            <span style={{ fontSize: 30, fontWeight: 700, color: '#4C9424', marginLeft: 6 }}>Energy</span>
+            <img src={ogLogo} width={276} height={120} alt="L&D Energy" />
           </div>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div style={{ fontSize: 84, fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em' }}>
-            Domestic EPCs<br />from £49
+          <div style={{ display: 'flex', flexDirection: 'column', fontSize: 84, fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em' }}>
+            <span>Domestic EPCs</span>
+            <span>from £49</span>
           </div>
           <div style={{ fontSize: 32, opacity: 0.9, fontWeight: 500 }}>
             Elmhurst accredited · Next-day available · All London boroughs
