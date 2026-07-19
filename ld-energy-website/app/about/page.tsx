@@ -217,12 +217,11 @@ export default function AboutPage() {
               {/* Elmhurst ID card — true portrait ratio, constrained width */}
               <div className="shrink-0 mx-auto sm:mx-0 w-36 rounded-lg overflow-hidden border border-secondary-200 shadow-sm">
                 <Image
-                  src="/elmhurst-id.jpeg"
+                  src="/elmhurst-id.webp"
                   alt="Elmhurst Energy accreditation ID card for Abdul Motaleb Taher, EES/036265"
-                  width={625}
-                  height={961}
+                  width={360}
+                  height={554}
                   className="w-full h-auto"
-                  priority
                 />
               </div>
               {/* Credential details */}
