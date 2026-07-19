@@ -7,3 +7,16 @@
   Cross-Origin-Opener-Policy: same-origin
   X-DNS-Prefetch-Control: on
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+
+# Static image/logo assets aren't content-hashed like /_next/static/*, so
+# keep the cache window modest (1 week) rather than immutable/1-year —
+# swapping a logo or photo (as we've done a few times) should reach
+# visitors again within a reasonable time.
+/*.webp
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/*.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/*.jpeg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/*.svg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
