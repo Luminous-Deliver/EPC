@@ -1,10 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Phone, ShieldCheck, Clock, MapPin, Star, Sparkles, Check, Wrench, ChevronRight } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
-import { SustainableHome } from '@/components/ui/SustainableHome'
 import { site } from '@/lib/site'
 
 const GOOGLE_REVIEWS_URL = 'https://share.google/4LTPb4XMjeNq7TpXk'
@@ -59,16 +59,24 @@ export function Hero() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-primary-50 via-canvas to-canvas border-b border-secondary-100">
-      {/* Decorative overlays — geometric house + leaf pattern from the logo */}
-      <div
-        className="bg-brand-pattern pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]"
-        aria-hidden="true"
-      />
-      <div
-        className="bg-hero-glow pointer-events-none absolute -top-24 right-0 h-[480px] w-[640px]"
-        aria-hidden="true"
-      />
+    <section className="relative overflow-hidden bg-canvas border-b border-secondary-100">
+      {/* Background photo — modern solar-roof home under a light sky (no people).
+          Source: Unsplash (free licence), unsplash.com/photos/Ja8t8nJN2I4 */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <Image
+          src="/hero-home.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[70%_25%]"
+        />
+        {/* Legibility overlays: solid over the text column, airy over the photo */}
+        <div className="absolute inset-0 bg-gradient-to-r from-canvas via-canvas/75 to-canvas/5" />
+        <div className="absolute inset-0 bg-gradient-to-b from-canvas/25 via-transparent to-canvas/90" />
+        {/* Extra wash on small screens where text spans the full width */}
+        <div className="absolute inset-0 bg-canvas/60 md:hidden" />
+      </div>
 
       <Container className="relative py-10 md:py-20 lg:py-24 grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
         <div className="lg:col-span-7">
@@ -232,11 +240,6 @@ export function Hero() {
           </div>
         </div>
       </Container>
-
-      {/* Sustainable street illustration — solar roofs + air-source heat pump */}
-      <div className="relative mt-2 md:mt-4 opacity-80" aria-hidden="true">
-        <SustainableHome className="w-[1200px] max-w-none md:w-full md:max-w-full h-auto mx-auto -translate-x-16 md:translate-x-0" />
-      </div>
     </section>
   )
 }
