@@ -129,9 +129,9 @@
                 0 16px 40px -8px rgb(15 23 42 / 0.14);
   }
 
-  /* Brand navy → orange clip-text accent */
+  /* Brand navy → green clip-text accent */
   .text-gradient-brand {
-    background-image: linear-gradient(135deg, #263E64 0%, #33507F 45%, #EF7A28 130%);
+    background-image: linear-gradient(135deg, #263E64 0%, #33507F 45%, #47846E 130%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -146,6 +146,13 @@
     background-image: radial-gradient(60% 50% at 50% 0%, rgb(225 233 244 / 0.55) 0%, transparent 70%);
   }
 
+  /* Subtle brand pattern — geometric house + leaf shapes from the logo,
+     recoloured to slate + sage at very low opacity. Tile on light sections. */
+  .bg-brand-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cg fill='none' stroke='%23363851' stroke-opacity='0.055' stroke-width='1.5' stroke-linejoin='round'%3E%3Cpath d='M12 40 28 24 44 40'/%3E%3Cpath d='M17 38v12h22V38'/%3E%3C/g%3E%3Cpath d='M66 74c8-10 17-9 20-20-10 3-17 6-20 20z' fill='%2347846E' fill-opacity='0.06'/%3E%3C/svg%3E");
+    background-size: 96px 96px;
+  }
+
   /* Premium Glassmorphism and Border Glow utilities */
   .bg-glass {
     background-color: rgba(255, 255, 255, 0.7);
@@ -154,26 +161,6 @@
     border: 1px solid rgba(255, 255, 255, 0.5);
   }
   
-  .card-glow-teal {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .card-glow-teal:hover {
-    border-color: rgba(72, 105, 159, 0.4);
-    box-shadow: 0 0 25px 2px rgba(72, 105, 159, 0.12),
-                0 10px 15px -3px rgba(15, 23, 42, 0.05);
-    transform: translateY(-4px);
-  }
-
-  .card-glow-amber {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .card-glow-amber:hover {
-    border-color: rgba(239, 122, 40, 0.4);
-    box-shadow: 0 0 25px 2px rgba(239, 122, 40, 0.12),
-                0 10px 15px -3px rgba(15, 23, 42, 0.05);
-    transform: translateY(-4px);
-  }
-
   /* Warm card — sits on canvas/sand backgrounds */
   .card-warm {
     background-color: #FBFAF7;
@@ -182,6 +169,5 @@
 
   @media (prefers-reduced-motion: reduce) {
     .hover\:-translate-y-1:hover { transform: none; }
-    .card-glow-teal:hover, .card-glow-amber:hover { transform: none; }
   }
 }

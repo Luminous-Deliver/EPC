@@ -37,7 +37,7 @@ export function MobileCallBar() {
         </a>
         <Link
           href="/contact"
-          className="flex items-center justify-center gap-1.5 py-3.5 text-sm font-bold bg-accent-500 text-secondary-900 active:bg-accent-600"
+          className="flex items-center justify-center gap-1.5 py-3.5 text-sm font-bold bg-accent-600 text-white active:bg-accent-700"
           aria-label="Book your EPC"
         >
           <CalendarCheck className="w-4 h-4" aria-hidden="true" />

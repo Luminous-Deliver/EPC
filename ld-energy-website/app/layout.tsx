@@ -85,7 +85,7 @@ const localBusinessSchema = {
   description: site.description,
   url: site.url,
   image: `${site.url}/logo.webp`,
-  logo: `${site.url}/logo.webp`,
+  logo: `${site.url}/logo.svg`,
   telephone: site.phoneIntl,
   email: site.email,
   address: {
@@ -172,7 +172,7 @@ const organizationSchema = {
   disambiguatingDescription: 'L&D Energy is a domestic Energy Performance Certificate (EPC) provider based in Stratford, East London. We provide official EPC certificates and floor plans for residential properties across all London boroughs. L&D Energy is not related to learning and development, oil and gas training, L&Q Energy, or LD Energy Solutions.',
   description: 'Elmhurst-accredited domestic Energy Performance Certificate (EPC) provider serving all 32 London boroughs. Official EPC certificates for homeowners, landlords, and letting agents from £49.',
   url: site.url,
-  logo: { '@type': 'ImageObject', url: `${site.url}/logo.webp` },
+  logo: { '@type': 'ImageObject', url: `${site.url}/logo.svg` },
   telephone: site.phoneIntl,
   email: site.email,
   contactPoint: {

@@ -26,7 +26,7 @@ export function SocialProof() {
               <div className="mt-4 flex items-center gap-3">
                 <div className="flex items-center gap-1" aria-hidden="true">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-7 h-7 fill-accent-500 text-accent-500" />
+                    <Star key={i} className="w-7 h-7 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
                 <span className="text-3xl font-bold text-secondary-900 font-serif">

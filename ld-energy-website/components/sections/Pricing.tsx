@@ -73,7 +73,7 @@ export function Pricing() {
                   </span>
                   <span className="text-sm font-medium text-secondary-500">standard turnaround</span>
                 </div>
-                <p className="mt-1.5 inline-flex items-center gap-1.5 rounded-md bg-accent-50 px-2 py-1 text-xs font-semibold text-accent-700 ring-1 ring-accent-200">
+                <p className="mt-1.5 inline-flex items-center gap-1.5 rounded-md bg-warm-50 px-2 py-1 text-xs font-semibold text-warm-700 ring-1 ring-warm-200">
                   Estimate only — final price confirmed on quote
                 </p>
                 <div className="mt-4 space-y-2">
@@ -82,7 +82,7 @@ export function Pricing() {
                     Assessment takes ~{currentPricing.duration}
                   </p>
                   <p className="inline-flex items-center gap-2 text-sm text-secondary-600 font-medium">
-                    <Sparkles className="w-4 h-4 text-accent-500" aria-hidden="true" /> 
+                    <Sparkles className="w-4 h-4 text-warm-500" aria-hidden="true" />
                     Next-day express available (+£12)
                   </p>
                 </div>
@@ -101,7 +101,7 @@ export function Pricing() {
           </div>
         </Card>
 
-        <div className="mt-5 rounded-xl border border-accent-200 bg-accent-50 p-4 text-sm text-secondary-800">
+        <div className="mt-5 rounded-xl border border-warm-200 bg-warm-50 p-4 text-sm text-secondary-800">
           <p className="leading-relaxed">
             <strong className="font-semibold text-secondary-900">These figures are estimates only and act as starting prices.</strong>{' '}
             Your final cost depends on the property&rsquo;s floor area (m²), any extensions or loft conversions,

@@ -182,7 +182,7 @@ export function ContactForm() {
                 setStatus('idle')
                 setStep(1)
               }}
-              className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-primary-700 hover:text-primary-850"
+              className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-primary-700 hover:text-primary-800"
             >
               Send another request
               <ChevronRight className="w-4 h-4" />
@@ -273,7 +273,7 @@ export function ContactForm() {
                           <span className="flex items-center gap-1.5 font-bold text-sm text-secondary-900">
                             {s.label}
                             {isBundle && (
-                              <span className="text-[9px] uppercase tracking-wider bg-accent-500 text-white font-black px-1.5 py-0.5 rounded">
+                              <span className="text-[9px] uppercase tracking-wider bg-accent-600 text-white font-black px-1.5 py-0.5 rounded">
                                 Best Value
                               </span>
                             )}
@@ -354,7 +354,7 @@ export function ContactForm() {
                         {s.label}
                         <span className={cn(
                           'text-[10px] font-bold px-2 py-0.5 rounded-full',
-                          active ? 'bg-primary-600 text-white' : 'bg-secondary-100 text-secondary-650'
+                          active ? 'bg-primary-600 text-white' : 'bg-secondary-100 text-secondary-600'
                         )}>
                           {s.priceBadge}
                         </span>
@@ -458,7 +458,7 @@ export function ContactForm() {
             </div>
 
             <div className="mt-4 pt-2">
-              <label className="flex items-start gap-2.5 text-xs text-secondary-650 cursor-pointer">
+              <label className="flex items-start gap-2.5 text-xs text-secondary-600 cursor-pointer">
                 <input
                   type="checkbox"
                   className="mt-0.5 h-4 w-4 rounded border-secondary-300 text-primary-600 focus:ring-primary-500"
@@ -536,7 +536,7 @@ export function ContactForm() {
       {/* Live Quote Summary Sidebar */}
       <div className="lg:col-span-4 rounded-2xl border border-secondary-200 bg-glass p-5 md:p-6 shadow-premium lg:sticky lg:top-24 lg:mt-0 mt-4">
         <h4 className="text-sm font-bold text-secondary-900 tracking-wider uppercase flex items-center gap-1.5 border-b border-secondary-100 pb-3 mb-4">
-          <BadgePoundSterling className="w-4 h-4 text-primary-650" />
+          <BadgePoundSterling className="w-4 h-4 text-primary-600" />
           Live Price Estimate
         </h4>
 
@@ -550,7 +550,7 @@ export function ContactForm() {
             </div>
             {wantsEpc && wantsFloorPlan ? (
               <div className="text-right">
-                <span className="text-secondary-405 line-through">£{epcPrice + floorPlanPrice}</span>
+                <span className="text-secondary-400 line-through">£{epcPrice + floorPlanPrice}</span>
                 <span className="font-bold text-secondary-900 block">£{epcPrice + floorPlanPrice - discount}</span>
               </div>
             ) : (
@@ -586,8 +586,8 @@ export function ContactForm() {
           )}
 
           <div className="border-t border-secondary-100 pt-4 mt-4 flex justify-between items-baseline">
-            <span className="text-sm font-bold text-secondary-905">Total Estimate:</span>
-            <span className="text-2xl font-black text-primary-750 font-display">£{total}</span>
+            <span className="text-sm font-bold text-secondary-900">Total Estimate:</span>
+            <span className="text-2xl font-black text-primary-700 font-display">£{total}</span>
           </div>
         </div>
 

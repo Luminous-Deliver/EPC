@@ -20,8 +20,8 @@ export function Logo({ className, href = '/', variant = 'dark', size = 'md' }: L
     <Image
       src="/logo.webp"
       alt="L&D Energy"
-      width={542}
-      height={208}
+      width={552}
+      height={240}
       priority
       className={cn(
         'block object-contain w-auto',

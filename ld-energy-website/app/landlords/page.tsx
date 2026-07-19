@@ -161,7 +161,7 @@ export default function LandlordsPage() {
       {/* Penalties */}
       <Section variant="muted" id="penalties">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-accent-700">Don&rsquo;t Get Caught Out</p>
+          <p className="text-xs uppercase tracking-wide font-semibold text-warm-700">Don&rsquo;t Get Caught Out</p>
           <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
             Penalties for Non-Compliance
           </h2>
@@ -170,28 +170,28 @@ export default function LandlordsPage() {
           </p>
         </div>
 
-        <div className="mt-10 overflow-x-auto rounded-lg border border-accent-200">
+        <div className="mt-10 overflow-x-auto rounded-lg border border-warm-200">
           <table className="w-full text-sm min-w-[520px]">
             <thead>
-              <tr className="bg-accent-50 border-b border-accent-200">
-                <th className="px-4 py-3 text-left font-semibold text-accent-700">Breach</th>
-                <th className="px-4 py-3 text-right font-semibold text-accent-700">Maximum Fine</th>
+              <tr className="bg-warm-50 border-b border-warm-200">
+                <th className="px-4 py-3 text-left font-semibold text-warm-700">Breach</th>
+                <th className="px-4 py-3 text-right font-semibold text-warm-700">Maximum Fine</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-secondary-100 bg-white">
               {penalties.map((row) => (
                 <tr key={row.breach}>
                   <td className="px-4 py-3 text-secondary-800">{row.breach}</td>
-                  <td className="px-4 py-3 text-right font-bold text-accent-700">{row.fine}</td>
+                  <td className="px-4 py-3 text-right font-bold text-warm-700">{row.fine}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <div className="mt-6 rounded-lg border border-accent-200 bg-accent-50 p-4 flex items-start gap-3">
-          <AlertTriangle className="w-5 h-5 text-accent-700 shrink-0 mt-0.5" aria-hidden="true" />
-          <p className="text-sm text-accent-800">
+        <div className="mt-6 rounded-lg border border-warm-200 bg-warm-50 p-4 flex items-start gap-3">
+          <AlertTriangle className="w-5 h-5 text-warm-700 shrink-0 mt-0.5" aria-hidden="true" />
+          <p className="text-sm text-warm-800">
             <span className="font-semibold">Heads up:</span> Government consultations have proposed penalty increases to £30,000 per property when EPC C becomes the new minimum standard.
           </p>
         </div>

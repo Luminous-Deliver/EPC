@@ -36,27 +36,44 @@ const config: Config = {
           900: '#0F172A',
           950: '#020617',
         },
-        // Brand orange, derived from the logo roof mark (#EF7A28)
+        // Brand green — elegant muted sage (#47846E), echoes the logo leaf
         accent: {
+          50: '#F1F7F4',
+          100: '#DDEBE4',
+          200: '#BED8CC',
+          300: '#95BFAD',
+          400: '#6CA28C',
+          500: '#47846E',
+          600: '#386B59',
+          700: '#2F5749',
+          800: '#28463C',
+          900: '#223A32',
+          950: '#11221D',
+        },
+        // Warm tertiary (former brand orange) — use sparingly: cautionary
+        // notes, fines/warnings, and future heating/electrical services
+        warm: {
           50: '#FEF5EE',
           100: '#FDE7D4',
+          200: '#FACDAA',
           400: '#F5923F',
           500: '#EF7A28',
           600: '#DC6314',
           700: '#B64F10',
+          800: '#93400F',
         },
-        success: '#22C55E',
+        success: '#386B59',
         warning: '#F59E0B',
         danger: '#EF4444',
-        // Warm editorial canvas — ivory page, sand for muted bands
-        canvas: '#FBFAF7',
-        sand: '#F3F0E8',
+        // Clean canvas — crisp near-white page, light grey for muted bands
+        canvas: '#FAFBFC',
+        sand: '#F1F3F6',
         // Dark brand band (footer, HowItWorks) — deep navy, was forest green
         forest: {
           900: '#091324',
           800: '#0D1B33',
           700: '#142644',
-          accent: '#F5923F',
+          accent: '#6CA28C',
         },
       },
       fontFamily: {

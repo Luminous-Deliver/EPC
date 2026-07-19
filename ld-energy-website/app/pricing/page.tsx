@@ -145,8 +145,8 @@ export default function PricingPage() {
 
         {/* Two prominent callouts — read at a glance, even if nothing else is */}
         <div className="mt-6 grid gap-3 sm:grid-cols-2 max-w-3xl">
-          <div className="flex gap-3 rounded-xl border border-accent-200 bg-accent-50 p-4">
-            <Info className="w-5 h-5 text-accent-600 shrink-0 mt-0.5" aria-hidden="true" />
+          <div className="flex gap-3 rounded-xl border border-warm-200 bg-warm-50 p-4">
+            <Info className="w-5 h-5 text-warm-600 shrink-0 mt-0.5" aria-hidden="true" />
             <div>
               <p className="font-semibold text-secondary-900">These are starting prices</p>
               <p className="mt-1 text-sm text-secondary-700 leading-relaxed">
