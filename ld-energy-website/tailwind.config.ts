@@ -36,19 +36,19 @@ const config: Config = {
           900: '#0F172A',
           950: '#020617',
         },
-        // Brand green, derived from the logo roof mark (EPC A-rating green)
+        // Brand green — elegant muted sage (#47846E), echoes the logo leaf
         accent: {
-          50: '#F3FAEC',
-          100: '#E3F3D3',
-          200: '#C8E8AB',
-          300: '#A5D97C',
-          400: '#83C853',
-          500: '#63B233',
-          600: '#4C9424',
-          700: '#3A731D',
-          800: '#315C1C',
-          900: '#2A4E1B',
-          950: '#14290A',
+          50: '#F1F7F4',
+          100: '#DDEBE4',
+          200: '#BED8CC',
+          300: '#95BFAD',
+          400: '#6CA28C',
+          500: '#47846E',
+          600: '#386B59',
+          700: '#2F5749',
+          800: '#28463C',
+          900: '#223A32',
+          950: '#11221D',
         },
         // Warm tertiary (former brand orange) — use sparingly: cautionary
         // notes, fines/warnings, and future heating/electrical services
@@ -62,18 +62,18 @@ const config: Config = {
           700: '#B64F10',
           800: '#93400F',
         },
-        success: '#3A731D',
+        success: '#386B59',
         warning: '#F59E0B',
         danger: '#EF4444',
-        // Warm editorial canvas — ivory page, sand for muted bands
-        canvas: '#FBFAF7',
-        sand: '#F3F0E8',
+        // Clean canvas — crisp near-white page, light grey for muted bands
+        canvas: '#FAFBFC',
+        sand: '#F1F3F6',
         // Dark brand band (footer, HowItWorks) — deep navy, was forest green
         forest: {
           900: '#091324',
           800: '#0D1B33',
           700: '#142644',
-          accent: '#83C853',
+          accent: '#6CA28C',
         },
       },
       fontFamily: {

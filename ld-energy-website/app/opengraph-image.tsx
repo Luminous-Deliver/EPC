@@ -58,7 +58,7 @@ export default async function OpengraphImage() {
           }}
         >
           <span>epc.luminousanddeliver.co.uk</span>
-          <span style={{ color: '#A5D97C' }}>07492 575 396</span>
+          <span style={{ color: '#95BFAD' }}>07492 575 396</span>
         </div>
       </div>
     ),

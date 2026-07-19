@@ -174,7 +174,7 @@ export function MobileNav() {
               href="/contact"
               onClick={close}
               tabIndex={open ? undefined : -1}
-              className="flex items-center justify-center w-full bg-gradient-to-r from-accent-700 to-accent-800 hover:from-accent-800 hover:to-accent-900 text-white font-bold px-4 py-3.5 rounded-xl shadow-md text-[15px]"
+              className="flex items-center justify-center w-full bg-gradient-to-r from-accent-600 to-accent-700 hover:from-accent-700 hover:to-accent-800 text-white font-bold px-4 py-3.5 rounded-xl shadow-md text-[15px]"
             >
               Book an EPC
             </Link>

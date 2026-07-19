@@ -273,7 +273,7 @@ export function ContactForm() {
                           <span className="flex items-center gap-1.5 font-bold text-sm text-secondary-900">
                             {s.label}
                             {isBundle && (
-                              <span className="text-[9px] uppercase tracking-wider bg-accent-700 text-white font-black px-1.5 py-0.5 rounded">
+                              <span className="text-[9px] uppercase tracking-wider bg-accent-600 text-white font-black px-1.5 py-0.5 rounded">
                                 Best Value
                               </span>
                             )}

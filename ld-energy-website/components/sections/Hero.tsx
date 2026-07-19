@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Phone, ShieldCheck, Clock, MapPin, Star, Sparkles, Check, Wrench, ChevronRight } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
+import { SustainableHome } from '@/components/ui/SustainableHome'
 import { site } from '@/lib/site'
 
 const GOOGLE_REVIEWS_URL = 'https://share.google/4LTPb4XMjeNq7TpXk'
@@ -59,9 +60,9 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-primary-50 via-canvas to-canvas border-b border-secondary-100">
-      {/* Decorative overlays */}
+      {/* Decorative overlays — geometric house + leaf pattern from the logo */}
       <div
-        className="bg-dot-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]"
+        className="bg-brand-pattern pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]"
         aria-hidden="true"
       />
       <div
@@ -133,7 +134,7 @@ export function Hero() {
 
         <div className="lg:col-span-5 mt-10 lg:mt-0">
           <div className="relative rounded-2xl bg-white shadow-premium-lg ring-1 ring-secondary-900/5 p-6 md:p-8 animate-fade-in animate-delay-300">
-            <div className="absolute -top-3 left-6 bg-gradient-to-r from-accent-700 to-accent-800 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+            <div className="absolute -top-3 left-6 bg-gradient-to-r from-accent-600 to-accent-700 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               Interactive EPC Simulator
             </div>
@@ -231,6 +232,11 @@ export function Hero() {
           </div>
         </div>
       </Container>
+
+      {/* Sustainable street illustration — solar roofs + air-source heat pump */}
+      <div className="relative mt-2 md:mt-4 opacity-80" aria-hidden="true">
+        <SustainableHome className="w-[1200px] max-w-none md:w-full md:max-w-full h-auto mx-auto -translate-x-16 md:translate-x-0" />
+      </div>
     </section>
   )
 }
