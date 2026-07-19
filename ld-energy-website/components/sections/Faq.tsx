@@ -7,7 +7,7 @@ import { site } from '@/lib/site'
 
 export function Faq() {
   return (
-    <Section variant="default" id="faq" className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="default" id="faq" pattern className="scroll-mt-20 md:scroll-mt-24">
       <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
         {/* Left rail */}
         <div className="lg:col-span-4">

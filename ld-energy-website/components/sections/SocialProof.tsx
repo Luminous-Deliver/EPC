@@ -16,7 +16,7 @@ export function SocialProof() {
   return (
     <Section variant="default" aria-label="Trusted locally" className="scroll-mt-20 md:scroll-mt-24">
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-50 to-canvas ring-1 ring-primary-100 p-6 md:p-12">
-        <div className="bg-dot-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom_right,black,transparent_75%)]" aria-hidden="true" />
+        <div className="bg-brand-pattern pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom_right,black,transparent_75%)]" aria-hidden="true" />
 
         <div className="relative">
           {/* Large-scale primary element, Google rating badge */}

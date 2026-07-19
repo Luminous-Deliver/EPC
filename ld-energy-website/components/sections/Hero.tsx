@@ -78,7 +78,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-canvas/60 md:hidden" />
       </div>
 
-      <Container className="relative py-10 md:py-20 lg:py-24 grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
+      <Container className="relative py-10 md:py-14 lg:py-16 grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
         <div className="lg:col-span-7">
           <p className="inline-flex items-center gap-2 text-xs uppercase tracking-wide font-semibold text-primary-700 bg-primary-50 ring-1 ring-primary-100 rounded-full px-3 py-1 animate-fade-in">
             <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
@@ -141,27 +141,27 @@ export function Hero() {
         </div>
 
         <div className="lg:col-span-5 mt-10 lg:mt-0">
-          <div className="relative rounded-2xl bg-white shadow-premium-lg ring-1 ring-secondary-900/5 p-6 md:p-8 animate-fade-in animate-delay-300">
+          <div className="relative rounded-2xl bg-white shadow-premium-lg ring-1 ring-secondary-900/5 p-5 md:p-6 animate-fade-in animate-delay-300">
             <div className="absolute -top-3 left-6 bg-gradient-to-r from-accent-600 to-accent-700 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               Interactive EPC Simulator
             </div>
             
-            <div className="flex justify-between items-center mt-3">
-              <h2 className="font-sans text-lg font-bold text-secondary-900">Energy Efficiency Rating</h2>
+            <div className="flex justify-between items-center mt-2.5">
+              <h2 className="font-sans text-base font-bold text-secondary-900">Energy Efficiency Rating</h2>
               <div className="text-right">
-                <span className="text-xs font-semibold text-secondary-500 block uppercase">Current Rating</span>
-                <span className="text-2xl font-black text-primary-700">
-                  {currentScore} <span className="text-lg font-bold text-secondary-600">({currentBand})</span>
+                <span className="text-[10px] font-semibold text-secondary-500 block uppercase">Current Rating</span>
+                <span className="text-xl font-black text-primary-700">
+                  {currentScore} <span className="text-base font-bold text-secondary-600">({currentBand})</span>
                 </span>
               </div>
             </div>
 
-            <p className="text-xs text-secondary-500 mt-1 mb-4">
+            <p className="text-xs text-secondary-500 mt-1 mb-3">
               Toggle upgrades below to see how they boost your property rating.
             </p>
 
-            <ul className="space-y-1.5">
+            <ul className="space-y-1">
               {BANDS.map((row, i) => {
                 const isActive = currentBand === row.band
                 const widthPercent = 100 - i * 8
@@ -172,7 +172,7 @@ export function Hero() {
                     </div>
                     <div className="flex-1">
                       <div
-                        className={`flex items-center justify-between px-3 py-1.5 rounded font-extrabold text-sm transition-all duration-300 ${row.color} ${
+                        className={`flex items-center justify-between px-3 py-1 rounded font-extrabold text-xs transition-all duration-300 ${row.color} ${
                           isActive ? 'ring-2 ring-primary-600 ring-offset-1 scale-[1.03] shadow-md' : 'opacity-65'
                         }`}
                         style={{ width: `${widthPercent}%` }}
@@ -186,13 +186,13 @@ export function Hero() {
               })}
             </ul>
 
-            <div className="mt-6 border-t border-secondary-100 pt-5">
-              <h3 className="font-sans text-sm font-bold text-secondary-900 mb-3 flex items-center gap-1.5">
+            <div className="mt-4 border-t border-secondary-100 pt-4">
+              <h3 className="font-sans text-sm font-bold text-secondary-900 mb-2.5 flex items-center gap-1.5">
                 <Wrench className="w-4 h-4 text-secondary-500" aria-hidden="true" />
                 Simulate Efficiency Upgrades
               </h3>
               
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-1.5">
                 {UPGRADES.map((upgrade) => {
                   const isChecked = selectedUpgrades.includes(upgrade.id)
                   return (
@@ -200,7 +200,7 @@ export function Hero() {
                       key={upgrade.id}
                       type="button"
                       onClick={() => toggleUpgrade(upgrade.id)}
-                      className={`flex flex-col text-left p-3 min-h-[56px] rounded-xl border text-xs transition-all duration-200 hover:-translate-y-0.5 active:scale-95 ${
+                      className={`flex flex-col text-left p-2.5 rounded-lg border text-xs transition-all duration-200 hover:-translate-y-0.5 active:scale-95 ${
                         isChecked
                           ? 'border-accent-500 bg-accent-50/50 ring-1 ring-accent-500'
                           : 'border-secondary-200 bg-white hover:border-secondary-300 hover:bg-secondary-50'
@@ -233,7 +233,7 @@ export function Hero() {
               )}
             </div>
 
-            <div className="mt-5 flex items-center gap-2 text-xs text-secondary-500 border-t border-secondary-100 pt-3">
+            <div className="mt-4 flex items-center gap-2 text-xs text-secondary-500 border-t border-secondary-100 pt-3">
               <Clock className="w-4 h-4 text-secondary-400 shrink-0" aria-hidden="true" />
               Lodged on the UK Government EPC Register
             </div>
