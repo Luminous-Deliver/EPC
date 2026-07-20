@@ -5,7 +5,9 @@ import { contactSchema } from '@/lib/validators'
 export const runtime = 'edge'
 
 const NOTIFY_TO = 'contact@luminousanddeliver.co.uk'
-const FROM_DEFAULT = 'L&D Energy <bookings@epc.luminousanddeliver.co.uk>'
+// Resend has only the root domain verified — sending from the epc.
+// subdomain is rejected with 403 "domain is not verified".
+const FROM_DEFAULT = 'L&D Energy <bookings@luminousanddeliver.co.uk>'
 
 function escapeHtml(value: string) {
   return value
@@ -122,7 +124,10 @@ export async function POST(req: Request) {
     // fallback to process.env when running locally
   }
   const apiKey = cfEnv.RESEND_API_KEY || process.env.RESEND_API_KEY
-  const from = cfEnv.RESEND_FROM || process.env.RESEND_FROM || FROM_DEFAULT
+  const configuredFrom = cfEnv.RESEND_FROM || process.env.RESEND_FROM || FROM_DEFAULT
+  // Guard against a stale RESEND_FROM env var still pointing at the
+  // unverified epc. subdomain — Resend 403s those.
+  const from = configuredFrom.replace('@epc.luminousanddeliver.co.uk', '@luminousanddeliver.co.uk')
   const to = cfEnv.RESEND_TO || process.env.RESEND_TO || NOTIFY_TO
 
   if (!apiKey) {
