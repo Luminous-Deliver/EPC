@@ -8,6 +8,21 @@ const NOTIFY_TO = 'contact@luminousanddeliver.co.uk'
 // Resend has only the root domain verified — sending from the epc.
 // subdomain is rejected with 403 "domain is not verified".
 const FROM_DEFAULT = 'L&D Energy <bookings@luminousanddeliver.co.uk>'
+const SITE_URL = 'https://epc.luminousanddeliver.co.uk'
+const LOGO_URL = `${SITE_URL}/logo-email.png`
+const PHONE = '07492 575 396'
+const PHONE_HREF = 'tel:+447492575396'
+const WHATSAPP_HREF = 'https://wa.me/447492575396'
+const CONTACT_EMAIL = 'contact@luminousanddeliver.co.uk'
+
+// Brand palette (inline hex — email clients don't support CSS variables)
+const NAVY = '#182848'
+const NAVY_DEEP = '#0D1729'
+const SAGE = '#47846E'
+const INK = '#1E293B'
+const MUTED = '#64748B'
+const LINE = '#E2E8F0'
+const CANVAS = '#F1F3F6'
 
 function escapeHtml(value: string) {
   return value
@@ -58,6 +73,129 @@ ${rows
   .join('')}
 </table>
 <p style="margin-top:16px;font-size:12px;color:#64748B">Submitted via epc.luminousanddeliver.co.uk</p>
+</body></html>`
+
+  return { text, html }
+}
+
+/**
+ * Branded confirmation email sent to the customer after they submit the form.
+ * Table-based, fully inlined styles — the only layout approach that renders
+ * consistently across Gmail, Outlook, Apple Mail, and mobile clients.
+ */
+function buildConfirmation(data: ParsedInput) {
+  const firstName = data.name.trim().split(/\s+/)[0] || 'there'
+  const summary: Array<[string, string]> = [
+    ['Service', data.services.join(' + ')],
+    ['Property', `${data.propertyType} — ${data.address}, ${data.postcode}`],
+    ['Turnaround', data.speed],
+  ]
+  if (data.preferredDate) summary.push(['Preferred date', data.preferredDate])
+
+  const text =
+    `Hi ${firstName},\n\n` +
+    `Thanks for your booking request with L&D Energy — we've received it and will be in touch within 2 hours (Mon–Sun, 8am–8pm) to confirm your appointment slot and exact price.\n\n` +
+    `Your request:\n` +
+    summary.map(([k, v]) => `  ${k}: ${v}`).join('\n') +
+    `\n\nNeed us sooner? Call or text ${PHONE}, or message us on WhatsApp.\n\n` +
+    `L&D Energy — Elmhurst-accredited Domestic Energy Assessor\n` +
+    `Covering all 32 London boroughs · ${SITE_URL}\n\n` +
+    `This is a confirmation that we received your enquiry — it is not a confirmed booking until we reply.`
+
+  const summaryRows = summary
+    .map(
+      ([k, v], i) =>
+        `<tr>
+          <td style="padding:12px 16px;${i > 0 ? `border-top:1px solid ${LINE};` : ''}font-size:12px;font-weight:600;color:${MUTED};text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;vertical-align:top">${escapeHtml(k)}</td>
+          <td style="padding:12px 16px;${i > 0 ? `border-top:1px solid ${LINE};` : ''}font-size:14px;color:${INK};font-weight:600">${escapeHtml(v)}</td>
+        </tr>`,
+    )
+    .join('')
+
+  const html = `<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light only"><title>We've received your request</title></head>
+<body style="margin:0;padding:0;background:${CANVAS};-webkit-text-size-adjust:100%">
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0">We've received your EPC request — we'll confirm within 2 hours (8am–8pm).</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${CANVAS}">
+    <tr><td align="center" style="padding:28px 12px">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%">
+
+        <!-- Logo -->
+        <tr><td align="center" style="padding:8px 0 22px">
+          <img src="${LOGO_URL}" width="200" alt="L&amp;D Energy" style="display:block;border:0;width:200px;max-width:60%;height:auto">
+        </td></tr>
+
+        <!-- Card -->
+        <tr><td style="background:#ffffff;border:1px solid ${LINE};border-radius:16px;overflow:hidden">
+
+          <!-- Header band -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+            <tr><td style="background:${NAVY};padding:30px 32px" align="center">
+              <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+                <td style="width:44px;height:44px;background:${SAGE};border-radius:999px;text-align:center;vertical-align:middle;font-size:24px;line-height:44px;color:#ffffff;font-weight:700">&#10003;</td>
+              </tr></table>
+              <h1 style="margin:16px 0 4px;font-family:Georgia,'Times New Roman',serif;font-size:24px;line-height:1.25;color:#ffffff;font-weight:700">Request received</h1>
+              <p style="margin:0;font-size:14px;color:#C4D2E8">We'll confirm within 2 hours (8am–8pm)</p>
+            </td></tr>
+          </table>
+
+          <!-- Body -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+            <tr><td style="padding:30px 32px 8px">
+              <p style="margin:0 0 14px;font-size:16px;color:${INK}">Hi ${escapeHtml(firstName)},</p>
+              <p style="margin:0 0 22px;font-size:15px;line-height:1.6;color:${INK}">
+                Thanks for choosing <strong style="color:${NAVY}">L&amp;D Energy</strong>. We've received your booking request and one of our team will be in touch <strong>within 2 hours</strong> (Monday–Sunday, 8am–8pm) to confirm your appointment and exact price.
+              </p>
+
+              <!-- Summary -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid ${LINE};border-radius:12px;overflow:hidden;margin:0 0 24px">
+                <tr><td style="background:#F8FAFC;padding:10px 16px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:${SAGE};border-bottom:1px solid ${LINE}">Your request</td></tr>
+                <tr><td style="padding:0">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${summaryRows}</table>
+                </td></tr>
+              </table>
+
+              <!-- CTA row -->
+              <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 6px">
+                <tr>
+                  <td style="border-radius:10px;background:${SAGE}">
+                    <a href="${PHONE_HREF}" style="display:inline-block;padding:12px 22px;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none">&#128222;&nbsp; Call ${PHONE}</a>
+                  </td>
+                  <td style="width:10px">&nbsp;</td>
+                  <td style="border-radius:10px;border:1px solid ${LINE}">
+                    <a href="${WHATSAPP_HREF}" style="display:inline-block;padding:12px 22px;font-size:14px;font-weight:700;color:${NAVY};text-decoration:none">WhatsApp us</a>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin:14px 0 4px;font-size:13px;line-height:1.6;color:${MUTED}">
+                Need us sooner, or want to change something? Just reply to this email or call the number above.
+              </p>
+            </td></tr>
+          </table>
+
+          <!-- Footer -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+            <tr><td style="background:${NAVY_DEEP};padding:22px 32px">
+              <p style="margin:0 0 4px;font-size:13px;font-weight:700;color:#ffffff">L&amp;D Energy</p>
+              <p style="margin:0 0 2px;font-size:12px;line-height:1.6;color:#9BB2D4">Elmhurst-accredited Domestic Energy Assessor · Stratford, East London</p>
+              <p style="margin:0;font-size:12px;line-height:1.6;color:#9BB2D4">Covering all 32 London boroughs · <a href="${SITE_URL}" style="color:#95BFAD;text-decoration:none">epc.luminousanddeliver.co.uk</a></p>
+            </td></tr>
+          </table>
+
+        </td></tr>
+
+        <!-- Legal note -->
+        <tr><td style="padding:18px 20px 4px" align="center">
+          <p style="margin:0;font-size:11px;line-height:1.5;color:${MUTED}">
+            This confirms we received your enquiry — it isn't a confirmed booking until we reply.
+            You're receiving this because you submitted a request at epc.luminousanddeliver.co.uk.
+          </p>
+        </td></tr>
+
+      </table>
+    </td></tr>
+  </table>
 </body></html>`
 
   return { text, html }
@@ -115,6 +253,7 @@ export async function POST(req: Request) {
 
   const { text, html } = buildEmail(data)
   const subject = `EPC booking: ${data.name} — ${data.propertyType} (${data.postcode})`
+  const confirmation = buildConfirmation(data)
 
   // On Cloudflare Pages, runtime secrets are in the Worker env bindings, not process.env
   let cfEnv: Record<string, string> = {}
@@ -136,21 +275,26 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true, delivered: false })
   }
 
-  try {
-    const res = await fetch('https://api.resend.com/emails', {
+  const sendEmail = (body: Record<string, unknown>) =>
+    fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        from,
-        to,
-        reply_to: data.email,
-        subject,
-        text,
-        html,
-      }),
+      body: JSON.stringify(body),
+    })
+
+  // 1) Internal notification — the critical path. If this fails, the booking
+  //    is effectively lost, so surface an error to the customer.
+  try {
+    const res = await sendEmail({
+      from,
+      to,
+      reply_to: data.email,
+      subject,
+      text,
+      html,
     })
 
     if (!res.ok) {
@@ -167,6 +311,24 @@ export async function POST(req: Request) {
       { error: 'Network error — please try again or call us on 07492 575 396.' },
       { status: 502 },
     )
+  }
+
+  // 2) Customer confirmation — best-effort. The lead is already captured, so a
+  //    failure here must not fail the request; just log it.
+  try {
+    const res = await sendEmail({
+      from,
+      to: data.email,
+      reply_to: to,
+      subject: 'We’ve received your EPC request — L&D Energy',
+      text: confirmation.text,
+      html: confirmation.html,
+    })
+    if (!res.ok) {
+      console.error('[contact] confirmation email failed', res.status, await res.text())
+    }
+  } catch (err) {
+    console.error('[contact] confirmation email fetch failed', err)
   }
 
   return NextResponse.json({ ok: true, delivered: true })
