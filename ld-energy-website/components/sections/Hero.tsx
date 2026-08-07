@@ -119,8 +119,8 @@ export function Hero() {
               ))}
             </span>
             <span className="font-semibold">Rated on Google</span>
-            <span className="text-secondary-400">·</span>
-            <span className="text-secondary-400 underline underline-offset-2 decoration-secondary-300 hover:text-secondary-600">Read our reviews</span>
+            <span className="text-secondary-500" aria-hidden="true">·</span>
+            <span className="text-secondary-600 underline underline-offset-2 decoration-secondary-400 hover:text-secondary-800">Read our reviews</span>
           </a>
 
           <dl className="mt-10 grid grid-cols-3 gap-3 max-w-md">
@@ -142,7 +142,7 @@ export function Hero() {
 
         <div className="lg:col-span-5 mt-10 lg:mt-0">
           <div className="relative rounded-2xl bg-white shadow-premium-lg ring-1 ring-secondary-900/5 p-5 md:p-6 animate-fade-in animate-delay-300">
-            <div className="absolute -top-3 left-6 bg-gradient-to-r from-accent-600 to-accent-700 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+            <div className="absolute -top-3 left-6 bg-gradient-to-r from-accent-600 to-accent-700 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               Interactive EPC Simulator
             </div>
@@ -150,7 +150,7 @@ export function Hero() {
             <div className="flex justify-between items-center mt-2.5">
               <h2 className="font-sans text-base font-bold text-secondary-900">Energy Efficiency Rating</h2>
               <div className="text-right">
-                <span className="text-[10px] font-semibold text-secondary-500 block uppercase">Current Rating</span>
+                <span className="text-xs font-semibold text-secondary-500 block uppercase">Current Rating</span>
                 <span className="text-xl font-black text-primary-700">
                   {currentScore} <span className="text-base font-bold text-secondary-600">({currentBand})</span>
                 </span>
@@ -211,10 +211,10 @@ export function Hero() {
                         {isChecked ? (
                           <Check className="w-4 h-4 text-accent-700 font-bold shrink-0" />
                         ) : (
-                          <span className="text-[10px] text-accent-700 font-bold">+{upgrade.points} pts</span>
+                          <span className="text-xs text-accent-700 font-bold">+{upgrade.points} pts</span>
                         )}
                       </span>
-                      <span className="text-[11px] text-secondary-500 mt-0.5 leading-snug">{upgrade.description}</span>
+                      <span className="text-xs text-secondary-500 mt-0.5 leading-snug">{upgrade.description}</span>
                     </button>
                   )
                 })}
@@ -226,7 +226,7 @@ export function Hero() {
                     <span className="font-semibold text-secondary-700">Simulated Annual Savings:</span>
                     <span className="text-sm font-extrabold text-primary-700">£{totalSavings}/yr</span>
                   </div>
-                  <p className="text-[10px] text-secondary-500 mt-1">
+                  <p className="text-xs text-secondary-500 mt-1">
                     Based on standard UK fuel costs. Exact gains require an in-person assessment.
                   </p>
                 </div>

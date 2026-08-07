@@ -186,7 +186,7 @@ export default function PricingPage() {
                       </span>
                     </td>
                     <td className="px-4 py-3.5 text-right whitespace-nowrap">
-                      <span className="text-xs font-medium text-secondary-400">from</span>{' '}
+                      <span className="text-xs font-medium text-secondary-600">from</span>{' '}
                       <span className="text-base font-bold text-secondary-900">£{row.epc}</span>
                     </td>
                     <td className="px-4 py-3.5 text-right text-secondary-600 whitespace-nowrap">£{nextDayGuide(row)}</td>
@@ -207,7 +207,7 @@ export default function PricingPage() {
               </tfoot>
             </table>
           </div>
-          <p className="bg-secondary-50 px-5 pb-3 text-xs font-medium text-secondary-400 sm:hidden" aria-hidden="true">
+          <p className="bg-secondary-50 px-5 pb-3 text-xs font-medium text-secondary-600 sm:hidden" aria-hidden="true">
             Swipe sideways to see every column
           </p>
         </div>

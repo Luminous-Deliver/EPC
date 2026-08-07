@@ -33,7 +33,7 @@ export function WhyChoose() {
   return (
     <Section variant="default" id="why-us" pattern className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
           Why Us
         </div>

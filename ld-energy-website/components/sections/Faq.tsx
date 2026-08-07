@@ -16,7 +16,7 @@ export function Faq() {
     <Section variant="default" id="faq" pattern className="scroll-mt-20 md:scroll-mt-24">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             FAQ
           </div>
@@ -30,7 +30,7 @@ export function Faq() {
 
         <Link
           href="/faq"
-          className="inline-flex shrink-0 items-center gap-1.5 font-semibold text-primary-700 hover:text-primary-800"
+          className="inline-flex min-h-[44px] shrink-0 items-center gap-1.5 font-semibold text-primary-700 hover:text-primary-800"
         >
           Read the full EPC FAQ
           <ArrowRight className="w-4 h-4" aria-hidden="true" />

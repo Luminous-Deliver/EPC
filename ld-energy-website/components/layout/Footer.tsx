@@ -75,7 +75,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm transition-colors hover:text-white"
+                      className="inline-flex min-h-[44px] items-center text-sm transition-colors hover:text-white"
                       style={{ color: 'rgba(255,255,255,0.88)' }}
                     >
                       {link.label}
@@ -95,7 +95,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm transition-colors hover:text-white"
+                      className="inline-flex min-h-[44px] items-center text-sm transition-colors hover:text-white"
                       style={{ color: 'rgba(255,255,255,0.88)' }}
                     >
                       {link.label}
@@ -115,7 +115,7 @@ export function Footer() {
               <li>
                 <a
                   href={site.phoneHref}
-                  className="group inline-flex items-center gap-2.5 text-sm transition-colors hover:text-white"
+                  className="group inline-flex min-h-[44px] items-center gap-2.5 text-sm transition-colors hover:text-white"
                   style={{ color: 'rgba(255,255,255,0.92)' }}
                 >
                   <span
@@ -130,7 +130,7 @@ export function Footer() {
               <li>
                 <a
                   href={site.emailHref}
-                  className="group inline-flex items-center gap-2.5 text-sm transition-colors hover:text-white"
+                  className="group inline-flex min-h-[44px] items-center gap-2.5 text-sm transition-colors hover:text-white"
                   style={{ color: 'rgba(255,255,255,0.92)' }}
                 >
                   <span
@@ -161,7 +161,7 @@ export function Footer() {
               href="https://share.google/4LTPb4XMjeNq7TpXk"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all hover:brightness-110"
+              className="mt-5 inline-flex min-h-[44px] items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all hover:brightness-110"
               style={{
                 background: 'rgba(71,132,110,0.12)',
                 border: '1px solid rgba(71,132,110,0.30)',
@@ -183,13 +183,13 @@ export function Footer() {
             © {year} {site.name}. Part of {site.legalName}.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors">Terms of Service</Link>
             <a
               href="https://digital.luminousanddeliver.co.uk/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] items-center hover:text-white transition-colors"
             >
               Made by{' '}
               <span className="font-semibold" style={{ color: 'rgba(149,191,173,0.85)' }}>L&amp;D Digital</span>

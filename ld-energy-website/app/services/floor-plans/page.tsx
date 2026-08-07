@@ -114,7 +114,7 @@ export default function FloorPlansPage() {
       {/* Why Floor Plans */}
       <Section variant="default" id="why-floor-plans">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             Why They Matter
           </div>
@@ -131,7 +131,7 @@ export default function FloorPlansPage() {
       <Section variant="muted" id="included">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
           <div>
-            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               The Deliverable
             </div>
@@ -152,7 +152,7 @@ export default function FloorPlansPage() {
           </div>
 
           <div>
-            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               The Process
             </div>
@@ -167,7 +167,7 @@ export default function FloorPlansPage() {
       {/* Pricing Table */}
       <Section variant="default" id="pricing">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             Pricing
           </div>

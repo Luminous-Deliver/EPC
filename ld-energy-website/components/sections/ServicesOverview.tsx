@@ -69,7 +69,7 @@ export function ServicesOverview() {
   return (
     <Section variant="muted" id="services" pattern className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
           Services
         </div>
@@ -93,7 +93,7 @@ export function ServicesOverview() {
             }
           >
             {service.highlighted && (
-              <span className="absolute -top-3 left-5 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-accent-600 to-accent-700 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">
+              <span className="absolute -top-3 left-5 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-accent-600 to-accent-700 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-sm">
                 <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
                 Bundle Discount
               </span>
@@ -131,8 +131,8 @@ export function ServicesOverview() {
               href={service.href}
               className={
                 service.highlighted
-                  ? 'mt-6 inline-flex items-center gap-1.5 text-accent-700 font-semibold hover:text-accent-800'
-                  : 'mt-6 inline-flex items-center gap-1.5 text-primary-700 font-semibold hover:text-primary-800'
+                  ? 'mt-6 inline-flex min-h-[44px] items-center gap-1.5 text-accent-700 font-semibold hover:text-accent-800'
+                  : 'mt-6 inline-flex min-h-[44px] items-center gap-1.5 text-primary-700 font-semibold hover:text-primary-800'
               }
             >
               {service.highlighted ? 'See bundle pricing' : 'Learn more'}

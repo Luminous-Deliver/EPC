@@ -128,7 +128,7 @@ export function MobileNav() {
           <nav aria-label="Mobile" className="flex-1 min-h-0 overflow-y-auto px-3 py-2 bg-white">
             {servicesMenu.map((group) => (
               <div key={group.heading}>
-                <p className="px-3 pt-3 pb-1 text-[10px] font-bold uppercase tracking-widest text-secondary-400">
+                <p className="px-3 pt-3 pb-1 text-xs font-bold uppercase tracking-widest text-secondary-600">
                   {group.heading}
                 </p>
                 <ul className="flex flex-col mb-1">
@@ -138,10 +138,10 @@ export function MobileNav() {
                         href={link.href}
                         onClick={close}
                         tabIndex={open ? undefined : -1}
-                        className="flex flex-col w-full px-3 py-2.5 rounded-lg hover:bg-primary-50 transition-colors group"
+                        className="flex min-h-[44px] flex-col justify-center w-full px-3 py-2.5 rounded-lg hover:bg-primary-50 transition-colors group"
                       >
                         <span className="text-[15px] font-semibold text-secondary-800 group-hover:text-primary-700">{link.label}</span>
-                        <span className="text-xs text-secondary-400">{link.desc}</span>
+                        <span className="text-xs text-secondary-600">{link.desc}</span>
                       </Link>
                     </li>
                   ))}
@@ -159,7 +159,7 @@ export function MobileNav() {
                     href={link.href}
                     onClick={close}
                     tabIndex={open ? undefined : -1}
-                    className="flex items-center w-full px-3 py-2.5 rounded-lg text-[15px] font-semibold text-secondary-800 hover:bg-secondary-50 hover:text-primary-700 transition-colors"
+                    className="flex min-h-[44px] items-center w-full px-3 py-2.5 rounded-lg text-[15px] font-semibold text-secondary-800 hover:bg-secondary-50 hover:text-primary-700 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -182,7 +182,7 @@ export function MobileNav() {
               <a
                 href={site.phoneHref}
                 tabIndex={open ? undefined : -1}
-                className="flex items-center justify-center gap-1.5 bg-white border border-secondary-200 hover:bg-secondary-100 text-secondary-800 text-sm font-semibold px-3 py-2.5 rounded-lg transition-colors"
+                className="flex min-h-[44px] items-center justify-center gap-1.5 bg-white border border-secondary-200 hover:bg-secondary-100 text-secondary-800 text-sm font-semibold px-3 py-2.5 rounded-lg transition-colors"
               >
                 <Phone className="w-4 h-4 shrink-0" aria-hidden="true" />
                 Call Us
@@ -190,7 +190,7 @@ export function MobileNav() {
               <a
                 href={site.whatsappHref}
                 tabIndex={open ? undefined : -1}
-                className="flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-sm font-semibold px-3 py-2.5 rounded-lg transition-colors"
+                className="flex min-h-[44px] items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-sm font-semibold px-3 py-2.5 rounded-lg transition-colors"
               >
                 <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
                 WhatsApp

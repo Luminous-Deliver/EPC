@@ -123,7 +123,7 @@ export default function AboutPage() {
       {/* Who we are */}
       <Section variant="default" id="who-we-are">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             Who We Are
           </div>
@@ -142,7 +142,7 @@ export default function AboutPage() {
       {/* Our approach */}
       <Section variant="muted" id="approach">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             Our Approach
           </div>
@@ -168,7 +168,7 @@ export default function AboutPage() {
       {/* Credentials */}
       <Section variant="default" id="credentials">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             Credentials
           </div>
@@ -198,7 +198,7 @@ export default function AboutPage() {
       <Section variant="muted" id="founder-coverage">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               The Founder
             </div>
@@ -257,7 +257,7 @@ export default function AboutPage() {
           </div>
 
           <div className="flex flex-col">
-            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               Coverage &amp; Parent Company
             </div>

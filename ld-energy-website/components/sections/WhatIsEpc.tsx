@@ -22,7 +22,7 @@ export function WhatIsEpc() {
     <div className="hidden md:block">
       <Section variant="default" id="what-is-epc" className="scroll-mt-24">
         <div className="max-w-3xl">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
           EPC Basics
         </div>

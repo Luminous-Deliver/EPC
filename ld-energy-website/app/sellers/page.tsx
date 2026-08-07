@@ -178,7 +178,7 @@ export default function SellersPage() {
       {/* Why it matters */}
       <Section variant="default" id="why-it-matters">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             Why It Matters
           </div>
@@ -217,7 +217,7 @@ export default function SellersPage() {
       <Section variant="muted" id="sale-price">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
           <div>
-            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               Sale Price &amp; Speed
             </div>
@@ -252,7 +252,7 @@ export default function SellersPage() {
       {/* Timeline */}
       <Section variant="default" id="timeline">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             Timeline
           </div>

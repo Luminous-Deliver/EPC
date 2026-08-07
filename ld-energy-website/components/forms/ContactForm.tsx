@@ -302,7 +302,7 @@ export function ContactForm() {
                               {s.badge && (
                                 <span
                                   className={cn(
-                                    'text-[9px] uppercase tracking-wider font-black px-1.5 py-0.5 rounded text-white',
+                                    'text-xs uppercase tracking-wider font-black px-1.5 py-0.5 rounded text-white',
                                     s.value === 'Both (Bundle)' ? 'bg-accent-600' : 'bg-primary-600'
                                   )}
                                 >
@@ -451,7 +451,7 @@ export function ContactForm() {
                   <span>
                     <span className="flex flex-wrap items-center gap-1.5 font-bold text-sm text-secondary-900">
                       Add a retrofit consultation
-                      <span className="text-[9px] uppercase tracking-wider bg-accent-600 text-white font-black px-1.5 py-0.5 rounded">
+                      <span className="text-xs uppercase tracking-wider bg-accent-600 text-white font-black px-1.5 py-0.5 rounded">
                         +£25
                       </span>
                     </span>
@@ -496,7 +496,7 @@ export function ContactForm() {
                       <span className="flex justify-between items-center w-full font-bold text-sm text-secondary-900">
                         {s.label}
                         <span className={cn(
-                          'text-[10px] font-bold px-2 py-0.5 rounded-full',
+                          'text-xs font-bold px-2 py-0.5 rounded-full',
                           active ? 'bg-primary-600 text-white' : 'bg-secondary-100 text-secondary-600'
                         )}>
                           {s.priceBadge}
@@ -687,7 +687,7 @@ export function ContactForm() {
           <div className="flex justify-between items-start">
             <div>
               <span className="font-semibold block text-secondary-900">Services:</span>
-              <span className="text-[10px] text-secondary-500 mt-0.5 block leading-relaxed">
+              <span className="text-xs text-secondary-500 mt-0.5 block leading-relaxed">
                 {isBulk
                   ? 'Bulk / agency enquiry'
                   : wantsEpc && wantsFloorPlan
@@ -702,7 +702,7 @@ export function ContactForm() {
             {!isBulk &&
               (wantsEpc && wantsFloorPlan ? (
                 <div className="text-right">
-                  <span className="text-secondary-400 line-through">£{epcPrice + floorPlanPrice}</span>
+                  <span className="text-secondary-600 line-through">£{epcPrice + floorPlanPrice}</span>
                   <span className="font-bold text-secondary-900 block">£{epcPrice + floorPlanPrice - discount}</span>
                 </div>
               ) : (
@@ -762,8 +762,8 @@ export function ContactForm() {
         </div>
 
         <div className="mt-5 border-t border-secondary-100 pt-4 space-y-2">
-          <h5 className="text-[10px] font-bold uppercase tracking-wider text-secondary-500">What&apos;s Included:</h5>
-          <ul className="space-y-1.5 text-[10px] text-secondary-600">
+          <h5 className="text-xs font-bold uppercase tracking-wider text-secondary-500">What&apos;s Included:</h5>
+          <ul className="space-y-1.5 text-xs text-secondary-600">
             <li className="flex items-center gap-1.5">
               <ClipboardCheck className="w-3.5 h-3.5 text-primary-600 shrink-0" />
               Elmhurst Lodgement Fee
@@ -786,7 +786,7 @@ export function ContactForm() {
         {/* Direct channels — fills the space beside the taller form and gives
             anyone who'd rather not fill in a form a one-tap route out. */}
         <div className="mt-5 border-t border-secondary-100 pt-4">
-          <h5 className="text-[10px] font-bold uppercase tracking-wider text-secondary-500">
+          <h5 className="text-xs font-bold uppercase tracking-wider text-secondary-500">
             Prefer to talk?
           </h5>
           <div className="mt-2.5 space-y-2">
@@ -799,7 +799,7 @@ export function ContactForm() {
               </span>
               <span className="min-w-0">
                 <span className="block text-xs font-bold text-secondary-900">Tap to call</span>
-                <span className="block truncate text-[11px] text-secondary-500">{site.phone}</span>
+                <span className="block truncate text-xs text-secondary-500">{site.phone}</span>
               </span>
             </a>
             <a
@@ -813,7 +813,7 @@ export function ContactForm() {
               </span>
               <span className="min-w-0">
                 <span className="block text-xs font-bold text-secondary-900">Open WhatsApp</span>
-                <span className="block truncate text-[11px] text-secondary-500">
+                <span className="block truncate text-xs text-secondary-500">
                   Great for photos &amp; details
                 </span>
               </span>
@@ -827,13 +827,13 @@ export function ContactForm() {
               </span>
               <span className="min-w-0">
                 <span className="block text-xs font-bold text-secondary-900">Send email</span>
-                <span className="block truncate text-[11px] text-secondary-500">
+                <span className="block truncate text-xs text-secondary-500">
                   Reply within 2 hours
                 </span>
               </span>
             </a>
           </div>
-          <p className="mt-3 text-[10px] leading-relaxed text-secondary-500">
+          <p className="mt-3 text-xs leading-relaxed text-secondary-500">
             No call-out fees · Free quote · 2-hour response (8am–8pm)
           </p>
         </div>

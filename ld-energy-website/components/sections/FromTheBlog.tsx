@@ -11,7 +11,7 @@ export async function FromTheBlog() {
     <Section variant="muted">
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             EPC Guides &amp; Advice
           </div>
@@ -24,7 +24,7 @@ export async function FromTheBlog() {
         </div>
         <Link
           href="/blog"
-          className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 transition-colors hover:text-primary-800"
+          className="inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-primary-700 transition-colors hover:text-primary-800"
         >
           Read all guides
           <ArrowUpRight className="w-4 h-4" aria-hidden="true" />

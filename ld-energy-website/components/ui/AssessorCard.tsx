@@ -25,7 +25,7 @@ export function AssessorCard({
       <div className="flex items-center gap-2.5 border-b border-secondary-100 bg-secondary-50/70 px-6 py-4">
         <ShieldCheck className="w-5 h-5 text-accent-600 shrink-0" aria-hidden="true" />
         <h3 className="text-base font-bold text-secondary-900">Your Assessor</h3>
-        <span className="ml-auto rounded-full bg-accent-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-700 ring-1 ring-accent-200">
+        <span className="ml-auto rounded-full bg-accent-50 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-accent-700 ring-1 ring-accent-200">
           Verified
         </span>
       </div>

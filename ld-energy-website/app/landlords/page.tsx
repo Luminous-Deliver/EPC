@@ -240,7 +240,7 @@ export default function LandlordsPage() {
       {/* Our Landlord Service */}
       <Section variant="muted" id="our-service">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             For Portfolios &amp; Single Lets
           </div>

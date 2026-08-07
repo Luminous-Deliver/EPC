@@ -33,7 +33,7 @@ export function WhoWeHelp() {
   return (
     <Section variant="muted" id="who-we-help" pattern className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
           Who we help
         </div>
@@ -49,7 +49,7 @@ export function WhoWeHelp() {
             href={a.href}
             className="group flex flex-col rounded-2xl border border-secondary-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-premium hover:border-primary-200"
           >
-            <span className="font-mono text-xs text-secondary-400">
+            <span className="font-mono text-xs text-secondary-600">
               {String(i + 1).padStart(2, '0')}
             </span>
             <h3 className="mt-3 text-lg font-bold text-secondary-900 group-hover:text-primary-700">

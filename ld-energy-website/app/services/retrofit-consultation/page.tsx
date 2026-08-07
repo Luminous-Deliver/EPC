@@ -114,7 +114,7 @@ export default function RetrofitConsultationPage() {
       <Section variant="default" id="what-it-is">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 items-start">
           <div className="lg:col-span-7">
-            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               What it is
             </div>
@@ -188,7 +188,7 @@ export default function RetrofitConsultationPage() {
       {/* Who it helps */}
       <Section variant="muted" id="who-its-for" pattern>
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             Who it helps
           </div>

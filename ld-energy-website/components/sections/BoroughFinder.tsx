@@ -35,7 +35,7 @@ export function BoroughFinder({ boroughs }: BoroughFinderProps) {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Start typing your borough…"
           aria-label="Search for your borough"
-          className="block w-full min-h-[44px] rounded-lg border border-secondary-300 bg-white pl-10 pr-4 py-2.5 text-base text-secondary-900 placeholder:text-secondary-400 shadow-sm transition-colors focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/40"
+          className="block w-full min-h-[44px] rounded-lg border border-secondary-300 bg-white pl-10 pr-4 py-2.5 text-base text-secondary-900 placeholder:text-secondary-500 shadow-sm transition-colors focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/40"
         />
       </div>
 

@@ -15,7 +15,7 @@ export function Pricing() {
   return (
     <Section variant="muted" id="pricing" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl mx-auto text-center">
-        <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+        <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
           Transparent Pricing
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
@@ -67,7 +67,7 @@ export function Pricing() {
               <div>
                 <p className="text-sm font-semibold text-secondary-500 uppercase tracking-wide">Estimated Starting Price</p>
                 <div className="mt-1 flex items-baseline gap-2">
-                  <span className="text-lg font-semibold text-secondary-400">from</span>
+                  <span className="text-lg font-semibold text-secondary-600">from</span>
                   <span className="text-5xl font-extrabold font-display text-secondary-900 tracking-tight">
                     £{currentPricing.epc}
                   </span>
