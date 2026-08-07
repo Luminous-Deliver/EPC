@@ -81,7 +81,7 @@ export default function TermsPage() {
 
       <h2>4. Delivery</h2>
       <p>
-        Standard EPC delivery is within 72 hours of the assessment. Next-day delivery (where booked) is within 24 hours of the assessment. We email your certificate as a PDF and lodge it on the EPC Register on your behalf.
+        Standard EPC delivery is within 72 hours of the assessment. Next-day delivery (where booked) is within 24 hours of the assessment. We lodge your certificate on the official government EPC Register on your behalf and send you the link to your certificate once it is live.
       </p>
 
       <h2>5. Payment</h2>

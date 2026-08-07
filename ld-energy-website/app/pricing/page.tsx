@@ -6,7 +6,7 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { Accordion } from '@/components/ui/Accordion'
-import { pricing, site, nextDayGuide } from '@/lib/site'
+import { pricing, site, nextDayGuide, formatPrice } from '@/lib/site'
 import type { FaqItem } from '@/lib/faq'
 
 export const metadata: Metadata = {
@@ -35,7 +35,7 @@ const breadcrumbs = [
 const included = [
   'On-site assessment by an Elmhurst-accredited DEA',
   'Official lodgement on the UK Government EPC Register',
-  'Certificate emailed in PDF format',
+  'Certificate link sent once lodged on the government register',
   'Energy improvement recommendations',
   'Full data report',
   'No travel surcharges within London',
@@ -75,15 +75,6 @@ const pricingFaq: FaqItem[] = [
 
 // Typical internal floor-area ranges by property size (guide only) — reinforces
 // that floor area is the biggest driver of the final price.
-const typicalArea: Record<string, string> = {
-  studio: '18–37 m²',
-  '1-bed': '37–52 m²',
-  '2-bed': '52–70 m²',
-  '3-bed': '70–95 m²',
-  '4-bed': '95–120 m²',
-  '5-bed-plus': '120 m²+',
-}
-
 const offerCatalog = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -168,9 +159,9 @@ export default function PricingPage() {
             <table className="w-full text-sm min-w-[720px]">
               <thead>
                 <tr className="bg-secondary-50 border-b border-secondary-200">
-                  <th className="px-5 py-3.5 text-left font-semibold text-secondary-700">Property</th>
+                  <th className="px-5 py-3.5 text-left font-semibold text-secondary-700">Internal floor area</th>
                   <th className="px-4 py-3.5 text-right font-semibold text-secondary-900">EPC guide</th>
-                  <th className="px-4 py-3.5 text-right font-semibold text-secondary-600">Next Day</th>
+                  <th className="px-4 py-3.5 text-right font-semibold text-secondary-600">Next-day guide</th>
                   <th className="px-4 py-3.5 text-right font-semibold text-secondary-600">Floor plan guide</th>
                   <th className="px-4 py-3.5 text-right font-semibold text-primary-800 bg-primary-50">Bundle guide</th>
                 </tr>
@@ -179,20 +170,22 @@ export default function PricingPage() {
                 {pricing.map((row) => (
                   <tr key={row.type} className="bg-white hover:bg-secondary-50/70 transition-colors">
                     <td className="px-5 py-3.5">
-                      <span className="block font-semibold text-secondary-900">{row.label}</span>
-                      <span className="mt-0.5 flex items-center gap-1 text-xs text-secondary-500">
-                        <Ruler className="w-3 h-3 shrink-0" aria-hidden="true" />
-                        {typicalArea[row.type]} typical
+                      {/* PRIMARY: floor area drives the guide band */}
+                      <span className="flex items-center gap-1.5 text-base font-bold text-secondary-900">
+                        <Ruler className="w-3.5 h-3.5 shrink-0 text-secondary-500" aria-hidden="true" />
+                        {row.areaLabel}
                       </span>
+                      {/* SECONDARY: familiar reference only */}
+                      <span className="mt-0.5 block text-xs text-secondary-600">{row.typicalLabel}</span>
                     </td>
                     <td className="px-4 py-3.5 text-right whitespace-nowrap">
                       <span className="text-xs font-medium text-secondary-600">from</span>{' '}
-                      <span className="text-base font-bold text-secondary-900">£{row.epc}</span>
+                      <span className="text-base font-bold text-secondary-900">£{formatPrice(row.epc)}</span>
                     </td>
-                    <td className="px-4 py-3.5 text-right text-secondary-600 whitespace-nowrap">£{nextDayGuide(row)}</td>
-                    <td className="px-4 py-3.5 text-right text-secondary-600 whitespace-nowrap">£{row.floorPlan}</td>
+                    <td className="px-4 py-3.5 text-right text-secondary-600 whitespace-nowrap">£{formatPrice(nextDayGuide(row))}</td>
+                    <td className="px-4 py-3.5 text-right text-secondary-600 whitespace-nowrap">£{formatPrice(row.floorPlan)}</td>
                     <td className="px-4 py-3.5 text-right font-bold text-primary-800 bg-primary-50 whitespace-nowrap">
-                      £{row.bundle.toFixed(2)}
+                      £{formatPrice(row.bundle)}
                     </td>
                   </tr>
                 ))}

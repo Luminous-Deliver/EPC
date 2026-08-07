@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { cn } from '@/lib/cn'
 import { ArrowUpRight } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { getFeaturedPosts } from '@/lib/blog'
@@ -31,12 +32,17 @@ export async function FromTheBlog() {
         </Link>
       </div>
 
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
-        {posts.map((post) => (
+      <div className="mt-6 grid gap-4 md:grid-cols-3">
+        {posts.map((post, idx) => (
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="group flex flex-col rounded-2xl border border-secondary-200 bg-white p-6 transition-all hover:border-primary-300 hover:shadow-premium"
+            className={cn(
+              'group flex flex-col rounded-2xl border border-secondary-200 bg-white p-5 transition-all hover:border-primary-300 hover:shadow-premium',
+              // Lowest-intent content on the page: one guide on phones, all three
+              // from tablet up. The full list is one tap away at /blog.
+              idx > 0 && 'hidden md:flex',
+            )}
           >
             <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">
               {post.category}

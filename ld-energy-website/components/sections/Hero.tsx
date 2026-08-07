@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { ShieldCheck, Clock, MapPin, Star, BadgePoundSterling } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
@@ -12,13 +11,16 @@ export function Hero() {
       {/* Background photo — modern solar-roof home under a light sky (no people).
           Source: Unsplash (free licence), unsplash.com/photos/Ja8t8nJN2I4 */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <Image
-          src="/hero-home.webp"
-          alt=""
-          fill
-          priority
+        {/* Explicit srcset: Next's optimizer is disabled on Cloudflare Pages,
+            so it would otherwise ship the 1600w original to every device. */}
+        <img
+          src="/hero-home-1280.webp"
+          srcSet="/hero-home-640.webp 640w, /hero-home-960.webp 960w, /hero-home-1280.webp 1280w, /hero-home.webp 1600w"
           sizes="100vw"
-          className="object-cover object-[70%_25%]"
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover object-[70%_25%]"
         />
         {/* Legibility overlays: solid over the text column, airy over the photo */}
         <div className="absolute inset-0 bg-gradient-to-r from-canvas via-canvas/75 to-canvas/5" />

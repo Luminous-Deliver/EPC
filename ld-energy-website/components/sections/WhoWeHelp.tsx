@@ -40,22 +40,22 @@ const reasons = [
   {
     Icon: Award,
     title: 'Elmhurst accredited',
-    body: 'Every EPC is lodged on the official government register by a named, publicly verifiable assessor.',
+    body: 'Lodged on the government register by a named, verifiable assessor.',
   },
   {
     Icon: BadgePoundSterling,
     title: 'No surprise pricing',
-    body: 'Guide prices up front, exact quote confirmed before booking. No travel or call-out surcharges.',
+    body: 'Guide prices up front, exact quote before booking. No call-out fees.',
   },
   {
     Icon: Zap,
     title: 'Fast and flexible',
-    body: '72-hour standard delivery, next day for £12. Appointments seven days a week, evenings included.',
+    body: '72-hour standard, next day for £12. Seven days a week.',
   },
   {
     Icon: MapPin,
     title: 'Local and reliable',
-    body: 'Based in Stratford, covering every London borough. We answer the phone and turn up on time.',
+    body: 'Stratford-based, covering every borough. We answer the phone.',
   },
 ]
 
@@ -90,20 +90,27 @@ export function WhoWeHelp() {
         ))}
       </div>
 
-      {/* Differentiators, merged in from the former Why-choose-us section */}
-      <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {reasons.map(({ Icon, title, body }) => (
-          <li key={title} className="flex gap-3">
-            <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-700 ring-1 ring-primary-100">
-              <Icon className="h-4 w-4" aria-hidden="true" />
-            </span>
-            <div>
-              <h3 className="text-sm font-bold text-secondary-900">{title}</h3>
-              <p className="mt-1 text-sm leading-relaxed text-secondary-600">{body}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      {/* Differentiators from the former Why-choose-us section. Deliberately
+          subordinate: separated by a rule, sat on a tint, and typed down so it
+          reads as reassurance rather than a second grid of cards. */}
+      <div className="mt-10 rounded-2xl border border-secondary-200 bg-white/70 p-5 md:mt-12 md:p-6">
+        <p className="text-xs font-semibold uppercase tracking-widest text-secondary-600">
+          Why people choose us
+        </p>
+        <ul className="mt-4 grid gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
+          {reasons.map(({ Icon, title, body }) => (
+            <li key={title} className="flex gap-3">
+              <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-700 ring-1 ring-primary-100">
+                <Icon className="h-4 w-4" aria-hidden="true" />
+              </span>
+              <div>
+                <h3 className="text-sm font-semibold text-secondary-900">{title}</h3>
+                <p className="mt-0.5 text-sm leading-snug text-secondary-600">{body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </Section>
   )
 }

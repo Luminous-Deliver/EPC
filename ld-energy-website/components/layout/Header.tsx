@@ -14,6 +14,7 @@ import { useScrollDirection } from '@/lib/useScrollDirection'
 function ServicesDropdown() {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
 
   // Close on outside click
   useEffect(() => {
@@ -24,13 +25,39 @@ function ServicesDropdown() {
     return () => document.removeEventListener('mousedown', handler)
   }, [])
 
+  // Escape closes and returns focus to the trigger; Tab out closes.
+  // This is a navigation disclosure containing links, not an ARIA menu, so
+  // roving arrow-key focus would be the wrong pattern — Tab is correct here.
+  useEffect(() => {
+    if (!open) return
+    const node = ref.current
+    if (!node) return
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        e.stopPropagation()
+        setOpen(false)
+        triggerRef.current?.focus()
+      }
+    }
+    function onFocusOut(e: FocusEvent) {
+      if (node && !node.contains(e.relatedTarget as Node)) setOpen(false)
+    }
+    node.addEventListener('keydown', onKeyDown)
+    node.addEventListener('focusout', onFocusOut)
+    return () => {
+      node.removeEventListener('keydown', onKeyDown)
+      node.removeEventListener('focusout', onFocusOut)
+    }
+  }, [open])
+
   return (
     <div ref={ref} className="relative">
       <button
+        ref={triggerRef}
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        aria-haspopup="true"
+        aria-controls="services-menu"
         className="inline-flex min-h-[44px] items-center gap-1 text-sm font-medium text-secondary-700 hover:text-primary-700 transition-colors"
       >
         Services
@@ -41,22 +68,21 @@ function ServicesDropdown() {
       </button>
 
       {open && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl bg-white shadow-premium-lg ring-1 ring-secondary-900/5 overflow-hidden z-50">
+        <div id="services-menu" className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl bg-white shadow-premium-lg ring-1 ring-secondary-900/5 overflow-hidden z-50">
           {/* Arrow pointer */}
           <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 ring-1 ring-secondary-900/5" aria-hidden="true" />
-          <div className="py-2" role="menu">
+          <div className="py-2">
             {servicesMenu.map((group, gi) => (
               <div key={group.heading}>
                 {gi > 0 && <div className="my-1 border-t border-secondary-100" aria-hidden="true" />}
                 <p className="px-4 pt-2 pb-1 text-xs font-bold uppercase tracking-widest text-secondary-600">
                   {group.heading}
                 </p>
-                <ul role="none">
+                <ul>
                   {group.links.map((item) => (
-                    <li key={item.href} role="none">
+                    <li key={item.href}>
                       <Link
                         href={item.href}
-                        role="menuitem"
                         onClick={() => setOpen(false)}
                         className="flex flex-col px-4 py-2.5 hover:bg-primary-50 transition-colors group"
                       >

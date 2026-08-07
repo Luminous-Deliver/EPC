@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   authors: [{ name: site.legalName }],
   alternates: { canonical: '/' },
   icons: {
-    icon: [{ url: '/favicon.png', type: 'image/png', sizes: '512x512' }],
+    icon: [{ url: '/favicon.png', type: 'image/png', sizes: '96x96' }],
     apple: [{ url: '/apple-icon.png', type: 'image/png', sizes: '180x180' }],
   },
   openGraph: {

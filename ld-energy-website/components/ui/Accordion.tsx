@@ -1,7 +1,7 @@
 'use client'
 
 import { useId, useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, ExternalLink } from 'lucide-react'
 import { cn } from '@/lib/cn'
 import type { FaqItem } from '@/lib/faq'
 
@@ -46,7 +46,25 @@ export function Accordion({ items, defaultOpenIndex, className }: AccordionProps
               hidden={!isOpen}
               className="px-5 pb-5 md:px-6 md:pb-6 text-secondary-700 leading-relaxed"
             >
-              {item.a}
+              <p>{item.a}</p>
+              {item.links && item.links.length > 0 && (
+                <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1">
+                  {item.links.map((l) => (
+                    <li key={l.href}>
+                      <a
+                        href={l.href}
+                        {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        className="inline-flex min-h-[44px] items-center gap-1 text-sm font-semibold text-primary-700 underline underline-offset-2 hover:text-primary-800"
+                      >
+                        {l.label}
+                        {l.external && (
+                          <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                        )}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </li>
         )

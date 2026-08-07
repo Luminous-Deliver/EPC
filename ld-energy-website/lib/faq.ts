@@ -1,6 +1,16 @@
 export interface FaqItem {
   q: string
+  /**
+   * Canonical plain-text answer. Consumed verbatim by both the rendered
+   * accordion and the FAQPage JSON-LD, so the two can never drift.
+   */
   a: string
+  /**
+   * Optional contextual links rendered beneath the answer text. Deliberately
+   * separate from `a` rather than embedded as JSX: schema needs plain text,
+   * and inlining markup would force a second, drift-prone copy of the answer.
+   */
+  links?: Array<{ href: string; label: string; external?: boolean }>
 }
 
 export const homepageFaq: FaqItem[] = [
@@ -68,15 +78,43 @@ export const homepageFaq: FaqItem[] = [
  * a mismatch between them is a structured-data violation.
  */
 export const homepageFaqFeatured: FaqItem[] = [
-  homepageFaq.find((f) => f.q.startsWith('How much does an EPC cost'))!,
+  {
+    ...homepageFaq.find((f) => f.q.startsWith('How much does an EPC cost'))!,
+    links: [
+      { href: '/pricing', label: 'See full guide pricing by floor area' },
+      { href: '/services/domestic-epc', label: 'What a domestic EPC includes' },
+    ],
+  },
   {
     q: 'Are the prices on your website fixed?',
     a: 'No — the figures shown are guide prices, based mainly on internal floor area (m²). Extensions, loft conversions, layout and access can change the final figure, so we confirm your exact quote before you book. That applies to urgent and same-day jobs too: we confirm availability and any surcharge before accepting the booking.',
+    links: [
+      { href: '/pricing', label: 'How our guide pricing works' },
+      { href: '/contact', label: 'Get an exact quote for your property' },
+    ],
   },
-  homepageFaq.find((f) => f.q.startsWith('How long does an EPC assessment'))!,
-  homepageFaq.find((f) => f.q.startsWith('How quickly will I receive'))!,
-  homepageFaq.find((f) => f.q.startsWith('How long is an EPC valid'))!,
-  homepageFaq.find((f) => f.q.startsWith('Can I get a same-day'))!,
+  {
+    ...homepageFaq.find((f) => f.q.startsWith('How long does an EPC assessment'))!,
+    links: [{ href: '/preparing-for-your-epc', label: 'What to have ready before the visit' }],
+  },
+  {
+    ...homepageFaq.find((f) => f.q.startsWith('How quickly will I receive'))!,
+    links: [
+      {
+        href: 'https://www.gov.uk/find-energy-certificate',
+        label: 'Find an energy certificate on GOV.UK',
+        external: true,
+      },
+    ],
+  },
+  {
+    ...homepageFaq.find((f) => f.q.startsWith('How long is an EPC valid'))!,
+    links: [{ href: '/landlords', label: 'MEES rules for rented homes' }],
+  },
+  {
+    ...homepageFaq.find((f) => f.q.startsWith('Can I get a same-day'))!,
+    links: [{ href: '/areas', label: 'Check we cover your London borough' }],
+  },
 ]
 
 export interface FaqCategory {

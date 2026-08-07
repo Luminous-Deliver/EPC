@@ -778,7 +778,7 @@ export function ContactForm() {
             </li>
             <li className="flex items-center gap-1.5">
               <ClipboardCheck className="w-3.5 h-3.5 text-primary-600 shrink-0" />
-              Digital PDF copy emailed to you
+              Certificate link sent once lodged
             </li>
           </ul>
         </div>

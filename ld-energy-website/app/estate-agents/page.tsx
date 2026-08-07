@@ -64,7 +64,7 @@ const whyAgents = [
   {
     Icon: FileCheck2,
     title: 'Certificates sent where you need them',
-    body: 'PDFs emailed straight to your branch inbox (with the client’s permission) and lodged on the government EPC Register, ready to attach to the listing.',
+    body: 'Lodged on the government EPC Register, with the certificate link sent straight to your branch inbox (with the client’s permission), ready to attach to the listing.',
   },
 ]
 
@@ -94,7 +94,7 @@ const agentFaq: FaqItem[] = [
   },
   {
     q: 'Can you send certificates straight to our branch?',
-    a: 'Yes. With the client’s permission we email the certificate PDF directly to your branch inbox as soon as it’s lodged on the government EPC Register, so there’s no forwarding or chasing paperwork.',
+    a: 'Yes. With the client’s permission we send the certificate link directly to your branch inbox as soon as it’s lodged on the government EPC Register, so there’s no forwarding or chasing paperwork.',
   },
   {
     q: 'Do you cover our whole patch?',

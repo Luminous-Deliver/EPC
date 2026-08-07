@@ -33,10 +33,10 @@ export function Pricing() {
           from={priceFrom.epc}
           positioning="For selling, letting, or meeting MEES compliance."
           inclusions={[
-            'Accredited assessor visit',
-            'Lodged on the government EPC register',
-            'PDF certificate, valid 10 years',
-            'Improvement recommendations',
+            'Accredited assessor visit and full assessment',
+            'Lodged on the official GOV.UK EPC register within 72 hours',
+            'Certificate link sent once live — valid 10 years',
+            'Improvement recommendations included',
           ]}
           href="/contact"
         />
@@ -45,10 +45,10 @@ export function Pricing() {
           from={priceFrom.bundle}
           positioning="Everything a listing needs, measured in a single visit."
           inclusions={[
-            'EPC and measured floor plan',
-            'One appointment, one assessor',
-            'Portal-ready JPG and PDF',
-            'Lower combined price than booking separately',
+            'Everything in the Domestic EPC',
+            'Laser-measured 2D plan to Rightmove & Zoopla spec',
+            'Total area, room dimensions, compass point, floor labels',
+            'Floor plan supplied as JPG & PDF — one visit for both',
           ]}
           href="/contact"
           emphasis
@@ -59,10 +59,10 @@ export function Pricing() {
           from={priceFrom.floorPlan}
           positioning="For marketing a property that already has a valid EPC."
           inclusions={[
-            'Laser-measured on site',
-            'Room dimensions and total floor area',
-            'High-resolution JPG and PDF',
-            'Suitable for Rightmove and Zoopla',
+            'Laser-measured 2D plan, drawn to portal spec',
+            'Total area, room dimensions, compass point, floor labels',
+            'Supplied as high-resolution JPG & PDF files',
+            'Ready for Rightmove, Zoopla and OnTheMarket',
           ]}
           href="/contact"
         />

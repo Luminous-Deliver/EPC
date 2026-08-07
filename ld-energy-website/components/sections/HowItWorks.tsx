@@ -4,21 +4,18 @@ import { CalendarCheck, ClipboardList, FileCheck2, Route } from 'lucide-react'
 const steps = [
   {
     Icon: CalendarCheck,
-    title: 'Book',
-    body:
-      'Send the address and property type online, by phone or on WhatsApp. We confirm a fixed price and a slot — often the same day.',
+    title: 'Get your quote',
+    body: 'Send the address and property type. We confirm your exact price and a slot — often same day.',
   },
   {
     Icon: ClipboardList,
     title: 'Assessment',
-    body:
-      'A 45–60 minute survey covering measurements, heating, insulation, lighting and glazing. Tidy, tenant-friendly, no disruption.',
+    body: 'A 45–60 minute survey. Tidy, tenant-friendly, nothing invasive.',
   },
   {
     Icon: FileCheck2,
-    title: 'Delivered in 72 hours',
-    body:
-      'Certificate lodged on the official government register and emailed as a PDF, with floor plans in portal-ready formats. Express next-day available.',
+    title: 'Lodged in 72 hours',
+    body: 'Lodged on the GOV.UK EPC register, with your certificate link sent once live. Next day available.',
   },
 ]
 
@@ -26,7 +23,7 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="relative overflow-hidden py-16 md:py-24 scroll-mt-20 md:scroll-mt-24"
+      className="relative overflow-hidden py-12 md:py-16 scroll-mt-20 md:scroll-mt-24"
       style={{ background: 'linear-gradient(160deg, #0D1B33 0%, #142644 50%, #0D1B33 100%)' }}
     >
       {/* Atmospheric glow, reuses footer palette */}
@@ -53,42 +50,27 @@ export function HowItWorks() {
           </p>
         </div>
 
-        <ol className="relative mt-12 grid gap-6 md:grid-cols-3">
-          {/* Desktop connector */}
+        <ol className="relative mt-10 grid gap-6 md:grid-cols-3">
+          {/* Connector line — reads as movement 1 → 2 → 3 rather than three stages */}
           <div
-            className="hidden md:block pointer-events-none absolute left-0 right-0 top-1 h-px border-t border-dashed"
-            style={{ borderColor: 'rgba(71,132,110,0.3)' }}
+            className="pointer-events-none absolute left-4 top-4 bottom-4 hidden w-px md:left-0 md:right-0 md:top-4 md:bottom-auto md:h-px md:w-auto md:block"
+            style={{ background: 'linear-gradient(to right, transparent, rgba(149,191,173,0.35) 12%, rgba(149,191,173,0.35) 88%, transparent)' }}
             aria-hidden="true"
           />
-          {/* Mobile vertical connector */}
-          <div
-            className="md:hidden pointer-events-none absolute left-10 top-8 bottom-8 w-px border-l border-dashed"
-            style={{ borderColor: 'rgba(71,132,110,0.3)' }}
-            aria-hidden="true"
-          />
-
           {steps.map((step, i) => (
-            <li
-              key={step.title}
-              className="relative rounded-2xl p-6 md:p-8 transition-all duration-200 hover:-translate-y-1 animate-reveal"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(71,132,110,0.18)' }}
-            >
-              <div
-                className="absolute -top-4 left-6 inline-flex items-center justify-center w-9 h-9 rounded-xl font-bold text-sm shadow-sm"
-                style={{ background: 'linear-gradient(135deg, #95BFAD, #6CA28C)', color: '#0D1B33', boxShadow: '0 0 0 4px #0D1B33' }}
-              >
-                {i + 1}
+            <li key={step.title} className="relative">
+              <div className="flex items-center gap-3">
+                <span
+                  className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+                  style={{ background: '#95BFAD', color: '#0D1B33', boxShadow: '0 0 0 4px #0D1B33' }}
+                >
+                  {i + 1}
+                </span>
+                <h3 className="text-lg font-semibold text-white md:text-xl">{step.title}</h3>
               </div>
-              {/* Title leads; the icon is a small supporting marker beside it. */}
-              <div className="mt-3 flex items-center gap-2.5">
-                <step.Icon
-                  className="w-4 h-4 shrink-0"
-                  style={{ color: 'rgba(149,191,173,0.7)' }}
-                  aria-hidden="true"
-                />
-                <h3 className="text-xl md:text-2xl font-semibold text-white">{step.title}</h3>
-              </div>
-              <p className="mt-2.5 leading-relaxed text-sm" style={{ color: 'rgba(214,225,240,0.6)' }}>{step.body}</p>
+              <p className="mt-2.5 text-sm leading-relaxed md:pl-11" style={{ color: 'rgba(214,225,240,0.65)' }}>
+                {step.body}
+              </p>
             </li>
           ))}
         </ol>

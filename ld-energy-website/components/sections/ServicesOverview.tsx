@@ -12,7 +12,7 @@ const services = [
     title: 'Domestic EPC Certificate',
     href: '/services/domestic-epc',
     description:
-      "Required by law for selling or renting residential property in England and Wales. We assess your home's energy efficiency and provide an official certificate registered with the UK government.",
+      'Required by law when selling or letting in England and Wales. Lodged on the official GOV.UK EPC register, valid for ten years.',
     bullets: [
       `Guide prices from £${priceFrom.epc}`,
       '72-hour standard delivery',
@@ -24,7 +24,7 @@ const services = [
     title: 'Property Floor Plans',
     href: '/services/floor-plans',
     description:
-      'Accurate, professional floor plans for property marketing. Measured on-site with laser tools, delivered as high-resolution image files.',
+      'Laser-measured 2D plans drawn to Rightmove and Zoopla specification, supplied as JPG and PDF files.',
     bullets: [
       `Guide prices from £${priceFrom.floorPlan}`,
       'Perfect for estate agent listings',
@@ -36,7 +36,7 @@ const services = [
     title: 'EPC & Floor Plan Bundle',
     href: '/pricing',
     description:
-      'Book both for the same property and the combined guide price is lower than booking separately. One visit, one assessor, everything your listing needs.',
+      'Both services for the same property in one visit, at a lower combined guide price than booking them separately.',
     bullets: [
       `Bundle guide prices from £${formatPrice(priceFrom.bundle)}`,
       'Lower combined price than booking separately',
@@ -48,7 +48,7 @@ const services = [
     title: 'Retrofit Consultation',
     href: '/services/retrofit-consultation',
     description:
-      'A 15-minute verbal walk-through on the day of your assessment: what would realistically lift this property to band C, roughly what it costs, and the order to do it in.',
+      'A 15-minute walk-through on the day: what would realistically lift this property to band C, roughly what it costs, and in what order.',
     bullets: [
       'Just £25 added to your EPC',
       'Plain-English route to band C',
@@ -95,16 +95,16 @@ export function ServicesOverview() {
               <span
                 className={
                   service.highlighted
-                    ? 'shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-accent-500 to-accent-600 text-white ring-1 ring-accent-700/10'
-                    : 'shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10'
+                    ? 'shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-accent-500 to-accent-600 text-white ring-1 ring-accent-700/10'
+                    : 'shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10'
                 }
               >
-                <service.Icon className="w-6 h-6" aria-hidden="true" />
+                <service.Icon className="w-5 h-5" aria-hidden="true" />
               </span>
-              <h3 className="text-xl font-semibold text-secondary-900 md:mt-4">{service.title}</h3>
+              <h3 className="text-lg font-semibold text-secondary-900 md:mt-3">{service.title}</h3>
             </div>
-            <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-secondary-600">{service.description}</p>
-            <ul className="mt-5 space-y-2 flex-1">
+            <p className="mt-2 text-sm leading-relaxed text-secondary-600">{service.description}</p>
+            <ul className="mt-4 space-y-1.5">
               {service.bullets.map((b) => (
                 <li key={b} className="flex items-start gap-2.5 text-secondary-700 text-sm">
                   <CheckCircle2
@@ -123,8 +123,8 @@ export function ServicesOverview() {
               href={service.href}
               className={
                 service.highlighted
-                  ? 'mt-6 inline-flex min-h-[44px] items-center gap-1.5 text-accent-700 font-semibold hover:text-accent-800'
-                  : 'mt-6 inline-flex min-h-[44px] items-center gap-1.5 text-primary-700 font-semibold hover:text-primary-800'
+                  ? 'mt-auto pt-4 inline-flex min-h-[44px] items-center gap-1.5 text-accent-700 font-semibold hover:text-accent-800'
+                  : 'mt-auto pt-4 inline-flex min-h-[44px] items-center gap-1.5 text-primary-700 font-semibold hover:text-primary-800'
               }
             >
               {service.highlighted ? 'See bundle pricing' : 'Learn more'}

@@ -6,7 +6,7 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { StepList } from '@/components/ui/StepList'
 import { PageHero } from '@/components/sections/PageHero'
 import { CtaStrip } from '@/components/sections/CtaStrip'
-import { pricing } from '@/lib/site'
+import { pricing, formatPrice } from '@/lib/site'
 import { site } from '@/lib/site'
 import { areaServedLondon } from '@/lib/boroughs'
 
@@ -183,7 +183,7 @@ export default function FloorPlansPage() {
           <table className="w-full text-sm min-w-[600px]">
             <thead>
               <tr className="bg-secondary-50 border-b border-secondary-200">
-                <th className="px-4 py-3 text-left font-semibold text-secondary-700">Property</th>
+                <th className="px-4 py-3 text-left font-semibold text-secondary-700">Internal floor area</th>
                 <th className="px-4 py-3 text-right font-semibold text-secondary-700">EPC guide</th>
                 <th className="px-4 py-3 text-right font-semibold text-secondary-700">Floor plan guide</th>
                 <th className="px-4 py-3 text-right font-semibold text-primary-800 bg-primary-50">Bundle guide</th>
@@ -192,11 +192,14 @@ export default function FloorPlansPage() {
             <tbody className="divide-y divide-secondary-100">
               {pricing.map((row) => (
                 <tr key={row.type} className="bg-white hover:bg-secondary-50">
-                  <td className="px-4 py-3 font-medium text-secondary-900">{row.label}</td>
+                  <td className="px-4 py-3">
+                    <span className="block font-bold text-secondary-900">{row.areaLabel}</span>
+                    <span className="mt-0.5 block text-xs text-secondary-600">{row.typicalLabel}</span>
+                  </td>
                   <td className="px-4 py-3 text-right text-secondary-700">£{row.epc}</td>
                   <td className="px-4 py-3 text-right text-secondary-700">£{row.floorPlan}</td>
                   <td className="px-4 py-3 text-right font-bold text-primary-800 bg-primary-50">
-                    £{row.bundle.toFixed(2)}
+                    £{formatPrice(row.bundle)}
                   </td>
                 </tr>
               ))}
