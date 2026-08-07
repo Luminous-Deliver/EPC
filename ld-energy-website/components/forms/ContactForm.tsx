@@ -12,7 +12,10 @@ import {
   BadgePoundSterling,
   Calendar,
   Sparkles,
-  ClipboardCheck
+  ClipboardCheck,
+  Phone,
+  MessageCircle,
+  Mail
 } from 'lucide-react'
 import { Field, Input, Textarea } from '@/components/ui/Input'
 import { Button } from '@/components/ui/Button'
@@ -778,6 +781,61 @@ export function ContactForm() {
               Digital PDF copy emailed to you
             </li>
           </ul>
+        </div>
+
+        {/* Direct channels — fills the space beside the taller form and gives
+            anyone who'd rather not fill in a form a one-tap route out. */}
+        <div className="mt-5 border-t border-secondary-100 pt-4">
+          <h5 className="text-[10px] font-bold uppercase tracking-wider text-secondary-500">
+            Prefer to talk?
+          </h5>
+          <div className="mt-2.5 space-y-2">
+            <a
+              href={site.phoneHref}
+              className="flex items-center gap-2.5 rounded-lg border border-secondary-200 bg-white px-3 py-2.5 transition-colors hover:border-primary-300 hover:bg-primary-50"
+            >
+              <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary-600 text-white">
+                <Phone className="h-4 w-4" aria-hidden="true" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-xs font-bold text-secondary-900">Tap to call</span>
+                <span className="block truncate text-[11px] text-secondary-500">{site.phone}</span>
+              </span>
+            </a>
+            <a
+              href={site.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 rounded-lg border border-secondary-200 bg-white px-3 py-2.5 transition-colors hover:border-[#25D366] hover:bg-[#25D366]/5"
+            >
+              <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#25D366] text-white">
+                <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-xs font-bold text-secondary-900">Open WhatsApp</span>
+                <span className="block truncate text-[11px] text-secondary-500">
+                  Great for photos &amp; details
+                </span>
+              </span>
+            </a>
+            <a
+              href={site.emailHref}
+              className="flex items-center gap-2.5 rounded-lg border border-secondary-200 bg-white px-3 py-2.5 transition-colors hover:border-primary-300 hover:bg-primary-50"
+            >
+              <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-secondary-700 text-white">
+                <Mail className="h-4 w-4" aria-hidden="true" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-xs font-bold text-secondary-900">Send email</span>
+                <span className="block truncate text-[11px] text-secondary-500">
+                  Reply within 2 hours
+                </span>
+              </span>
+            </a>
+          </div>
+          <p className="mt-3 text-[10px] leading-relaxed text-secondary-500">
+            No call-out fees · Free quote · 2-hour response (8am–8pm)
+          </p>
         </div>
       </div>
     </div>
