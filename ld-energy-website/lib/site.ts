@@ -155,6 +155,14 @@ export function bundleSaving(band: PricingBand): number {
   return band.epc + band.floorPlan - band.bundle
 }
 
+/**
+ * Format a guide price for display. Whole pounds render bare (£49); anything
+ * with pence renders to two places (£73.50, never £73.5).
+ */
+export function formatPrice(value: number): string {
+  return Number.isInteger(value) ? String(value) : value.toFixed(2)
+}
+
 /** Lowest guide price across all bands, for "from £X" copy. */
 export const priceFrom = {
   epc: Math.min(...pricing.map((p) => p.epc)),

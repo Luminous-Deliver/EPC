@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
 import { ArrowRight, FileText, Ruler, PackageCheck, Leaf, CheckCircle2, Sparkles } from 'lucide-react'
-import { priceFrom } from '@/lib/site'
+import { priceFrom, formatPrice } from '@/lib/site'
 
 // Three core services today; the grid flexes to fit future additions
 // (property photography, gas & electric boiler work, …) without redesign.
@@ -42,7 +42,7 @@ const services = [
     description:
       'Book both for the same property and the combined guide price is lower than booking separately. One visit, one assessor, everything your listing needs.',
     bullets: [
-      `Bundle guide prices from £${priceFrom.bundle}`,
+      `Bundle guide prices from £${formatPrice(priceFrom.bundle)}`,
       'Lower combined price than booking separately',
       'Both services, same property, one visit',
       'Ideal for sellers & letting agents',

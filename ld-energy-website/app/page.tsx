@@ -5,6 +5,7 @@ import { SocialProof } from '@/components/sections/SocialProof'
 import { WhatIsEpc } from '@/components/sections/WhatIsEpc'
 import { Pricing } from '@/components/sections/Pricing'
 import { HowItWorks } from '@/components/sections/HowItWorks'
+import { CtaBand } from '@/components/sections/CtaBand'
 import { ServicesOverview } from '@/components/sections/ServicesOverview'
 import { WhoWeHelp } from '@/components/sections/WhoWeHelp'
 import { TradeAgency } from '@/components/sections/TradeAgency'
@@ -89,6 +90,7 @@ export default function HomePage() {
       <TrustBar />
       <SocialProof />
       <Pricing />
+      <CtaBand />
       <HowItWorks />
       <WhatToHaveReady />
       <WhyChoose />
