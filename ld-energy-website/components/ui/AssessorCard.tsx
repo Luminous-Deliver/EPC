@@ -6,7 +6,14 @@ import { site } from '@/lib/site'
  * out to the official government register so anyone can verify independently
  * — the single strongest trust signal we can show on an EPC site.
  */
-export function AssessorCard({ className }: { className?: string }) {
+export function AssessorCard({
+  className,
+  note,
+}: {
+  className?: string
+  /** Optional line above the credentials, e.g. an invitation to verify independently. */
+  note?: string
+}) {
   const rows: Array<[string, string]> = [
     ['Name', site.assessor.name],
     ['Accreditation', site.assessor.qualification],
@@ -22,6 +29,10 @@ export function AssessorCard({ className }: { className?: string }) {
         <ShieldCheck className="w-6 h-6 text-accent-600 shrink-0" aria-hidden="true" />
         Your Assessor
       </h3>
+
+      {note && (
+        <p className="mt-3 text-sm leading-relaxed text-secondary-600">{note}</p>
+      )}
 
       <dl className="mt-5 space-y-4">
         {rows.map(([label, value]) => (

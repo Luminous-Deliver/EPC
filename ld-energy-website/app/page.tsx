@@ -7,6 +7,7 @@ import { Pricing } from '@/components/sections/Pricing'
 import { HowItWorks } from '@/components/sections/HowItWorks'
 import { ServicesOverview } from '@/components/sections/ServicesOverview'
 import { WhoWeHelp } from '@/components/sections/WhoWeHelp'
+import { TradeAgency } from '@/components/sections/TradeAgency'
 import { WhatToHaveReady } from '@/components/sections/WhatToHaveReady'
 import { WhyChoose } from '@/components/sections/WhyChoose'
 import { Coverage } from '@/components/sections/Coverage'
@@ -94,6 +95,7 @@ export default function HomePage() {
       <WhatIsEpc />
       <ServicesOverview />
       <WhoWeHelp />
+      <TradeAgency />
       <Coverage />
       <FromTheBlog />
       <Faq />

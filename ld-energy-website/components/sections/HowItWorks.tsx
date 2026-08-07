@@ -79,9 +79,16 @@ export function HowItWorks() {
               >
                 {i + 1}
               </div>
-              <step.Icon className="mt-3 w-9 h-9" style={{ color: '#95BFAD' }} aria-hidden="true" />
-              <h3 className="mt-4 text-xl font-semibold text-white">{step.title}</h3>
-              <p className="mt-2 leading-relaxed text-sm" style={{ color: 'rgba(214,225,240,0.6)' }}>{step.body}</p>
+              {/* Title leads; the icon is a small supporting marker beside it. */}
+              <div className="mt-3 flex items-center gap-2.5">
+                <step.Icon
+                  className="w-4 h-4 shrink-0"
+                  style={{ color: 'rgba(149,191,173,0.7)' }}
+                  aria-hidden="true"
+                />
+                <h3 className="text-xl md:text-2xl font-semibold text-white">{step.title}</h3>
+              </div>
+              <p className="mt-2.5 leading-relaxed text-sm" style={{ color: 'rgba(214,225,240,0.6)' }}>{step.body}</p>
             </li>
           ))}
         </ol>

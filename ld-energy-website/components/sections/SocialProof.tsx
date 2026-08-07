@@ -1,5 +1,6 @@
 import { Star, ShieldCheck, MapPin, Clock, ArrowRight } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
+import { AssessorCard } from '@/components/ui/AssessorCard'
 import { site } from '@/lib/site'
 
 const GOOGLE_REVIEWS_URL = site.reviews.profileUrl
@@ -18,10 +19,10 @@ export function SocialProof() {
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-50 to-canvas ring-1 ring-primary-100 p-6 md:p-12">
         <div className="bg-brand-pattern pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom_right,black,transparent_75%)]" aria-hidden="true" />
 
-        <div className="relative">
-          {/* Large-scale primary element, Google rating badge */}
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-12">
-            <div className="md:max-w-sm">
+        <div className="relative grid gap-8 lg:grid-cols-12 lg:gap-10 items-start">
+          {/* Reviews + proof chips */}
+          <div className="lg:col-span-7 flex flex-col gap-8">
+            <div>
               <p className="text-xs uppercase tracking-widest font-semibold text-primary-600">Trusted Locally</p>
               <div className="mt-4 flex items-center gap-3">
                 <div className="flex items-center gap-1" aria-hidden="true">
@@ -61,7 +62,7 @@ export function SocialProof() {
             </div>
 
             {/* Secondary element, proof chips in 2×2 */}
-            <ul className="grid grid-cols-2 gap-3 md:gap-4 md:w-auto md:min-w-[340px]">
+            <ul className="grid grid-cols-2 gap-3 md:gap-4">
               {proofPoints.map(({ Icon, value, label }) => (
                 <li
                   key={value}
@@ -78,6 +79,12 @@ export function SocialProof() {
               ))}
             </ul>
           </div>
+
+          {/* Independent verification sits right beside the reviews */}
+          <AssessorCard
+            className="lg:col-span-5"
+            note="Don’t take our word for it — the accreditation below is listed publicly. Look up the number on the government’s own register before you book."
+          />
         </div>
       </div>
     </Section>
