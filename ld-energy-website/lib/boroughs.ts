@@ -717,3 +717,36 @@ export const areaServedLondon = [
     containedInPlace: { '@type': 'City', name: 'London' },
   })),
 ]
+
+/**
+ * Boroughs surfaced in the footer's Service Areas strip.
+ *
+ * A curated subset rather than all 34, deliberately: a sitewide footer linking
+ * every borough produces 34 near-identical anchors on every page of the site,
+ * which is boilerplate that dilutes both anchor text and the equity each link
+ * carries. Twelve links pass meaningfully more each.
+ *
+ * Discovery of the full set is not affected — /areas server-renders all 34 as
+ * real links, and every borough is in the sitemap. This is the standard
+ * hub-and-spoke shape: footer -> priority areas + hub, hub -> everything.
+ *
+ * Ordered by commercial priority, anchored on the Stratford E15 base.
+ */
+export const priorityBoroughSlugs = [
+  'stratford',
+  'newham',
+  'tower-hamlets',
+  'hackney',
+  'waltham-forest',
+  'redbridge',
+  'barking-dagenham',
+  'greenwich',
+  'lewisham',
+  'islington',
+  'southwark',
+  'camden',
+] as const
+
+export const priorityBoroughs = priorityBoroughSlugs
+  .map((slug) => boroughMeta[slug])
+  .filter(Boolean)

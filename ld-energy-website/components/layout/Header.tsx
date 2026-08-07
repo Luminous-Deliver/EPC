@@ -130,7 +130,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <a
             href={site.phoneHref}
-            className="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-secondary-800 hover:text-primary-700 transition-colors"
+            className="hidden md:inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-secondary-800 hover:text-primary-700 transition-colors"
             aria-label={`Call ${site.phone}`}
           >
             <Phone className="w-4 h-4" aria-hidden="true" />
