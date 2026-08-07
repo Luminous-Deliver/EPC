@@ -78,7 +78,9 @@ export const viewport: Viewport = {
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  // ProfessionalService narrows the category for local packs; HomeAndConstructionBusiness
+  // is how Google classifies property-survey trades.
+  '@type': ['LocalBusiness', 'ProfessionalService', 'HomeAndConstructionBusiness'],
   '@id': `${site.url}/#business`,
   name: site.name,
   legalName: site.legalName,
@@ -110,9 +112,22 @@ const localBusinessSchema = {
     { '@type': 'City', name: 'London', addressCountry: 'GB' },
     ...Object.values(boroughMeta).map((b) => ({ '@type': 'AdministrativeArea', name: b.name, containedInPlace: { '@type': 'City', name: 'London' } })),
   ],
-  priceRange: '£',
+  priceRange: '££',
   currenciesAccepted: 'GBP',
   paymentAccepted: 'Cash, Credit Card, Bank Transfer',
+  // Local pack signals: map/profile link, service radius from the Stratford base,
+  // and the languages we can actually serve enquiries in.
+  hasMap: site.reviews.profileUrl,
+  availableLanguage: ['English', 'Bengali'],
+  serviceArea: {
+    '@type': 'GeoCircle',
+    geoMidpoint: {
+      '@type': 'GeoCoordinates',
+      latitude: site.geo.lat,
+      longitude: site.geo.lng,
+    },
+    geoRadius: '40000',
+  },
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: String(site.reviews.ratingValue),
@@ -135,6 +150,24 @@ const localBusinessSchema = {
         itemOffered: { '@type': 'Service', name: 'Next-Day EPC Service', description: 'Certificate within 24 hours' },
         priceSpecification: { '@type': 'PriceSpecification', price: 12, priceCurrency: 'GBP', description: 'Additional charge on top of base EPC price' },
       },
+      ...pricing.map((p) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: `${p.label} EPC and Floor Plan Bundle` },
+        price: p.bundle,
+        priceCurrency: 'GBP',
+        description: 'EPC and floor plan for the same property, booked together',
+      })),
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Retrofit and Energy Efficiency Consultation',
+          description:
+            '15-minute verbal consultation on the practical route to EPC band C, delivered alongside an EPC assessment',
+        },
+        price: site.addOns.retrofitConsult,
+        priceCurrency: 'GBP',
+      },
     ],
   },
   hasCredential: {
@@ -151,7 +184,8 @@ const localBusinessSchema = {
   },
   sameAs: [
     site.reviews.profileUrl,
-    'https://www.elmhurstenergy.co.uk/find-an-assessor',
+    site.assessor.verifyUrl,
+    'https://www.elmhurstenergy.co.uk',
   ],
   knowsAbout: [
     'Energy Performance Certificates',
@@ -188,7 +222,8 @@ const organizationSchema = {
   parentOrganization: { '@type': 'Organization', name: site.legalName },
   sameAs: [
     site.reviews.profileUrl,
-    'https://www.elmhurstenergy.co.uk/find-an-assessor',
+    site.assessor.verifyUrl,
+    'https://www.elmhurstenergy.co.uk',
   ],
 }
 

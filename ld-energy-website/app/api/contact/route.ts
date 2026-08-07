@@ -40,7 +40,9 @@ interface ParsedInput {
   address: string
   postcode: string
   propertyType: string
+  customerType: string
   services: string[]
+  retrofitConsult?: boolean
   speed: string
   preferredDate?: string
   notes?: string
@@ -54,7 +56,9 @@ function buildEmail(data: ParsedInput) {
     ['Property Address', data.address],
     ['Postcode', data.postcode],
     ['Property Type', data.propertyType],
+    ['Booking as', data.customerType],
     ['Service(s)', data.services.join(', ')],
+    ['Retrofit consult', data.retrofitConsult ? 'Yes (+£25)' : 'No'],
     ['Speed', data.speed],
     ['Preferred Date', data.preferredDate || '—'],
     ['Notes', data.notes || '—'],
@@ -90,6 +94,7 @@ function buildConfirmation(data: ParsedInput) {
     ['Property', `${data.propertyType} — ${data.address}, ${data.postcode}`],
     ['Turnaround', data.speed],
   ]
+  if (data.retrofitConsult) summary.push(['Add-on', 'Retrofit consultation (+£25)'])
   if (data.preferredDate) summary.push(['Preferred date', data.preferredDate])
 
   const text =
@@ -245,7 +250,9 @@ export async function POST(req: Request) {
     address: parsed.data.address,
     postcode: parsed.data.postcode,
     propertyType: parsed.data.propertyType,
+    customerType: parsed.data.customerType,
     services: parsed.data.services,
+    retrofitConsult: parsed.data.retrofitConsult,
     speed: parsed.data.speed,
     preferredDate: parsed.data.preferredDate || undefined,
     notes: parsed.data.notes || undefined,

@@ -104,7 +104,7 @@ const deaFaq: FaqItem[] = [
   },
   {
     q: 'How much does a domestic energy assessor charge in London?',
-    a: 'Our guide prices start from £49 for a studio and rise with property size, up to £101 for a 5+ bedroom home. These are estimates only, the final price depends on floor area (m²), extensions, and condition. There are no travel or call-out charges; properties more than about 45 minutes away add a little for the extra time, not the distance. You get a personalised quote within 2 hours of enquiring.',
+    a: 'Our guide prices start from £49 for a studio and rise with property size, up to £105 for a 5+ bedroom home. These are estimates only, the final price depends on floor area (m²), extensions, and condition. There are no travel or call-out charges; properties more than about 45 minutes away add a little for the extra time, not the distance. You get a personalised quote within 2 hours of enquiring.',
   },
   {
     q: 'Do I need an accredited assessor for an EPC?',
@@ -285,7 +285,7 @@ export default function DomesticEnergyAssessorPage() {
               rel="noopener noreferrer"
               className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 hover:text-primary-800 underline underline-offset-4"
             >
-              Verify on the Elmhurst register
+              Verify on the official register
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
           </div>

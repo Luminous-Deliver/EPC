@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/Card'
 import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { ContactForm } from '@/components/forms/ContactForm'
+import { AssessorCard } from '@/components/ui/AssessorCard'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -129,6 +130,8 @@ export default function ContactPage() {
                 </li>
               </ul>
             </Card>
+
+            <AssessorCard />
           </div>
 
           <div className="lg:col-span-7">
