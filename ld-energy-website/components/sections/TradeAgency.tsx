@@ -1,22 +1,32 @@
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
+import { CalendarClock, FileSpreadsheet, KeyRound, Layers } from 'lucide-react'
 
+/**
+ * Trade / agency band. Deliberately framed around what we can offer agencies
+ * rather than claims about existing agency volume, and access is described as
+ * the landlord's or agent's to arrange.
+ */
 const points = [
   {
-    title: 'Repeat instructions, not one-offs',
-    body: 'Ongoing relationships with letting and estate agents across the London boroughs.',
-  },
-  {
-    title: 'Tenant access handled',
-    body: 'We arrange entry directly with tenants and give proper notice, so nobody has to chase.',
-  },
-  {
-    title: 'One invoice, per-property breakdown',
-    body: 'Portfolios batched by postcode with volume rates from five properties a month.',
-  },
-  {
+    Icon: CalendarClock,
     title: 'Built for launch dates',
     body: 'Priority slots for agencies and express next-day turnaround when a listing can’t wait.',
+  },
+  {
+    Icon: FileSpreadsheet,
+    title: 'One invoice, per-property breakdown',
+    body: 'Portfolios batched by postcode, with volume rates from five properties a month.',
+  },
+  {
+    Icon: Layers,
+    title: 'Batched by area, not one at a time',
+    body: 'Several properties in the same area go into a single visit, which keeps the per-property rate down.',
+  },
+  {
+    Icon: KeyRound,
+    title: 'Straightforward access',
+    body: 'You or the landlord arrange entry and give tenants notice. If that’s difficult, send us their details and we’ll sort it.',
   },
 ]
 
@@ -29,56 +39,70 @@ export function TradeAgency() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-32 right-0 w-[600px] h-[380px] rounded-full opacity-[0.10]"
+        className="pointer-events-none absolute -bottom-40 right-0 w-[620px] h-[400px] rounded-full opacity-[0.12]"
         style={{ background: 'radial-gradient(ellipse, #47846E 0%, transparent 70%)' }}
       />
 
-      <Container className="relative grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
-        <div>
+      <Container className="relative grid gap-12 lg:grid-cols-12 lg:gap-16 items-center">
+        <div className="lg:col-span-5">
           <span
             className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs uppercase tracking-wide font-semibold"
-            style={{ background: 'rgba(71,132,110,0.12)', border: '1px solid rgba(71,132,110,0.3)', color: '#95BFAD' }}
+            style={{
+              background: 'rgba(71,132,110,0.12)',
+              border: '1px solid rgba(71,132,110,0.3)',
+              color: '#95BFAD',
+            }}
           >
             Trade &amp; agency work
           </span>
           <h2
-            className="mt-3 text-3xl md:text-4xl lg:text-5xl font-semibold text-white"
+            className="mt-4 text-3xl md:text-4xl font-semibold text-white"
             style={{ letterSpacing: '-0.01em' }}
           >
-            Trusted by letting and estate agents across London
+            Set up for letting and estate agents
           </h2>
-          <p className="mt-4 text-lg leading-relaxed" style={{ color: 'rgba(214,225,240,0.65)' }}>
-            A large share of our work comes through agencies who instruct us repeatedly — which means
-            the process is already built for deadlines, tenanted access and portal-ready output.
-            Individual customers get exactly the same standard.
+          <p className="mt-4 text-lg leading-relaxed" style={{ color: 'rgba(214,225,240,0.7)' }}>
+            Instructing more than the occasional one-off? The process is built for deadlines,
+            batched portfolios and portal-ready output — with volume rates once you’re booking
+            regularly. Individual customers get exactly the same standard.
           </p>
 
           <Button href="/contact" variant="accent" size="lg" className="mt-7">
             Talk about agency rates
           </Button>
+
+          <p className="mt-4 text-sm" style={{ color: 'rgba(214,225,240,0.5)' }}>
+            Tell us roughly how many properties a month and which postcodes, and we’ll come back
+            with rates.
+          </p>
         </div>
 
-        <ol className="space-y-3">
-          {points.map((p, i) => (
+        <ul className="lg:col-span-7 grid gap-4 sm:grid-cols-2">
+          {points.map(({ Icon, title, body }) => (
             <li
-              key={p.title}
-              className="rounded-2xl p-5 transition-all duration-200 hover:-translate-y-0.5"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(71,132,110,0.18)' }}
+              key={title}
+              className="rounded-2xl p-5 md:p-6 transition-all duration-200 hover:-translate-y-1"
+              style={{
+                background: 'rgba(255,255,255,0.045)',
+                border: '1px solid rgba(71,132,110,0.2)',
+              }}
             >
-              <div className="flex items-baseline gap-3">
-                <span className="font-mono text-xs shrink-0" style={{ color: 'rgba(149,191,173,0.7)' }}>
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <div>
-                  <h3 className="text-base md:text-lg font-semibold text-white">{p.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed" style={{ color: 'rgba(214,225,240,0.6)' }}>
-                    {p.body}
-                  </p>
-                </div>
-              </div>
+              <span
+                className="inline-flex items-center justify-center w-10 h-10 rounded-xl"
+                style={{ background: 'rgba(71,132,110,0.18)', color: '#95BFAD' }}
+              >
+                <Icon className="w-5 h-5" aria-hidden="true" />
+              </span>
+              <h3 className="mt-4 text-base md:text-lg font-semibold text-white">{title}</h3>
+              <p
+                className="mt-2 text-sm leading-relaxed"
+                style={{ color: 'rgba(214,225,240,0.62)' }}
+              >
+                {body}
+              </p>
             </li>
           ))}
-        </ol>
+        </ul>
       </Container>
     </section>
   )

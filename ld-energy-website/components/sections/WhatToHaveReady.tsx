@@ -71,9 +71,10 @@ export function WhatToHaveReady() {
         <div className="rounded-2xl border border-primary-200 bg-primary-50/60 p-5">
           <p className="text-sm leading-relaxed text-secondary-800">
             <strong className="font-semibold text-secondary-900">Tenanted property?</strong>{' '}
-            Please let your tenants know we’re coming so they can expect us and have the rooms accessible.
-            If it’s easier, send us their contact details and we’ll arrange the appointment with them
-            directly, giving proper notice. Evening and weekend slots are available at no extra cost.
+            Please arrange the visit with your tenants and give them proper notice — they’ll need to
+            let us in and have the rooms accessible. If that’s difficult, send us their contact
+            details and we’ll sort it out with them. Evening and weekend slots are available at no
+            extra cost.
           </p>
         </div>
         <div className="rounded-2xl border border-accent-200 bg-accent-50/60 p-5">
