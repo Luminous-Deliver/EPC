@@ -49,7 +49,7 @@ const notIncluded = [
 const pricingFaq: FaqItem[] = [
   {
     q: 'How much does an EPC cost in London?',
-    a: 'Our guide prices start at £49 for studios, £60 for 1-bedroom, £70 for 2-bedroom, £79 for 3-bedroom, £91 for 4-bedroom, and £101 for 5+ bedroom homes. These are estimates only, the final price depends on the property\'s floor area (m²), any extensions or loft conversions, and overall condition. We don\'t charge for travel or mileage, though properties more than about 45 minutes away add a little for the extra time.',
+    a: 'Our guide prices start at £49 for studios, £59 for 1-bedroom, £69 for 2-bedroom, £85 for 3-bedroom, £95 for 4-bedroom, and £105 for 5+ bedroom homes. These are estimates only, the final price depends on the property\'s floor area (m²), any extensions or loft conversions, and overall condition. We don\'t charge for travel or mileage, though properties more than about 45 minutes away add a little for the extra time.',
   },
   {
     q: 'Are there any hidden fees?',
@@ -69,7 +69,7 @@ const pricingFaq: FaqItem[] = [
   },
   {
     q: 'How much does a floor plan cost?',
-    a: 'A standalone floor plan costs the same as your EPC for that property size, from £49. When you bundle an EPC and floor plan together, the floor plan is 50% off, saving you up to £50.50.',
+    a: 'A standalone floor plan costs the same as your EPC for that property size, from £49. When you bundle an EPC and floor plan together, the floor plan is 50% off, saving you up to £52.50.',
   },
 ]
 

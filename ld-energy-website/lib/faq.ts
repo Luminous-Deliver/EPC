@@ -18,11 +18,11 @@ export const homepageFaq: FaqItem[] = [
   },
   {
     q: 'How much does an EPC cost in London?',
-    a: 'Our guide EPC prices in London start at £49 for studios, £60 for 1-bedroom, £70 for 2-bedroom, £79 for 3-bedroom, £91 for 4-bedroom, and £101 for 5+ bedroom homes. Next-day service is available for £12 extra.',
+    a: 'Our guide EPC prices in London start at £49 for studios, £59 for 1-bedroom, £69 for 2-bedroom, £85 for 3-bedroom, £95 for 4-bedroom, and £105 for 5+ bedroom homes. Next-day service is available for £12 extra.',
   },
   {
     q: 'How long does an EPC assessment take?',
-    a: 'An EPC assessment typically takes 45 minutes for a studio and up to 2 hours for a 5+ bedroom property. We’ll provide an accurate time estimate when you book.',
+    a: 'Most assessments take 45–60 minutes for a flat or standard house, rising to around 2 hours for a large 5+ bedroom property. It goes fastest when every room, the loft hatch, the boiler and the meters are accessible. We’ll give you an accurate time estimate when you book.',
   },
   {
     q: 'How quickly will I receive my EPC certificate?',
@@ -39,6 +39,22 @@ export const homepageFaq: FaqItem[] = [
   {
     q: 'What are MEES regulations?',
     a: 'Minimum Energy Efficiency Standards (MEES) require all rental properties in England and Wales to have an EPC rating of E or above. The government is consulting on raising this to C for new tenancies by 2028 and all tenancies by 2030.',
+  },
+  {
+    q: 'Can I get a same-day or next-day EPC in London?',
+    a: 'Often, yes. Next-day service is guaranteed for £12 extra, and same-day slots are regularly available across London when you book early in the day. Call or WhatsApp 07492 575 396 and we’ll tell you straight away what’s free.',
+  },
+  {
+    q: 'When is an EPC legally required?',
+    a: 'Whenever a property is marketed for sale or rent in England and Wales, and at the start of a new tenancy. It must be commissioned before marketing begins, so it’s best to book as soon as you decide to sell or let.',
+  },
+  {
+    q: 'How do I get my property to EPC band C?',
+    a: 'It depends on the building — for most London homes it’s a combination of insulation, heating controls, and lighting, done in the right order. We offer a £25 retrofit consultation: a 15-minute verbal walk-through at the end of your assessment covering what would realistically lift your property to band C, roughly what each step costs, and what to do first.',
+  },
+  {
+    q: 'How do I check my assessor is genuinely accredited?',
+    a: 'Every UK domestic energy assessor appears on the official government register. Our assessor is Abdul Motaleb Taher, accreditation number EES/036265, accredited through Elmhurst Energy — you can look this up yourself on the government’s find-an-assessor service before you book.',
   },
   {
     q: 'Which areas of London do you cover?',
@@ -137,7 +153,7 @@ export const fullFaq: FaqCategory[] = [
     items: [
       {
         q: 'How much does an EPC cost?',
-        a: 'Our guide EPC prices start at £49 for studios, £60 for 1-bedroom, £70 for 2-bedroom, £79 for 3-bedroom, £91 for 4-bedroom, and £101 for 5+ bedroom homes. Next-day service is available for £12 extra.',
+        a: 'Our guide EPC prices start at £49 for studios, £59 for 1-bedroom, £69 for 2-bedroom, £85 for 3-bedroom, £95 for 4-bedroom, and £105 for 5+ bedroom homes. Next-day service is available for £12 extra.',
       },
       {
         q: 'Are there hidden fees?',

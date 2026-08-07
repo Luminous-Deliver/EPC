@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
-import { ArrowRight, FileText, Ruler, PackageCheck, CheckCircle2, Sparkles } from 'lucide-react'
+import { ArrowRight, FileText, Ruler, PackageCheck, Leaf, CheckCircle2, Sparkles } from 'lucide-react'
 
 // Three core services today; the grid flexes to fit future additions
 // (property photography, gas & electric boiler work, …) without redesign.
@@ -39,14 +39,28 @@ const services = [
     title: 'EPC & Floor Plan Bundle',
     href: '/pricing',
     description:
-      'Book both together and save 50% on the floor plan. One visit, one assessor, everything your listing needs — ready in a single appointment.',
+      'Book both for the same property and save 50% on the floor plan. One visit, one assessor, everything your listing needs — ready in a single appointment.',
     bullets: [
       'Bundles from £73.50',
-      'Save up to £50.50 per property',
-      'Single visit for both services',
+      'Save up to £52.50 per property',
+      'Both services, same property, one visit',
       'Ideal for sellers & letting agents',
     ],
     highlighted: true,
+  },
+  {
+    Icon: Leaf,
+    title: 'Retrofit Consultation',
+    href: '/services/retrofit-consultation',
+    description:
+      'A 15-minute verbal walk-through on the day of your assessment: what would realistically lift this property to band C, roughly what it costs, and the order to do it in.',
+    bullets: [
+      'Just £25 added to your EPC',
+      'Plain-English route to band C',
+      'Ideal for MEES planning',
+      'Based on your actual survey data',
+    ],
+    highlighted: false,
   },
 ]
 
@@ -66,7 +80,7 @@ export function ServicesOverview() {
         </p>
       </div>
 
-      <div className="mt-10 grid gap-5 md:grid-cols-3">
+      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {services.map((service) => (
           <Card
             key={service.title}

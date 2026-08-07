@@ -22,7 +22,13 @@ export const site = {
     name: 'Abdul Motaleb Taher',
     accreditationNumber: 'EES/036265',
     scheme: 'Elmhurst Energy Systems Ltd',
-    verifyUrl: 'https://www.elmhurstenergy.co.uk/find-an-assessor',
+    qualification: 'Domestic Energy Assessor',
+    // Official government register — the authoritative place to verify an assessor
+    verifyUrl: 'https://getting-new-energy-certificate.service.gov.uk/find-an-assessor/search-by-name',
+  },
+  /** Add-on services quoted alongside an EPC */
+  addOns: {
+    retrofitConsult: 25,
   },
   // Google Business Profile reviews. Keep in sync with the live profile.
   reviews: {
@@ -91,11 +97,11 @@ export const pricing: Array<{
   saving: number
 }> = [
   { type: 'studio', label: 'Studio', epc: 49, duration: '45 minutes', nextDay: 61, floorPlan: 49, bundle: 73.5, saving: 24.5 },
-  { type: '1-bed', label: '1 Bedroom', epc: 60, duration: '1 hour', nextDay: 72, floorPlan: 60, bundle: 90, saving: 30 },
-  { type: '2-bed', label: '2 Bedroom', epc: 70, duration: '1.5 hours', nextDay: 82, floorPlan: 70, bundle: 105, saving: 35 },
-  { type: '3-bed', label: '3 Bedroom', epc: 79, duration: '1.5 hours', nextDay: 91, floorPlan: 79, bundle: 118.5, saving: 39.5 },
-  { type: '4-bed', label: '4 Bedroom', epc: 91, duration: '2 hours', nextDay: 103, floorPlan: 91, bundle: 136.5, saving: 45.5 },
-  { type: '5-bed-plus', label: '5+ Bedroom', epc: 101, duration: '2 hours', nextDay: 113, floorPlan: 101, bundle: 151.5, saving: 50.5 },
+  { type: '1-bed', label: '1 Bedroom', epc: 59, duration: '45–60 minutes', nextDay: 71, floorPlan: 59, bundle: 88.5, saving: 29.5 },
+  { type: '2-bed', label: '2 Bedroom', epc: 69, duration: '45–60 minutes', nextDay: 81, floorPlan: 69, bundle: 103.5, saving: 34.5 },
+  { type: '3-bed', label: '3 Bedroom', epc: 85, duration: '1–1.5 hours', nextDay: 97, floorPlan: 85, bundle: 127.5, saving: 42.5 },
+  { type: '4-bed', label: '4 Bedroom', epc: 95, duration: '1.5–2 hours', nextDay: 107, floorPlan: 95, bundle: 142.5, saving: 47.5 },
+  { type: '5-bed-plus', label: '5+ Bedroom', epc: 105, duration: '1.5–2 hours', nextDay: 117, floorPlan: 105, bundle: 157.5, saving: 52.5 },
 ]
 
 export const boroughs = [

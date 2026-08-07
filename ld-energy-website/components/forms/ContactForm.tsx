@@ -17,10 +17,11 @@ import {
 import { Field, Input, Textarea } from '@/components/ui/Input'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/cn'
-import { pricing } from '@/lib/site'
+import { pricing, site } from '@/lib/site'
 import {
   contactSchema,
   propertyTypes,
+  customerTypes,
   services as serviceOptions,
   speeds,
   type ContactInput,
@@ -58,6 +59,8 @@ export function ContactForm() {
       postcode: '',
       services: ['EPC Certificate'], // default select
       propertyType: '2 Bedroom', // default select
+      customerType: 'Homeowner', // default select
+      retrofitConsult: false,
       speed: 'Standard (72 hours)', // default select
       preferredDate: '',
       notes: '',
@@ -69,6 +72,8 @@ export function ContactForm() {
   const watchPropertyType = watch('propertyType')
   const watchServices = watch('services') || []
   const watchSpeed = watch('speed')
+  const watchCustomerType = watch('customerType')
+  const watchRetrofit = watch('retrofitConsult')
 
   // Calculate live pricing
   const calculatePrice = () => {
@@ -83,19 +88,23 @@ export function ContactForm() {
 
     const typeKey = sizeMap[watchPropertyType] || 'studio'
     const pricingRow = pricing.find((p) => p.type === typeKey)
-    if (!pricingRow) return { epcPrice: 0, floorPlanPrice: 0, discount: 0, speedPrice: 0, total: 0 }
+    if (!pricingRow) {
+      return { epcPrice: 0, floorPlanPrice: 0, discount: 0, speedPrice: 0, retrofitPrice: 0, total: 0 }
+    }
 
+    // Bulk enquiries are quoted individually — no live estimate applies.
+    const isBulk = watchServices.includes('Bulk / Agency Enquiry')
     const wantsEpc = watchServices.includes('EPC Certificate') || watchServices.includes('Both (Bundle)')
     const wantsFloorPlan = watchServices.includes('Floor Plan') || watchServices.includes('Both (Bundle)')
 
-    let epcPrice = wantsEpc ? pricingRow.epc : 0
-    let floorPlanPrice = wantsFloorPlan ? pricingRow.floorPlan : 0
+    const epcPrice = wantsEpc ? pricingRow.epc : 0
+    const floorPlanPrice = wantsFloorPlan ? pricingRow.floorPlan : 0
     let discount = 0
     let total = 0
 
     if (wantsEpc && wantsFloorPlan) {
       total = pricingRow.bundle
-      discount = (pricingRow.epc + pricingRow.floorPlan) - pricingRow.bundle
+      discount = pricingRow.epc + pricingRow.floorPlan - pricingRow.bundle
     } else {
       total = epcPrice + floorPlanPrice
     }
@@ -104,19 +113,35 @@ export function ContactForm() {
     const speedPrice = isExpress ? 12 : 0
     total += speedPrice
 
+    const retrofitPrice = watchRetrofit ? site.addOns.retrofitConsult : 0
+    total += retrofitPrice
+
     return {
       epcPrice,
       floorPlanPrice,
       discount,
       speedPrice,
+      retrofitPrice,
       total,
       wantsEpc,
       wantsFloorPlan,
-      isExpress
+      isExpress,
+      isBulk,
     }
   }
 
-  const { epcPrice, floorPlanPrice, discount, speedPrice, total, wantsEpc, wantsFloorPlan, isExpress } = calculatePrice()
+  const {
+    epcPrice,
+    floorPlanPrice,
+    discount,
+    speedPrice,
+    retrofitPrice,
+    total,
+    wantsEpc,
+    wantsFloorPlan,
+    isExpress,
+    isBulk,
+  } = calculatePrice()
 
   const onSubmit = async (data: ContactInput) => {
     setStatus('submitting')
@@ -142,7 +167,7 @@ export function ContactForm() {
   const handleNext = async () => {
     let isValid = false
     if (step === 1) {
-      isValid = await trigger(['propertyType', 'services'])
+      isValid = await trigger(['propertyType', 'services', 'customerType'])
     } else if (step === 2) {
       isValid = await trigger(['speed'])
     }
@@ -229,61 +254,66 @@ export function ContactForm() {
           <div className="space-y-6 animate-fade-in">
             <div>
               <h4 className="text-lg font-bold text-secondary-900">What service do you need?</h4>
-              <p className="text-xs text-secondary-500 mt-1">Select the tasks you need assessed.</p>
-              
+              <p className="text-xs text-secondary-500 mt-1">
+                Choose one. Picking the EPC and floor plan together applies the bundle discount automatically.
+              </p>
+
               <Controller
                 control={control}
                 name="services"
-                render={({ field }) => (
-                  <div className="mt-3 grid gap-3 sm:grid-cols-3">
-                    {[
-                      { value: 'EPC Certificate', label: 'Domestic EPC', desc: 'Official 10-year energy performance rating' },
-                      { value: 'Floor Plan', label: 'Floor Plan', desc: 'Scale drawing detailing layout & room sizes' },
-                      { value: 'Both (Bundle)', label: 'EPC + Floor Plan', desc: 'Get both together & save up to 50% on floor plan!' },
-                    ].map((s) => {
-                      const checked = field.value?.includes(s.value as any)
-                      const isBundle = s.value === 'Both (Bundle)'
-                      return (
-                        <button
-                          key={s.value}
-                          type="button"
-                          onClick={() => {
-                            // If user clicks bundle, set value to Both (Bundle)
-                            if (isBundle) {
-                              field.onChange(['Both (Bundle)'])
-                            } else {
-                              // If they clicked individual service, remove bundle selection
-                              const current = (field.value ?? []).filter(v => v !== 'Both (Bundle)')
-                              const idx = current.indexOf(s.value as any)
-                              if (idx > -1) {
-                                current.splice(idx, 1)
-                              } else {
-                                current.push(s.value as any)
-                              }
-                              field.onChange(current.length === 0 ? ['EPC Certificate'] : current)
-                            }
-                          }}
-                          className={cn(
-                            'flex flex-col text-left p-4 rounded-xl border transition-all duration-200 hover:-translate-y-0.5 shadow-sm min-h-[100px]',
-                            checked
-                              ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-500'
-                              : 'border-secondary-200 bg-white hover:border-secondary-300'
-                          )}
-                        >
-                          <span className="flex items-center gap-1.5 font-bold text-sm text-secondary-900">
-                            {s.label}
-                            {isBundle && (
-                              <span className="text-[9px] uppercase tracking-wider bg-accent-600 text-white font-black px-1.5 py-0.5 rounded">
-                                Best Value
-                              </span>
+                render={({ field }) => {
+                  const value = field.value ?? []
+                  const isBundleSelected = value.includes('Both (Bundle)')
+                  // The bundle tile also lights up when EPC + Floor Plan are both picked
+                  const isSelected = (v: string) =>
+                    v === 'Both (Bundle)'
+                      ? isBundleSelected
+                      : isBundleSelected
+                        ? false
+                        : value.includes(v as any)
+
+                  return (
+                    <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                      {[
+                        { value: 'EPC Certificate', label: 'EPC only', desc: 'Official 10-year energy rating, lodged on the government register.' },
+                        { value: 'Both (Bundle)', label: 'EPC + Floor Plan', desc: 'Both for the same property in one visit — save 50% on the floor plan.', badge: 'Best value' },
+                        { value: 'Floor Plan', label: 'Floor plan only', desc: 'Laser-measured scale drawing showing layout and room sizes.' },
+                        { value: 'Bulk / Agency Enquiry', label: 'Bulk / agency enquiry', desc: 'Multiple properties or ongoing instructions — we’ll quote volume rates.', badge: 'Agents' },
+                      ].map((s) => {
+                        const checked = isSelected(s.value)
+                        return (
+                          <button
+                            key={s.value}
+                            type="button"
+                            aria-pressed={checked}
+                            onClick={() => field.onChange([s.value as any])}
+                            className={cn(
+                              'flex flex-col text-left p-4 rounded-xl border transition-all duration-200 hover:-translate-y-0.5 shadow-sm min-h-[92px]',
+                              checked
+                                ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-500'
+                                : 'border-secondary-200 bg-white hover:border-secondary-300'
                             )}
-                          </span>
-                          <span className="text-xs text-secondary-500 mt-1.5 leading-snug">{s.desc}</span>
-                        </button>
-                      )
-                    })}
-                  </div>
-                )}
+                          >
+                            <span className="flex items-center gap-1.5 font-bold text-sm text-secondary-900">
+                              {s.label}
+                              {s.badge && (
+                                <span
+                                  className={cn(
+                                    'text-[9px] uppercase tracking-wider font-black px-1.5 py-0.5 rounded text-white',
+                                    s.value === 'Both (Bundle)' ? 'bg-accent-600' : 'bg-primary-600'
+                                  )}
+                                >
+                                  {s.badge}
+                                </span>
+                              )}
+                            </span>
+                            <span className="text-xs text-secondary-500 mt-1.5 leading-snug">{s.desc}</span>
+                          </button>
+                        )
+                      })}
+                    </div>
+                  )
+                }}
               />
               {errors.services && (
                 <p className="mt-1.5 text-xs text-danger" role="alert">
@@ -322,6 +352,103 @@ export function ContactForm() {
                 </p>
               )}
             </div>
+
+            <div>
+              <h4 className="text-lg font-bold text-secondary-900">Who are you booking as?</h4>
+              <p className="text-xs text-secondary-500 mt-1">
+                This tells us how to arrange access to the property.
+              </p>
+
+              <Controller
+                control={control}
+                name="customerType"
+                render={({ field }) => (
+                  <div className="mt-3 grid grid-cols-2 gap-3">
+                    {[
+                      { value: 'Homeowner', desc: 'I live in or own the property' },
+                      { value: 'Landlord (tenanted)', desc: 'It’s rented out — tenants live there' },
+                      { value: 'Estate agent', desc: 'Instructing on behalf of a seller' },
+                      { value: 'Letting agent / firm', desc: 'Managing lettings or a portfolio' },
+                    ].map((c) => {
+                      const active = field.value === c.value
+                      return (
+                        <button
+                          key={c.value}
+                          type="button"
+                          aria-pressed={active}
+                          onClick={() => field.onChange(c.value)}
+                          className={cn(
+                            'flex flex-col text-left p-3.5 rounded-xl border transition-all duration-200 hover:-translate-y-0.5 shadow-sm',
+                            active
+                              ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-500'
+                              : 'border-secondary-200 bg-white hover:border-secondary-300'
+                          )}
+                        >
+                          <span className="font-bold text-sm text-secondary-900">{c.value}</span>
+                          <span className="text-xs text-secondary-500 mt-1 leading-snug">{c.desc}</span>
+                        </button>
+                      )
+                    })}
+                  </div>
+                )}
+              />
+              {errors.customerType && (
+                <p className="mt-1.5 text-xs text-danger" role="alert">
+                  {errors.customerType.message}
+                </p>
+              )}
+
+              {/* Tenanted properties need notice — surface it as soon as it's relevant */}
+              {watchCustomerType === 'Landlord (tenanted)' && (
+                <p className="mt-3 rounded-lg bg-primary-50 ring-1 ring-primary-100 px-3 py-2.5 text-xs leading-relaxed text-secondary-700 animate-fade-in">
+                  Please let your tenants know we’re coming so they can expect us. If it’s easier, share
+                  their contact details in the notes and we’ll arrange access directly, giving proper notice.
+                  Evening and weekend slots are available at no extra cost.
+                </p>
+              )}
+            </div>
+
+            {/* Retrofit consultation add-on */}
+            <Controller
+              control={control}
+              name="retrofitConsult"
+              render={({ field }) => (
+                <button
+                  type="button"
+                  aria-pressed={!!field.value}
+                  onClick={() => field.onChange(!field.value)}
+                  className={cn(
+                    'flex w-full items-start gap-3 text-left p-4 rounded-xl border transition-all duration-200 shadow-sm',
+                    field.value
+                      ? 'border-accent-500 bg-accent-50/60 ring-2 ring-accent-500'
+                      : 'border-secondary-200 bg-white hover:border-secondary-300'
+                  )}
+                >
+                  <span
+                    className={cn(
+                      'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border-2 transition-colors',
+                      field.value ? 'border-accent-600 bg-accent-600' : 'border-secondary-300 bg-white'
+                    )}
+                    aria-hidden="true"
+                  >
+                    {field.value && <CheckCircle2 className="h-4 w-4 text-white" />}
+                  </span>
+                  <span>
+                    <span className="flex flex-wrap items-center gap-1.5 font-bold text-sm text-secondary-900">
+                      Add a retrofit consultation
+                      <span className="text-[9px] uppercase tracking-wider bg-accent-600 text-white font-black px-1.5 py-0.5 rounded">
+                        +£25
+                      </span>
+                    </span>
+                    <span className="block text-xs text-secondary-500 mt-1 leading-snug">
+                      A 15-minute verbal walk-through on the day: what would realistically lift this
+                      property to band C, roughly what each step costs, and the order to do them in.
+                      Useful for MEES compliance planning.
+                    </span>
+                  </span>
+                </button>
+              )}
+            />
           </div>
         )}
 
@@ -545,17 +672,31 @@ export function ContactForm() {
             <div>
               <span className="font-semibold block text-secondary-900">Services:</span>
               <span className="text-[10px] text-secondary-500 mt-0.5 block leading-relaxed">
-                {wantsEpc && wantsFloorPlan ? 'EPC + Floor Plan Bundle' : wantsEpc ? 'Domestic EPC Only' : wantsFloorPlan ? 'Floor Plan Only' : 'No service selected'}
+                {isBulk
+                  ? 'Bulk / agency enquiry'
+                  : wantsEpc && wantsFloorPlan
+                    ? 'EPC + Floor Plan Bundle (same property)'
+                    : wantsEpc
+                      ? 'Domestic EPC Only'
+                      : wantsFloorPlan
+                        ? 'Floor Plan Only'
+                        : 'No service selected'}
               </span>
             </div>
-            {wantsEpc && wantsFloorPlan ? (
-              <div className="text-right">
-                <span className="text-secondary-400 line-through">£{epcPrice + floorPlanPrice}</span>
-                <span className="font-bold text-secondary-900 block">£{epcPrice + floorPlanPrice - discount}</span>
-              </div>
-            ) : (
-              <span className="font-bold text-secondary-900">£{epcPrice + floorPlanPrice}</span>
-            )}
+            {!isBulk &&
+              (wantsEpc && wantsFloorPlan ? (
+                <div className="text-right">
+                  <span className="text-secondary-400 line-through">£{epcPrice + floorPlanPrice}</span>
+                  <span className="font-bold text-secondary-900 block">£{epcPrice + floorPlanPrice - discount}</span>
+                </div>
+              ) : (
+                <span className="font-bold text-secondary-900">£{epcPrice + floorPlanPrice}</span>
+              ))}
+          </div>
+
+          <div className="flex justify-between">
+            <span className="font-semibold">Booking as:</span>
+            <span className="font-bold text-secondary-900 text-right">{watchCustomerType}</span>
           </div>
 
           <div className="flex justify-between">
@@ -568,14 +709,21 @@ export function ContactForm() {
             <span className="font-bold text-secondary-900">{watchSpeed?.split(' (')[0]}</span>
           </div>
 
-          {isExpress && (
+          {isExpress && !isBulk && (
             <div className="flex justify-between text-xs text-secondary-900">
               <span>Express Delivery Surcharge:</span>
               <span className="font-bold">+£12</span>
             </div>
           )}
 
-          {discount > 0 && (
+          {retrofitPrice > 0 && !isBulk && (
+            <div className="flex justify-between text-xs text-secondary-900">
+              <span>Retrofit consultation:</span>
+              <span className="font-bold">+£{retrofitPrice}</span>
+            </div>
+          )}
+
+          {discount > 0 && !isBulk && (
             <div className="flex justify-between text-xs text-success font-semibold bg-success/5 border border-success/20 p-2 rounded-lg items-center">
               <span className="flex items-center gap-1">
                 <Sparkles className="w-3.5 h-3.5" />
@@ -587,7 +735,11 @@ export function ContactForm() {
 
           <div className="border-t border-secondary-100 pt-4 mt-4 flex justify-between items-baseline">
             <span className="text-sm font-bold text-secondary-900">Total Estimate:</span>
-            <span className="text-2xl font-black text-primary-700 font-display">£{total}</span>
+            {isBulk ? (
+              <span className="text-sm font-bold text-primary-700 text-right">Quoted individually</span>
+            ) : (
+              <span className="text-2xl font-black text-primary-700 font-display">£{total}</span>
+            )}
           </div>
         </div>
 

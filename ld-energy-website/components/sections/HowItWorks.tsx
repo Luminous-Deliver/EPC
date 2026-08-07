@@ -12,7 +12,7 @@ const steps = [
     Icon: ClipboardList,
     title: 'Assessment',
     body:
-      'Our qualified DEA visits at your chosen time. The assessment takes 45 minutes to 2 hours depending on property size.',
+      'Our qualified DEA visits at your chosen time. Most assessments take 45–60 minutes, up to around 2 hours for a large home.',
   },
   {
     Icon: FileCheck2,

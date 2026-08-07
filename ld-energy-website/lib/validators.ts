@@ -9,7 +9,25 @@ export const propertyTypes = [
   '5+ Bedroom',
 ] as const
 
-export const services = ['EPC Certificate', 'Floor Plan', 'Both (Bundle)'] as const
+/**
+ * Service options. "Both (Bundle)" is the discounted pairing and only applies
+ * when the EPC and floor plan are for the SAME property — selecting EPC and
+ * Floor Plan together in the form resolves to this automatically.
+ */
+export const services = [
+  'EPC Certificate',
+  'Floor Plan',
+  'Both (Bundle)',
+  'Bulk / Agency Enquiry',
+] as const
+
+/** Who is booking — drives access arrangements and how we word the reply. */
+export const customerTypes = [
+  'Homeowner',
+  'Landlord (tenanted)',
+  'Estate agent',
+  'Letting agent / firm',
+] as const
 
 export const speeds = ['Standard (72 hours)', 'Express (Next day, +£12)'] as const
 
@@ -31,9 +49,12 @@ export const contactSchema = z.object({
     .toUpperCase()
     .regex(ukPostcodeRegex, 'Please enter a valid UK postcode'),
   propertyType: z.enum(propertyTypes, { required_error: 'Please select a property type' }),
+  customerType: z.enum(customerTypes, { required_error: 'Please tell us who you are' }),
   services: z
     .array(z.enum(services))
     .min(1, 'Please choose at least one service'),
+  /** Optional £25 add-on: 15-minute verbal route-to-band-C consultation */
+  retrofitConsult: z.boolean().optional().default(false),
   speed: z.enum(speeds, { required_error: 'Please choose a service speed' }),
   preferredDate: z.string().trim().max(40).optional().or(z.literal('')),
   notes: z.string().trim().max(2000).optional().or(z.literal('')),

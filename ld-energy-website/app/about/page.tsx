@@ -250,7 +250,7 @@ export default function AboutPage() {
                   rel="noopener noreferrer"
                   className="mt-4 inline-block text-sm font-semibold text-primary-700 hover:text-primary-800 underline underline-offset-4"
                 >
-                  Verify on the Elmhurst register →
+                  Verify on the official register →
                 </a>
               </div>
             </div>
