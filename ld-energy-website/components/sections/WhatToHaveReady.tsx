@@ -67,13 +67,23 @@ export function WhatToHaveReady() {
         ))}
       </ul>
 
-      <div className="mt-6 rounded-2xl border border-primary-200 bg-primary-50/60 p-5">
-        <p className="text-sm leading-relaxed text-secondary-800">
-          <strong className="font-semibold text-secondary-900">Tenanted property?</strong>{' '}
-          Please let your tenants know we’re coming so they can expect us and have the rooms accessible.
-          If it’s easier, send us their contact details and we’ll arrange the appointment with them
-          directly, giving proper notice. Evening and weekend slots are available at no extra cost.
-        </p>
+      <div className="mt-6 grid gap-4 md:grid-cols-2">
+        <div className="rounded-2xl border border-primary-200 bg-primary-50/60 p-5">
+          <p className="text-sm leading-relaxed text-secondary-800">
+            <strong className="font-semibold text-secondary-900">Tenanted property?</strong>{' '}
+            Please let your tenants know we’re coming so they can expect us and have the rooms accessible.
+            If it’s easier, send us their contact details and we’ll arrange the appointment with them
+            directly, giving proper notice. Evening and weekend slots are available at no extra cost.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-accent-200 bg-accent-50/60 p-5">
+          <p className="text-sm leading-relaxed text-secondary-800">
+            <strong className="font-semibold text-secondary-900">More than one property?</strong>{' '}
+            If you own several in the same area, they can be grouped into a single visit rather than
+            booked one at a time — quicker for you, and it usually means a discount. Tell us the
+            postcodes when you enquire and we’ll quote the whole set together.
+          </p>
+        </div>
       </div>
     </Section>
   )

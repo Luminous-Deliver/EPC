@@ -1,8 +1,7 @@
 import { Phone, MessageCircle, Mail, CalendarCheck, ShieldCheck } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { ContactForm } from '@/components/forms/ContactForm'
-import { AssessorCard } from '@/components/ui/AssessorCard'
-import { Button } from '@/components/ui/Button'
+
 import { site } from '@/lib/site'
 
 const methods = [
@@ -37,55 +36,42 @@ export function ContactSection() {
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
           Book Now
         </div>
-        <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
+        <h2 className="mt-2 text-2xl md:text-3xl font-bold tracking-tight text-secondary-900">
           Book Your EPC Today
         </h2>
-        <p className="mt-4 text-lg text-secondary-700 leading-relaxed">
-          Ready to book? Get in touch and we’ll arrange your assessment at a time that suits you. We respond within 2 hours during business hours.
+        <p className="mt-2 text-secondary-700 leading-relaxed">
+          Tell us about your property and we’ll confirm an exact price and a time slot — usually within 2 hours.
         </p>
       </div>
 
-      {/* Contact channels + credentials run full width so the booking form below
-          gets the room its own 12-column layout needs. */}
-      <div className="mt-10 grid items-start gap-4 md:grid-cols-2 xl:grid-cols-4">
+      {/* Compact channel strip — one row, no oversized cards. */}
+      <div className="mt-6 grid gap-3 sm:grid-cols-3">
         {methods.map((m) => (
-          <div
+          <a
             key={m.title}
-            className="flex flex-col rounded-2xl bg-canvas ring-1 ring-secondary-900/5 p-5 shadow-sm transition-all duration-200 hover:shadow-premium"
+            href={m.cta.href}
+            {...(m.cta.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            className="group flex items-center gap-3 rounded-xl bg-canvas ring-1 ring-secondary-900/5 px-4 py-3 shadow-sm transition-all duration-200 hover:shadow-premium hover:ring-primary-200"
           >
-            <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10 shrink-0">
-              <m.Icon className="w-5 h-5" aria-hidden="true" />
+            <span className="inline-flex items-center justify-center w-9 h-9 shrink-0 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10">
+              <m.Icon className="w-4 h-4" aria-hidden="true" />
             </span>
-            <h3 className="mt-3.5 text-base font-semibold text-secondary-900">{m.title}</h3>
-            <p className="mt-0.5 text-secondary-800 break-words">{m.value}</p>
-            <p className="text-sm text-secondary-500">{m.detail}</p>
-            <Button
-              href={m.cta.href}
-              variant="secondary"
-              size="md"
-              className="mt-3.5 w-full"
-              {...(m.cta.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-            >
-              {m.cta.label}
-            </Button>
-          </div>
+            <span className="min-w-0">
+              <span className="block text-sm font-semibold text-secondary-900 group-hover:text-primary-700">
+                {m.title}
+              </span>
+              <span className="block truncate text-xs text-secondary-500">{m.value}</span>
+            </span>
+          </a>
         ))}
-
-        <AssessorCard className="md:col-span-2 xl:col-span-1" />
       </div>
 
-      <p className="mt-5 flex items-center gap-2 text-sm text-secondary-600">
+      <p className="mt-3 flex items-center gap-2 text-sm text-secondary-600">
         <ShieldCheck className="w-4 h-4 text-primary-600 shrink-0" aria-hidden="true" />
         No call-out fees · Free quote · 2-hour response (8am–8pm)
       </p>
 
-      <div className="mt-10">
-        <div className="mb-4">
-          <h3 className="text-xl font-semibold text-secondary-900">Request your free quote</h3>
-          <p className="mt-1 text-sm text-secondary-500">
-            Tell us about your property and we’ll confirm an exact price. We never share your details.
-          </p>
-        </div>
+      <div className="mt-8">
         <ContactForm />
       </div>
     </Section>
