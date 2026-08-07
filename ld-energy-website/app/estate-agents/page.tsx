@@ -44,7 +44,7 @@ const whyAgents = [
   {
     Icon: LayoutPanelTop,
     title: 'EPC + floor plan in one visit',
-    body: 'We measure the property anyway during the assessment, so the floor plan is half price when bundled. One appointment, both listing essentials.',
+    body: 'We measure the property anyway during the assessment, so booking a floor plan alongside the EPC costs less than booking it separately. One appointment, both listing essentials.',
   },
   {
     Icon: BadgePercent,
@@ -82,7 +82,7 @@ const agentFaq: FaqItem[] = [
   },
   {
     q: 'What are your rates for agents?',
-    a: `Guide prices start from £${pricing[0].epc} per EPC, and agencies sending regular instructions get volume pricing below our standard rates. Floor plans are half price when bundled with an EPC in the same visit. Contact us with your typical monthly volume for a tailored rate card.`,
+    a: `Guide prices start from £${pricing[0].epc} per EPC, and agencies sending regular instructions get volume pricing below our standard rates. Floor plans are discounted when booked with an EPC in the same visit. Contact us with your typical monthly volume for a tailored rate card.`,
   },
   {
     q: 'How quickly can you assess a new instruction?',
@@ -227,7 +227,7 @@ export default function EstateAgentsPage() {
             <ul className="mt-4 space-y-2.5">
               {[
                 'Official EPC lodged on the government register',
-                'Professional floor plan, half price with an EPC',
+                'Professional floor plan, discounted with an EPC',
                 'High-resolution files sized for Rightmove and Zoopla',
                 'Next-day option for urgent instructions (+£12)',
                 'Evening and weekend access appointments',

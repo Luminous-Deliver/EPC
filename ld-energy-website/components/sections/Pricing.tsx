@@ -120,7 +120,7 @@ export function Pricing() {
           <div className="flex-1">
             <h3 className="text-base font-bold text-secondary-900">Need a Floor Plan?</h3>
             <p className="mt-0.5 text-sm text-secondary-700">
-              Bundle a floor plan with your EPC and save 50% on the floor plan price.
+              Add a floor plan to your EPC and the combined guide price is lower than booking them separately.
             </p>
           </div>
         </div>

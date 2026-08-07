@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
 import { ArrowRight, FileText, Ruler, PackageCheck, Leaf, CheckCircle2, Sparkles } from 'lucide-react'
+import { priceFrom } from '@/lib/site'
 
 // Three core services today; the grid flexes to fit future additions
 // (property photography, gas & electric boiler work, …) without redesign.
@@ -13,7 +14,7 @@ const services = [
     description:
       "Required by law for selling or renting residential property in England and Wales. We assess your home's energy efficiency and provide an official certificate registered with the UK government.",
     bullets: [
-      'Guide prices from £49',
+      `Guide prices from £${priceFrom.epc}`,
       '72-hour standard delivery',
       '10-year validity',
       'Improvement recommendations included',
@@ -27,7 +28,7 @@ const services = [
     description:
       'Accurate, professional floor plans for property marketing. Measured on-site with laser tools, delivered as high-resolution image files.',
     bullets: [
-      'Same price as your EPC standalone',
+      `Guide prices from £${priceFrom.floorPlan}`,
       'Perfect for estate agent listings',
       'Laser-measured on site',
       'Multiple format options',
@@ -39,10 +40,10 @@ const services = [
     title: 'EPC & Floor Plan Bundle',
     href: '/pricing',
     description:
-      'Book both for the same property and save 50% on the floor plan. One visit, one assessor, everything your listing needs — ready in a single appointment.',
+      'Book both for the same property and the combined guide price is lower than booking separately. One visit, one assessor, everything your listing needs.',
     bullets: [
-      'Bundles from £73.50',
-      'Save up to £52.50 per property',
+      `Bundle guide prices from £${priceFrom.bundle}`,
+      'Lower combined price than booking separately',
       'Both services, same property, one visit',
       'Ideal for sellers & letting agents',
     ],

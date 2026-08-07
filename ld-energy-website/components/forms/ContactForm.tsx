@@ -20,7 +20,7 @@ import {
 import { Field, Input, Textarea } from '@/components/ui/Input'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/cn'
-import { pricing, site } from '@/lib/site'
+import { pricing, site, EXPRESS_SURCHARGE } from '@/lib/site'
 import {
   contactSchema,
   propertyTypes,
@@ -113,7 +113,7 @@ export function ContactForm() {
     }
 
     const isExpress = watchSpeed?.includes('Express')
-    const speedPrice = isExpress ? 12 : 0
+    const speedPrice = isExpress ? EXPRESS_SURCHARGE : 0
     total += speedPrice
 
     const retrofitPrice = watchRetrofit ? site.addOns.retrofitConsult : 0
@@ -279,7 +279,7 @@ export function ContactForm() {
                     <div className="mt-3 grid gap-3 sm:grid-cols-2">
                       {[
                         { value: 'EPC Certificate', label: 'EPC only', desc: 'Official 10-year energy rating, lodged on the government register.' },
-                        { value: 'Both (Bundle)', label: 'EPC + Floor Plan', desc: 'Both for the same property in one visit — save 50% on the floor plan.', badge: 'Best value' },
+                        { value: 'Both (Bundle)', label: 'EPC + Floor Plan', desc: 'Both for the same property in one visit — better value than booking separately.', badge: 'Better value' },
                         { value: 'Floor Plan', label: 'Floor plan only', desc: 'Laser-measured scale drawing showing layout and room sizes.' },
                         { value: 'Bulk / Agency Enquiry', label: 'Bulk / agency enquiry', desc: 'Multiple properties or ongoing instructions — we’ll quote volume rates.', badge: 'Agents' },
                       ].map((s) => {

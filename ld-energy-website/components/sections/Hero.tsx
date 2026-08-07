@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Phone, ShieldCheck, Clock, MapPin, Star, Sparkles, Check, Wrench, ChevronRight } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
-import { site } from '@/lib/site'
+import { site, priceFrom, EXPRESS_SURCHARGE } from '@/lib/site'
 
 const GOOGLE_REVIEWS_URL = 'https://share.google/4LTPb4XMjeNq7TpXk'
 
@@ -89,7 +89,7 @@ export function Hero() {
           </h1>
           <p className="mt-5 text-lg md:text-xl text-secondary-700 leading-relaxed max-w-2xl animate-fade-in-up animate-delay-200">
             Elmhurst-accredited Domestic Energy Assessor. Guide prices from{' '}
-            <span className="font-semibold text-secondary-900">£49</span>. Certificate within 72 hours, or next day for just £12 extra.
+            <span className="font-semibold text-secondary-900">£{priceFrom.epc}</span>. Certificate within 72 hours, or next day for £{EXPRESS_SURCHARGE} extra.
           </p>
           <p className="mt-3 text-sm text-secondary-600">
             Based in Stratford, East London, covering all 32 London boroughs, 7 days a week.
@@ -125,7 +125,7 @@ export function Hero() {
 
           <dl className="mt-10 grid grid-cols-3 gap-3 max-w-md">
             {[
-              { dt: 'From', dd: '£49' },
+              { dt: 'From', dd: `£${priceFrom.epc}` },
               { dt: 'Standard', dd: '72h' },
               { dt: 'Boroughs', dd: '32+' },
             ].map((stat) => (
