@@ -24,7 +24,7 @@ const groups: { region: string; slugs: string[] }[] = [
 
 export function Coverage() {
   return (
-    <Section variant="muted" id="areas" pattern className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="muted" tier="compact" id="areas" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
         <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />

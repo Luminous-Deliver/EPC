@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Clock, ShieldCheck, Star, ArrowUpRight } from 'luc
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/ui/Logo'
 import { navLinks, site } from '@/lib/site'
+import { boroughMeta } from '@/lib/boroughs'
 
 const services = navLinks.filter(l =>
   ['/services/domestic-epc', '/domestic-energy-assessor-london', '/services/floor-plans', '/landlords', '/sellers', '/estate-agents'].includes(l.href)
@@ -174,6 +175,26 @@ export function Footer() {
             </a>
           </div>
         </div>
+        {/* Borough links — crawlable local-SEO surface, kept when the homepage
+            Areas section was compressed. */}
+        <nav aria-label="Areas we cover" className="mt-10 border-t pt-8" style={{ borderColor: 'rgba(99,178,51,0.12)' }}>
+          <h2 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(165,217,124,0.75)' }}>
+            Areas we cover
+          </h2>
+          <ul className="flex flex-wrap gap-x-4 gap-y-1">
+            {Object.values(boroughMeta).map((b) => (
+              <li key={b.slug}>
+                <Link
+                  href={`/areas/${b.slug}`}
+                  className="inline-flex min-h-[44px] items-center text-sm transition-colors hover:text-white"
+                  style={{ color: 'rgba(255,255,255,0.7)' }}
+                >
+                  EPC {b.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </Container>
 
       {/* Bottom bar */}

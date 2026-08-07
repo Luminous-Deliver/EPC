@@ -1,71 +1,109 @@
 import Link from 'next/link'
 import { Section } from '@/components/ui/Section'
-import { ArrowRight } from 'lucide-react'
+import { SectionHeader } from '@/components/ui/SectionHeader'
+import { ArrowRight, Award, BadgePoundSterling, Zap, MapPin } from 'lucide-react'
 
+/**
+ * Audience routing, with the four differentiators that previously lived in a
+ * separate "Why choose us" section folded in beneath. The two sections were
+ * adjacent, addressed the same audience and did the same job, so together they
+ * consumed roughly 1,500px of scroll to deliver one section's information.
+ */
 const audiences = [
   {
-    title: 'EPCs for homeowners',
-    body: 'Selling or letting? You need a valid EPC before the property is marketed. We survey, lodge and explain the rating in plain English.',
+    title: 'Homeowners & sellers',
+    body: 'Selling or letting? A valid EPC is required before the property is marketed. We survey, lodge and explain the rating in plain English.',
     kicker: 'Ready before your listing goes live',
     href: '/sellers',
   },
   {
-    title: 'EPCs for landlords',
-    body: 'Rented homes must reach at least band E. We flag properties at risk, work politely around tenants, and explain clearly what would lift a low rating.',
+    title: 'Landlords',
+    body: 'Rented homes must reach at least band E. We flag properties at risk, work politely around tenants, and explain what would lift a low rating.',
     kicker: 'MEES compliance, handled',
     href: '/landlords',
   },
   {
-    title: 'EPCs for estate agents',
+    title: 'Estate & letting agents',
     body: 'Instruct today, list this week. EPCs and floor plans come back correctly formatted for the portals, so nothing holds up a launch.',
     kicker: 'Priority slots for agencies',
     href: '/estate-agents',
   },
   {
-    title: 'Bulk EPCs for letting firms',
-    body: 'Portfolios batched by postcode, volume rates from five properties a month and one consolidated monthly invoice with a per-property breakdown.',
+    title: 'Property portfolios',
+    body: 'Batched by postcode, with volume rates once you are booking regularly and one invoice carrying a per-property breakdown.',
     kicker: 'Bulk EPCs and floor plans',
     href: '/estate-agents',
   },
 ]
 
+const reasons = [
+  {
+    Icon: Award,
+    title: 'Elmhurst accredited',
+    body: 'Every EPC is lodged on the official government register by a named, publicly verifiable assessor.',
+  },
+  {
+    Icon: BadgePoundSterling,
+    title: 'No surprise pricing',
+    body: 'Guide prices up front, exact quote confirmed before booking. No travel or call-out surcharges.',
+  },
+  {
+    Icon: Zap,
+    title: 'Fast and flexible',
+    body: '72-hour standard delivery, next day for £12. Appointments seven days a week, evenings included.',
+  },
+  {
+    Icon: MapPin,
+    title: 'Local and reliable',
+    body: 'Based in Stratford, covering every London borough. We answer the phone and turn up on time.',
+  },
+]
+
 export function WhoWeHelp() {
   return (
-    <Section variant="muted" id="who-we-help" pattern className="scroll-mt-20 md:scroll-mt-24">
-      <div className="max-w-3xl">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
-          <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
-          Who we help
-        </div>
-        <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
-          Built around why you need one
-        </h2>
-      </div>
+    <Section variant="muted" tier="secondary" id="who-we-help" className="scroll-mt-20 md:scroll-mt-24">
+      <SectionHeader
+        eyebrow="Who we help"
+        heading="Built around why you need one"
+        intro="Whatever the reason for your EPC, the process is shaped around it."
+      />
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {audiences.map((a, i) => (
+      <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {audiences.map((a) => (
           <Link
             key={a.title}
             href={a.href}
-            className="group flex flex-col rounded-2xl border border-secondary-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-premium hover:border-primary-200"
+            className="group flex flex-col rounded-2xl border border-secondary-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary-200 hover:shadow-premium"
           >
-            <span className="font-mono text-xs text-secondary-600">
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <h3 className="mt-3 text-lg font-bold text-secondary-900 group-hover:text-primary-700">
+            <h3 className="text-lg font-bold text-secondary-900 group-hover:text-primary-700">
               {a.title}
             </h3>
-            <p className="mt-2.5 text-sm text-secondary-600 leading-relaxed flex-1">{a.body}</p>
-            <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700">
+            <p className="mt-2 flex-1 text-sm leading-relaxed text-secondary-600">{a.body}</p>
+            <span className="mt-4 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-primary-700">
               {a.kicker}
               <ArrowRight
-                className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
+                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                 aria-hidden="true"
               />
             </span>
           </Link>
         ))}
       </div>
+
+      {/* Differentiators, merged in from the former Why-choose-us section */}
+      <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {reasons.map(({ Icon, title, body }) => (
+          <li key={title} className="flex gap-3">
+            <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-700 ring-1 ring-primary-100">
+              <Icon className="h-4 w-4" aria-hidden="true" />
+            </span>
+            <div>
+              <h3 className="text-sm font-bold text-secondary-900">{title}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-secondary-600">{body}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
     </Section>
   )
 }

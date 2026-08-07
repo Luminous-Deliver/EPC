@@ -1,4 +1,5 @@
 import { Section } from '@/components/ui/Section'
+import { SectionHeader } from '@/components/ui/SectionHeader'
 import { Home, Flame, Grid2x2, Thermometer, Lightbulb, Gauge } from 'lucide-react'
 
 const items = [
@@ -34,23 +35,22 @@ const items = [
   },
 ]
 
-export function WhatToHaveReady() {
+export function WhatToHaveReady({ heading = true }: { heading?: boolean } = {}) {
   return (
-    <Section variant="default" id="what-to-have-ready" pattern className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="default" tier="secondary" id="what-to-have-ready" className="scroll-mt-20 md:scroll-mt-24">
+      {heading && (
       <div className="max-w-3xl">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
-          <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
-          Before the visit
-        </div>
-        <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
-          What to have ready
-        </h2>
+        <SectionHeader
+          eyebrow="Before the visit"
+          heading="What to have ready"
+        />
         <p className="mt-4 text-lg text-secondary-700 leading-relaxed">
           The survey takes 45–60 minutes when everything below is reachable. A quick tidy beforehand
           genuinely helps — if a sofa is pushed against a radiator or a bed sits under a window, please
           move it before we arrive. If something isn’t accessible on the day it usually means a second visit.
         </p>
       </div>
+      )}
 
       <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map(({ Icon, title, body }) => (

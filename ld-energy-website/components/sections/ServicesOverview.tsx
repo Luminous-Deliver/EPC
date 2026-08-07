@@ -16,8 +16,6 @@ const services = [
     bullets: [
       `Guide prices from £${priceFrom.epc}`,
       '72-hour standard delivery',
-      '10-year validity',
-      'Improvement recommendations included',
     ],
     highlighted: false,
   },
@@ -30,8 +28,6 @@ const services = [
     bullets: [
       `Guide prices from £${priceFrom.floorPlan}`,
       'Perfect for estate agent listings',
-      'Laser-measured on site',
-      'Multiple format options',
     ],
     highlighted: false,
   },
@@ -44,8 +40,6 @@ const services = [
     bullets: [
       `Bundle guide prices from £${formatPrice(priceFrom.bundle)}`,
       'Lower combined price than booking separately',
-      'Both services, same property, one visit',
-      'Ideal for sellers & letting agents',
     ],
     highlighted: true,
   },
@@ -58,8 +52,6 @@ const services = [
     bullets: [
       'Just £25 added to your EPC',
       'Plain-English route to band C',
-      'Ideal for MEES planning',
-      'Based on your actual survey data',
     ],
     highlighted: false,
   },
@@ -67,7 +59,7 @@ const services = [
 
 export function ServicesOverview() {
   return (
-    <Section variant="muted" id="services" pattern className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="muted" tier="secondary" id="services" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
         <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
@@ -111,7 +103,7 @@ export function ServicesOverview() {
               </span>
               <h3 className="text-xl font-semibold text-secondary-900 md:mt-4">{service.title}</h3>
             </div>
-            <p className="mt-3 text-secondary-700 leading-relaxed text-sm">{service.description}</p>
+            <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-secondary-600">{service.description}</p>
             <ul className="mt-5 space-y-2 flex-1">
               {service.bullets.map((b) => (
                 <li key={b} className="flex items-start gap-2.5 text-secondary-700 text-sm">

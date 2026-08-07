@@ -8,7 +8,7 @@ export async function FromTheBlog() {
   if (posts.length === 0) return null
 
   return (
-    <Section variant="muted">
+    <Section variant="muted" tier="compact">
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">

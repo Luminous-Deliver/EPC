@@ -62,6 +62,23 @@ export const homepageFaq: FaqItem[] = [
   },
 ]
 
+/**
+ * The six questions shown on the homepage. Kept as a derived slice so the
+ * rendered accordion and the FAQPage JSON-LD are generated from one array —
+ * a mismatch between them is a structured-data violation.
+ */
+export const homepageFaqFeatured: FaqItem[] = [
+  homepageFaq.find((f) => f.q.startsWith('How much does an EPC cost'))!,
+  {
+    q: 'Are the prices on your website fixed?',
+    a: 'No — the figures shown are guide prices, based mainly on internal floor area (m²). Extensions, loft conversions, layout and access can change the final figure, so we confirm your exact quote before you book. That applies to urgent and same-day jobs too: we confirm availability and any surcharge before accepting the booking.',
+  },
+  homepageFaq.find((f) => f.q.startsWith('How long does an EPC assessment'))!,
+  homepageFaq.find((f) => f.q.startsWith('How quickly will I receive'))!,
+  homepageFaq.find((f) => f.q.startsWith('How long is an EPC valid'))!,
+  homepageFaq.find((f) => f.q.startsWith('Can I get a same-day'))!,
+]
+
 export interface FaqCategory {
   id: string
   title: string

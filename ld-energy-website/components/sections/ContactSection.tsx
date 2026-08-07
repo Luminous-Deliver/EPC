@@ -8,7 +8,7 @@ import { ContactForm } from '@/components/forms/ContactForm'
  */
 export function ContactSection() {
   return (
-    <Section variant="muted" id="contact" pattern className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="muted" tier="primary" id="contact" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-2xl">
         <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
