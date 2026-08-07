@@ -171,7 +171,7 @@ export default function DomesticEnergyAssessorPage() {
       {/* What is a DEA */}
       <Section variant="default" id="what-is-a-dea">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             The Basics
           </div>
@@ -202,7 +202,7 @@ export default function DomesticEnergyAssessorPage() {
       {/* What a DEA does */}
       <Section variant="muted" id="what-a-dea-does">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             The Role
           </div>
@@ -232,7 +232,7 @@ export default function DomesticEnergyAssessorPage() {
       <Section variant="default" id="accreditation">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
           <div>
-            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               Accredited &amp; Qualified
             </div>
@@ -295,7 +295,7 @@ export default function DomesticEnergyAssessorPage() {
       {/* Why a local DEA */}
       <Section variant="muted" id="why-local">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             Why Local
           </div>
@@ -323,7 +323,7 @@ export default function DomesticEnergyAssessorPage() {
       {/* FAQ */}
       <Section variant="default" id="faq">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             FAQ
           </div>

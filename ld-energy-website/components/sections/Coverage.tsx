@@ -24,9 +24,9 @@ const groups: { region: string; slugs: string[] }[] = [
 
 export function Coverage() {
   return (
-    <Section variant="muted" id="areas" pattern className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="muted" tier="compact" id="areas" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
           Coverage · London-wide
         </div>
@@ -42,7 +42,7 @@ export function Coverage() {
         <p className="text-secondary-800 font-medium leading-relaxed">
           Based in Stratford, we cover all <span className="font-bold text-primary-700">32 London boroughs</span> across East, North, South, and West London.
         </p>
-        <Link href="/areas" className="mt-3 inline-block font-semibold text-primary-700 hover:text-primary-800">
+        <Link href="/areas" className="mt-3 inline-flex min-h-[44px] items-center font-semibold text-primary-700 hover:text-primary-800">
           View all specific areas &rarr;
         </Link>
       </div>

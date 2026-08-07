@@ -5,17 +5,16 @@ import { SocialProof } from '@/components/sections/SocialProof'
 import { WhatIsEpc } from '@/components/sections/WhatIsEpc'
 import { Pricing } from '@/components/sections/Pricing'
 import { HowItWorks } from '@/components/sections/HowItWorks'
+import { CtaBand } from '@/components/sections/CtaBand'
 import { ServicesOverview } from '@/components/sections/ServicesOverview'
 import { WhoWeHelp } from '@/components/sections/WhoWeHelp'
 import { TradeAgency } from '@/components/sections/TradeAgency'
-import { WhatToHaveReady } from '@/components/sections/WhatToHaveReady'
-import { WhyChoose } from '@/components/sections/WhyChoose'
 import { Coverage } from '@/components/sections/Coverage'
 import { FromTheBlog } from '@/components/sections/FromTheBlog'
 import { Faq } from '@/components/sections/Faq'
 import { ContactSection } from '@/components/sections/ContactSection'
 import { site } from '@/lib/site'
-import { homepageFaq } from '@/lib/faq'
+import { homepageFaqFeatured } from '@/lib/faq'
 
 export const metadata: Metadata = {
   title: { absolute: 'EPC London from £49 | Elmhurst Accredited | L&D Energy' },
@@ -65,7 +64,7 @@ const websiteSchema = {
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: homepageFaq.map((item) => ({
+  mainEntity: homepageFaqFeatured.map((item) => ({
     '@type': 'Question',
     name: item.q,
     acceptedAnswer: { '@type': 'Answer', text: item.a },
@@ -89,9 +88,8 @@ export default function HomePage() {
       <TrustBar />
       <SocialProof />
       <Pricing />
+      <CtaBand />
       <HowItWorks />
-      <WhatToHaveReady />
-      <WhyChoose />
       <WhatIsEpc />
       <ServicesOverview />
       <WhoWeHelp />

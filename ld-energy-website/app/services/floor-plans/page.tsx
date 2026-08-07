@@ -13,18 +13,18 @@ import { areaServedLondon } from '@/lib/boroughs'
 export const metadata: Metadata = {
   title: 'Property Floor Plans London | From £49',
   description:
-    'Professional property floor plans across London. Accurately measured, high-resolution files for estate agents. Half price when bundled with an EPC.',
+    'Professional property floor plans across London. Accurately measured, high-resolution files for estate agents. Guide prices from £49, with discounted bundle pricing when booked alongside an EPC.',
   alternates: { canonical: `${site.url}/services/floor-plans` },
   openGraph: {
     title: 'Property Floor Plans London | From £49 | L&D Energy',
     description:
-      'Professional property floor plans across London. Accurately measured, high-resolution files for estate agents and property marketing. Half price when bundled with an EPC.',
+      'Professional property floor plans across London. Accurately measured, high-resolution files for estate agents and property marketing. Discounted bundle pricing when booked alongside an EPC.',
     url: `${site.url}/services/floor-plans`,
   },
   twitter: {
     title: 'Property Floor Plans London | From £49',
     description:
-      'Professional property floor plans across London. High-resolution files for estate agents. Half price bundled with an EPC.',
+      'Professional property floor plans across London. High-resolution files for estate agents. Better value bundled with an EPC.',
   },
 }
 
@@ -95,8 +95,6 @@ const breadcrumbSchema = {
 }
 
 export default function FloorPlansPage() {
-  const maxSaving = Math.max(...pricing.map((p) => p.saving))
-
   return (
     <>
       <script
@@ -109,14 +107,14 @@ export default function FloorPlansPage() {
       <PageHero
         eyebrow="Floor Plans"
         heading="Professional Property Floor Plans"
-        subheading="Accurate, professionally measured floor plans for property marketing. Same price as your EPC standalone, half price when you bundle them together."
+        subheading="Accurate, professionally measured floor plans for property marketing. Guide prices from £49 — better value when booked together with an EPC in the same visit."
         primaryCta={{ label: 'Get Your Floor Plan', href: '/contact' }}
       />
 
       {/* Why Floor Plans */}
       <Section variant="default" id="why-floor-plans">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             Why They Matter
           </div>
@@ -133,7 +131,7 @@ export default function FloorPlansPage() {
       <Section variant="muted" id="included">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
           <div>
-            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               The Deliverable
             </div>
@@ -154,7 +152,7 @@ export default function FloorPlansPage() {
           </div>
 
           <div>
-            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               The Process
             </div>
@@ -169,7 +167,7 @@ export default function FloorPlansPage() {
       {/* Pricing Table */}
       <Section variant="default" id="pricing">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             Pricing
           </div>
@@ -177,7 +175,7 @@ export default function FloorPlansPage() {
             Floor Plan Pricing
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-            Standalone floor plans are the same price as your EPC. Bundle both services and the floor plan is half price, saving you up to £{maxSaving.toFixed(2)}.
+            Guide prices only — your exact quote is confirmed before booking. Booking a floor plan alongside an EPC costs less than booking them separately, because we measure the property during the assessment anyway.
           </p>
         </div>
 
@@ -186,10 +184,9 @@ export default function FloorPlansPage() {
             <thead>
               <tr className="bg-secondary-50 border-b border-secondary-200">
                 <th className="px-4 py-3 text-left font-semibold text-secondary-700">Property</th>
-                <th className="px-4 py-3 text-right font-semibold text-secondary-700">EPC Only</th>
-                <th className="px-4 py-3 text-right font-semibold text-secondary-700">Floor Plan Only</th>
-                <th className="px-4 py-3 text-right font-semibold text-primary-800 bg-primary-50">Bundle Total</th>
-                <th className="px-4 py-3 text-right font-semibold text-success">You Save</th>
+                <th className="px-4 py-3 text-right font-semibold text-secondary-700">EPC guide</th>
+                <th className="px-4 py-3 text-right font-semibold text-secondary-700">Floor plan guide</th>
+                <th className="px-4 py-3 text-right font-semibold text-primary-800 bg-primary-50">Bundle guide</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-secondary-100">
@@ -201,9 +198,6 @@ export default function FloorPlansPage() {
                   <td className="px-4 py-3 text-right font-bold text-primary-800 bg-primary-50">
                     £{row.bundle.toFixed(2)}
                   </td>
-                  <td className="px-4 py-3 text-right font-semibold text-success">
-                    £{row.saving.toFixed(2)}
-                  </td>
                 </tr>
               ))}
             </tbody>
@@ -213,7 +207,8 @@ export default function FloorPlansPage() {
         <div className="mt-8 rounded-xl bg-primary-50 border border-primary-200 p-6 flex items-start gap-4">
           <Sparkles className="w-6 h-6 text-primary-700 shrink-0 mt-0.5" aria-hidden="true" />
           <p className="text-primary-900 font-medium">
-            Save up to £{maxSaving.toFixed(2)} when you book an EPC and Floor Plan together.
+            Better value together: one visit covers both the EPC survey and the floor plan measurements,
+            so booking them at the same time costs less than booking them separately.
           </p>
         </div>
       </Section>

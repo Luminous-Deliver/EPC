@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Clock, ShieldCheck, Star, ArrowUpRight } from 'luc
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/ui/Logo'
 import { navLinks, site } from '@/lib/site'
+import { boroughMeta } from '@/lib/boroughs'
 
 const services = navLinks.filter(l =>
   ['/services/domestic-epc', '/domestic-energy-assessor-london', '/services/floor-plans', '/landlords', '/sellers', '/estate-agents'].includes(l.href)
@@ -75,7 +76,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm transition-colors hover:text-white"
+                      className="inline-flex min-h-[44px] items-center text-sm transition-colors hover:text-white"
                       style={{ color: 'rgba(255,255,255,0.88)' }}
                     >
                       {link.label}
@@ -95,7 +96,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm transition-colors hover:text-white"
+                      className="inline-flex min-h-[44px] items-center text-sm transition-colors hover:text-white"
                       style={{ color: 'rgba(255,255,255,0.88)' }}
                     >
                       {link.label}
@@ -115,7 +116,7 @@ export function Footer() {
               <li>
                 <a
                   href={site.phoneHref}
-                  className="group inline-flex items-center gap-2.5 text-sm transition-colors hover:text-white"
+                  className="group inline-flex min-h-[44px] items-center gap-2.5 text-sm transition-colors hover:text-white"
                   style={{ color: 'rgba(255,255,255,0.92)' }}
                 >
                   <span
@@ -130,7 +131,7 @@ export function Footer() {
               <li>
                 <a
                   href={site.emailHref}
-                  className="group inline-flex items-center gap-2.5 text-sm transition-colors hover:text-white"
+                  className="group inline-flex min-h-[44px] items-center gap-2.5 text-sm transition-colors hover:text-white"
                   style={{ color: 'rgba(255,255,255,0.92)' }}
                 >
                   <span
@@ -161,7 +162,7 @@ export function Footer() {
               href="https://share.google/4LTPb4XMjeNq7TpXk"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all hover:brightness-110"
+              className="mt-5 inline-flex min-h-[44px] items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all hover:brightness-110"
               style={{
                 background: 'rgba(71,132,110,0.12)',
                 border: '1px solid rgba(71,132,110,0.30)',
@@ -174,6 +175,26 @@ export function Footer() {
             </a>
           </div>
         </div>
+        {/* Borough links — crawlable local-SEO surface, kept when the homepage
+            Areas section was compressed. */}
+        <nav aria-label="Areas we cover" className="mt-10 border-t pt-8" style={{ borderColor: 'rgba(99,178,51,0.12)' }}>
+          <h2 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(165,217,124,0.75)' }}>
+            Areas we cover
+          </h2>
+          <ul className="flex flex-wrap gap-x-4 gap-y-1">
+            {Object.values(boroughMeta).map((b) => (
+              <li key={b.slug}>
+                <Link
+                  href={`/areas/${b.slug}`}
+                  className="inline-flex min-h-[44px] items-center text-sm transition-colors hover:text-white"
+                  style={{ color: 'rgba(255,255,255,0.7)' }}
+                >
+                  EPC {b.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </Container>
 
       {/* Bottom bar */}
@@ -183,13 +204,13 @@ export function Footer() {
             © {year} {site.name}. Part of {site.legalName}.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors">Terms of Service</Link>
             <a
               href="https://digital.luminousanddeliver.co.uk/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] items-center hover:text-white transition-colors"
             >
               Made by{' '}
               <span className="font-semibold" style={{ color: 'rgba(149,191,173,0.85)' }}>L&amp;D Digital</span>

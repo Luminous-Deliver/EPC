@@ -1,4 +1,6 @@
 import { Section } from '@/components/ui/Section'
+import { SectionHeader } from '@/components/ui/SectionHeader'
+import { EpcSimulator } from '@/components/sections/EpcSimulator'
 import { Card } from '@/components/ui/Card'
 import { CheckCircle2, BookOpen, FileText, Scale } from 'lucide-react'
 
@@ -19,16 +21,9 @@ const whenRequired = [
 
 export function WhatIsEpc() {
   return (
-    <div className="hidden md:block">
-      <Section variant="default" id="what-is-epc" className="scroll-mt-24">
+      <Section variant="default" tier="secondary" id="what-is-epc" className="scroll-mt-24">
         <div className="max-w-3xl">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
-          <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
-          EPC Basics
-        </div>
-        <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900">
-          What is an Energy Performance Certificate?
-        </h2>
+        <SectionHeader eyebrow="EPC Basics" heading="Understand your EPC rating" />
         <p className="mt-4 text-lg text-secondary-700 leading-relaxed">
           An Energy Performance Certificate (EPC) is an official document that rates a property’s energy efficiency from A (most efficient) to G (least efficient). It is legally required in England and Wales when selling or renting any residential property, and remains valid for 10 years from the date of issue.
         </p>
@@ -69,7 +64,20 @@ export function WhatIsEpc() {
           </ul>
         </Card>
       </div>
+
+      <div className="mt-8 grid gap-6 lg:grid-cols-2 lg:items-start">
+        <div>
+          <h3 className="text-lg font-bold text-secondary-900">See what would lift your rating</h3>
+          <p className="mt-2 leading-relaxed text-secondary-700">
+            Most London homes sit around band D or E. Toggle the upgrades to see roughly how each one
+            moves the score — useful before you spend anything, and the same reasoning behind our{' '}
+            <a href="/services/retrofit-consultation" className="font-semibold text-primary-700 underline underline-offset-2 hover:text-primary-800">
+              retrofit consultation
+            </a>.
+          </p>
+        </div>
+        <EpcSimulator />
+      </div>
       </Section>
-    </div>
   )
 }

@@ -194,7 +194,7 @@ export default function DomesticEpcPage() {
       {/* What is a Domestic EPC */}
       <Section variant="default" id="what-is-epc">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             What Is It?
           </div>
@@ -235,7 +235,7 @@ export default function DomesticEpcPage() {
       {/* Who Needs an EPC */}
       <Section variant="muted" id="who-needs-epc">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             Who Is It For?
           </div>
@@ -269,7 +269,7 @@ export default function DomesticEpcPage() {
       <Section variant="default" id="epc-process">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               The Process
             </div>
@@ -283,7 +283,7 @@ export default function DomesticEpcPage() {
           </div>
 
           <div>
-            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               What We Record
             </div>
@@ -310,7 +310,7 @@ export default function DomesticEpcPage() {
       {/* Service-specific FAQ */}
       <Section variant="muted" id="epc-faq">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
             <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
             Common Questions
           </div>

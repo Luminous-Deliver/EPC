@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
 import { ArrowRight, FileText, Ruler, PackageCheck, Leaf, CheckCircle2, Sparkles } from 'lucide-react'
+import { priceFrom, formatPrice } from '@/lib/site'
 
 // Three core services today; the grid flexes to fit future additions
 // (property photography, gas & electric boiler work, …) without redesign.
@@ -13,10 +14,8 @@ const services = [
     description:
       "Required by law for selling or renting residential property in England and Wales. We assess your home's energy efficiency and provide an official certificate registered with the UK government.",
     bullets: [
-      'Guide prices from £49',
+      `Guide prices from £${priceFrom.epc}`,
       '72-hour standard delivery',
-      '10-year validity',
-      'Improvement recommendations included',
     ],
     highlighted: false,
   },
@@ -27,10 +26,8 @@ const services = [
     description:
       'Accurate, professional floor plans for property marketing. Measured on-site with laser tools, delivered as high-resolution image files.',
     bullets: [
-      'Same price as your EPC standalone',
+      `Guide prices from £${priceFrom.floorPlan}`,
       'Perfect for estate agent listings',
-      'Laser-measured on site',
-      'Multiple format options',
     ],
     highlighted: false,
   },
@@ -39,12 +36,10 @@ const services = [
     title: 'EPC & Floor Plan Bundle',
     href: '/pricing',
     description:
-      'Book both for the same property and save 50% on the floor plan. One visit, one assessor, everything your listing needs — ready in a single appointment.',
+      'Book both for the same property and the combined guide price is lower than booking separately. One visit, one assessor, everything your listing needs.',
     bullets: [
-      'Bundles from £73.50',
-      'Save up to £52.50 per property',
-      'Both services, same property, one visit',
-      'Ideal for sellers & letting agents',
+      `Bundle guide prices from £${formatPrice(priceFrom.bundle)}`,
+      'Lower combined price than booking separately',
     ],
     highlighted: true,
   },
@@ -57,8 +52,6 @@ const services = [
     bullets: [
       'Just £25 added to your EPC',
       'Plain-English route to band C',
-      'Ideal for MEES planning',
-      'Based on your actual survey data',
     ],
     highlighted: false,
   },
@@ -66,9 +59,9 @@ const services = [
 
 export function ServicesOverview() {
   return (
-    <Section variant="muted" id="services" pattern className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="muted" tier="secondary" id="services" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
+        <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-600">
           <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
           Services
         </div>
@@ -92,7 +85,7 @@ export function ServicesOverview() {
             }
           >
             {service.highlighted && (
-              <span className="absolute -top-3 left-5 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-accent-600 to-accent-700 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">
+              <span className="absolute -top-3 left-5 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-accent-600 to-accent-700 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-sm">
                 <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
                 Bundle Discount
               </span>
@@ -110,7 +103,7 @@ export function ServicesOverview() {
               </span>
               <h3 className="text-xl font-semibold text-secondary-900 md:mt-4">{service.title}</h3>
             </div>
-            <p className="mt-3 text-secondary-700 leading-relaxed text-sm">{service.description}</p>
+            <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-secondary-600">{service.description}</p>
             <ul className="mt-5 space-y-2 flex-1">
               {service.bullets.map((b) => (
                 <li key={b} className="flex items-start gap-2.5 text-secondary-700 text-sm">
@@ -130,8 +123,8 @@ export function ServicesOverview() {
               href={service.href}
               className={
                 service.highlighted
-                  ? 'mt-6 inline-flex items-center gap-1.5 text-accent-700 font-semibold hover:text-accent-800'
-                  : 'mt-6 inline-flex items-center gap-1.5 text-primary-700 font-semibold hover:text-primary-800'
+                  ? 'mt-6 inline-flex min-h-[44px] items-center gap-1.5 text-accent-700 font-semibold hover:text-accent-800'
+                  : 'mt-6 inline-flex min-h-[44px] items-center gap-1.5 text-primary-700 font-semibold hover:text-primary-800'
               }
             >
               {service.highlighted ? 'See bundle pricing' : 'Learn more'}

@@ -2,7 +2,7 @@ import { forwardRef } from 'react'
 import { cn } from '@/lib/cn'
 
 const fieldBase =
-  'block w-full min-h-[44px] rounded-md border border-secondary-300 bg-white px-3 py-2.5 text-base text-secondary-900 placeholder:text-secondary-400 shadow-sm transition-colors focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/40 disabled:bg-secondary-50 disabled:text-secondary-500'
+  'block w-full min-h-[44px] rounded-md border border-secondary-300 bg-white px-3 py-2.5 text-base text-secondary-900 placeholder:text-secondary-500 shadow-sm transition-colors focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/40 disabled:bg-secondary-50 disabled:text-secondary-500'
 
 const errorRing = 'border-danger focus:border-danger focus:ring-danger/30'
 

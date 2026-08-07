@@ -6,7 +6,7 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { Accordion } from '@/components/ui/Accordion'
-import { pricing, site } from '@/lib/site'
+import { pricing, site, nextDayGuide } from '@/lib/site'
 import type { FaqItem } from '@/lib/faq'
 
 export const metadata: Metadata = {
@@ -69,11 +69,9 @@ const pricingFaq: FaqItem[] = [
   },
   {
     q: 'How much does a floor plan cost?',
-    a: 'A standalone floor plan costs the same as your EPC for that property size, from £49. When you bundle an EPC and floor plan together, the floor plan is 50% off, saving you up to £52.50.',
+    a: 'A standalone floor plan costs the same as your EPC for that property size, with guide prices from £49. Booking an EPC and floor plan together is cheaper than booking them separately — we measure the property during the assessment anyway, so it is one visit rather than two. Your exact quote is confirmed before booking.',
   },
 ]
-
-const maxSaving = Math.max(...pricing.map((p) => p.saving))
 
 // Typical internal floor-area ranges by property size (guide only) — reinforces
 // that floor area is the biggest driver of the final price.
@@ -171,11 +169,10 @@ export default function PricingPage() {
               <thead>
                 <tr className="bg-secondary-50 border-b border-secondary-200">
                   <th className="px-5 py-3.5 text-left font-semibold text-secondary-700">Property</th>
-                  <th className="px-4 py-3.5 text-right font-semibold text-secondary-900">EPC</th>
+                  <th className="px-4 py-3.5 text-right font-semibold text-secondary-900">EPC guide</th>
                   <th className="px-4 py-3.5 text-right font-semibold text-secondary-600">Next Day</th>
-                  <th className="px-4 py-3.5 text-right font-semibold text-secondary-600">Floor Plan</th>
-                  <th className="px-4 py-3.5 text-right font-semibold text-primary-800 bg-primary-50">Bundle</th>
-                  <th className="px-5 py-3.5 text-right font-semibold text-success">You Save</th>
+                  <th className="px-4 py-3.5 text-right font-semibold text-secondary-600">Floor plan guide</th>
+                  <th className="px-4 py-3.5 text-right font-semibold text-primary-800 bg-primary-50">Bundle guide</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-secondary-100">
@@ -189,23 +186,20 @@ export default function PricingPage() {
                       </span>
                     </td>
                     <td className="px-4 py-3.5 text-right whitespace-nowrap">
-                      <span className="text-xs font-medium text-secondary-400">from</span>{' '}
+                      <span className="text-xs font-medium text-secondary-600">from</span>{' '}
                       <span className="text-base font-bold text-secondary-900">£{row.epc}</span>
                     </td>
-                    <td className="px-4 py-3.5 text-right text-secondary-600 whitespace-nowrap">£{row.nextDay}</td>
+                    <td className="px-4 py-3.5 text-right text-secondary-600 whitespace-nowrap">£{nextDayGuide(row)}</td>
                     <td className="px-4 py-3.5 text-right text-secondary-600 whitespace-nowrap">£{row.floorPlan}</td>
                     <td className="px-4 py-3.5 text-right font-bold text-primary-800 bg-primary-50 whitespace-nowrap">
                       £{row.bundle.toFixed(2)}
-                    </td>
-                    <td className="px-5 py-3.5 text-right font-semibold text-success whitespace-nowrap">
-                      £{row.saving.toFixed(2)}
                     </td>
                   </tr>
                 ))}
               </tbody>
               <tfoot>
                 <tr className="bg-secondary-50 border-t border-secondary-200">
-                  <td colSpan={6} className="px-5 py-3 text-xs text-secondary-500 leading-relaxed">
+                  <td colSpan={5} className="px-5 py-3 text-xs text-secondary-500 leading-relaxed">
                     All figures are guide estimates and act as starting prices. Floor area (m²) is the single biggest factor in the final price, alongside extensions, loft conversions, layout and condition. There&rsquo;s no charge for travel or mileage; properties more than about 45 minutes away add a little for the extra time.{' '}
                     <a href="/contact" className="font-medium text-primary-700 underline">Request an exact quote</a>.
                   </td>
@@ -213,7 +207,7 @@ export default function PricingPage() {
               </tfoot>
             </table>
           </div>
-          <p className="bg-secondary-50 px-5 pb-3 text-xs font-medium text-secondary-400 sm:hidden" aria-hidden="true">
+          <p className="bg-secondary-50 px-5 pb-3 text-xs font-medium text-secondary-600 sm:hidden" aria-hidden="true">
             Swipe sideways to see every column
           </p>
         </div>
@@ -221,7 +215,7 @@ export default function PricingPage() {
         <div className="mt-6 rounded-xl bg-primary-50 border border-primary-200 p-6 flex items-start gap-4">
           <Sparkles className="w-6 h-6 text-primary-700 shrink-0 mt-0.5" aria-hidden="true" />
           <p className="text-primary-900 font-medium">
-            Save up to £{maxSaving.toFixed(2)} when you book an EPC and Floor Plan together. Bundle price = EPC + 50% off floor plan.
+            Better value together: booking an EPC and floor plan in one visit costs less than booking them separately. We measure the property during the assessment anyway, so it is one appointment rather than two.
           </p>
         </div>
       </Section>

@@ -31,7 +31,7 @@ function ServicesDropdown() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-haspopup="true"
-        className="inline-flex items-center gap-1 text-sm font-medium text-secondary-700 hover:text-primary-700 transition-colors"
+        className="inline-flex min-h-[44px] items-center gap-1 text-sm font-medium text-secondary-700 hover:text-primary-700 transition-colors"
       >
         Services
         <ChevronDown
@@ -48,7 +48,7 @@ function ServicesDropdown() {
             {servicesMenu.map((group, gi) => (
               <div key={group.heading}>
                 {gi > 0 && <div className="my-1 border-t border-secondary-100" aria-hidden="true" />}
-                <p className="px-4 pt-2 pb-1 text-[10px] font-bold uppercase tracking-widest text-secondary-400">
+                <p className="px-4 pt-2 pb-1 text-xs font-bold uppercase tracking-widest text-secondary-600">
                   {group.heading}
                 </p>
                 <ul role="none">
@@ -94,7 +94,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-secondary-700 hover:text-primary-700 transition-colors"
+              className="inline-flex min-h-[44px] items-center text-sm font-medium text-secondary-700 hover:text-primary-700 transition-colors"
             >
               {link.label}
             </Link>

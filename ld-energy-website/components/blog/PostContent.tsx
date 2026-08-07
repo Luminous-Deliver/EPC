@@ -54,7 +54,7 @@ const components = {
           {children}
         </table>
       </div>
-      <p className="mt-2 text-xs font-medium text-secondary-400 sm:hidden" aria-hidden="true">
+      <p className="mt-2 text-xs font-medium text-secondary-600 sm:hidden" aria-hidden="true">
         Swipe sideways to see the full table
       </p>
     </div>
