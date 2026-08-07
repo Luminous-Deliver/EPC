@@ -6,19 +6,19 @@ const steps = [
     Icon: CalendarCheck,
     title: 'Book',
     body:
-      'Contact us by phone, WhatsApp, email, or use our online form. Tell us your property address and preferred time slot.',
+      'Send the address and property type online, by phone or on WhatsApp. We confirm a fixed price and a slot — often the same day.',
   },
   {
     Icon: ClipboardList,
     title: 'Assessment',
     body:
-      'Our qualified DEA visits at your chosen time. Most assessments take 45–60 minutes, up to around 2 hours for a large home.',
+      'A 45–60 minute survey covering measurements, heating, insulation, lighting and glazing. Tidy, tenant-friendly, no disruption.',
   },
   {
     Icon: FileCheck2,
-    title: 'Certificate',
+    title: 'Delivered in 72 hours',
     body:
-      'We lodge your EPC on the official government register and email your certificate within 72 hours (or next day if you’ve chosen express).',
+      'Certificate lodged on the official government register and emailed as a PDF, with floor plans in portal-ready formats. Express next-day available.',
   },
 ]
 
@@ -46,10 +46,10 @@ export function HowItWorks() {
             The Process
           </span>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-semibold text-white" style={{ letterSpacing: '-0.01em' }}>
-            How It Works
+            Three steps, no chasing
           </h2>
           <p className="mt-4 text-lg leading-relaxed" style={{ color: 'rgba(214,225,240,0.65)' }}>
-            Three simple steps from first contact to certificate in your inbox.
+            From first contact to certificate in your inbox — you always know what happens next.
           </p>
         </div>
 
