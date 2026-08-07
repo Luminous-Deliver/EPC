@@ -322,10 +322,20 @@ export function ContactForm() {
               )}
             </div>
 
+            {/* Bulk enquiries cover many properties, so a single size doesn't apply. */}
+            {isBulk ? (
+              <div className="rounded-xl border border-primary-200 bg-primary-50/60 p-4">
+                <h4 className="text-sm font-bold text-secondary-900">Property size</h4>
+                <p className="mt-1 text-sm text-secondary-700 leading-relaxed">
+                  Not needed for a bulk enquiry — tell us roughly how many properties and the postcodes
+                  in the notes on the next step, and we’ll come back with volume rates.
+                </p>
+              </div>
+            ) : (
             <div>
               <h4 className="text-lg font-bold text-secondary-900">Select Property Size</h4>
               <p className="text-xs text-secondary-500 mt-1">Pricing depends on bedroom size. Please select the correct option.</p>
-              
+
               <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {propertyTypes.map((p) => {
                   const active = watchPropertyType === p
@@ -352,6 +362,7 @@ export function ContactForm() {
                 </p>
               )}
             </div>
+            )}
 
             <div>
               <h4 className="text-lg font-bold text-secondary-900">Who are you booking as?</h4>
@@ -408,7 +419,8 @@ export function ContactForm() {
               )}
             </div>
 
-            {/* Retrofit consultation add-on */}
+            {/* Retrofit consultation add-on — per-property, so not shown for bulk */}
+            {!isBulk && (
             <Controller
               control={control}
               name="retrofitConsult"
@@ -449,6 +461,7 @@ export function ContactForm() {
                 </button>
               )}
             />
+            )}
           </div>
         )}
 
@@ -699,10 +712,12 @@ export function ContactForm() {
             <span className="font-bold text-secondary-900 text-right">{watchCustomerType}</span>
           </div>
 
-          <div className="flex justify-between">
-            <span className="font-semibold">Property Size:</span>
-            <span className="font-bold text-secondary-900">{watchPropertyType}</span>
-          </div>
+          {!isBulk && (
+            <div className="flex justify-between">
+              <span className="font-semibold">Property Size:</span>
+              <span className="font-bold text-secondary-900">{watchPropertyType}</span>
+            </div>
+          )}
 
           <div className="flex justify-between">
             <span className="font-semibold">Delivery Speed:</span>

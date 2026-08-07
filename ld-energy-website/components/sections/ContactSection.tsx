@@ -1,6 +1,7 @@
 import { Phone, MessageCircle, Mail, CalendarCheck, ShieldCheck } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { ContactForm } from '@/components/forms/ContactForm'
+import { AssessorCard } from '@/components/ui/AssessorCard'
 import { Button } from '@/components/ui/Button'
 import { site } from '@/lib/site'
 
@@ -44,46 +45,48 @@ export function ContactSection() {
         </p>
       </div>
 
-      <div className="mt-10 grid gap-8 lg:grid-cols-12">
-        <div className="lg:col-span-5 space-y-4">
-          {methods.map((m) => (
-            <div key={m.title} className="rounded-2xl bg-canvas ring-1 ring-secondary-900/5 p-6 shadow-sm transition-all duration-200 hover:shadow-premium">
-              <div className="flex items-start gap-4">
-                <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10 shrink-0">
-                  <m.Icon className="w-5 h-5" aria-hidden="true" />
-                </span>
-                <div className="flex-1">
-                  <h3 className="text-base font-semibold text-secondary-900">{m.title}</h3>
-                  <p className="mt-0.5 text-secondary-800">{m.value}</p>
-                  <p className="text-sm text-secondary-500">{m.detail}</p>
-                  <Button
-                    href={m.cta.href}
-                    variant="secondary"
-                    size="md"
-                    className="mt-3"
-                    {...(m.cta.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  >
-                    {m.cta.label}
-                  </Button>
-                </div>
-              </div>
-            </div>
-          ))}
-          <p className="flex items-center gap-2 text-sm text-secondary-600">
-            <ShieldCheck className="w-4 h-4 text-primary-600 shrink-0" aria-hidden="true" />
-            No call-out fees · Free quote · 2-hour response (8am–8pm)
+      {/* Contact channels + credentials run full width so the booking form below
+          gets the room its own 12-column layout needs. */}
+      <div className="mt-10 grid items-start gap-4 md:grid-cols-2 xl:grid-cols-4">
+        {methods.map((m) => (
+          <div
+            key={m.title}
+            className="flex flex-col rounded-2xl bg-canvas ring-1 ring-secondary-900/5 p-5 shadow-sm transition-all duration-200 hover:shadow-premium"
+          >
+            <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-1 ring-primary-700/10 shrink-0">
+              <m.Icon className="w-5 h-5" aria-hidden="true" />
+            </span>
+            <h3 className="mt-3.5 text-base font-semibold text-secondary-900">{m.title}</h3>
+            <p className="mt-0.5 text-secondary-800 break-words">{m.value}</p>
+            <p className="text-sm text-secondary-500">{m.detail}</p>
+            <Button
+              href={m.cta.href}
+              variant="secondary"
+              size="md"
+              className="mt-3.5 w-full"
+              {...(m.cta.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              {m.cta.label}
+            </Button>
+          </div>
+        ))}
+
+        <AssessorCard className="md:col-span-2 xl:col-span-1" />
+      </div>
+
+      <p className="mt-5 flex items-center gap-2 text-sm text-secondary-600">
+        <ShieldCheck className="w-4 h-4 text-primary-600 shrink-0" aria-hidden="true" />
+        No call-out fees · Free quote · 2-hour response (8am–8pm)
+      </p>
+
+      <div className="mt-10">
+        <div className="mb-4">
+          <h3 className="text-xl font-semibold text-secondary-900">Request your free quote</h3>
+          <p className="mt-1 text-sm text-secondary-500">
+            Tell us about your property and we’ll confirm an exact price. We never share your details.
           </p>
         </div>
-
-        <div className="lg:col-span-7">
-          <div className="mb-4">
-            <h3 className="text-xl font-semibold text-secondary-900">Request your free quote</h3>
-            <p className="mt-1 text-sm text-secondary-500">
-              Tell us about your property and we’ll confirm an exact price. We never share your details.
-            </p>
-          </div>
-          <ContactForm />
-        </div>
+        <ContactForm />
       </div>
     </Section>
   )

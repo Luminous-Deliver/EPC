@@ -1,7 +1,8 @@
+import Link from 'next/link'
 import { Section } from '@/components/ui/Section'
 import { Accordion } from '@/components/ui/Accordion'
 import { Button } from '@/components/ui/Button'
-import { Phone, MessageCircle } from 'lucide-react'
+import { Phone, MessageCircle, ArrowRight } from 'lucide-react'
 import { homepageFaq } from '@/lib/faq'
 import { site } from '@/lib/site'
 
@@ -11,7 +12,7 @@ export function Faq() {
       <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
         {/* Left rail */}
         <div className="lg:col-span-4">
-          <div className="lg:sticky lg:top-24">
+          <div>
             <div className="flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-secondary-400">
               <span className="block h-px w-8 bg-secondary-300" aria-hidden="true" />
               FAQ
@@ -46,6 +47,14 @@ export function Faq() {
                 </Button>
               </div>
             </div>
+
+            <Link
+              href="/faq"
+              className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 hover:text-primary-800"
+            >
+              Read the full EPC FAQ
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
           </div>
         </div>
 
