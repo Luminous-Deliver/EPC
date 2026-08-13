@@ -254,7 +254,7 @@ export default function PricingPage() {
           <div>
             <p className="font-semibold text-primary-900">Better value together</p>
             <p className="mt-1 text-primary-900 leading-relaxed">
-              Book your EPC and professional floor plan in one visit and save up to £{formatPrice(maxBundleSaving)} compared with booking them separately. One appointment, one visit, both services completed together — we measure the property during the assessment anyway.
+              Book both services in one visit and save up to £{formatPrice(maxBundleSaving)} — one appointment, both services completed together.
             </p>
           </div>
         </div>
@@ -263,7 +263,7 @@ export default function PricingPage() {
             these into the main grid would read as six more price bands; they are
             modifiers to a quote, and most of them resolve to "we will tell you". */}
         <div className="mt-10 max-w-3xl">
-          <h3 className="text-xl font-bold text-secondary-900">Additional requirements and special cases</h3>
+          <h3 className="text-xl font-bold text-secondary-900">Additional requirements</h3>
           <p className="mt-2 text-secondary-700 leading-relaxed">
             These sit on top of the guide prices above. Anything marked &ldquo;exact quote&rdquo; is confirmed in writing before you book, never added afterwards.
           </p>

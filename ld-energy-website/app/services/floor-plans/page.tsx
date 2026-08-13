@@ -221,7 +221,7 @@ export default function FloorPlansPage() {
           <div>
             <p className="font-semibold text-primary-900">Better value together</p>
             <p className="mt-1 text-primary-900 leading-relaxed">
-              Book your EPC and professional floor plan in one visit and save up to £{formatPrice(maxBundleSaving)} compared with booking them separately. One appointment, one visit, both services completed together.
+              Book both services in one visit and save up to £{formatPrice(maxBundleSaving)} — one appointment, both services completed together.
             </p>
           </div>
         </div>
