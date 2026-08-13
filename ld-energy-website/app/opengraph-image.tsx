@@ -40,7 +40,7 @@ export default async function OpengraphImage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', fontSize: 84, fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em' }}>
             <span>Domestic EPCs</span>
-            <span>from £{priceFrom.epc}</span>
+            <span>from {`£${priceFrom.epc}`}</span>
           </div>
           <div style={{ fontSize: 32, opacity: 0.9, fontWeight: 500 }}>
             Elmhurst accredited · Next-day available · All London boroughs

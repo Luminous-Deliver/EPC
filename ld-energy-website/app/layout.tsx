@@ -219,7 +219,6 @@ const organizationSchema = {
   foundingLocation: { '@type': 'Place', name: 'Stratford, East London', address: { '@type': 'PostalAddress', addressLocality: 'Stratford', postalCode: 'E15', addressCountry: 'GB' } },
   areaServed: { '@type': 'City', name: 'London', addressCountry: 'GB' },
   serviceType: 'Energy Performance Certificate Assessment',
-  parentOrganization: { '@type': 'Organization', name: site.legalName },
   sameAs: [
     site.reviews.profileUrl,
     site.assessor.verifyUrl,

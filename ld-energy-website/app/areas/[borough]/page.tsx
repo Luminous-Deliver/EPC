@@ -259,7 +259,7 @@ export default async function BoroughPage({ params }: PageProps) {
             Floor Plans in {data.name}
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-            Selling or letting in {data.name}? We also produce professional, accurately measured floor plans, the same high-resolution plans estate agents use in sales and lettings listings. Floor plans have guide prices from £{priceFrom.floorPlan}, and <strong className="font-semibold text-secondary-900">save you up to £{formatPrice(maxBundleSaving)} when booked with an EPC</strong> in the same visit, since we measure your property anyway during the assessment.
+            Selling or letting in {data.name}? We also produce professional, accurately measured floor plans, the same high-resolution plans estate agents use in sales and lettings listings. Floor plans have guide prices from {`£${priceFrom.floorPlan}`}, and <strong className="font-semibold text-secondary-900">save you up to {`£${formatPrice(maxBundleSaving)}`} when booked with an EPC</strong> in the same visit, since we measure your property anyway during the assessment.
           </p>
           <Link
             href="/services/floor-plans"

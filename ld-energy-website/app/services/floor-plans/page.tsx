@@ -197,17 +197,17 @@ export default function FloorPlansPage() {
                     <span className="block font-bold text-secondary-900">{row.areaLabel}</span>
                     <span className="mt-0.5 block text-xs text-secondary-600">{row.typicalLabel}</span>
                   </td>
-                  <td className="px-4 py-3 text-right text-secondary-700 whitespace-nowrap">From £{row.epc}</td>
-                  <td className="px-4 py-3 text-right text-secondary-700 whitespace-nowrap">From £{row.floorPlan}</td>
+                  <td className="px-4 py-3 text-right text-secondary-700 whitespace-nowrap">From {`£${row.epc}`}</td>
+                  <td className="px-4 py-3 text-right text-secondary-700 whitespace-nowrap">From {`£${row.floorPlan}`}</td>
                   <td className="px-4 py-3 text-right bg-primary-50 whitespace-nowrap">
                     <span className="font-bold text-primary-800">
                       {row.areaMax === null && (
                         <span className="text-xs font-medium text-primary-700">From </span>
                       )}
-                      £{formatPrice(row.bundle)}
+                      {`£${formatPrice(row.bundle)}`}
                     </span>
                     <span className="block text-xs font-semibold text-primary-700">
-                      Save £{formatPrice(bundleSaving(row))}
+                      Save {`£${formatPrice(bundleSaving(row))}`}
                     </span>
                   </td>
                 </tr>
@@ -221,7 +221,7 @@ export default function FloorPlansPage() {
           <div>
             <p className="font-semibold text-primary-900">Better value together</p>
             <p className="mt-1 text-primary-900 leading-relaxed">
-              Book both services in one visit and save up to £{formatPrice(maxBundleSaving)} — one appointment, both services completed together.
+              Book both services in one visit and save up to {`£${formatPrice(maxBundleSaving)}`} — one appointment, both services completed together.
             </p>
           </div>
         </div>

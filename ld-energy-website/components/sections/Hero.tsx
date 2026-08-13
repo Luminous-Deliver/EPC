@@ -40,7 +40,7 @@ export function Hero() {
           </h1>
           <p className="mt-5 text-lg md:text-xl text-secondary-700 leading-relaxed max-w-2xl animate-fade-in-up animate-delay-200">
             Domestic EPCs and measured floor plans across all 32 boroughs. Guide prices start at{' '}
-            <span className="font-semibold text-secondary-900">£{priceFrom.epc}</span> — we confirm your exact quote before you book.
+            <span className="font-semibold text-secondary-900">{`£${priceFrom.epc}`}</span> — we confirm your exact quote before you book.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -134,7 +134,7 @@ export function Hero() {
                 <Clock className="mt-0.5 h-5 w-5 shrink-0 text-accent-600" aria-hidden="true" />
                 <span>
                   <span className="block text-sm font-bold text-secondary-900">
-                    72-hour standard, next day for £{EXPRESS_SURCHARGE}
+                    72-hour standard, next day for {`£${EXPRESS_SURCHARGE}`}
                   </span>
                   <span className="block text-sm text-secondary-600">
                     Seven days a week, 8am&ndash;8pm, evenings included.

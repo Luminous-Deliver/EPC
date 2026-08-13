@@ -703,11 +703,11 @@ export function ContactForm() {
             {!isBulk &&
               (wantsEpc && wantsFloorPlan ? (
                 <div className="text-right">
-                  <span className="text-secondary-600 line-through">£{epcPrice + floorPlanPrice}</span>
-                  <span className="font-bold text-secondary-900 block">£{epcPrice + floorPlanPrice - discount}</span>
+                  <span className="text-secondary-600 line-through">{`£${epcPrice + floorPlanPrice}`}</span>
+                  <span className="font-bold text-secondary-900 block">{`£${epcPrice + floorPlanPrice - discount}`}</span>
                 </div>
               ) : (
-                <span className="font-bold text-secondary-900">£{epcPrice + floorPlanPrice}</span>
+                <span className="font-bold text-secondary-900">{`£${epcPrice + floorPlanPrice}`}</span>
               ))}
           </div>
 
@@ -731,14 +731,14 @@ export function ContactForm() {
           {isExpress && !isBulk && (
             <div className="flex justify-between text-xs text-secondary-900">
               <span>Express Delivery Surcharge:</span>
-              <span className="font-bold">+£{EXPRESS_SURCHARGE}</span>
+              <span className="font-bold">+{`£${EXPRESS_SURCHARGE}`}</span>
             </div>
           )}
 
           {retrofitPrice > 0 && !isBulk && (
             <div className="flex justify-between text-xs text-secondary-900">
               <span>Retrofit consultation:</span>
-              <span className="font-bold">+£{retrofitPrice}</span>
+              <span className="font-bold">+{`£${retrofitPrice}`}</span>
             </div>
           )}
 
@@ -748,7 +748,7 @@ export function ContactForm() {
                 <Sparkles className="w-3.5 h-3.5" />
                 Bundle saving included:
               </span>
-              <span>-£{discount}</span>
+              <span>-{`£${discount}`}</span>
             </div>
           )}
 
@@ -758,7 +758,7 @@ export function ContactForm() {
               <span className="text-sm font-bold text-primary-700 text-right">Quoted individually</span>
             ) : (
               <span className="text-right">
-                <span className="block text-2xl font-black text-primary-700 font-display">£{total}</span>
+                <span className="block text-2xl font-black text-primary-700 font-display">{`£${total}`}</span>
                 <span className="block text-[11px] font-medium text-secondary-500">Not a final quote</span>
               </span>
             )}
@@ -842,7 +842,7 @@ export function ContactForm() {
             </a>
           </div>
           <p className="mt-3 text-xs leading-relaxed text-secondary-500">
-            No call-out fees · Free quote · 2-hour response (8am–8pm)
+            No call-out fees · Free quote · Exact price confirmed before booking
           </p>
         </div>
       </div>

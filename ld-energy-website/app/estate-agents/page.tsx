@@ -108,12 +108,17 @@ const serviceSchema = {
   serviceType: 'Energy Performance Certificate',
   name: 'EPC & Floor Plan Service for Estate and Letting Agents',
   description:
-    'Trade EPC and floor plan service for London estate and letting agents: fast turnaround on new instructions, volume rates, direct assessor contact, and certificates delivered to your branch.',
+    'Trade EPC and floor plan service for London estate and letting agents: fast turnaround on new instructions, volume rates, direct assessor contact, and the certificate link sent straight to your branch once lodged on the GOV.UK EPC Register.',
   provider: { '@id': `${site.url}/#business` },
   url: `${site.url}/estate-agents`,
   areaServed: areaServedLondon,
   audience: { '@type': 'BusinessAudience', name: 'Estate agents and letting agents' },
-  offers: { '@type': 'Offer', price: String(pricing[0].epc), priceCurrency: 'GBP', availability: 'https://schema.org/InStock' },
+  offers: {
+    '@type': 'Offer',
+    // Guide price, so minPrice — a fixed `price` would misstate the page.
+    priceSpecification: { '@type': 'PriceSpecification', minPrice: pricing[0].epc, priceCurrency: 'GBP' },
+    availability: 'https://schema.org/InStock',
+  },
 }
 
 const breadcrumbSchema = {

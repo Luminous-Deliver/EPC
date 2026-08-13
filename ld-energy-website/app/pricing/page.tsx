@@ -155,7 +155,7 @@ export default function PricingPage() {
             Guide Pricing Table
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-            Every EPC includes the on-site assessment, official lodgement on the GOV.UK EPC Register, and your certificate link sent once it is live. Next-day lodgement is £{EXPRESS_SURCHARGE} extra.
+            Every EPC includes the on-site assessment, official lodgement on the GOV.UK EPC Register, and your certificate link sent once it is live. Next-day lodgement is {`£${EXPRESS_SURCHARGE}`} extra.
           </p>
         </div>
 
@@ -212,11 +212,11 @@ export default function PricingPage() {
                     <td className="px-4 py-3.5 text-xs font-normal text-secondary-600">{row.typicalLabel}</td>
                     <td className="px-4 py-3.5 text-right whitespace-nowrap">
                       <span className="text-xs font-medium text-secondary-600">From</span>{' '}
-                      <span className="text-base font-bold text-secondary-900">£{formatPrice(row.epc)}</span>
+                      <span className="text-base font-bold text-secondary-900">{`£${formatPrice(row.epc)}`}</span>
                     </td>
                     <td className="px-4 py-3.5 text-right whitespace-nowrap">
                       <span className="text-xs font-medium text-secondary-600">From</span>{' '}
-                      <span className="text-base font-bold text-secondary-900">£{formatPrice(row.floorPlan)}</span>
+                      <span className="text-base font-bold text-secondary-900">{`£${formatPrice(row.floorPlan)}`}</span>
                     </td>
                     <td className="px-4 py-3.5 text-right bg-primary-50 whitespace-nowrap">
                       <span className="text-base font-bold text-primary-800">
@@ -225,10 +225,10 @@ export default function PricingPage() {
                         {row.areaMax === null && (
                           <span className="text-xs font-medium text-primary-700">From </span>
                         )}
-                        £{formatPrice(row.bundle)}
+                        {`£${formatPrice(row.bundle)}`}
                       </span>
                       <span className="block text-xs font-semibold text-primary-700">
-                        Save £{formatPrice(bundleSaving(row))}
+                        Save {`£${formatPrice(bundleSaving(row))}`}
                       </span>
                     </td>
                   </tr>
@@ -254,7 +254,7 @@ export default function PricingPage() {
           <div>
             <p className="font-semibold text-primary-900">Better value together</p>
             <p className="mt-1 text-primary-900 leading-relaxed">
-              Book both services in one visit and save up to £{formatPrice(maxBundleSaving)} — one appointment, both services completed together.
+              Book both services in one visit and save up to {`£${formatPrice(maxBundleSaving)}`} — one appointment, both services completed together.
             </p>
           </div>
         </div>

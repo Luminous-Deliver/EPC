@@ -157,8 +157,11 @@ const serviceSchema = {
     itemListElement: pricing.map((p) => ({
       '@type': 'Offer',
       name: `${p.label} EPC`,
-      price: String(p.epc),
-      priceCurrency: 'GBP',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: p.epc,
+        priceCurrency: 'GBP',
+      },
     })),
   },
 }

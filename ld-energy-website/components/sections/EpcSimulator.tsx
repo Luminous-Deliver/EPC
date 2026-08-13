@@ -143,7 +143,7 @@ export function EpcSimulator() {
               <div className="mt-4 p-3 bg-gradient-to-br from-primary-50 to-white ring-1 ring-primary-100 rounded-xl animate-fade-in">
                 <div className="flex justify-between items-center text-xs">
                   <span className="font-semibold text-secondary-700">Simulated Annual Savings:</span>
-                  <span className="text-sm font-extrabold text-primary-700">£{totalSavings}/yr</span>
+                  <span className="text-sm font-extrabold text-primary-700">{`£${totalSavings}`}/yr</span>
                 </div>
                 <p className="text-xs text-secondary-500 mt-1">
                   Based on standard UK fuel costs. Exact gains require an in-person assessment.

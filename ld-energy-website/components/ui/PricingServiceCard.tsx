@@ -82,12 +82,12 @@ export function PricingServiceCard({
         <p className="text-sm text-secondary-700">
           Guide prices from{' '}
           <span className="text-2xl font-bold tracking-tight text-secondary-900">
-            £{formatPrice(from)}
+            {`£${formatPrice(from)}`}
           </span>
         </p>
         {saving ? (
           <p className="mt-1 text-sm font-semibold text-accent-700">
-            Save up to £{formatPrice(saving)} against booking separately
+            Save up to {`£${formatPrice(saving)}`} against booking separately
           </p>
         ) : null}
         <p className="mt-1 text-xs text-secondary-600">Exact price confirmed before booking</p>

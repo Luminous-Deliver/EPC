@@ -122,7 +122,12 @@ const serviceSchema = {
   provider: { '@id': `${site.url}/#business` },
   url: `${site.url}/sellers`,
   areaServed: areaServedLondon,
-  offers: { '@type': 'Offer', price: String(pricing[0].epc), priceCurrency: 'GBP', availability: 'https://schema.org/InStock' },
+  offers: {
+    '@type': 'Offer',
+    // Guide price, so minPrice — a fixed `price` would misstate the page.
+    priceSpecification: { '@type': 'PriceSpecification', minPrice: pricing[0].epc, priceCurrency: 'GBP' },
+    availability: 'https://schema.org/InStock',
+  },
 }
 
 const sellerFaq: FaqItem[] = [

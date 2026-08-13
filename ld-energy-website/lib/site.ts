@@ -23,8 +23,12 @@ export const site = {
     accreditationNumber: 'EES/036265',
     scheme: 'Elmhurst Energy Systems Ltd',
     qualification: 'Domestic Energy Assessor',
-    // Official government register — the authoritative place to verify an assessor
-    verifyUrl: 'https://getting-new-energy-certificate.service.gov.uk/find-an-assessor/search-by-name',
+    // Official government register — the authoritative place to verify an assessor.
+    // Parameterised so it lands on the record itself rather than a blank form.
+    // Last verified 2026-08-13. Fallback entry point if GOV.UK moves the path:
+    // https://www.gov.uk/get-new-energy-certificate
+    verifyUrl:
+      'https://getting-new-energy-certificate.service.gov.uk/find-an-assessor/search-by-name?name=Abdul+Motaleb+Taher',
   },
   /** Add-on services quoted alongside an EPC */
   addOns: {

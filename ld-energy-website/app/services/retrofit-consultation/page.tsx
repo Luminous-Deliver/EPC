@@ -129,7 +129,7 @@ export default function RetrofitConsultationPage() {
             <p className="mt-4 text-secondary-700 leading-relaxed">
               Because we have just surveyed the property, we can talk through what genuinely applies to
               your building — not a template. It takes about 15 minutes at the end of the visit, and it
-              costs <strong className="text-secondary-900">£{site.addOns.retrofitConsult}</strong> on
+              costs <strong className="text-secondary-900">{`£${site.addOns.retrofitConsult}`}</strong> on
               top of your EPC.
             </p>
 
@@ -164,7 +164,7 @@ export default function RetrofitConsultationPage() {
                     Consultation
                   </p>
                   <p className="text-2xl font-bold text-secondary-900">
-                    £{site.addOns.retrofitConsult}
+                    {`£${site.addOns.retrofitConsult}`}
                   </p>
                 </div>
               </div>

@@ -93,13 +93,13 @@ function ResultPanel({ band }: { band: PricingBand }) {
         <div className="flex items-baseline justify-between gap-3 py-2.5">
           <dt className="text-sm text-secondary-700">EPC guide</dt>
           <dd className="text-base font-bold text-secondary-900">
-            <span className="text-xs font-medium text-secondary-600">from </span>£{formatPrice(band.epc)}
+            <span className="text-xs font-medium text-secondary-600">from </span>{`£${formatPrice(band.epc)}`}
           </dd>
         </div>
         <div className="flex items-baseline justify-between gap-3 py-2.5">
           <dt className="text-sm text-secondary-700">Floor plan guide</dt>
           <dd className="text-base font-bold text-secondary-900">
-            <span className="text-xs font-medium text-secondary-600">from </span>£{formatPrice(band.floorPlan)}
+            <span className="text-xs font-medium text-secondary-600">from </span>{`£${formatPrice(band.floorPlan)}`}
           </dd>
         </div>
         <div className="flex items-baseline justify-between gap-3 bg-accent-50/60 py-2.5">
@@ -109,10 +109,10 @@ function ResultPanel({ band }: { band: PricingBand }) {
           </dt>
           <dd className="text-right">
             <span className="text-base font-bold text-accent-700">
-              <span className="text-xs font-medium text-secondary-600">from </span>£{formatPrice(band.bundle)}
+              <span className="text-xs font-medium text-secondary-600">from </span>{`£${formatPrice(band.bundle)}`}
             </span>
             <span className="block text-xs font-semibold text-accent-700">
-              Save £{formatPrice(bundleSaving(band))}
+              Save {`£${formatPrice(bundleSaving(band))}`}
             </span>
           </dd>
         </div>
@@ -121,12 +121,12 @@ function ResultPanel({ band }: { band: PricingBand }) {
             Next-day service
             <span className="block text-xs text-secondary-600">Fixed addition to your quote</span>
           </dt>
-          <dd className="text-base font-bold text-secondary-900">+£{expressFee(band)}</dd>
+          <dd className="text-base font-bold text-secondary-900">+{`£${expressFee(band)}`}</dd>
         </div>
       </dl>
 
       <p className="mt-3 text-xs text-secondary-600">
-        Next day works out around £{formatPrice(nextDayGuide(band))} for the EPC on this size of property.
+        Next day works out around {`£${formatPrice(nextDayGuide(band))}`} for the EPC on this size of property.
       </p>
 
       <Link
