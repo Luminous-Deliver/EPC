@@ -18,7 +18,7 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { Pricing } from '@/components/sections/Pricing'
 import { CtaStrip } from '@/components/sections/CtaStrip'
-import { site } from '@/lib/site'
+import { site, pricing, priceFrom, EXPRESS_SURCHARGE } from '@/lib/site'
 import { areaServedLondon } from '@/lib/boroughs'
 import type { FaqItem } from '@/lib/faq'
 
@@ -27,18 +27,18 @@ const PATH = '/domestic-energy-assessor-london'
 export const metadata: Metadata = {
   title: 'Domestic Energy Assessor in London',
   description:
-    'Elmhurst-accredited domestic energy assessor in Stratford, covering all 32 London boroughs. Official EPC certificates from £49, next-day available.',
+    `Elmhurst-accredited domestic energy assessor in Stratford, covering all 32 London boroughs. Official EPC certificates from £${priceFrom.epc}, next-day available.`,
   alternates: { canonical: `${site.url}${PATH}` },
   openGraph: {
     title: 'Domestic Energy Assessor London | Elmhurst Accredited | L&D Energy',
     description:
-      'Elmhurst-accredited domestic energy assessor covering all 32 London boroughs. Official EPC certificates from £49, next-day service available.',
+      `Elmhurst-accredited domestic energy assessor covering all 32 London boroughs. Official EPC certificates from £${priceFrom.epc}, next-day service available.`,
     url: `${site.url}${PATH}`,
   },
   twitter: {
     title: 'Domestic Energy Assessor London | Elmhurst Accredited',
     description:
-      'Elmhurst-accredited domestic energy assessor covering all 32 London boroughs. EPCs from £49.',
+      `Elmhurst-accredited domestic energy assessor covering all 32 London boroughs. EPCs from £${priceFrom.epc}.`,
   },
 }
 
@@ -84,7 +84,7 @@ const whyLocal = [
   {
     Icon: Clock,
     title: 'Fast and flexible',
-    body: '72-hour standard delivery, or next-day for £12. Appointments 7 days a week, including evenings and weekends.',
+    body: `72-hour standard lodgement, or next-day for £${EXPRESS_SURCHARGE}. Appointments 7 days a week, including evenings and weekends.`,
   },
   {
     Icon: ShieldCheck,
@@ -104,7 +104,7 @@ const deaFaq: FaqItem[] = [
   },
   {
     q: 'How much does a domestic energy assessor charge in London?',
-    a: 'Our guide prices start from £49 for a studio and rise with property size, up to £105 for a 5+ bedroom home. These are estimates only, the final price depends on floor area (m²), extensions, and condition. There are no travel or call-out charges; properties more than about 45 minutes away add a little for the extra time, not the distance. You get a personalised quote within 2 hours of enquiring.',
+    a: `Guide prices start from £${pricing[0].epc} for properties up to 37 m² and rise with internal floor area, up to £${pricing[5].epc} for homes over 121 m². These are starting estimates — the final price depends on internal floor area (m²), extensions, layout and condition. There is no call-out or mileage charge within our normal service area, and travel beyond it is priced into the quote you receive before booking.`,
   },
   {
     q: 'Do I need an accredited assessor for an EPC?',
@@ -164,7 +164,7 @@ export default function DomesticEnergyAssessorPage() {
       <PageHero
         eyebrow="Domestic Energy Assessor"
         heading="Your Local Domestic Energy Assessor in London"
-        subheading="L&D Energy is an Elmhurst-accredited Domestic Energy Assessor (DEA) based in Stratford, East London. We produce official EPC certificates for homes across all 32 London boroughs, with guide prices from £49 and next-day appointments available."
+        subheading={`L&D Energy is an Elmhurst-accredited Domestic Energy Assessor (DEA) based in Stratford, East London. We produce official EPC certificates for homes across all 32 London boroughs, with guide prices from £${priceFrom.epc} and next-day appointments available.`}
         primaryCta={{ label: 'Book an Assessment', href: '/contact' }}
       />
 
@@ -210,7 +210,7 @@ export default function DomesticEnergyAssessorPage() {
             What a domestic energy assessor does
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-            Four steps, from first visit to certificate in your inbox.
+            Four steps, from first visit to your certificate live on the GOV.UK register.
           </p>
         </div>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -342,7 +342,7 @@ export default function DomesticEnergyAssessorPage() {
 
       <CtaStrip
         heading="Book Your London Domestic Energy Assessor"
-        body="Elmhurst-accredited, all 32 boroughs, guide prices from £49. Certificate in 72 hours or next day for £12 extra."
+        body={`Elmhurst-accredited, all 32 boroughs, guide prices from £${priceFrom.epc}. Lodged in 72 hours, or next day for £${EXPRESS_SURCHARGE} extra.`}
         primaryCta={{ label: 'Book an Assessment', href: '/contact' }}
       />
     </>

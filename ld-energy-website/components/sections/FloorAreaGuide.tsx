@@ -10,6 +10,7 @@ import {
   pricing,
   nextDayGuide,
   expressFee,
+  bundleSaving,
   formatPrice,
   type PricingBand,
   type PropertyType,
@@ -104,10 +105,15 @@ function ResultPanel({ band }: { band: PricingBand }) {
         <div className="flex items-baseline justify-between gap-3 bg-accent-50/60 py-2.5">
           <dt className="text-sm font-semibold text-secondary-900">
             Both together
-            <span className="block text-xs font-normal text-secondary-600">Better value in one visit</span>
+            <span className="block text-xs font-normal text-secondary-600">One visit, both services</span>
           </dt>
-          <dd className="text-base font-bold text-accent-700">
-            <span className="text-xs font-medium text-secondary-600">from </span>£{formatPrice(band.bundle)}
+          <dd className="text-right">
+            <span className="text-base font-bold text-accent-700">
+              <span className="text-xs font-medium text-secondary-600">from </span>£{formatPrice(band.bundle)}
+            </span>
+            <span className="block text-xs font-semibold text-accent-700">
+              Save £{formatPrice(bundleSaving(band))}
+            </span>
           </dd>
         </div>
         <div className="flex items-baseline justify-between gap-3 py-2.5">

@@ -1,8 +1,9 @@
 import { ImageResponse } from 'next/og'
 import { ogLogo } from './og-logo-data'
+import { priceFrom } from '@/lib/site'
 
 export const runtime = 'edge'
-export const alt = 'L&D Energy, Domestic EPC London from £49'
+export const alt = `L&D Energy, Domestic EPC London from £${priceFrom.epc}`
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -39,7 +40,7 @@ export default async function OpengraphImage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', fontSize: 84, fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em' }}>
             <span>Domestic EPCs</span>
-            <span>from £49</span>
+            <span>from £{priceFrom.epc}</span>
           </div>
           <div style={{ fontSize: 32, opacity: 0.9, fontWeight: 500 }}>
             Elmhurst accredited · Next-day available · All London boroughs

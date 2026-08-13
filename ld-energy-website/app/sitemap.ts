@@ -15,6 +15,7 @@ const staticRoutes: Array<{ path: string; priority: number; changeFreq: Metadata
   { path: '/pricing',                 priority: 0.8, changeFreq: 'monthly' },
   { path: '/areas',                   priority: 0.7, changeFreq: 'monthly' },
   { path: '/faq',                     priority: 0.7, changeFreq: 'monthly' },
+  { path: '/preparing-for-your-epc',  priority: 0.6, changeFreq: 'monthly' },
   { path: '/about',                   priority: 0.6, changeFreq: 'monthly' },
   { path: '/contact',                 priority: 0.8, changeFreq: 'monthly' },
   { path: '/blog',                    priority: 0.8, changeFreq: 'weekly'  },

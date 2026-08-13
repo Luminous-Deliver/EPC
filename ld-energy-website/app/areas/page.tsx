@@ -5,23 +5,23 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { boroughList } from '@/lib/boroughs'
-import { site } from '@/lib/site'
+import { site, priceFrom } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'EPC London | All 32 Boroughs Covered',
   description:
-    'Domestic EPC certificates across all 32 London boroughs. Elmhurst accredited, guide prices from £49, 72-hour turnaround. Find your borough.',
+    `Domestic EPC certificates across all 32 London boroughs. Elmhurst accredited, guide prices from £${priceFrom.epc}, lodged within 72 hours. Find your borough.`,
   alternates: { canonical: `${site.url}/areas` },
   openGraph: {
     title: 'EPC London, All Areas Covered | L&D Energy',
     description:
-      'Domestic EPC certificates across all London boroughs and surrounding areas. Elmhurst accredited, guide prices from £49, 72-hour turnaround.',
+      `Domestic EPC certificates across all London boroughs and surrounding areas. Elmhurst accredited, guide prices from £${priceFrom.epc}, lodged within 72 hours.`,
     url: `${site.url}/areas`,
   },
   twitter: {
     title: 'EPC London, All Areas Covered',
     description:
-      'Domestic EPC certificates across all London boroughs. Elmhurst accredited, guide prices from £49.',
+      `Domestic EPC certificates across all London boroughs. Elmhurst accredited, guide prices from £${priceFrom.epc}.`,
   },
 }
 
@@ -52,7 +52,7 @@ export default function AreasPage() {
       <PageHero
         eyebrow="Coverage"
         heading="EPC Certificates Across London"
-        subheading="Based in Stratford, East London, we cover all 32 London boroughs and the City of London. Transparent pricing, 7-day availability, no travel surcharges."
+        subheading="Based in Stratford, East London, we cover all 32 London boroughs and the City of London. Transparent guide pricing, 7-day availability, and your exact quote confirmed before booking."
         primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
       />
 
@@ -82,7 +82,7 @@ export default function AreasPage() {
             We're based in Stratford, East London (E15), and cover all 32 London boroughs plus the City of London. We also serve surrounding areas within a 1.5-hour radius, including parts of Essex, Kent, Hertfordshire and Surrey.
           </p>
           <p className="mt-4 text-secondary-700 leading-relaxed">
-            All prices are inclusive, there are no travel surcharges for any property within our service area. For properties outside this radius, contact us and we'll provide a tailored quote.
+            There is no call-out or mileage charge for any property within our normal service area. For properties outside it, travel time is included in the quote you receive before booking, so it is never added afterwards.
           </p>
         </div>
       </Section>

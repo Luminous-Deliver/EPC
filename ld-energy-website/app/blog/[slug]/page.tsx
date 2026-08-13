@@ -13,7 +13,7 @@ import { RelatedPosts } from '@/components/blog/RelatedPosts'
 import { getAllSlugs, getPostBySlug, getRelatedPosts } from '@/lib/blog'
 import { getCategory } from '@/lib/blog-categories'
 import { getAuthor } from '@/lib/authors'
-import { site } from '@/lib/site'
+import { site, priceFrom, EXPRESS_SURCHARGE } from '@/lib/site'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -151,7 +151,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <CTABanner
             variant="final"
             heading="Need an EPC? Book in 60 seconds."
-            body="Elmhurst-accredited assessor. Guide prices from £49. Certificate within 72 hours, or next day for £12 extra."
+            body={`Elmhurst-accredited assessor. Guide prices from £${priceFrom.epc}. Lodged within 72 hours, or next day for £${EXPRESS_SURCHARGE} extra.`}
           />
         </Container>
       </article>

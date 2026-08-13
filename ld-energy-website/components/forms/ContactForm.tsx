@@ -27,6 +27,7 @@ import {
   customerTypes,
   services as serviceOptions,
   speeds,
+  EXPRESS_SPEED,
   type ContactInput,
 } from '@/lib/validators'
 
@@ -80,17 +81,11 @@ export function ContactForm() {
 
   // Calculate live pricing
   const calculatePrice = () => {
-    const sizeMap: Record<string, string> = {
-      'Studio': 'studio',
-      '1 Bedroom': '1-bed',
-      '2 Bedroom': '2-bed',
-      '3 Bedroom': '3-bed',
-      '4 Bedroom': '4-bed',
-      '5+ Bedroom': '5-bed-plus'
-    }
-
-    const typeKey = sizeMap[watchPropertyType] || 'studio'
-    const pricingRow = pricing.find((p) => p.type === typeKey)
+    // propertyTypes is ordered to match the canonical pricing bands, so the
+    // band is found by index. A hand-maintained label->band map here was a
+    // second copy of the pricing model and could silently drift from it.
+    const bandIndex = propertyTypes.indexOf(watchPropertyType)
+    const pricingRow = pricing[bandIndex >= 0 ? bandIndex : 0]
     if (!pricingRow) {
       return { epcPrice: 0, floorPlanPrice: 0, discount: 0, speedPrice: 0, retrofitPrice: 0, total: 0 }
     }
@@ -337,7 +332,10 @@ export function ContactForm() {
             ) : (
             <div>
               <h4 className="text-lg font-bold text-secondary-900">Select Property Size</h4>
-              <p className="text-xs text-secondary-500 mt-1">Pricing depends on bedroom size. Please select the correct option.</p>
+              <p className="text-xs text-secondary-500 mt-1">
+                Pricing depends mainly on internal floor area. Bedroom count helps us estimate when
+                the exact floor area isn&apos;t known — pick the closest match.
+              </p>
 
               <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {propertyTypes.map((p) => {
@@ -355,6 +353,9 @@ export function ContactForm() {
                       )}
                     >
                       <span className="font-bold text-sm text-secondary-900">{p}</span>
+                      <span className="mt-0.5 text-[11px] leading-tight text-secondary-500">
+                        {pricing[propertyTypes.indexOf(p)]?.areaLabel}
+                      </span>
                     </button>
                   )
                 })}
@@ -477,8 +478,8 @@ export function ContactForm() {
               
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
                 {[
-                  { value: 'Standard (72 hours)', label: 'Standard Delivery', desc: 'Certificate sent within 72 hours of visit', priceBadge: 'Included' },
-                  { value: 'Express (Next day, +£12)', label: 'Express Delivery (+£12)', desc: 'Guaranteed certificate within 24 hours of visit', priceBadge: '£12 extra' },
+                  { value: 'Standard (72 hours)', label: 'Standard Delivery', desc: 'Lodged on the GOV.UK register within 72 hours of the visit', priceBadge: 'Included' },
+                  { value: EXPRESS_SPEED, label: `Express Delivery (+£${EXPRESS_SURCHARGE})`, desc: 'Lodged within 24 hours of the visit', priceBadge: `£${EXPRESS_SURCHARGE} extra` },
                 ].map((s) => {
                   const active = watchSpeed === s.value
                   return (
@@ -730,7 +731,7 @@ export function ContactForm() {
           {isExpress && !isBulk && (
             <div className="flex justify-between text-xs text-secondary-900">
               <span>Express Delivery Surcharge:</span>
-              <span className="font-bold">+£12</span>
+              <span className="font-bold">+£{EXPRESS_SURCHARGE}</span>
             </div>
           )}
 
@@ -745,20 +746,27 @@ export function ContactForm() {
             <div className="flex justify-between text-xs text-success font-semibold bg-success/5 border border-success/20 p-2 rounded-lg items-center">
               <span className="flex items-center gap-1">
                 <Sparkles className="w-3.5 h-3.5" />
-                Bundle Discount Included:
+                Bundle saving included:
               </span>
               <span>-£{discount}</span>
             </div>
           )}
 
           <div className="border-t border-secondary-100 pt-4 mt-4 flex justify-between items-baseline">
-            <span className="text-sm font-bold text-secondary-900">Total Estimate:</span>
+            <span className="text-sm font-bold text-secondary-900">Guide estimate:</span>
             {isBulk ? (
               <span className="text-sm font-bold text-primary-700 text-right">Quoted individually</span>
             ) : (
-              <span className="text-2xl font-black text-primary-700 font-display">£{total}</span>
+              <span className="text-right">
+                <span className="block text-2xl font-black text-primary-700 font-display">£{total}</span>
+                <span className="block text-[11px] font-medium text-secondary-500">Not a final quote</span>
+              </span>
             )}
           </div>
+          <p className="mt-2 text-[11px] leading-snug text-secondary-500">
+            A guide estimate based on the size you picked. We confirm your exact quote before
+            anything is booked.
+          </p>
         </div>
 
         <div className="mt-5 border-t border-secondary-100 pt-4 space-y-2">

@@ -1,8 +1,9 @@
 import { Section } from '@/components/ui/Section'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { PricingServiceCard } from '@/components/ui/PricingServiceCard'
+import { ExactQuoteStrip } from '@/components/ui/ExactQuoteStrip'
 import { FloorAreaGuide } from '@/components/sections/FloorAreaGuide'
-import { priceFrom } from '@/lib/site'
+import { priceFrom, maxBundleSaving } from '@/lib/site'
 
 /**
  * Pricing — a primary-tier section built in three layers:
@@ -22,33 +23,35 @@ export function Pricing() {
     <Section variant="muted" tier="primary" id="pricing" className="scroll-mt-20 md:scroll-mt-24">
       <SectionHeader
         tier="primary"
-        eyebrow="Guide pricing"
-        heading="Straightforward guide pricing"
-        intro="Starting prices for each service. Internal floor area is the main factor in the final figure, so we confirm your exact quote before you book — never after."
+        eyebrow="Services and guide pricing"
+        heading="What you get, and what it costs"
+        intro="An accredited assessor, an officially lodged certificate, and a price agreed with you before the visit is booked. Internal floor area is the main factor in the final figure."
       />
 
       <div className="mt-8 grid gap-5 md:grid-cols-3">
         <PricingServiceCard
           title="Domestic EPC"
           from={priceFrom.epc}
-          positioning="For selling, letting, or meeting MEES compliance."
+          positioning="A full on-site assessment, lodged on the official GOV.UK EPC Register."
           inclusions={[
-            'Accredited assessor visit and full assessment',
-            'Lodged on the official GOV.UK EPC register within 72 hours',
-            'Certificate link sent once live — valid 10 years',
-            'Improvement recommendations included',
+            'Carried out by an accredited Domestic Energy Assessor',
+            'Standard lodgement within 72 hours, next day available',
+            'Certificate link sent as soon as it is live on the register',
+            'Improvement recommendations included, valid 10 years',
           ]}
           href="/contact"
         />
         <PricingServiceCard
           title="EPC + Floor Plan"
           from={priceFrom.bundle}
-          positioning="Everything a listing needs, measured in a single visit."
+          saving={maxBundleSaving}
+          positioning="Both surveys completed in one property visit, so a listing has everything it needs."
           inclusions={[
             'Everything in the Domestic EPC',
-            'Laser-measured 2D plan to Rightmove & Zoopla spec',
-            'Total area, room dimensions, compass point, floor labels',
-            'Floor plan supplied as JPG & PDF — one visit for both',
+            'Laser-measured 2D floor plan to Rightmove and Zoopla spec',
+            'Total floor area, room dimensions, compass point, floor labels',
+            'Supplied as high-resolution JPG and PDF',
+            'Built for landlords, sellers and letting agents',
           ]}
           href="/contact"
           emphasis
@@ -57,16 +60,18 @@ export function Pricing() {
         <PricingServiceCard
           title="Floor Plan only"
           from={priceFrom.floorPlan}
-          positioning="For marketing a property that already has a valid EPC."
+          positioning="A professional measured plan for a property that already has a valid EPC."
           inclusions={[
-            'Laser-measured 2D plan, drawn to portal spec',
-            'Total area, room dimensions, compass point, floor labels',
-            'Supplied as high-resolution JPG & PDF files',
+            'Laser-measured on site, drawn to portal specification',
+            'Total floor area, room dimensions, compass point, floor labels',
+            'High-resolution JPG and PDF supplied',
             'Ready for Rightmove, Zoopla and OnTheMarket',
           ]}
           href="/contact"
         />
       </div>
+
+      <ExactQuoteStrip />
 
       <FloorAreaGuide />
     </Section>

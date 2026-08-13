@@ -8,7 +8,7 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { Pricing } from '@/components/sections/Pricing'
 import { CtaStrip } from '@/components/sections/CtaStrip'
-import { site, pricing } from '@/lib/site'
+import { site, pricing, EXPRESS_SURCHARGE } from '@/lib/site'
 import { areaServedLondon } from '@/lib/boroughs'
 import type { FaqItem } from '@/lib/faq'
 
@@ -72,7 +72,7 @@ const process = [
   { step: 'Send the instruction', detail: 'Address, property size, and the occupier’s contact details, by phone, WhatsApp, or email.' },
   { step: 'We arrange access', detail: 'We contact the vendor or tenant directly and confirm the appointment within 2 hours during business hours.' },
   { step: 'Assessment done', detail: '45 minutes to 2 hours on-site, evenings and weekends included.' },
-  { step: 'Certificate delivered', detail: 'Lodged on the register and emailed to your branch within 72 hours, or next day for urgent listings.' },
+  { step: 'Certificate lodged', detail: 'Lodged on the GOV.UK EPC register within 72 hours, or next day for urgent listings, with the certificate link sent to your branch once live.' },
 ]
 
 const agentFaq: FaqItem[] = [
@@ -82,7 +82,7 @@ const agentFaq: FaqItem[] = [
   },
   {
     q: 'What are your rates for agents?',
-    a: `Guide prices start from £${pricing[0].epc} per EPC, and agencies sending regular instructions get volume pricing below our standard rates. Floor plans are discounted when booked with an EPC in the same visit. Contact us with your typical monthly volume for a tailored rate card.`,
+    a: `Guide prices start from £${pricing[0].epc} per EPC, and agencies sending regular instructions get volume pricing below our standard rates. Floor plans are better value when booked with an EPC in the same visit. Contact us with your typical monthly volume for a tailored rate card.`,
   },
   {
     q: 'How quickly can you assess a new instruction?',
@@ -229,7 +229,7 @@ export default function EstateAgentsPage() {
                 'Official EPC lodged on the government register',
                 'Professional floor plan, discounted with an EPC',
                 'High-resolution files sized for Rightmove and Zoopla',
-                'Next-day option for urgent instructions (+£12)',
+                `Next-day option for urgent instructions (+£${EXPRESS_SURCHARGE})`,
                 'Evening and weekend access appointments',
                 'One supplier for all 32 boroughs, no travel charges',
               ].map((item) => (

@@ -1,7 +1,7 @@
 import { Star, ShieldCheck, MapPin, Clock, ArrowRight } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { AssessorCard } from '@/components/ui/AssessorCard'
-import { site } from '@/lib/site'
+import { site, EXPRESS_SURCHARGE } from '@/lib/site'
 
 const GOOGLE_REVIEWS_URL = site.reviews.profileUrl
 const GOOGLE_WRITE_REVIEW_URL = site.reviews.writeUrl
@@ -9,7 +9,7 @@ const GOOGLE_WRITE_REVIEW_URL = site.reviews.writeUrl
 const proofPoints = [
   { Icon: ShieldCheck, value: 'Elmhurst Accredited', label: `Assessor ${site.assessor.accreditationNumber}` },
   { Icon: MapPin, value: 'All 32 Boroughs', label: 'Plus a 1.5-hour radius' },
-  { Icon: Clock, value: '72-Hour Standard', label: 'Next-day for £12 extra' },
+  { Icon: Clock, value: '72-Hour Standard', label: `Next-day for £${EXPRESS_SURCHARGE} extra` },
   { Icon: Star, value: '7 Days a Week', label: '8am–8pm, evenings too' },
 ]
 

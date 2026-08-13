@@ -46,29 +46,39 @@ export function HowItWorks() {
             Three steps, no chasing
           </h2>
           <p className="mt-4 text-lg leading-relaxed" style={{ color: 'rgba(214,225,240,0.65)' }}>
-            From first contact to certificate in your inbox — you always know what happens next.
+            From first contact to your certificate live on the GOV.UK register — you always know what happens next.
           </p>
         </div>
 
-        <ol className="relative mt-10 grid gap-6 md:grid-cols-3">
-          {/* Connector line — reads as movement 1 → 2 → 3 rather than three stages */}
+        <ol className="relative mt-10 grid gap-8 md:grid-cols-3 md:gap-6">
+          {/*
+            Connector reads as movement 1 → 2 → 3 rather than three stages.
+
+            It can only exist because the markers sit on their own row above the
+            headings. The previous layout put each marker beside its heading, so
+            a horizontal rule at marker height necessarily struck through the
+            titles. Here the marker band contains nothing but markers, and each
+            marker carries a 4px ring in the section background colour so the
+            line terminates cleanly at the circle rather than passing through it.
+
+            Desktop only: stacked into one column the same line would run down
+            through the body copy, and no connector reads better than that.
+          */}
           <div
-            className="pointer-events-none absolute left-4 top-4 bottom-4 hidden w-px md:left-0 md:right-0 md:top-4 md:bottom-auto md:h-px md:w-auto md:block"
+            className="pointer-events-none absolute inset-x-0 top-[18px] hidden h-px md:block"
             style={{ background: 'linear-gradient(to right, transparent, rgba(149,191,173,0.35) 12%, rgba(149,191,173,0.35) 88%, transparent)' }}
             aria-hidden="true"
           />
           {steps.map((step, i) => (
             <li key={step.title} className="relative">
-              <div className="flex items-center gap-3">
-                <span
-                  className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold"
-                  style={{ background: '#95BFAD', color: '#0D1B33', boxShadow: '0 0 0 4px #0D1B33' }}
-                >
-                  {i + 1}
-                </span>
-                <h3 className="text-lg font-semibold text-white md:text-xl">{step.title}</h3>
-              </div>
-              <p className="mt-2.5 text-sm leading-relaxed md:pl-11" style={{ color: 'rgba(214,225,240,0.65)' }}>
+              <span
+                className="relative z-10 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+                style={{ background: '#95BFAD', color: '#0D1B33', boxShadow: '0 0 0 4px #0D1B33' }}
+              >
+                {i + 1}
+              </span>
+              <h3 className="mt-4 text-lg font-semibold text-white md:text-xl">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(214,225,240,0.65)' }}>
                 {step.body}
               </p>
             </li>

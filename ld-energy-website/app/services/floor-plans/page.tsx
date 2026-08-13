@@ -6,23 +6,21 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { StepList } from '@/components/ui/StepList'
 import { PageHero } from '@/components/sections/PageHero'
 import { CtaStrip } from '@/components/sections/CtaStrip'
-import { pricing, formatPrice } from '@/lib/site'
+import { pricing, formatPrice, bundleSaving, maxBundleSaving, priceFrom } from '@/lib/site'
 import { site } from '@/lib/site'
 import { areaServedLondon } from '@/lib/boroughs'
 
 export const metadata: Metadata = {
-  title: 'Property Floor Plans London | From £49',
-  description:
-    'Professional property floor plans across London. Accurately measured, high-resolution files for estate agents. Guide prices from £49, with discounted bundle pricing when booked alongside an EPC.',
+  title: `Property Floor Plans London | From £${priceFrom.floorPlan}`,
+  description: `Professional property floor plans across London. Laser-measured, high-resolution files for estate agents. Guide prices from £${priceFrom.floorPlan}, better value when booked alongside an EPC.`,
   alternates: { canonical: `${site.url}/services/floor-plans` },
   openGraph: {
-    title: 'Property Floor Plans London | From £49 | L&D Energy',
-    description:
-      'Professional property floor plans across London. Accurately measured, high-resolution files for estate agents and property marketing. Discounted bundle pricing when booked alongside an EPC.',
+    title: `Property Floor Plans London | From £${priceFrom.floorPlan} | L&D Energy`,
+    description: `Professional property floor plans across London. Laser-measured, high-resolution files for estate agents and property marketing. Better value when booked alongside an EPC.`,
     url: `${site.url}/services/floor-plans`,
   },
   twitter: {
-    title: 'Property Floor Plans London | From £49',
+    title: `Property Floor Plans London | From £${priceFrom.floorPlan}`,
     description:
       'Professional property floor plans across London. High-resolution files for estate agents. Better value bundled with an EPC.',
   },
@@ -78,9 +76,12 @@ const serviceSchema = {
     name: 'Floor Plan Pricing',
     itemListElement: pricing.map((p) => ({
       '@type': 'Offer',
-      name: `${p.label} Floor Plan`,
-      price: String(p.floorPlan),
-      priceCurrency: 'GBP',
+      name: `Floor plan, ${p.areaLabel} (${p.typicalLabel})`,
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: p.floorPlan,
+        priceCurrency: 'GBP',
+      },
     })),
   },
 }
@@ -107,7 +108,7 @@ export default function FloorPlansPage() {
       <PageHero
         eyebrow="Floor Plans"
         heading="Professional Property Floor Plans"
-        subheading="Accurate, professionally measured floor plans for property marketing. Guide prices from £49 — better value when booked together with an EPC in the same visit."
+        subheading={`Laser-measured floor plans for property marketing. Guide prices from £${priceFrom.floorPlan} — save up to £${maxBundleSaving} when booked together with an EPC in the same visit.`}
         primaryCta={{ label: 'Get Your Floor Plan', href: '/contact' }}
       />
 
@@ -196,10 +197,18 @@ export default function FloorPlansPage() {
                     <span className="block font-bold text-secondary-900">{row.areaLabel}</span>
                     <span className="mt-0.5 block text-xs text-secondary-600">{row.typicalLabel}</span>
                   </td>
-                  <td className="px-4 py-3 text-right text-secondary-700">£{row.epc}</td>
-                  <td className="px-4 py-3 text-right text-secondary-700">£{row.floorPlan}</td>
-                  <td className="px-4 py-3 text-right font-bold text-primary-800 bg-primary-50">
-                    £{formatPrice(row.bundle)}
+                  <td className="px-4 py-3 text-right text-secondary-700 whitespace-nowrap">From £{row.epc}</td>
+                  <td className="px-4 py-3 text-right text-secondary-700 whitespace-nowrap">From £{row.floorPlan}</td>
+                  <td className="px-4 py-3 text-right bg-primary-50 whitespace-nowrap">
+                    <span className="font-bold text-primary-800">
+                      {row.areaMax === null && (
+                        <span className="text-xs font-medium text-primary-700">From </span>
+                      )}
+                      £{formatPrice(row.bundle)}
+                    </span>
+                    <span className="block text-xs font-semibold text-primary-700">
+                      Save £{formatPrice(bundleSaving(row))}
+                    </span>
                   </td>
                 </tr>
               ))}
@@ -209,10 +218,12 @@ export default function FloorPlansPage() {
 
         <div className="mt-8 rounded-xl bg-primary-50 border border-primary-200 p-6 flex items-start gap-4">
           <Sparkles className="w-6 h-6 text-primary-700 shrink-0 mt-0.5" aria-hidden="true" />
-          <p className="text-primary-900 font-medium">
-            Better value together: one visit covers both the EPC survey and the floor plan measurements,
-            so booking them at the same time costs less than booking them separately.
-          </p>
+          <div>
+            <p className="font-semibold text-primary-900">Better value together</p>
+            <p className="mt-1 text-primary-900 leading-relaxed">
+              Book your EPC and professional floor plan in one visit and save up to £{formatPrice(maxBundleSaving)} compared with booking them separately. One appointment, one visit, both services completed together.
+            </p>
+          </div>
         </div>
       </Section>
 

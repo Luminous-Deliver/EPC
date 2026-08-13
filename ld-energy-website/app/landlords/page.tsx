@@ -8,19 +8,19 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { Pricing } from '@/components/sections/Pricing'
 import { CtaStrip } from '@/components/sections/CtaStrip'
-import { site, pricing } from '@/lib/site'
+import { site, pricing, priceFrom } from '@/lib/site'
 import { areaServedLondon } from '@/lib/boroughs'
 import type { FaqItem } from '@/lib/faq'
 
 export const metadata: Metadata = {
   title: 'EPC for Landlords London | MEES Compliance',
   description:
-    'EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Fast turnaround, guide prices from £49.',
+    `EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Guide prices from £${priceFrom.epc}, exact quote before booking.`,
   alternates: { canonical: `${site.url}/landlords` },
   openGraph: {
     title: 'EPC for Landlords London | MEES Compliance | L&D Energy',
     description:
-      'EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Fast turnaround, guide prices from £49. Portfolio discounts available.',
+      `EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Guide prices from £${priceFrom.epc}. Portfolio rates available.`,
     url: `${site.url}/landlords`,
   },
   twitter: {

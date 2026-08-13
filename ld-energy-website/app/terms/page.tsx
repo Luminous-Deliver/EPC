@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { LegalPage } from '@/components/ui/LegalPage'
-import { site } from '@/lib/site'
+import { site, EXPRESS_SURCHARGE } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
@@ -61,7 +61,7 @@ export default function TermsPage() {
 
       <h2>2. Booking and pricing</h2>
       <p>
-        Prices are fixed by property type and shown on our pricing page. The price quoted at booking is the price you pay, there are no travel surcharges within our service area. Express (next-day) service is available for £12 extra per EPC.
+        Prices shown on our pricing page are guide estimates based mainly on internal floor area (m²), not fixed quotes. We confirm your exact price before the booking is accepted, and that confirmed price is the price you pay. There is no call-out or mileage charge within our normal service area; travel beyond it is included in the quote before booking. Express (next-day) service is available for £{EXPRESS_SURCHARGE} extra per EPC.
       </p>
       <p>
         Bookings are confirmed once we reply with a confirmed appointment time. We may decline bookings for properties outside our service area or where we cannot deliver the agreed turnaround.

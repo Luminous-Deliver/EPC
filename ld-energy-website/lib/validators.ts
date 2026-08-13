@@ -1,4 +1,12 @@
 import { z } from 'zod'
+import { EXPRESS_SURCHARGE } from '@/lib/site'
+
+/**
+ * Familiar bedroom references, in the SAME ORDER as the canonical pricing
+ * bands in lib/site.ts. The form maps by index, so the two lists must stay
+ * aligned — floor area is the real driver, this is the input customers can
+ * answer without measuring anything.
+ */
 
 export const propertyTypes = [
   'Studio',
@@ -10,7 +18,7 @@ export const propertyTypes = [
 ] as const
 
 /**
- * Service options. "Both (Bundle)" is the discounted pairing and only applies
+ * Service options. "Both (Bundle)" is the better-value pairing and only applies
  * when the EPC and floor plan are for the SAME property — selecting EPC and
  * Floor Plan together in the form resolves to this automatically.
  */
@@ -29,7 +37,13 @@ export const customerTypes = [
   'Letting agent / firm',
 ] as const
 
-export const speeds = ['Standard (72 hours)', 'Express (Next day, +£12)'] as const
+/**
+ * Derived from the canonical surcharge so the stored enquiry value, the form
+ * label and the pricing page can never disagree about the express price.
+ * EXPRESS_SURCHARGE is a literal type, so this keeps a literal string type too.
+ */
+export const EXPRESS_SPEED = `Express (Next day, +£${EXPRESS_SURCHARGE})` as const
+export const speeds = ['Standard (72 hours)', EXPRESS_SPEED] as const
 
 export const ukPostcodeRegex = /^[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i
 

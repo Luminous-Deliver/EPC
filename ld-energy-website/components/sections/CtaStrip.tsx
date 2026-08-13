@@ -17,11 +17,14 @@ export function CtaStrip({
   return (
     <Section variant="primary">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        <div>
+        <div className="min-w-0">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">{heading}</h2>
           {body && <p className="mt-3 text-lg text-primary-100">{body}</p>}
         </div>
-        <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+        {/* Three shrink-0 buttons plus the heading do not fit on one line in the
+            md band (768–1023), which pushed the row past the viewport. Stack the
+            buttons there and go horizontal again once there is room at lg. */}
+        <div className="flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row shrink-0">
           <Button href={primaryCta.href} variant="accent" size="lg">
             {primaryCta.label}
           </Button>

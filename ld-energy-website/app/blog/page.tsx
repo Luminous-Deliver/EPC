@@ -7,7 +7,7 @@ import { CtaStrip } from '@/components/sections/CtaStrip'
 import { PostCard } from '@/components/blog/PostCard'
 import { getAllPosts, getFeaturedPosts } from '@/lib/blog'
 import { categories } from '@/lib/blog-categories'
-import { site } from '@/lib/site'
+import { site, priceFrom } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'EPC Guides for London Homeowners & Landlords',
@@ -156,7 +156,7 @@ export default async function BlogIndexPage() {
 
       <CtaStrip
         heading="Need an EPC? Book in 60 seconds."
-        body="Elmhurst-accredited assessor. Guide prices from £49. Certificate within 72 hours."
+        body={`Elmhurst-accredited assessor. Guide prices from £${priceFrom.epc}. Lodged within 72 hours.`}
         primaryCta={{ label: 'Book Now', href: '/contact' }}
       />
     </>

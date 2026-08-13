@@ -10,7 +10,7 @@ import { CtaStrip } from '@/components/sections/CtaStrip'
 import { Accordion } from '@/components/ui/Accordion'
 import { ContactSection } from '@/components/sections/ContactSection'
 import { boroughMeta } from '@/lib/boroughs'
-import { site, pricing } from '@/lib/site'
+import { site, pricing, priceFrom, formatPrice, maxBundleSaving, EXPRESS_SURCHARGE } from '@/lib/site'
 import type { FaqItem } from '@/lib/faq'
 
 interface PageProps {
@@ -28,16 +28,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: { absolute: data.metaTitle },
-    description: `Domestic EPC certificate in ${data.name} from £49. Elmhurst-accredited assessor, next-day available, no travel surcharges. Floor plans too. Book today.`,
+    description: `Domestic EPC certificate in ${data.name} from £${priceFrom.epc}. Elmhurst-accredited assessor, next-day available, exact quote before booking. Floor plans too.`,
     alternates: { canonical: `${site.url}/areas/${slug}` },
     openGraph: {
-      title: `EPC in ${data.name} | From £49 | L&D Energy`,
-      description: `Domestic EPC certificate in ${data.name} from £49. Next-day service available, no travel surcharges.`,
+      title: `EPC in ${data.name} | From £${priceFrom.epc} | L&D Energy`,
+      description: `Domestic EPC certificate in ${data.name} from £${priceFrom.epc}. Next-day service available, exact quote before booking.`,
       url: `${site.url}/areas/${slug}`,
     },
     twitter: {
-      title: `EPC in ${data.name} | From £49 | L&D Energy`,
-      description: `Domestic EPC certificate in ${data.name} from £49. Next-day service available.`,
+      title: `EPC in ${data.name} | From £${priceFrom.epc} | L&D Energy`,
+      description: `Domestic EPC certificate in ${data.name} from £${priceFrom.epc}. Next-day service available.`,
     },
   }
 }
@@ -47,11 +47,11 @@ function boroughFaq(name: string, postcodeFaq: { q: string; a: string }): FaqIte
     { q: postcodeFaq.q, a: postcodeFaq.a },
     {
       q: `How much does an EPC cost in ${name}?`,
-      a: `Our guide EPC prices in ${name} start from £${pricing[0].epc} for studios, £${pricing[1].epc} for 1-bedroom, £${pricing[2].epc} for 2-bedroom, £${pricing[3].epc} for 3-bedroom, £${pricing[4].epc} for 4-bedroom, and £${pricing[5].epc}+ for 5+ bedroom homes. Final price depends on floor area (m²) and property condition. Next-day service is available for £12 extra. No travel surcharges.`,
+      a: `Guide EPC prices in ${name} start from £${pricing[0].epc} for properties up to 37 m² and rise with internal floor area, up to £${pricing[5].epc} for homes over 121 m². Internal floor area (m²) is the main factor, alongside extensions, layout and condition, and your exact quote is confirmed before booking. Next-day lodgement is available for £${EXPRESS_SURCHARGE} extra.`,
     },
     {
       q: `How quickly can I get an EPC in ${name}?`,
-      a: `Standard delivery is within 72 hours of the assessment. For urgent requirements, our next-day service guarantees your certificate within 24 hours for an additional £12. We offer appointments 7 days a week, including evenings.`,
+      a: `Standard lodgement is within 72 hours of the assessment. For urgent requirements, our next-day service lodges your certificate within 24 hours for an additional £${EXPRESS_SURCHARGE}. We offer appointments 7 days a week, including evenings.`,
     },
     {
       q: `Do I need an EPC to let my property in ${name}?`,
@@ -63,7 +63,7 @@ function boroughFaq(name: string, postcodeFaq: { q: string; a: string }): FaqIte
     },
     {
       q: `Do you also provide floor plans in ${name}?`,
-      a: `Yes. We produce professional, accurately measured floor plans for properties in ${name}, ideal for sales listings and lettings marketing. Floor plans have guide prices from £${pricing[0].floorPlan}, and cost less when booked together with an EPC in the same visit.`,
+      a: `Yes. We produce laser-measured floor plans for properties in ${name}, ideal for sales listings and lettings marketing. Floor plans have guide prices from £${priceFrom.floorPlan}, and save you up to £${maxBundleSaving} when booked together with an EPC in the same visit.`,
     },
   ]
 }
@@ -71,8 +71,8 @@ function boroughFaq(name: string, postcodeFaq: { q: string; a: string }): FaqIte
 const sellingPoints = [
   'Local assessor with rapid response times',
   'Appointments 7 days a week, including evenings',
-  'Transparent pricing, no travel surcharges',
-  'Certificate within 72 hours, or next day for £12 extra',
+  'Transparent guide pricing, with your exact quote confirmed before booking',
+  `Lodged within 72 hours, or next day for £${EXPRESS_SURCHARGE} extra`,
 ]
 
 export default async function BoroughPage({ params }: PageProps) {
@@ -192,7 +192,7 @@ export default async function BoroughPage({ params }: PageProps) {
       <PageHero
         eyebrow={`EPC Certificates · ${data.name}`}
         heading={`EPC Certificates in ${data.name}`}
-        subheading={`Local Elmhurst-accredited Domestic Energy Assessor covering ${data.name} and surrounding areas. Guide prices from £49. Certificate within 72 hours.`}
+        subheading={`Local Elmhurst-accredited Domestic Energy Assessor covering ${data.name} and surrounding areas. Guide prices from £${priceFrom.epc}, with your exact quote confirmed before booking. Lodged within 72 hours.`}
         primaryCta={{ label: `Book Your ${data.name} EPC`, href: '#contact' }}
         secondaryCta={{ label: `Call ${site.phone}`, href: site.phoneHref }}
       />
@@ -243,7 +243,7 @@ export default async function BoroughPage({ params }: PageProps) {
           {sellingPoints.map((point) => (
             <li key={point} className="flex items-start gap-3 text-secondary-700">
               <CheckCircle2 className="w-5 h-5 text-primary-600 shrink-0 mt-0.5" aria-hidden="true" />
-              <span>{point.replace('no travel surcharges', `no travel surcharges for ${data.name}`)}</span>
+              <span>{point}</span>
             </li>
           ))}
         </ul>
@@ -259,11 +259,11 @@ export default async function BoroughPage({ params }: PageProps) {
             Floor Plans in {data.name}
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-            Selling or letting in {data.name}? We also produce professional, accurately measured floor plans, the same high-resolution plans estate agents use in sales and lettings listings. Floor plans have guide prices from £{pricing[0].floorPlan}, and are <strong className="font-semibold text-secondary-900">better value when booked with an EPC</strong> in the same visit, since we measure your property anyway during the assessment.
+            Selling or letting in {data.name}? We also produce professional, accurately measured floor plans, the same high-resolution plans estate agents use in sales and lettings listings. Floor plans have guide prices from £{priceFrom.floorPlan}, and <strong className="font-semibold text-secondary-900">save you up to £{formatPrice(maxBundleSaving)} when booked with an EPC</strong> in the same visit, since we measure your property anyway during the assessment.
           </p>
           <Link
             href="/services/floor-plans"
-            className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 transition-colors hover:text-primary-800"
+            className="mt-6 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-primary-700 transition-colors hover:text-primary-800"
           >
             Learn more about our floor plans
             <span aria-hidden="true">→</span>

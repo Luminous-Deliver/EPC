@@ -5,6 +5,7 @@ import { SocialProof } from '@/components/sections/SocialProof'
 import { WhatIsEpc } from '@/components/sections/WhatIsEpc'
 import { Pricing } from '@/components/sections/Pricing'
 import { HowItWorks } from '@/components/sections/HowItWorks'
+import { PrepPreview } from '@/components/sections/PrepPreview'
 import { CtaBand } from '@/components/sections/CtaBand'
 import { ServicesOverview } from '@/components/sections/ServicesOverview'
 import { WhoWeHelp } from '@/components/sections/WhoWeHelp'
@@ -13,33 +14,30 @@ import { Coverage } from '@/components/sections/Coverage'
 import { FromTheBlog } from '@/components/sections/FromTheBlog'
 import { Faq } from '@/components/sections/Faq'
 import { ContactSection } from '@/components/sections/ContactSection'
-import { site } from '@/lib/site'
+import { site, pricing, priceFrom, EXPRESS_SURCHARGE } from '@/lib/site'
 import { homepageFaqFeatured } from '@/lib/faq'
 
 export const metadata: Metadata = {
-  title: { absolute: 'EPC London from £49 | Elmhurst Accredited | L&D Energy' },
-  description:
-    'Fast EPC certificates across all 32 London boroughs. Elmhurst-accredited assessor, from £49, ready within 72 hours, next-day available. Book today.',
+  title: { absolute: `EPC London from £${priceFrom.epc} | Elmhurst Accredited | L&D Energy` },
+  description: `Official EPC certificates across all 32 London boroughs. Elmhurst-accredited assessor, guide prices from £${priceFrom.epc}, lodged within 72 hours, next-day available. Exact quote before booking.`,
   keywords: [
     'EPC London',
     'domestic EPC',
     'energy performance certificate London',
     'EPC certificate',
     'EPC assessor London',
-    'cheap EPC London',
-    'same day EPC London',
+    'EPC and floor plan London',
+    'next day EPC London',
   ],
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Domestic EPC London | From £49 | Elmhurst Accredited | L&D Energy',
-    description:
-      'Fast, affordable EPC certificates across all London boroughs. Elmhurst accredited DEA. Guide prices from £49, certificate within 72 hours, next-day service available.',
+    title: `Domestic EPC London | From £${priceFrom.epc} | Elmhurst Accredited | L&D Energy`,
+    description: `Official EPC certificates across all London boroughs. Elmhurst accredited DEA. Guide prices from £${priceFrom.epc}, lodged within 72 hours, next-day service available.`,
     url: site.url,
   },
   twitter: {
-    title: 'Domestic EPC London | From £49 | Elmhurst Accredited',
-    description:
-      'Fast, affordable EPC certificates across all London boroughs. Guide prices from £49. Book your EPC today.',
+    title: `Domestic EPC London | From £${priceFrom.epc} | Elmhurst Accredited`,
+    description: `Official EPC certificates across all London boroughs. Guide prices from £${priceFrom.epc}, exact quote confirmed before booking.`,
   },
 }
 
@@ -82,7 +80,7 @@ export default function HomePage() {
       <section aria-label="Page summary" className="sr-only">
         <h2>About L&amp;D Energy</h2>
         <p>
-          L&amp;D Energy is an Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. We provide official Energy Performance Certificates (EPCs) and floor plans for residential properties across all London boroughs. Standard turnaround is 72 hours; next-day service available for £12 extra. Guide prices start at £49 for studios and £105 for 5+ bedroom homes. All EPCs are lodged on the UK government&rsquo;s official EPC Register. We work with homeowners, landlords, and estate and letting agents, and are currently taking on new agency clients. Contact: 07492 575 396 or contact@luminousanddeliver.co.uk.
+          L&amp;D Energy is an Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. We provide official Energy Performance Certificates (EPCs) and professional floor plans for residential properties across all London boroughs. EPCs are lodged on the UK government&rsquo;s official GOV.UK EPC Register within 72 hours as standard, and the certificate link is sent once it is live; next-day lodgement is available for £{EXPRESS_SURCHARGE} extra. Guide prices start at £{priceFrom.epc} for properties up to 37 m² and £{pricing[5].epc} for homes over 121 m², with the exact quote confirmed before booking. Internal floor area is the main pricing factor. We work with homeowners, landlords, and estate and letting agents, and are currently taking on new agency clients. Contact: {site.phone} or {site.email}.
         </p>
       </section>
       <TrustBar />
@@ -90,6 +88,7 @@ export default function HomePage() {
       <Pricing />
       <CtaBand />
       <HowItWorks />
+      <PrepPreview />
       <WhatIsEpc />
       <ServicesOverview />
       <WhoWeHelp />

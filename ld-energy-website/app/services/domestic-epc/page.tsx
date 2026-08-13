@@ -9,24 +9,22 @@ import { PageHero } from '@/components/sections/PageHero'
 import { Pricing } from '@/components/sections/Pricing'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { Faq } from '@/components/sections/Faq'
-import { site, pricing } from '@/lib/site'
+import { site, pricing, priceFrom, EXPRESS_SURCHARGE } from '@/lib/site'
 import { areaServedLondon } from '@/lib/boroughs'
 import type { FaqItem } from '@/lib/faq'
 import { Accordion } from '@/components/ui/Accordion'
 
 export const metadata: Metadata = {
-  title: 'Domestic EPC London | From £49 | Next-Day',
-  description:
-    'Domestic EPC certificate in London from £49. Elmhurst-accredited assessor, next-day available, 72-hour standard delivery. Book your EPC online today.',
+  title: `Domestic EPC London | From £${priceFrom.epc} | Next-Day`,
+  description: `Domestic EPC certificate in London from £${priceFrom.epc}. Elmhurst-accredited assessor, next-day available, 72-hour standard lodgement. Exact quote before booking.`,
   alternates: { canonical: `${site.url}/services/domestic-epc` },
   openGraph: {
-    title: 'Domestic EPC Certificate London | From £49 | L&D Energy',
-    description:
-      'Get your domestic EPC certificate in London from £49. Elmhurst accredited assessor, 72-hour standard delivery, next-day available. Required for selling or renting your home.',
+    title: `Domestic EPC Certificate London | From £${priceFrom.epc} | L&D Energy`,
+    description: `Get your domestic EPC certificate in London from £${priceFrom.epc}. Elmhurst accredited assessor, 72-hour standard lodgement, next-day available. Required for selling or renting your home.`,
     url: `${site.url}/services/domestic-epc`,
   },
   twitter: {
-    title: 'Domestic EPC Certificate London | From £49',
+    title: `Domestic EPC Certificate London | From £${priceFrom.epc}`,
     description:
       'Elmhurst accredited assessor, 72-hour standard delivery, next-day available. Required for selling or renting.',
   },
@@ -90,7 +88,7 @@ const process = [
   },
   {
     title: 'Certificate delivered',
-    body: 'Lodged on the government EPC register and emailed to you within 72 hours (or next day if express).',
+    body: 'Lodged on the official GOV.UK EPC register within 72 hours (or next day if express), with your certificate link sent once it is live.',
   },
 ]
 
@@ -113,11 +111,11 @@ const assessed = [
 const serviceFaq: FaqItem[] = [
   {
     q: 'How much does a domestic EPC cost in London?',
-    a: `Our guide prices start from £${pricing[0].epc} for a studio and go up to £${pricing[5].epc}+ for 5+ bedroom properties. The final price depends on floor area (m²), extensions, and condition. Request a personalised quote for an exact figure.`,
+    a: `Guide prices start from £${pricing[0].epc} for properties up to 37 m² and rise with internal floor area, up to £${pricing[5].epc} for homes over 121 m². Internal floor area (m²) is the main factor, alongside extensions, layout and condition. Your exact quote is confirmed before booking.`,
   },
   {
     q: 'Can I get a next-day EPC?',
-    a: 'Yes. Add our next-day service for £12 and we guarantee your certificate within 24 hours of the assessment. Book before noon for the best chance of a same-day or next-morning appointment.',
+    a: `Yes. Add our next-day service for £${EXPRESS_SURCHARGE} and your certificate is lodged within 24 hours of the assessment rather than the standard 72. Book before noon for the best chance of a same-day or next-morning appointment.`,
   },
   {
     q: 'How long does an EPC assessment take?',
@@ -187,7 +185,7 @@ export default function DomesticEpcPage() {
       <PageHero
         eyebrow="Domestic EPC Certificates"
         heading="Domestic EPC Certificates in London"
-        subheading="Official Energy Performance Certificates for selling or renting your home. Elmhurst accredited. Guide prices from £49. Lodged on the government register."
+        subheading={`Official Energy Performance Certificates for selling or renting your home. Elmhurst accredited. Guide prices from £${priceFrom.epc}, with your exact quote confirmed before booking. Lodged on the official GOV.UK EPC Register.`}
         primaryCta={{ label: 'Book Your EPC', href: '#contact' }}
       />
 
@@ -277,7 +275,7 @@ export default function DomesticEpcPage() {
               Our EPC Process
             </h2>
             <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-              From booking to certificate in your inbox, usually within 72 hours.
+              From booking to your certificate live on the GOV.UK register, usually within 72 hours.
             </p>
             <StepList steps={process} className="mt-8" />
           </div>

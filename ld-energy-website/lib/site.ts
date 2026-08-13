@@ -3,7 +3,7 @@ export const site = {
   legalName: 'Luminous & Deliver Ltd',
   url: 'https://epc.luminousanddeliver.co.uk',
   description:
-    'L&D Energy is an Elmhurst-accredited Domestic Energy Assessor providing official EPC certificates and floor plans for residential properties across all 32 London boroughs. Guide prices from £49.',
+    'L&D Energy is an Elmhurst-accredited Domestic Energy Assessor providing official EPC certificates and laser-measured floor plans for residential properties across all 32 London boroughs. Transparent guide pricing, with your exact quote confirmed before booking.',
   phone: '07492 575 396',
   phoneIntl: '+447492575396',
   phoneHref: 'tel:+447492575396',
@@ -69,8 +69,8 @@ export const servicesMenu = [
   {
     heading: 'Services',
     links: [
-      { href: '/services/domestic-epc', label: 'Domestic EPC', desc: 'Official certificates from £49' },
-      { href: '/services/floor-plans', label: 'Floor Plans', desc: 'Professional measured plans' },
+      { href: '/services/domestic-epc', label: 'Domestic EPC', desc: 'Lodged on the GOV.UK register' },
+      { href: '/services/floor-plans', label: 'Floor Plans', desc: 'Laser-measured, portal-ready' },
       { href: '/domestic-energy-assessor-london', label: 'Energy Assessor', desc: 'Your accredited London DEA' },
     ],
   },
@@ -91,7 +91,7 @@ export type PropertyType = 'studio' | '1-bed' | '2-bed' | '3-bed' | '4-bed' | '5
  * genuinely fixed numbers on the site — it is added to the confirmed quote,
  * not to the guide estimate.
  */
-export const EXPRESS_SURCHARGE = 12
+export const EXPRESS_SURCHARGE = 15
 
 /**
  * CANONICAL PRICING SOURCE.
@@ -127,13 +127,19 @@ export interface PricingBand {
 }
 
 export const pricing: PricingBand[] = [
-  { type: 'studio',     label: 'Studio',     areaLabel: '18–37 m²',  areaMin: 18,  areaMax: 37,   typicalLabel: 'Typical studio',          epc: 49,  floorPlan: 49,  bundle: 73.5,  duration: '45 minutes' },
-  { type: '1-bed',      label: '1 Bedroom',  areaLabel: '37–52 m²',  areaMin: 37,  areaMax: 52,   typicalLabel: 'Typical 1-bedroom home',  epc: 59,  floorPlan: 59,  bundle: 88.5,  duration: '45–60 minutes' },
-  { type: '2-bed',      label: '2 Bedroom',  areaLabel: '52–70 m²',  areaMin: 52,  areaMax: 70,   typicalLabel: 'Typical 2-bedroom home',  epc: 69,  floorPlan: 69,  bundle: 103.5, duration: '45–60 minutes' },
-  { type: '3-bed',      label: '3 Bedroom',  areaLabel: '70–95 m²',  areaMin: 70,  areaMax: 95,   typicalLabel: 'Typical 3-bedroom home',  epc: 85,  floorPlan: 85,  bundle: 127.5, duration: '1–1.5 hours' },
-  { type: '4-bed',      label: '4 Bedroom',  areaLabel: '95–120 m²', areaMin: 95,  areaMax: 120,  typicalLabel: 'Typical 4-bedroom home',  epc: 95,  floorPlan: 95,  bundle: 142.5, duration: '1.5–2 hours' },
-  { type: '5-bed-plus', label: '5+ Bedroom', areaLabel: '120 m²+',   areaMin: 120, areaMax: null, typicalLabel: 'Typical 5+ bedroom home', epc: 105, floorPlan: 105, bundle: 157.5, duration: '1.5–2 hours' },
+  { type: 'studio',     label: 'Studio',        areaLabel: 'Up to 37 m²', areaMin: 0,   areaMax: 37,   typicalLabel: 'Studio and compact flats',                     epc: 65,  floorPlan: 55,  bundle: 105, duration: '45 minutes' },
+  { type: '1-bed',      label: '1 bedroom',     areaLabel: '38–52 m²',    areaMin: 38,  areaMax: 52,   typicalLabel: '1-bedroom flats',                              epc: 75,  floorPlan: 65,  bundle: 120, duration: '45–60 minutes' },
+  { type: '2-bed',      label: '2 bedroom',     areaLabel: '53–70 m²',    areaMin: 53,  areaMax: 70,   typicalLabel: '2-bedroom flats and small homes',              epc: 85,  floorPlan: 75,  bundle: 135, duration: '45–60 minutes' },
+  { type: '3-bed',      label: '2–3 bedroom',   areaLabel: '71–95 m²',    areaMin: 71,  areaMax: 95,   typicalLabel: '2–3-bedroom homes',                            epc: 95,  floorPlan: 90,  bundle: 155, duration: '1–1.5 hours' },
+  { type: '4-bed',      label: '3–4 bedroom',   areaLabel: '96–120 m²',   areaMin: 96,  areaMax: 120,  typicalLabel: '3-bedroom houses and compact 4-bedroom homes', epc: 110, floorPlan: 105, bundle: 175, duration: '1.5–2 hours' },
+  { type: '5-bed-plus', label: '4–5+ bedroom',  areaLabel: '121 m²+',     areaMin: 121, areaMax: null, typicalLabel: 'Large homes and 4–5+ bedrooms',                epc: 130, floorPlan: 125, bundle: 215, duration: '1.5–2 hours' },
 ]
+
+/**
+ * Largest genuine bundle saving across all bands. Derived, so the marketing
+ * line ("save up to £40") can never drift from the table it summarises.
+ */
+export const maxBundleSaving = Math.max(...pricing.map((p) => p.epc + p.floorPlan - p.bundle))
 
 /** Express fee for a band — per-band override, else the standard surcharge. */
 export function expressFee(band: PricingBand): number {
@@ -147,16 +153,16 @@ export function nextDayGuide(band: PricingBand): number {
 
 /**
  * Genuine arithmetic difference between booking separately and as a bundle.
- * Derived from the explicit prices above, so it can never contradict them —
- * and it is a guide figure like everything else, so present it hedged
- * ("around £X less") and in one place only. Never as a "You Save" column.
+ * Derived from the explicit prices above, so it can never contradict them.
+ * Never store a second savings table — every "Save £X" on the site comes
+ * from here, and `maxBundleSaving` backs the "save up to £X" headline.
  */
 export function bundleSaving(band: PricingBand): number {
   return band.epc + band.floorPlan - band.bundle
 }
 
 /**
- * Format a guide price for display. Whole pounds render bare (£49); anything
+ * Format a guide price for display. Whole pounds render bare (£65); anything
  * with pence renders to two places (£73.50, never £73.5).
  */
 export function formatPrice(value: number): string {

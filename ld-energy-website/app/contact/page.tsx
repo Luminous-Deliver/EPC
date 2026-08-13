@@ -6,7 +6,7 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { ContactForm } from '@/components/forms/ContactForm'
 import { AssessorCard } from '@/components/ui/AssessorCard'
-import { site } from '@/lib/site'
+import { site, EXPRESS_SURCHARGE } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Contact | Book Your London EPC',
@@ -83,7 +83,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact Us"
         heading="Get in Touch"
-        subheading="Ready to book? Get in touch and we'll arrange your assessment at a time that suits you. Standard 72-hour turnaround, or next day for £12 extra."
+        subheading={`Ready to book? Get in touch and we'll arrange your assessment at a time that suits you. Standard 72-hour lodgement, or next day for £${EXPRESS_SURCHARGE} extra.`}
         primaryCta={{ label: 'Send Booking Request', href: '#booking-form' }}
       />
 
@@ -99,7 +99,7 @@ export default function ContactPage() {
                   </span>
                   <div className="flex-1">
                     <h2 className="text-base font-semibold text-secondary-900">{m.title}</h2>
-                    <p className="mt-0.5 text-secondary-800">{m.value}</p>
+                    <p className="mt-0.5 text-secondary-800 [overflow-wrap:anywhere]">{m.value}</p>
                     <p className="text-sm text-secondary-500">{m.detail}</p>
                     <a
                       href={m.href}
@@ -165,7 +165,9 @@ export default function ContactPage() {
             title="L&D Energy service area map"
             aria-label="Map of L&D Energy service area centred on Stratford, East London"
             src="https://www.openstreetmap.org/export/embed.html?bbox=-0.5%2C51.28%2C0.34%2C51.7&amp;layer=mapnik&amp;marker=51.543%2C-0.0005"
-            className="w-full h-72 md:h-96 border-0"
+            /* iframes carry a 300px intrinsic width; without min-w-0 that
+               becomes the grid track minimum and overflows a 320px viewport. */
+            className="w-full min-w-0 h-72 md:h-96 border-0"
             loading="lazy"
           />
         </div>

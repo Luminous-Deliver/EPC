@@ -5,7 +5,7 @@ import { Footer } from '@/components/layout/Footer'
 import { MobileCallBar } from '@/components/layout/MobileCallBar'
 import { CookieBanner } from '@/components/layout/CookieBanner'
 import { LondonSkyline } from '@/components/ui/LondonSkyline'
-import { site, pricing } from '@/lib/site'
+import { site, pricing, priceFrom, EXPRESS_SURCHARGE } from '@/lib/site'
 import { boroughMeta } from '@/lib/boroughs'
 import './globals.css'
 
@@ -32,7 +32,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: 'Domestic EPC London | From £49 | Elmhurst Accredited | L&D Energy',
+    default: `Domestic EPC London | From £${priceFrom.epc} | Elmhurst Accredited | L&D Energy`,
     template: '%s | L&D Energy',
   },
   description: site.description,
@@ -48,13 +48,13 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     url: site.url,
     siteName: site.name,
-    title: 'Domestic EPC London | From £49 | L&D Energy',
+    title: `Domestic EPC London | From £${priceFrom.epc} | L&D Energy`,
     description:
-      'Elmhurst accredited domestic energy assessor. Guide prices from £49. Next-day service available across all London boroughs.',
+      `Elmhurst accredited domestic energy assessor. Guide prices from £${priceFrom.epc}, exact quote before booking. Next-day service available across all London boroughs.`,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Domestic EPC London | From £49',
+    title: `Domestic EPC London | From £${priceFrom.epc}`,
     description: 'Fast, affordable EPC certificates across London. Book today.',
   },
   robots: { index: true, follow: true },
@@ -141,21 +141,21 @@ const localBusinessSchema = {
     itemListElement: [
       ...pricing.map((p) => ({
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: `${p.label} Domestic EPC Certificate` },
-        price: p.epc,
-        priceCurrency: 'GBP',
+        itemOffered: { '@type': 'Service', name: `Domestic EPC Certificate, ${p.areaLabel}` },
+        // minPrice: these are guide prices, and marking them as fixed `price`
+        // would misrepresent what the pricing page actually says.
+        priceSpecification: { '@type': 'PriceSpecification', minPrice: p.epc, priceCurrency: 'GBP' },
       })),
       {
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Next-Day EPC Service', description: 'Certificate within 24 hours' },
-        priceSpecification: { '@type': 'PriceSpecification', price: 12, priceCurrency: 'GBP', description: 'Additional charge on top of base EPC price' },
+        itemOffered: { '@type': 'Service', name: 'Next-Day EPC Service', description: 'Certificate lodged within 24 hours of the assessment' },
+        priceSpecification: { '@type': 'PriceSpecification', price: EXPRESS_SURCHARGE, priceCurrency: 'GBP', description: 'Additional charge on top of the confirmed EPC price' },
       },
       ...pricing.map((p) => ({
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: `${p.label} EPC and Floor Plan Bundle` },
-        price: p.bundle,
-        priceCurrency: 'GBP',
-        description: 'EPC and floor plan for the same property, booked together',
+        itemOffered: { '@type': 'Service', name: `EPC and Floor Plan Bundle, ${p.areaLabel}` },
+        priceSpecification: { '@type': 'PriceSpecification', minPrice: p.bundle, priceCurrency: 'GBP' },
+        description: 'EPC and floor plan for the same property, completed in one visit',
       })),
       {
         '@type': 'Offer',
@@ -204,7 +204,7 @@ const organizationSchema = {
   legalName: site.legalName,
   alternateName: ['LD Energy', 'L and D Energy'],
   disambiguatingDescription: 'L&D Energy is a domestic Energy Performance Certificate (EPC) provider based in Stratford, East London. We provide official EPC certificates and floor plans for residential properties across all London boroughs. L&D Energy is not related to learning and development, oil and gas training, L&Q Energy, or LD Energy Solutions.',
-  description: 'Elmhurst-accredited domestic Energy Performance Certificate (EPC) provider serving all 32 London boroughs. Official EPC certificates for homeowners, landlords, and letting agents from £49.',
+  description: `Elmhurst-accredited domestic Energy Performance Certificate (EPC) provider serving all 32 London boroughs. Official EPC certificates for homeowners, landlords, and letting agents, with guide prices from £${priceFrom.epc}.`,
   url: site.url,
   logo: { '@type': 'ImageObject', url: `${site.url}/logo.svg` },
   telephone: site.phoneIntl,

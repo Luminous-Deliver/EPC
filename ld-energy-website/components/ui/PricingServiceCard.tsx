@@ -6,11 +6,12 @@ import { formatPrice } from '@/lib/site'
 /**
  * Service orientation card — deliberately NOT a pricing tier card.
  *
- * Its job is "which service am I looking at, and roughly where does it start",
- * then route to an enquiry. It is not the quote engine, so copy stays short
- * and the price is always presented with a separate "From" label rather than
- * an inline prefix — a label reads as a qualifier, a prefix reads as decoration
- * and gets skipped.
+ * Reading order is service → outcome → what you actually get → guide price →
+ * enquiry. The price sits *below* the inclusions and inside a sentence rather
+ * than above them as an isolated display figure: a large lone number anchors
+ * the whole card to "cheapest", which is the wrong customer. Keeping "Guide
+ * prices from" in the same line as the figure also means the qualifier cannot
+ * be skimmed past, which an adjacent label can be.
  *
  * Styling avoids SaaS plan-card conventions (coloured headers, giant tiers,
  * feature checklists of eight items) — this is a property service, not a
@@ -19,10 +20,13 @@ import { formatPrice } from '@/lib/site'
 export interface PricingServiceCardProps {
   title: string
   from: number
+  /** Outcome sentence. What the customer ends up with, not an adjective. */
   positioning: string
   inclusions: string[]
   href: string
   ctaLabel?: string
+  /** Genuine arithmetic saving, derived from canonical prices. Bundle only. */
+  saving?: number
   /** Modest elevation for the combined service. Not a "most popular" claim. */
   emphasis?: boolean
   emphasisLabel?: string
@@ -35,6 +39,7 @@ export function PricingServiceCard({
   inclusions,
   href,
   ctaLabel = 'Get my exact quote',
+  saving,
   emphasis = false,
   emphasisLabel,
 }: PricingServiceCardProps) {
@@ -54,17 +59,7 @@ export function PricingServiceCard({
       )}
 
       <h3 className="text-lg font-bold text-secondary-900">{title}</h3>
-      <p className="mt-1.5 text-sm leading-relaxed text-secondary-600">{positioning}</p>
-
-      {/* "From" as its own label line — the qualifier must not be skimmable */}
-      <div className="mt-5 border-t border-secondary-100 pt-4">
-        <span className="block text-xs font-semibold uppercase tracking-widest text-secondary-600">
-          Guide price from
-        </span>
-        <span className="mt-0.5 block text-3xl font-bold tracking-tight text-secondary-900">
-          £{formatPrice(from)}
-        </span>
-      </div>
+      <p className="mt-2 text-[15px] font-medium leading-relaxed text-secondary-800">{positioning}</p>
 
       <ul className="mt-4 flex-1 space-y-2">
         {inclusions.map((item) => (
@@ -80,6 +75,23 @@ export function PricingServiceCard({
           </li>
         ))}
       </ul>
+
+      {/* Price supports the decision, it does not lead it — hence below the
+          inclusions, and set in a sentence so "from" cannot be skipped. */}
+      <div className="mt-5 border-t border-secondary-100 pt-4">
+        <p className="text-sm text-secondary-700">
+          Guide prices from{' '}
+          <span className="text-2xl font-bold tracking-tight text-secondary-900">
+            £{formatPrice(from)}
+          </span>
+        </p>
+        {saving ? (
+          <p className="mt-1 text-sm font-semibold text-accent-700">
+            Save up to £{formatPrice(saving)} against booking separately
+          </p>
+        ) : null}
+        <p className="mt-1 text-xs text-secondary-600">Exact price confirmed before booking</p>
+      </div>
 
       <Link
         href={href}

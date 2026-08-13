@@ -16,23 +16,23 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { Pricing } from '@/components/sections/Pricing'
 import { CtaStrip } from '@/components/sections/CtaStrip'
-import { site, pricing } from '@/lib/site'
+import { site, pricing, priceFrom, EXPRESS_SURCHARGE } from '@/lib/site'
 import { areaServedLondon } from '@/lib/boroughs'
 import type { FaqItem } from '@/lib/faq'
 
 export const metadata: Metadata = {
-  title: 'EPC for Selling Your Home London | From £49',
+  title: `EPC for Selling Your Home London | From £${priceFrom.epc}`,
   description:
-    'EPC certificates for selling your London home. Required by law before marketing. 72-hour turnaround, next-day available. Guide prices from £49.',
+    `EPC certificates for selling your London home. Required by law before marketing. Lodged within 72 hours, next-day available. Guide prices from £${priceFrom.epc}.`,
   alternates: { canonical: `${site.url}/sellers` },
   openGraph: {
-    title: 'EPC for Selling Your Home London | From £49 | L&D Energy',
+    title: `EPC for Selling Your Home London | From £${priceFrom.epc} | L&D Energy`,
     description:
-      'EPC certificates for selling your London home. Required by law before marketing. Fast 72-hour turnaround, next-day available. Guide prices from £49.',
+      `EPC certificates for selling your London home. Required by law before marketing. Lodged within 72 hours, next-day available. Guide prices from £${priceFrom.epc}.`,
     url: `${site.url}/sellers`,
   },
   twitter: {
-    title: 'EPC for Selling Your Home London | From £49',
+    title: `EPC for Selling Your Home London | From £${priceFrom.epc}`,
     description:
       'EPC certificates for selling your London home. Required by law before marketing. Book today.',
   },
@@ -54,7 +54,7 @@ const timeline = [
   },
   {
     title: 'Use next-day service if you’re tight',
-    body: 'If your agent has already started chasing, our next-day service (+£12) gets the certificate to you within 24 hours.',
+    body: `If your agent has already started chasing, our next-day service (+£${EXPRESS_SURCHARGE}) lodges the certificate within 24 hours.`,
   },
   {
     title: 'Provide the EPC to your buyer’s solicitor',
@@ -171,7 +171,7 @@ export default function SellersPage() {
       <PageHero
         eyebrow="For Home Sellers"
         heading="EPCs for Selling Your London Home"
-        subheading="An EPC is required by law before your property goes on the market. We provide fast, transparently priced certificates so your sale isn't held up, 72 hours standard, or next day for £12 extra."
+        subheading={`An EPC is required by law before your property goes on the market. We provide fast, transparently priced certificates so your sale isn't held up — lodged within 72 hours as standard, or next day for £${EXPRESS_SURCHARGE} extra.`}
         primaryCta={{ label: 'Book Your Seller EPC', href: '/contact' }}
       />
 
@@ -302,7 +302,7 @@ export default function SellersPage() {
 
       <CtaStrip
         heading="Don’t Let an EPC Delay Your Sale"
-        body="Standard 72-hour delivery or next-day for £12. We'll fit you in around your viewings."
+        body={`Standard 72-hour lodgement or next-day for £${EXPRESS_SURCHARGE}. We'll fit you in around your viewings.`}
         primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
       />
     </>

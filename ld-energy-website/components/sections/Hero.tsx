@@ -51,8 +51,11 @@ export function Hero() {
               See guide prices
             </Button>
           </div>
+          {/* "Same-price guarantee" contradicted the guide-price model it sat
+              beside, and "2-hour response" was a service promise we cannot
+              evidence. Both replaced with claims that are true by construction. */}
           <p className="mt-3 text-sm text-secondary-500">
-            No call-out fees · Same-price guarantee · 2-hour response (8am–8pm)
+            No call-out fees · Exact quote before booking · 7 days a week, 8am–8pm
           </p>
 
           <a
@@ -73,8 +76,11 @@ export function Hero() {
 
           <dl className="mt-10 grid grid-cols-3 gap-3 max-w-md">
             {[
-              { dt: 'From', dd: `£${priceFrom.epc}` },
-              { dt: 'Standard', dd: '72h' },
+              // Deliberately not a price tile. The guide price is stated in the
+              // paragraph above; repeating it as a large isolated figure anchors
+              // the whole hero to "cheapest", which is the wrong customer.
+              { dt: 'Lodged in', dd: '72h' },
+              { dt: 'Available', dd: '7 days' },
               { dt: 'Boroughs', dd: '32+' },
             ].map((stat) => (
               <div

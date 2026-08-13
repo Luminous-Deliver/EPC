@@ -62,7 +62,7 @@ export default function PreparingPage() {
             Your assessor photographs and measures each room, records the heating system, insulation,
             glazing and lighting, and reads the meters. There is no testing, no mess and nothing
             invasive. Once the survey is done the certificate is lodged on the government register and
-            emailed to you within 72 hours, or the next day if you chose express.
+            lodged on the GOV.UK EPC register within 72 hours, or the next day if you chose express, and we send you the certificate link once it is live.
           </p>
         </div>
       </Section>

@@ -7,7 +7,7 @@ import { CtaStrip } from '@/components/sections/CtaStrip'
 import { PostCard } from '@/components/blog/PostCard'
 import { categories, getCategory } from '@/lib/blog-categories'
 import { getPostsByCategory } from '@/lib/blog'
-import { site } from '@/lib/site'
+import { site, priceFrom } from '@/lib/site'
 
 interface PageProps {
   params: Promise<{ category: string }>
@@ -109,7 +109,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
 
       <CtaStrip
         heading="Need an EPC? Book in 60 seconds."
-        body="Elmhurst-accredited assessor. Guide prices from £49. Certificate within 72 hours."
+        body={`Elmhurst-accredited assessor. Guide prices from £${priceFrom.epc}. Lodged within 72 hours.`}
         primaryCta={{ label: 'Book Now', href: '/contact' }}
       />
     </>

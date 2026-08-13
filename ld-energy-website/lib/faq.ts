@@ -1,3 +1,5 @@
+import { pricing, site, EXPRESS_SURCHARGE } from '@/lib/site'
+
 export interface FaqItem {
   q: string
   /**
@@ -28,7 +30,7 @@ export const homepageFaq: FaqItem[] = [
   },
   {
     q: 'How much does an EPC cost in London?',
-    a: 'Our guide EPC prices in London start at £49 for studios, £59 for 1-bedroom, £69 for 2-bedroom, £85 for 3-bedroom, £95 for 4-bedroom, and £105 for 5+ bedroom homes. Next-day service is available for £12 extra.',
+    a: `Guide EPC prices in London start at £${pricing[0].epc} for properties up to 37 m² and rise with internal floor area, up to £${pricing[5].epc} for homes over 121 m². Internal floor area (m²) is the main pricing factor — bedroom count is only a familiar reference. Next-day lodgement is available for £${EXPRESS_SURCHARGE} extra, and your exact quote is confirmed before booking.`,
   },
   {
     q: 'How long does an EPC assessment take?',
@@ -36,7 +38,7 @@ export const homepageFaq: FaqItem[] = [
   },
   {
     q: 'How quickly will I receive my EPC certificate?',
-    a: 'Standard delivery is within 72 hours of the assessment. Our next-day service guarantees your certificate within 24 hours for an additional £12.',
+    a: `Standard lodgement is within 72 hours of the assessment. Our next-day service lodges your certificate within 24 hours for an additional £${EXPRESS_SURCHARGE}.`,
   },
   {
     q: 'What does the assessor check during an EPC?',
@@ -52,7 +54,7 @@ export const homepageFaq: FaqItem[] = [
   },
   {
     q: 'Can I get a same-day or next-day EPC in London?',
-    a: 'Often, yes. Next-day service is guaranteed for £12 extra, and same-day slots are regularly available across London when you book early in the day. Call or WhatsApp 07492 575 396 and we’ll tell you straight away what’s free.',
+    a: `Often, yes. Next-day lodgement is available for £${EXPRESS_SURCHARGE} extra, and same-day slots are regularly available across London when you book early in the day. Call or WhatsApp ${site.phone} and we’ll tell you straight away what’s free.`,
   },
   {
     q: 'When is an EPC legally required?',
@@ -194,7 +196,7 @@ export const fullFaq: FaqCategory[] = [
       },
       {
         q: 'How quickly will I get my certificate?',
-        a: 'Standard delivery is within 72 hours of the assessment. Our next-day service guarantees your certificate within 24 hours for an additional £12.',
+        a: `Standard lodgement is within 72 hours of the assessment. Our next-day service lodges your certificate within 24 hours for an additional £${EXPRESS_SURCHARGE}.`,
       },
       {
         q: 'Can I see the assessor’s credentials?',
@@ -208,7 +210,7 @@ export const fullFaq: FaqCategory[] = [
     items: [
       {
         q: 'How much does an EPC cost?',
-        a: 'Our guide EPC prices start at £49 for studios, £59 for 1-bedroom, £69 for 2-bedroom, £85 for 3-bedroom, £95 for 4-bedroom, and £105 for 5+ bedroom homes. Next-day service is available for £12 extra.',
+        a: `Guide EPC prices in London start at £${pricing[0].epc} for properties up to 37 m² and rise with internal floor area, up to £${pricing[5].epc} for homes over 121 m². Internal floor area (m²) is the main pricing factor — bedroom count is only a familiar reference. Next-day lodgement is available for £${EXPRESS_SURCHARGE} extra, and your exact quote is confirmed before booking.`,
       },
       {
         q: 'Are there hidden fees?',
@@ -224,7 +226,7 @@ export const fullFaq: FaqCategory[] = [
       },
       {
         q: 'What is the next-day service?',
-        a: 'For £12 extra, we guarantee your EPC certificate within 24 hours of the assessment. This applies to assessments completed during our standard hours. Book before noon for the best chance of a same-day or next-morning appointment.',
+        a: `For £${EXPRESS_SURCHARGE} extra, your EPC certificate is lodged within 24 hours of the assessment rather than the standard 72. This applies to assessments completed during our standard hours. Book before noon for the best chance of a same-day or next-morning appointment.`,
       },
     ],
   },
