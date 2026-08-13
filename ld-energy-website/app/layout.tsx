@@ -78,9 +78,9 @@ export const viewport: Viewport = {
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
-  // ProfessionalService narrows the category for local packs; HomeAndConstructionBusiness
-  // is how Google classifies property-survey trades.
-  '@type': ['LocalBusiness', 'ProfessionalService', 'HomeAndConstructionBusiness'],
+  // HomeAndConstructionBusiness is how Google classifies property-survey
+  // trades. ProfessionalService was removed: schema.org formally deprecates it.
+  '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
   '@id': `${site.url}/#business`,
   name: site.name,
   legalName: site.legalName,
@@ -109,7 +109,7 @@ const localBusinessSchema = {
     closes: '20:00',
   },
   areaServed: [
-    { '@type': 'City', name: 'London', addressCountry: 'GB' },
+    { '@type': 'City', name: 'London' },
     ...Object.values(boroughMeta).map((b) => ({ '@type': 'AdministrativeArea', name: b.name, containedInPlace: { '@type': 'City', name: 'London' } })),
   ],
   priceRange: '££',
@@ -118,16 +118,6 @@ const localBusinessSchema = {
   // Local pack signals: map/profile link, service radius from the Stratford base,
   // and the languages we can actually serve enquiries in.
   hasMap: site.reviews.profileUrl,
-  availableLanguage: ['English', 'Bengali'],
-  serviceArea: {
-    '@type': 'GeoCircle',
-    geoMidpoint: {
-      '@type': 'GeoCoordinates',
-      latitude: site.geo.lat,
-      longitude: site.geo.lng,
-    },
-    geoRadius: '40000',
-  },
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: String(site.reviews.ratingValue),
@@ -187,6 +177,8 @@ const localBusinessSchema = {
     site.assessor.verifyUrl,
     'https://www.elmhurstenergy.co.uk',
   ],
+  // The LocalBusiness and Organization nodes describe one business.
+  brand: { '@id': `${site.url}/#organization` },
   knowsAbout: [
     'Energy Performance Certificates',
     'Domestic EPC',
@@ -217,8 +209,7 @@ const organizationSchema = {
     availableLanguage: 'English',
   },
   foundingLocation: { '@type': 'Place', name: 'Stratford, East London', address: { '@type': 'PostalAddress', addressLocality: 'Stratford', postalCode: 'E15', addressCountry: 'GB' } },
-  areaServed: { '@type': 'City', name: 'London', addressCountry: 'GB' },
-  serviceType: 'Energy Performance Certificate Assessment',
+  areaServed: { '@type': 'City', name: 'London' },
   sameAs: [
     site.reviews.profileUrl,
     site.assessor.verifyUrl,

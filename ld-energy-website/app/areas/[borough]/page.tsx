@@ -117,43 +117,40 @@ export default async function BoroughPage({ params }: PageProps) {
     })),
   }
 
-  const boroughBusinessSchema = {
+  /**
+   * A borough page is NOT a branch. Emitting a LocalBusiness node per borough
+   * asserted 34 separate businesses for a company with one base and a hidden
+   * address, which is structured-data doorway signalling and the single
+   * biggest schema liability on the site.
+   *
+   * Modelled instead as Service nodes that reference the one real business as
+   * their provider, which is what is actually true: one business, many areas
+   * served. Guide prices stay as minPrice, never a fixed price.
+   */
+  const boroughServiceSchema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${site.url}/areas/${slug}#business`,
-    name: site.name,
-    description: `Elmhurst-accredited domestic EPC certificates and floor plans in ${data.name}, London.`,
+    '@type': 'Service',
+    '@id': `${site.url}/areas/${slug}#service`,
+    name: `Domestic EPC and floor plans in ${data.name}`,
+    serviceType: 'Energy Performance Certificate',
+    description: `Elmhurst-accredited domestic EPC certificates and laser-measured floor plans in ${data.name}, London.`,
     url: `${site.url}/areas/${slug}`,
-    telephone: site.phoneIntl,
-    email: site.email,
-    parentOrganization: { '@id': `${site.url}/#business` },
+    provider: { '@id': `${site.url}/#business` },
     areaServed: [
-      { '@type': 'AdministrativeArea', name: data.name, containedInPlace: { '@type': 'City', name: 'London' } },
+      { '@type': 'AdministrativeArea', name: data.name },
       ...postcodes.map((pc) => ({
         '@type': 'Place' as const,
         name: pc,
         address: { '@type': 'PostalAddress', postalCode: pc, addressCountry: 'GB' },
       })),
     ],
-    priceRange: '£',
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      opens: '08:00',
-      closes: '20:00',
-    },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: `EPC and floor plan services in ${data.name}`,
       itemListElement: [
         {
           '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: `Domestic EPC in ${data.name}`,
-            serviceType: 'Energy Performance Certificate',
-            areaServed: { '@type': 'AdministrativeArea', name: data.name },
-          },
+          itemOffered: { '@type': 'Service', name: `Domestic EPC in ${data.name}` },
           priceSpecification: {
             '@type': 'PriceSpecification',
             minPrice: pricing[0].epc,
@@ -162,12 +159,7 @@ export default async function BoroughPage({ params }: PageProps) {
         },
         {
           '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: `Property floor plans in ${data.name}`,
-            serviceType: 'Property Floor Plan',
-            areaServed: { '@type': 'AdministrativeArea', name: data.name },
-          },
+          itemOffered: { '@type': 'Service', name: `Property floor plans in ${data.name}` },
           priceSpecification: {
             '@type': 'PriceSpecification',
             minPrice: pricing[0].floorPlan,
@@ -183,7 +175,7 @@ export default async function BoroughPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([breadcrumbSchema, faqSchema, boroughBusinessSchema]),
+          __html: JSON.stringify([breadcrumbSchema, faqSchema, boroughServiceSchema]),
         }}
       />
 
@@ -226,7 +218,12 @@ export default async function BoroughPage({ params }: PageProps) {
           <p className="mt-3 text-secondary-700 leading-relaxed">{data.transport}</p>
 
           <p className="mt-8 text-secondary-700 leading-relaxed">
-            Whether you&rsquo;re selling a property in {data.name}, preparing for a new tenancy, or staying compliant with MEES regulations as a landlord, we&rsquo;ll deliver your EPC within 72 hours, or next day if you need it urgently.
+            Whether you&rsquo;re selling a property in {data.name}, preparing for a new tenancy, or staying compliant with MEES regulations as a landlord, your{' '}
+            <Link href="/services/domestic-epc" className="text-primary-700 underline underline-offset-2 hover:text-primary-800">domestic EPC</Link>{' '}
+            is lodged on the GOV.UK register within 72 hours, or next day if you need it urgently. Guide prices start at{' '}
+            {`£${priceFrom.epc}`} and are based mainly on internal floor area — see the{' '}
+            <Link href="/pricing" className="text-primary-700 underline underline-offset-2 hover:text-primary-800">full pricing table</Link>{' '}
+            or send us the address for an exact quote.
           </p>
         </div>
       </Section>

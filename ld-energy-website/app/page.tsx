@@ -49,14 +49,9 @@ const websiteSchema = {
   name: site.name,
   description: site.description,
   publisher: { '@id': `${site.url}/#organization` },
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: `${site.url}/areas/{search_term_string}`,
-    },
-    'query-input': 'required name=search_term_string',
-  },
+  // No potentialAction/SearchAction: the Sitelinks Search Box it targeted was
+  // retired in 2024, and the urlTemplate pointed at /areas/{query}, which 404s
+  // for anything that is not an exact borough slug.
 }
 
 const faqSchema = {
