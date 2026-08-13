@@ -30,7 +30,7 @@ export function CtaBand() {
           </h2>
           <p className="mt-2 leading-relaxed" style={{ color: 'rgba(214,225,240,0.7)' }}>
             Send us the address and a few details. We&rsquo;ll confirm your exact quote and a time
-            slot — usually within 2 hours, 8am&ndash;8pm.
+            slot — we reply during our opening hours, 8am&ndash;8pm, seven days a week.
           </p>
         </div>
 

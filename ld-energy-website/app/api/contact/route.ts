@@ -99,7 +99,7 @@ function buildConfirmation(data: ParsedInput) {
 
   const text =
     `Hi ${firstName},\n\n` +
-    `Thanks for your booking request with L&D Energy — we've received it and will be in touch within 2 hours (Mon–Sun, 8am–8pm) to confirm your appointment slot and exact price.\n\n` +
+    `Thanks for your booking request with L&D Energy — we've received it and will be in touch during our opening hours (Mon–Sun, 8am–8pm) to confirm your appointment slot and exact price.\n\n` +
     `Your request:\n` +
     summary.map(([k, v]) => `  ${k}: ${v}`).join('\n') +
     `\n\nNeed us sooner? Call or text ${PHONE}, or message us on WhatsApp.\n\n` +
@@ -121,7 +121,7 @@ function buildConfirmation(data: ParsedInput) {
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light only"><title>We've received your request</title></head>
 <body style="margin:0;padding:0;background:${CANVAS};-webkit-text-size-adjust:100%">
-  <div style="display:none;max-height:0;overflow:hidden;opacity:0">We've received your EPC request — we'll confirm within 2 hours (8am–8pm).</div>
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0">We've received your EPC request — we'll confirm your slot and exact price shortly.</div>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${CANVAS}">
     <tr><td align="center" style="padding:28px 12px">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%">
@@ -141,7 +141,7 @@ function buildConfirmation(data: ParsedInput) {
                 <td style="width:44px;height:44px;background:${SAGE};border-radius:999px;text-align:center;vertical-align:middle;font-size:24px;line-height:44px;color:#ffffff;font-weight:700">&#10003;</td>
               </tr></table>
               <h1 style="margin:16px 0 4px;font-family:Georgia,'Times New Roman',serif;font-size:24px;line-height:1.25;color:#ffffff;font-weight:700">Request received</h1>
-              <p style="margin:0;font-size:14px;color:#C4D2E8">We'll confirm within 2 hours (8am–8pm)</p>
+              <p style="margin:0;font-size:14px;color:#C4D2E8">We'll confirm your slot and exact price</p>
             </td></tr>
           </table>
 
@@ -150,7 +150,7 @@ function buildConfirmation(data: ParsedInput) {
             <tr><td style="padding:30px 32px 8px">
               <p style="margin:0 0 14px;font-size:16px;color:${INK}">Hi ${escapeHtml(firstName)},</p>
               <p style="margin:0 0 22px;font-size:15px;line-height:1.6;color:${INK}">
-                Thanks for choosing <strong style="color:${NAVY}">L&amp;D Energy</strong>. We've received your booking request and one of our team will be in touch <strong>within 2 hours</strong> (Monday–Sunday, 8am–8pm) to confirm your appointment and exact price.
+                Thanks for choosing <strong style="color:${NAVY}">L&amp;D Energy</strong>. We've received your booking request and one of our team will be in touch during our opening hours (Monday–Sunday, 8am–8pm) to confirm your appointment and exact price.
               </p>
 
               <!-- Summary -->

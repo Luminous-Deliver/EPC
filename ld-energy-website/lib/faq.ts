@@ -184,7 +184,7 @@ export const fullFaq: FaqCategory[] = [
     items: [
       {
         q: 'How do I book an EPC?',
-        a: 'Call us on 07492 575 396, send a WhatsApp message, email contact@luminousanddeliver.co.uk, or use our online booking form. We respond within 2 hours during business hours (Mon–Sun, 8am–8pm).',
+        a: `Call us on ${site.phone}, send a WhatsApp message, email ${site.email}, or use our online booking form. Phone, WhatsApp and email all reach the assessor directly, and we reply during our opening hours (${site.hours}).`,
       },
       {
         q: 'How long does the assessment take?',

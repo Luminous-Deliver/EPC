@@ -836,7 +836,7 @@ export function ContactForm() {
               <span className="min-w-0">
                 <span className="block text-xs font-bold text-secondary-900">Send email</span>
                 <span className="block truncate text-xs text-secondary-500">
-                  Reply within 2 hours
+                  Reply during opening hours
                 </span>
               </span>
             </a>

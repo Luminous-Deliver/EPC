@@ -76,7 +76,7 @@ const process = [
   },
   {
     title: 'We confirm details',
-    body: 'We confirm time, address, and any access requirements within 2 hours during business hours.',
+    body: 'We confirm time, address, and any access requirements during our opening hours, Mon–Sun 8am–8pm.',
   },
   {
     title: 'On-site assessment',

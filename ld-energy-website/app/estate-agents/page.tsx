@@ -54,7 +54,7 @@ const whyAgents = [
   {
     Icon: PhoneCall,
     title: 'A direct line, not a call centre',
-    body: 'You deal with the accredited assessor directly, by phone or WhatsApp. Confirmations within 2 hours during business hours, and no chasing for certificates.',
+    body: 'You deal with the accredited assessor directly, by phone or WhatsApp. Same-day confirmations during opening hours, and no chasing for certificates.',
   },
   {
     Icon: CalendarClock,
@@ -70,7 +70,7 @@ const whyAgents = [
 
 const process = [
   { step: 'Send the instruction', detail: 'Address, property size, and the occupier’s contact details, by phone, WhatsApp, or email.' },
-  { step: 'We arrange access', detail: 'We contact the vendor or tenant directly and confirm the appointment within 2 hours during business hours.' },
+  { step: 'We arrange access', detail: 'We contact the vendor or tenant directly and confirm the appointment during our opening hours, Mon–Sun 8am–8pm.' },
   { step: 'Assessment done', detail: '45 minutes to 2 hours on-site, evenings and weekends included.' },
   { step: 'Certificate lodged', detail: 'Lodged on the GOV.UK EPC register within 72 hours, or next day for urgent listings, with the certificate link sent to your branch once live.' },
 ]

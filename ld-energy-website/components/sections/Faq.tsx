@@ -48,7 +48,7 @@ export function Faq() {
         <div>
           <p className="text-base font-semibold text-secondary-900">Still have questions?</p>
           <p className="mt-1 text-sm text-secondary-600">
-            Call {site.phone} or message us on WhatsApp — we reply within 2 hours.
+            Call {site.phone} or message us on WhatsApp — replies during opening hours, {site.hours}.
           </p>
         </div>
         <div className="flex flex-col gap-2.5 sm:flex-row sm:shrink-0">

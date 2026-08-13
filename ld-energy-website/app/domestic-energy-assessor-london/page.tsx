@@ -112,7 +112,7 @@ const deaFaq: FaqItem[] = [
   },
   {
     q: 'How long does a domestic energy assessment take?',
-    a: 'The on-site assessment usually takes 45 minutes to 2 hours depending on the size of the property. Your certificate is then lodged and emailed within 72 hours as standard, or within 24 hours if you choose our next-day service.',
+    a: 'The on-site assessment usually takes 45 minutes to 2 hours depending on the size of the property. Your certificate is then lodged on the GOV.UK EPC Register within 72 hours as standard, or within 24 hours if you choose our next-day service, and we send you the link once it is live.',
   },
   {
     q: 'Is a domestic energy assessor the same as a commercial energy assessor?',

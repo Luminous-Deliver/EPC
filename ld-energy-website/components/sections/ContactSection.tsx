@@ -18,8 +18,9 @@ export function ContactSection() {
           Book Your EPC Today
         </h2>
         <p className="mt-2 text-secondary-700 leading-relaxed">
-          Tell us about your property and we’ll confirm an exact price and a time slot — usually
-          within 2 hours. Prefer to talk? Call, WhatsApp or email us instead.
+          Tell us about your property and we’ll confirm an exact price and a time slot. Replies come
+          from the assessor directly, during our opening hours. Prefer to talk? Call, WhatsApp or
+          email us instead.
         </p>
       </div>
 

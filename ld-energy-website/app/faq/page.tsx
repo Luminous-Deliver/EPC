@@ -112,7 +112,7 @@ export default function FaqPage() {
             Still have a question?
           </h2>
           <p className="mt-4 text-secondary-700 leading-relaxed">
-            Can&rsquo;t find what you&rsquo;re looking for? Get in touch, we respond to phone, WhatsApp and email within 2 hours during business hours.
+            Can&rsquo;t find what you&rsquo;re looking for? Get in touch — phone, WhatsApp and email all reach the assessor directly, and we reply during our opening hours.
           </p>
           <p className="mt-2 text-secondary-700">
             See our{' '}

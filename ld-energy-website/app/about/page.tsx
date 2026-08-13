@@ -84,7 +84,7 @@ const commitments = [
   {
     Icon: Clock,
     title: 'We answer the phone',
-    body: 'Sounds simple, but it’s the biggest complaint we hear about other assessors. We respond to phone, WhatsApp and email within 2 hours during business hours.',
+    body: 'Sounds simple, but it’s the biggest complaint we hear about other assessors. Phone, WhatsApp and email all reach the assessor directly, and we reply during our opening hours, Mon–Sun 8am–8pm.',
   },
   {
     Icon: BadgeCheck,
@@ -94,7 +94,7 @@ const commitments = [
   {
     Icon: FileText,
     title: 'We deliver on schedule',
-    body: '72-hour standard delivery, or 24-hour express if you’ve chosen the next-day service. We lodge directly on the EPC Register and email your certificate.',
+    body: '72-hour standard lodgement, or 24-hour express if you’ve chosen the next-day service. We lodge directly on the GOV.UK EPC Register and send you the certificate link once it is live.',
   },
   {
     Icon: Users,
@@ -305,7 +305,7 @@ export default function AboutPage() {
 
       <CtaStrip
         heading="Ready to Work With Us?"
-        body="Book your EPC online, or get in touch with any question. We respond within 2 hours."
+        body="Book your EPC online, or get in touch with any question. We reply during our opening hours, Mon–Sun 8am–8pm."
         primaryCta={{ label: 'Get in Touch', href: '/contact' }}
       />
     </>

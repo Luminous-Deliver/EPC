@@ -11,12 +11,12 @@ import { site, EXPRESS_SURCHARGE } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Contact | Book Your London EPC',
   description:
-    'Book your London EPC certificate. Call, WhatsApp, email or use our booking form. We respond within 2 hours during business hours (Mon–Sun, 8am–8pm).',
+    'Book your London EPC certificate. Call, WhatsApp, email or use our booking form. We reply during our opening hours, Mon–Sun 8am–8pm.',
   alternates: { canonical: `${site.url}/contact` },
   openGraph: {
     title: 'Contact L&D Energy | Book Your London EPC | 07492 575 396',
     description:
-      'Book your London EPC certificate. Call, WhatsApp, email or use our booking form. We respond within 2 hours during business hours (Mon–Sun, 8am–8pm).',
+      'Book your London EPC certificate. Call, WhatsApp, email or use our booking form. We reply during our opening hours, Mon–Sun 8am–8pm.',
     url: `${site.url}/contact`,
   },
   twitter: {
@@ -63,7 +63,7 @@ const methods = [
     Icon: Mail,
     title: 'Email',
     value: site.email,
-    detail: 'Reply within 2 hours during business hours.',
+    detail: 'We reply during our opening hours, Mon–Sun 8am–8pm.',
     href: site.emailHref,
     cta: 'Send Email',
     external: true,
@@ -122,7 +122,7 @@ export default function ContactPage() {
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Timer className="w-4 h-4 text-primary-600" aria-hidden="true" />
-                  Response within 2 hours during hours
+                  Replies during opening hours
                 </li>
                 <li className="flex items-start gap-2.5">
                   <MapPin className="w-4 h-4 text-primary-600 mt-0.5" aria-hidden="true" />

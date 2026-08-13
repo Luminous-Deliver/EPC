@@ -223,7 +223,7 @@ export default function RetrofitConsultationPage() {
 
       <CtaStrip
         heading="Book an EPC with a retrofit consultation"
-        body="Add the 15-minute consultation to any assessment for £25. We'll confirm your slot within 2 hours."
+        body="Add the 15-minute consultation to any assessment for £25. We'll confirm your slot and exact price before booking."
         primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
       />
     </>
