@@ -77,6 +77,7 @@ export function Footer() {
                 {services.map((link) => (
                   <li key={link.href}>
                     <Link
+                      prefetch={false}
                       href={link.href}
                       className="inline-flex min-h-[44px] items-center text-sm transition-colors hover:text-white"
                       style={{ color: 'rgba(255,255,255,0.88)' }}
@@ -97,6 +98,7 @@ export function Footer() {
                 {otherLinks.map((link) => (
                   <li key={link.href}>
                     <Link
+                      prefetch={false}
                       href={link.href}
                       className="inline-flex min-h-[44px] items-center text-sm transition-colors hover:text-white"
                       style={{ color: 'rgba(255,255,255,0.88)' }}
@@ -205,6 +207,7 @@ export function Footer() {
                 {priorityAreas.map((b, i) => (
                   <li key={b.slug} className="flex items-center">
                     <Link
+                      prefetch={false}
                       href={`/areas/${b.slug}`}
                       className="rounded px-1.5 py-1.5 text-[13px] leading-snug transition-colors hover:text-white"
                       style={{ color: 'rgba(255,255,255,0.62)' }}
@@ -220,6 +223,7 @@ export function Footer() {
                 ))}
                 <li className="ml-1">
                   <Link
+                    prefetch={false}
                     href="/areas"
                     className="inline-flex items-center gap-1 rounded px-1.5 py-1.5 text-[13px] font-semibold leading-snug transition-colors hover:brightness-125"
                     style={{ color: '#95BFAD' }}
@@ -241,8 +245,8 @@ export function Footer() {
             © {year} {site.name}. Part of {site.legalName}.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            <Link href="/privacy-policy" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors">Terms of Service</Link>
+            <Link prefetch={false} href="/privacy-policy" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors">Privacy Policy</Link>
+            <Link prefetch={false} href="/terms" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors">Terms of Service</Link>
             <a
               href="https://digital.luminousanddeliver.co.uk/"
               target="_blank"

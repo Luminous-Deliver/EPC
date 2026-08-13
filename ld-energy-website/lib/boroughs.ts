@@ -37,7 +37,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across Stratford and the surrounding area. We cover all local districts including Stratford (E15), Maryland (E15), Forest Lane (E15), East Village (E20) and the Queen Elizabeth Olympic Park.",
     postcodeFaq: {
       q: "How fast can I get an EPC in Stratford (E15) or East Village (E20)?",
-      a: "If your property is located in E15, E20, or anywhere across the Stratford area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in E15, E20, or anywhere across the Stratford area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   hackney: {
@@ -57,7 +57,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Hackney. We cover all local districts including Dalston (E8), Stoke Newington (N16), Clapton (E5), Hackney Wick (E9), De Beauvoir (N1) and Homerton (E9).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Dalston (E8) or Stoke Newington (N16)?",
-      a: "If your property is located in E8, N16, or anywhere across the Hackney area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in E8, N16, or anywhere across the Hackney area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   'tower-hamlets': {
@@ -77,7 +77,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Tower Hamlets. We cover all local districts including Canary Wharf (E14), Whitechapel (E1), Bow (E3), Spitalfields (E1), Wapping (E1) and the Isle of Dogs (E14).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Canary Wharf (E14) or Bow (E3)?",
-      a: "If your property is located in E14, E3, or anywhere across the Tower Hamlets area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in E14, E3, or anywhere across the Tower Hamlets area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   newham: {
@@ -97,7 +97,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Newham. We cover all local districts including Forest Gate (E7), East Ham (E6), Plaistow (E13), Canning Town (E16), Manor Park (E12) and the Royal Docks (E16).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Forest Gate (E7) or East Ham (E6)?",
-      a: "If your property is located in E7, E6, or anywhere across the Newham area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in E7, E6, or anywhere across the Newham area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   greenwich: {
@@ -117,7 +117,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire Royal Borough of Greenwich. We cover all local districts including Greenwich (SE10), Blackheath (SE3), Charlton (SE7), Woolwich (SE18) and Greenwich Peninsula (SE10).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Greenwich (SE10) or Blackheath (SE3)?",
-      a: "If your property is located in SE10, SE3, or anywhere across the Greenwich area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in SE10, SE3, or anywhere across the Greenwich area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   islington: {
@@ -137,7 +137,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Islington. We cover all local districts including Angel (N1), Highbury (N5), Holloway (N7), Archway (N19) and Canonbury (N1).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Angel (N1) or Highbury (N5)?",
-      a: "If your property is located in N1, N5, or anywhere across the Islington area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in N1, N5, or anywhere across the Islington area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   southwark: {
@@ -157,7 +157,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Southwark. We cover all local districts including Bermondsey (SE16), Peckham (SE15), Camberwell (SE5), Walworth (SE17) and Bankside (SE1).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Peckham (SE15) or Bermondsey (SE16)?",
-      a: "If your property is located in SE15, SE16, or anywhere across the Southwark area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in SE15, SE16, or anywhere across the Southwark area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   lewisham: {
@@ -177,7 +177,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Lewisham. We cover all local districts including Brockley (SE4), Catford (SE6), Lewisham (SE13), New Cross (SE14), Forest Hill (SE23) and Sydenham (SE26).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Brockley (SE4) or Forest Hill (SE23)?",
-      a: "If your property is located in SE4, SE23, or anywhere across the Lewisham area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in SE4, SE23, or anywhere across the Lewisham area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   'barking-dagenham': {
@@ -197,7 +197,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Barking and Dagenham. We cover all local districts including Barking (IG11), Dagenham (RM10), the Becontree estate (RM9) and Chadwell Heath (RM8).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Barking (IG11) or Dagenham (RM10)?",
-      a: "If your property is located in IG11, RM10, or anywhere across the Barking and Dagenham area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in IG11, RM10, or anywhere across the Barking and Dagenham area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   'waltham-forest': {
@@ -217,7 +217,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Waltham Forest. We cover all local districts including Walthamstow (E17), Leyton (E10), Leytonstone (E11) and Chingford (E4).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Walthamstow (E17) or Leyton (E10)?",
-      a: "If your property is located in E17, E10, or anywhere across the Waltham Forest area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in E17, E10, or anywhere across the Waltham Forest area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   camden: {
@@ -237,7 +237,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Camden. We cover all local districts including Camden Town (NW1), Belsize Park (NW3), Kentish Town (NW5), Bloomsbury (WC1) and Hampstead (NW3).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Camden Town (NW1) or Kentish Town (NW5)?",
-      a: "If your property is located in NW1, NW5, or anywhere across the Camden area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in NW1, NW5, or anywhere across the Camden area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   westminster: {
@@ -257,7 +257,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire City of Westminster. We cover all local districts including Marylebone (W1), Paddington (W2), Pimlico (SW1), St John's Wood (NW8) and Maida Vale (W9).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Marylebone (W1) or Pimlico (SW1)?",
-      a: "If your property is located in W1, SW1, or anywhere across the Westminster area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in W1, SW1, or anywhere across the Westminster area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   lambeth: {
@@ -277,7 +277,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Lambeth. We cover all local districts including Brixton (SW2), Clapham (SW4), Kennington (SE11), Streatham (SW16), Stockwell (SW9) and Herne Hill (SE24).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Brixton (SW2) or Clapham (SW4)?",
-      a: "If your property is located in SW2, SW4, or anywhere across the Lambeth area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in SW2, SW4, or anywhere across the Lambeth area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   wandsworth: {
@@ -297,7 +297,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Wandsworth. We cover all local districts including Battersea (SW11), Balham (SW12), Tooting (SW17), Putney (SW15) and Earlsfield (SW18).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Battersea (SW11) or Tooting (SW17)?",
-      a: "If your property is located in SW11, SW17, or anywhere across the Wandsworth area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in SW11, SW17, or anywhere across the Wandsworth area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   brent: {
@@ -317,7 +317,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Brent. We cover all local districts including Wembley (HA0), Willesden (NW10), Kilburn (NW6), Harlesden (NW10) and Cricklewood (NW2).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Wembley (HA0) or Willesden (NW10)?",
-      a: "If your property is located in HA0, NW10, or anywhere across the Brent area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in HA0, NW10, or anywhere across the Brent area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   ealing: {
@@ -337,7 +337,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Ealing. We cover all local districts including Ealing (W5), Acton (W3), Hanwell (W7), West Ealing (W13) and Southall (UB1).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Ealing (W5) or Southall (UB1)?",
-      a: "If your property is located in W5, UB1, or anywhere across the Ealing area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in W5, UB1, or anywhere across the Ealing area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   hounslow: {
@@ -357,7 +357,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Hounslow. We cover all local districts including Hounslow (TW3), Brentford (TW8), Isleworth (TW7), Chiswick (W4) and Feltham (TW13).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Chiswick (W4) or Brentford (TW8)?",
-      a: "If your property is located in W4, TW8, or anywhere across the Hounslow area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in W4, TW8, or anywhere across the Hounslow area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   richmond: {
@@ -377,7 +377,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Richmond upon Thames. We cover all local districts including Richmond (TW9), Twickenham (TW1), Kew (TW9), Teddington (TW11) and East Sheen (SW14).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Richmond (TW9) or Twickenham (TW1)?",
-      a: "If your property is located in TW9, TW1, or anywhere across the Richmond area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in TW9, TW1, or anywhere across the Richmond area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   kingston: {
@@ -397,7 +397,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire Royal Borough of Kingston upon Thames. We cover all local districts including Kingston (KT1), New Malden (KT3), Surbiton (KT6) and Tolworth (KT6).",
     postcodeFaq: {
       q: "How fast can I get an EPC in New Malden (KT3) or Surbiton (KT6)?",
-      a: "If your property is located in KT3, KT6, or anywhere across the Kingston area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in KT3, KT6, or anywhere across the Kingston area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   croydon: {
@@ -417,7 +417,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Croydon. We cover all local districts including Croydon (CR0), Thornton Heath (CR7), South Norwood (SE25) and Purley (CR2).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Thornton Heath (CR7) or Purley (CR2)?",
-      a: "If your property is located in CR7, CR2, or anywhere across the Croydon area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in CR7, CR2, or anywhere across the Croydon area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   enfield: {
@@ -437,7 +437,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Enfield. We cover all local districts including Enfield Town (EN2), Edmonton (N9), Palmers Green (N13), Southgate (N14) and Winchmore Hill (N21).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Edmonton (N9) or Palmers Green (N13)?",
-      a: "If your property is located in N9, N13, or anywhere across the Enfield area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in N9, N13, or anywhere across the Enfield area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   haringey: {
@@ -457,7 +457,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Haringey. We cover all local districts including Tottenham (N17), Wood Green (N22), Crouch End (N8), Muswell Hill (N10) and South Tottenham (N15).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Tottenham (N17) or Crouch End (N8)?",
-      a: "If your property is located in N17, N8, or anywhere across the Haringey area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in N17, N8, or anywhere across the Haringey area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   redbridge: {
@@ -477,7 +477,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Redbridge. We cover all local districts including Ilford (IG1), Barkingside (IG6), Woodford (E18) and Wanstead (E11).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Ilford (IG1) or Woodford (E18)?",
-      a: "If your property is located in IG1, E18, or anywhere across the Redbridge area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in IG1, E18, or anywhere across the Redbridge area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   havering: {
@@ -497,7 +497,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Havering. We cover all local districts including Romford (RM1), Hornchurch (RM11), Upminster (RM14) and Rainham (RM13).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Romford (RM1) or Hornchurch (RM11)?",
-      a: "If your property is located in RM1, RM11, or anywhere across the Havering area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in RM1, RM11, or anywhere across the Havering area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   bexley: {
@@ -517,7 +517,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Bexley. We cover all local districts including Bexleyheath (DA6), Welling (DA16), Sidcup (DA14) and Erith (DA8).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Bexleyheath (DA6) or Sidcup (DA14)?",
-      a: "If your property is located in DA6, DA14, or anywhere across the Bexley area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in DA6, DA14, or anywhere across the Bexley area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   bromley: {
@@ -537,7 +537,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Bromley. We cover all local districts including Bromley (BR1), Beckenham (BR3), Orpington (BR6), Chislehurst (BR7) and Penge (SE20).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Beckenham (BR3) or Orpington (BR6)?",
-      a: "If your property is located in BR3, BR6, or anywhere across the Bromley area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in BR3, BR6, or anywhere across the Bromley area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   sutton: {
@@ -557,7 +557,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Sutton. We cover all local districts including Sutton (SM1), Cheam (SM3), Wallington (SM6) and Carshalton (SM5).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Cheam (SM3) or Carshalton (SM5)?",
-      a: "If your property is located in SM3, SM5, or anywhere across the Sutton area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in SM3, SM5, or anywhere across the Sutton area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   merton: {
@@ -577,7 +577,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Merton. We cover all local districts including Wimbledon (SW19), Mitcham (CR4), Morden (SM4), Colliers Wood (SW19) and Raynes Park (SW20).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Wimbledon (SW19) or Mitcham (CR4)?",
-      a: "If your property is located in SW19, CR4, or anywhere across the Merton area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in SW19, CR4, or anywhere across the Merton area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   'hammersmith-fulham': {
@@ -597,7 +597,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Hammersmith and Fulham. We cover all local districts including Hammersmith (W6), Fulham (SW6), Shepherd's Bush (W12) and Parsons Green (SW6).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Fulham (SW6) or Shepherd's Bush (W12)?",
-      a: "If your property is located in SW6, W12, or anywhere across the Hammersmith and Fulham area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in SW6, W12, or anywhere across the Hammersmith and Fulham area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   'kensington-chelsea': {
@@ -617,7 +617,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire Royal Borough of Kensington and Chelsea. We cover all local districts including Notting Hill (W11), Chelsea (SW3), Kensington (W8) and Earl's Court (SW5).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Notting Hill (W11) or Chelsea (SW3)?",
-      a: "If your property is located in W11, SW3, or anywhere across the Kensington and Chelsea area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in W11, SW3, or anywhere across the Kensington and Chelsea area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   'city-of-london': {
@@ -637,7 +637,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire City of London. We cover all local districts including the Barbican (EC2), Smithfield (EC1), Fleet Street (EC4) and the Square Mile (EC3).",
     postcodeFaq: {
       q: "How fast can I get an EPC in the Barbican (EC2) or Smithfield (EC1)?",
-      a: "If your property is located in EC2, EC1, or anywhere across the City of London, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in EC2, EC1, or anywhere across the City of London, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   barnet: {
@@ -657,7 +657,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Barnet. We cover all local districts including Finchley (N3), Hendon (NW4), Edgware (HA8), Mill Hill (NW7) and High Barnet (EN5).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Finchley (N3) or Edgware (HA8)?",
-      a: "If your property is located in N3, HA8, or anywhere across the Barnet area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in N3, HA8, or anywhere across the Barnet area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   harrow: {
@@ -677,7 +677,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Harrow. We cover all local districts including Harrow (HA1), Pinner (HA5), Stanmore (HA7) and Wealdstone (HA3).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Pinner (HA5) or Stanmore (HA7)?",
-      a: "If your property is located in HA5, HA7, or anywhere across the Harrow area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in HA5, HA7, or anywhere across the Harrow area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
   hillingdon: {
@@ -697,7 +697,7 @@ export const boroughMeta: Record<string, BoroughMeta> = {
       "Our accredited energy assessors regularly provide EPCs across the entire London Borough of Hillingdon. We cover all local districts including Uxbridge (UB8), Hayes (UB3), Ruislip (HA4), Northwood (HA6) and West Drayton (UB7).",
     postcodeFaq: {
       q: "How fast can I get an EPC in Uxbridge (UB8) or Ruislip (HA4)?",
-      a: "If your property is located in UB8, HA4, or anywhere across the Hillingdon area, we can typically have an Elmhurst-accredited assessor on-site within 24 to 48 hours. Your certificate is then lodged on the official GOV.UK EPC register within 72 hours as standard, or next day with our express service.",
+      a: "If your property is located in UB8, HA4, or anywhere across the Hillingdon area, your certificate is lodged on the official GOV.UK EPC register within 72 hours of the visit as standard, or next day with our express service. We can usually get an Elmhurst-accredited assessor out to you within one to two working days.",
     }
   },
 }

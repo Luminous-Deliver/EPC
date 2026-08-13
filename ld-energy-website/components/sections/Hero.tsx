@@ -18,6 +18,8 @@ export function Hero() {
           srcSet="/hero-home-640.webp 640w, /hero-home-960.webp 960w, /hero-home-1280.webp 1280w, /hero-home.webp 1600w"
           sizes="100vw"
           alt=""
+          width={1600}
+          height={1067}
           fetchPriority="high"
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-[70%_25%]"
