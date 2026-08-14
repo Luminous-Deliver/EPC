@@ -118,13 +118,12 @@ const localBusinessSchema = {
   // Local pack signals: map/profile link, service radius from the Stratford base,
   // and the languages we can actually serve enquiries in.
   hasMap: site.reviews.profileUrl,
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: String(site.reviews.ratingValue),
-    reviewCount: String(site.reviews.reviewCount),
-    bestRating: '5',
-    worstRating: '1',
-  },
+  // No aggregateRating. Google's review-snippet policy disallows self-serving
+  // review markup — content a business publishes about itself — and the rating
+  // was emitted on all 72 URLs while being visible on one. Star ratings in the
+  // local pack come from the Google Business Profile, not from this markup, so
+  // there was risk without upside. Visible review proof on the site is
+  // unaffected; only the structured-data claim is removed.
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'EPC and Floor Plan Services',

@@ -135,13 +135,13 @@ export const pricing: PricingBand[] = [
   { type: '1-bed',      label: '1 bedroom',     areaLabel: '38–52 m²',    areaMin: 38,  areaMax: 52,   typicalLabel: '1-bedroom flats',                              epc: 75,  floorPlan: 65,  bundle: 120, duration: '45–60 minutes' },
   { type: '2-bed',      label: '2 bedroom',     areaLabel: '53–70 m²',    areaMin: 53,  areaMax: 70,   typicalLabel: '2-bedroom flats and small homes',              epc: 85,  floorPlan: 75,  bundle: 135, duration: '45–60 minutes' },
   { type: '3-bed',      label: '2–3 bedroom',   areaLabel: '71–95 m²',    areaMin: 71,  areaMax: 95,   typicalLabel: '2–3-bedroom homes',                            epc: 95,  floorPlan: 90,  bundle: 155, duration: '1–1.5 hours' },
-  { type: '4-bed',      label: '3–4 bedroom',   areaLabel: '96–120 m²',   areaMin: 96,  areaMax: 120,  typicalLabel: '3-bedroom houses and compact 4-bedroom homes', epc: 110, floorPlan: 105, bundle: 175, duration: '1.5–2 hours' },
-  { type: '5-bed-plus', label: '4–5+ bedroom',  areaLabel: '121 m²+',     areaMin: 121, areaMax: null, typicalLabel: 'Large homes and 4–5+ bedrooms',                epc: 130, floorPlan: 125, bundle: 215, duration: '1.5–2 hours' },
+  { type: '4-bed',      label: '3–4 bedroom',   areaLabel: '96–120 m²',   areaMin: 96,  areaMax: 120,  typicalLabel: '3-bedroom houses and compact 4-bedroom homes', epc: 105, floorPlan: 105, bundle: 175, duration: '1.5–2 hours' },
+  { type: '5-bed-plus', label: '4–5+ bedroom',  areaLabel: '121 m²+',     areaMin: 121, areaMax: null, typicalLabel: 'Large homes and 4–5+ bedrooms',                epc: 125, floorPlan: 125, bundle: 215, duration: '1.5–2 hours' },
 ]
 
 /**
  * Largest genuine bundle saving across all bands. Derived, so the marketing
- * line ("save up to £40") can never drift from the table it summarises.
+ * line ("save up to £X") can never drift from the table it summarises.
  */
 export const maxBundleSaving = Math.max(...pricing.map((p) => p.epc + p.floorPlan - p.bundle))
 
@@ -189,3 +189,26 @@ export const boroughs = [
   'sutton', 'merton', 'hammersmith-fulham', 'kensington-chelsea',
   'city-of-london', 'barnet', 'harrow', 'hillingdon',
 ] as const
+
+/**
+ * CANONICAL INSURANCE WORDING.
+ *
+ * Cover is arranged through Elmhurst Energy Systems Ltd's accredited-member
+ * scheme and underwritten by Hiscox Insurance Company Limited. Elmhurst is NOT
+ * the insurer, so never write "insured by Elmhurst" — the scheme is the route,
+ * Hiscox carries the risk.
+ *
+ * Documentary evidence sighted 2026-08: Public & Products Liability £5,000,000
+ * each and every claim, Professional Indemnity £5,000,000 any one claim, both
+ * for the period 1 July 2026 to 30 June 2027. Re-verify at renewal.
+ */
+export const insurance = {
+  /** Full sentence for body copy and trust panels. */
+  full:
+    'Professionally insured through Elmhurst’s accredited-member insurance scheme, including £5m Public Liability and £5m Professional Indemnity cover.',
+  /** Compact form for badges and trust bars where space is tight. */
+  short: 'DBS checked · £5m PI & PL insured',
+  /** Neutral phrase for legal/terms context. */
+  legal:
+    'Professional Indemnity and Public Liability cover, each £5,000,000, is arranged through Elmhurst Energy’s accredited-member insurance scheme and underwritten by Hiscox Insurance Company Limited.',
+} as const

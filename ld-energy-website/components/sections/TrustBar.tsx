@@ -1,5 +1,6 @@
 import { ShieldCheck, Landmark, CalendarCheck, MapPin, UserCheck } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
+import { insurance } from '@/lib/site'
 
 const items = [
   { Icon: ShieldCheck, label: 'Elmhurst Accredited' },
@@ -8,7 +9,7 @@ const items = [
   { Icon: MapPin, label: 'Over 32 Boroughs Covered' },
   // DBS confirmed by the business as part of Elmhurst accreditation. Wording is
   // deliberately restrained — the check level and issue date are not verified.
-  { Icon: UserCheck, label: 'DBS checked & insured' },
+  { Icon: UserCheck, label: insurance.short },
 ]
 
 export function TrustBar() {

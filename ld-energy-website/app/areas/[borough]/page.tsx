@@ -81,6 +81,8 @@ export default async function BoroughPage({ params }: PageProps) {
 
   if (!data) notFound()
 
+  const parentBorough = data.partOf ? boroughMeta[data.partOf] : undefined
+
   const neighbours = data.neighbours
     .map((s) => boroughMeta[s])
     .filter(Boolean)
@@ -137,7 +139,13 @@ export default async function BoroughPage({ params }: PageProps) {
     url: `${site.url}/areas/${slug}`,
     provider: { '@id': `${site.url}/#business` },
     areaServed: [
-      { '@type': 'AdministrativeArea', name: data.name },
+      data.kind === 'neighbourhood' && parentBorough
+        ? {
+            '@type': 'Place',
+            name: data.name,
+            containedInPlace: { '@type': 'AdministrativeArea', name: parentBorough.name },
+          }
+        : { '@type': 'AdministrativeArea', name: data.name },
       ...postcodes.map((pc) => ({
         '@type': 'Place' as const,
         name: pc,
@@ -200,6 +208,13 @@ export default async function BoroughPage({ params }: PageProps) {
             Need an EPC in {data.name}? L&amp;D Energy provides fast, affordable domestic Energy Performance Certificates across {data.name} and all surrounding London areas. As an Elmhurst-accredited Domestic Energy Assessor based in East London, we offer flexible appointment times and rapid turnaround for homeowners, landlords, and{' '}
             <Link href="/estate-agents" className="text-primary-700 underline underline-offset-2 hover:text-primary-800">letting agents</Link>.
           </p>
+          {data.kind === 'neighbourhood' && parentBorough && (
+            <p className="mt-4 text-secondary-700 leading-relaxed">
+              {data.name} is part of the London Borough of{' '}
+              <Link href={`/areas/${parentBorough.slug}`} className="text-primary-700 underline underline-offset-2 hover:text-primary-800">{parentBorough.name}</Link>
+              , and it is where we are based.
+            </p>
+          )}
           <p className="mt-4 text-secondary-700 leading-relaxed">{data.blurb}</p>
 
           <h3 className="mt-8 text-xl font-bold text-secondary-900">
@@ -277,7 +292,7 @@ export default async function BoroughPage({ params }: PageProps) {
           </h2>
           <p className="mt-5 text-secondary-700 leading-relaxed">{data.areasCovered}</p>
           <p className="mt-4 text-secondary-700 leading-relaxed">
-            We cover {data.name} and all neighbouring boroughs with the same transparent pricing and rapid turnaround.
+            We cover {data.name} and the surrounding {data.kind === 'neighbourhood' ? 'area' : 'boroughs'} with the same transparent guide pricing and turnaround.
           </p>
         </div>
         <ul className="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-3">

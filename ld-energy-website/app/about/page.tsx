@@ -5,7 +5,7 @@ import { Section } from '@/components/ui/Section'
 import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { CtaStrip } from '@/components/sections/CtaStrip'
-import { site } from '@/lib/site'
+import { site, insurance } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'London EPC Assessor | Elmhurst Accredited',
@@ -76,7 +76,7 @@ const credentials = [
   {
     Icon: Award,
     title: 'Fully Insured',
-    body: 'Professional Indemnity and Public Liability insurance held through Elmhurst membership. You’re protected on every job.',
+    body: insurance.full,
   },
 ]
 

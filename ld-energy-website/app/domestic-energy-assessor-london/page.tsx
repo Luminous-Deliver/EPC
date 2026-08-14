@@ -18,7 +18,7 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { Pricing } from '@/components/sections/Pricing'
 import { CtaStrip } from '@/components/sections/CtaStrip'
-import { site, pricing, priceFrom, EXPRESS_SURCHARGE } from '@/lib/site'
+import { site, pricing, priceFrom, insurance, EXPRESS_SURCHARGE } from '@/lib/site'
 import { areaServedLondon } from '@/lib/boroughs'
 import type { FaqItem } from '@/lib/faq'
 
@@ -89,7 +89,7 @@ const whyLocal = [
   {
     Icon: ShieldCheck,
     title: 'Accredited and insured',
-    body: 'Registered with Elmhurst Energy and covered by professional indemnity and public liability insurance on every job.',
+    body: insurance.full,
   },
 ]
 

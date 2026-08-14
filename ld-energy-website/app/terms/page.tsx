@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { LegalPage } from '@/components/ui/LegalPage'
-import { site, EXPRESS_SURCHARGE } from '@/lib/site'
+import { site, insurance, EXPRESS_SURCHARGE } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
@@ -96,7 +96,7 @@ export default function TermsPage() {
 
       <h2>7. Liability</h2>
       <p>
-        We hold Professional Indemnity and Public Liability insurance through Elmhurst Energy. Our liability for any loss arising from the service is limited to the price paid for that service, except where liability cannot be limited by law (for example fraud or personal injury caused by negligence).
+        {insurance.legal} Our liability for any loss arising from the service is limited to the price paid for that service, except where liability cannot be limited by law (for example fraud or personal injury caused by negligence).
       </p>
 
       <h2>8. Validity of the EPC</h2>
