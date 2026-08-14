@@ -1,4 +1,18 @@
+# HTML caching.
+#
+# Every page here is prerendered (x-nextjs-prerender: 1), yet all HTML was
+# returning cf-cache-status: DYNAMIC with max-age=0, must-revalidate — so the
+# Worker ran on every request to hand back a static document. Measured HTML
+# TTFB was 209-695 ms (median ~270 ms) against cf-cache-status: HIT on images.
+#
+# max-age=0 keeps browsers revalidating so a deploy is picked up immediately;
+# s-maxage lets the Cloudflare edge serve it without invoking the Worker;
+# stale-while-revalidate avoids a latency spike at expiry.
+#
+# ROLLBACK: delete the Cache-Control line from the /* block below. Nothing else
+# depends on it.
 /*
+  Cache-Control: public, max-age=0, s-maxage=3600, stale-while-revalidate=86400
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
@@ -20,3 +34,9 @@
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 /*.svg
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+# API routes must never be cached: /api/contact takes POSTed enquiries and
+# returns per-request results. This rule is last so it wins for /api/*.
+/api/*
+  Cache-Control: no-store, no-cache, must-revalidate
+  X-Robots-Tag: noindex

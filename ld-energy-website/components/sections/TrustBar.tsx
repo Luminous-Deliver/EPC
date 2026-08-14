@@ -6,7 +6,7 @@ const items = [
   { Icon: ShieldCheck, label: 'Elmhurst Accredited' },
   { Icon: Landmark, label: 'Lodged on UK Gov Register' },
   { Icon: CalendarCheck, label: 'Valid for 10 years' },
-  { Icon: MapPin, label: 'Over 32 Boroughs Covered' },
+  { Icon: MapPin, label: 'All 32 Boroughs Covered' },
   // DBS confirmed by the business as part of Elmhurst accreditation. Wording is
   // deliberately restrained — the check level and issue date are not verified.
   { Icon: UserCheck, label: insurance.short },

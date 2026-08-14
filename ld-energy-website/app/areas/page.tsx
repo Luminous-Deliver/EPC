@@ -8,7 +8,7 @@ import { boroughList } from '@/lib/boroughs'
 import { site, priceFrom } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'EPC London | All 32 Boroughs Covered',
+  title: 'Areas We Cover | EPC Assessor Across London',
   description:
     `Domestic EPC certificates across all 32 London boroughs. Elmhurst accredited, guide prices from £${priceFrom.epc}, lodged within 72 hours. Find your borough.`,
   alternates: { canonical: `${site.url}/areas` },
@@ -52,7 +52,7 @@ export default function AreasPage() {
       <PageHero
         eyebrow="Coverage"
         heading="EPC Certificates Across London"
-        subheading="Based in Stratford, East London, we cover all 32 London boroughs and the City of London. Transparent guide pricing, 7-day availability, and your exact quote confirmed before booking."
+        subheading="Based in Stratford in the London Borough of Newham, we cover all 32 London boroughs and the City of London. The same guide pricing everywhere, 7-day availability, and your exact quote confirmed before booking."
         primaryCta={{ label: 'Book Your EPC', href: '/contact' }}
       />
 
@@ -79,7 +79,7 @@ export default function AreasPage() {
             Our Coverage Area
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-            We're based in Stratford, East London (E15), and cover all 32 London boroughs plus the City of London. We also serve surrounding areas within a 1.5-hour radius, including parts of Essex, Kent, Hertfordshire and Surrey.
+            We're based in Stratford (E15), in the London Borough of Newham, and cover all 32 London boroughs plus the City of London. We also serve surrounding areas within a 1.5-hour radius, including parts of Essex, Kent, Hertfordshire and Surrey.
           </p>
           <p className="mt-4 text-secondary-700 leading-relaxed">
             There is no call-out or mileage charge for any property within our normal service area. For properties outside it, travel time is included in the quote you receive before booking, so it is never added afterwards.
