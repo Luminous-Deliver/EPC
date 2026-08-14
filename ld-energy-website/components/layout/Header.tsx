@@ -67,8 +67,25 @@ function ServicesDropdown() {
         />
       </button>
 
-      {open && (
-        <div id="services-menu" className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl bg-white shadow-premium-lg ring-1 ring-secondary-900/5 overflow-hidden z-50">
+      {/*
+        Rendered unconditionally and hidden with `visibility`, not unmounted.
+        Previously `{open && …}` meant the Services destinations existed only
+        after a click, so /landlords, /sellers, /estate-agents,
+        /services/floor-plans and /domestic-energy-assessor-london had no
+        crawlable link in the server-rendered header at all.
+
+        `invisible` (visibility: hidden) is the right hiding mechanism here: it
+        keeps the anchors in the HTML for crawlers while removing them from the
+        tab order and the accessibility tree, so keyboard and screen-reader
+        behaviour is unchanged. Interaction is identical.
+      */}
+      <div
+        id="services-menu"
+        className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl bg-white shadow-premium-lg ring-1 ring-secondary-900/5 overflow-hidden z-50 transition-opacity duration-150 ${
+          open ? 'visible opacity-100' : 'invisible opacity-0'
+        }`}
+      >
+        <div>
           {/* Arrow pointer */}
           <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 ring-1 ring-secondary-900/5" aria-hidden="true" />
           <div className="py-2">
@@ -96,7 +113,7 @@ function ServicesDropdown() {
             ))}
           </div>
         </div>
-      )}
+      </div>
     </div>
   )
 }
