@@ -55,7 +55,8 @@ export default function PrivacyPolicyPage() {
 
       <h2>1. Who we are</h2>
       <p>
-        L&amp;D Energy is a trading name of {site.parentBrand}, which operates as a sole trader based in {site.address.locality}, {site.address.region}. For privacy enquiries, contact us at{' '}
+        <strong>Data controller:</strong> {site.legal.dataController}, based in{' '}
+        {site.address.locality}, {site.address.region}. For privacy enquiries, contact us at{' '}
         <a href={site.emailHref}>{site.email}</a>.
       </p>
 

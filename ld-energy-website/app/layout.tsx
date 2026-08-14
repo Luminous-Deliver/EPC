@@ -164,6 +164,9 @@ const localBusinessSchema = {
     identifier: site.assessor.accreditationNumber,
     recognizedBy: { '@type': 'Organization', name: site.assessor.scheme },
   },
+  // Sole trader: the operator IS the assessor. Expressed as founder rather
+  // than legalName, which would imply a registered company.
+  founder: { '@id': `${site.url}/about#assessor` },
   employee: {
     '@type': 'Person',
     '@id': `${site.url}/about#assessor`,
@@ -206,6 +209,7 @@ const organizationSchema = {
     areaServed: 'GB',
     availableLanguage: 'English',
   },
+  founder: { '@id': `${site.url}/about#assessor` },
   foundingLocation: { '@type': 'Place', name: 'Stratford, East London', address: { '@type': 'PostalAddress', addressLocality: 'Stratford', postalCode: 'E15', addressCountry: 'GB' } },
   areaServed: { '@type': 'City', name: 'London' },
   sameAs: [

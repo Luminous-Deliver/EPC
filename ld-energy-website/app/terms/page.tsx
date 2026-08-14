@@ -116,7 +116,7 @@ export default function TermsPage() {
 
       <h2>11. Contact</h2>
       <p>
-        L&amp;D Energy is a trading name of {site.parentBrand}. Contact:{' '}
+        {site.legal.statement} Contact:{' '}
         <a href={site.phoneHref}>{site.phone}</a> · <a href={site.emailHref}>{site.email}</a>.
       </p>
     </LegalPage>

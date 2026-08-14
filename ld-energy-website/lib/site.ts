@@ -13,6 +13,24 @@ export const site = {
    * as the trading entity is the owner's decision, not a default.
    */
   parentBrand: 'Luminous & Deliver',
+  /**
+   * Legal identity, confirmed by the owner 2026-08-14.
+   *
+   * Sole trader. NOT a registered company — do not reintroduce "Ltd",
+   * "registered company", "registered in England & Wales" or a company number.
+   * These strings are for legally identifying contexts only (privacy policy,
+   * terms, legal footer, schema operator relationship, llms.txt). The
+   * customer-facing brand everywhere else stays "L&D Energy".
+   */
+  legal: {
+    soleTraderName: 'Abdul Motaleb Taher',
+    /** One-line identity statement for terms and about. */
+    statement:
+      'L&D Energy is a trading name of Luminous & Deliver, operated by Abdul Motaleb Taher as a sole trader.',
+    /** UK GDPR controller identification for the privacy policy. */
+    dataController:
+      'Abdul Motaleb Taher, trading as Luminous & Deliver / L&D Energy',
+  },
   url: 'https://epc.luminousanddeliver.co.uk',
   description:
     'L&D Energy is an Elmhurst-accredited Domestic Energy Assessor providing official EPC certificates and laser-measured floor plans for residential properties across all 32 London boroughs. Transparent guide pricing, with your exact quote confirmed before booking.',

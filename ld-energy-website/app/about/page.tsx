@@ -268,7 +268,7 @@ export default function AboutPage() {
               Based in Stratford (E15), we cover all 32 London boroughs, the City of London, and surrounding areas within a 1.5-hour radius, parts of Essex, Kent, Hertfordshire and Surrey included.
             </p>
             <p className="mt-4 text-secondary-700 leading-relaxed">
-              L&amp;D Energy is the EPC trading brand of {site.parentBrand}.
+              {site.legal.statement}
             </p>
 
             {/* Coverage stats grid */}

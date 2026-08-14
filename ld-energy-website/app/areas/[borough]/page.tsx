@@ -9,7 +9,7 @@ import { LocalPricingSummary } from '@/components/sections/LocalPricingSummary'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { Accordion } from '@/components/ui/Accordion'
 import { ContactSection } from '@/components/sections/ContactSection'
-import { boroughMeta } from '@/lib/boroughs'
+import { boroughMeta, boroughIntent, type BoroughIntent } from '@/lib/boroughs'
 import { site, pricing, priceFrom, formatPrice, maxBundleSaving, EXPRESS_SURCHARGE } from '@/lib/site'
 import type { FaqItem } from '@/lib/faq'
 
@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { borough: slug } = await params
   const data = boroughMeta[slug]
   if (!data) return {}
+  const intent = boroughIntent[slug] ?? 'service'
 
   return {
     // Search Console (6 months to Aug 2026) shows these pages ranking 6-19 for
@@ -33,8 +34,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     // and never mentioned cost. The title now answers the question that is
     // actually being asked, and the neighbourhood signal moves into the
     // description where it still earns the long tail.
-    title: { absolute: boroughTitle(data.name) },
-    description: `EPC cost in ${data.name}: guide prices from £${priceFrom.epc}, set by internal floor area. Elmhurst-accredited assessor, exact quote before booking.`,
+    title: { absolute: boroughTitle(data.name, intent, data.metaTitle) },
+    description: boroughDescription(data.name, intent),
     alternates: { canonical: `${site.url}/areas/${slug}` },
     openGraph: {
       title: `EPC in ${data.name} | Cost from £${priceFrom.epc} | L&D Energy`,
@@ -49,15 +50,33 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 /**
- * Title built to fit inside the ~60-character SERP truncation while carrying
- * both proven query shapes: "EPC {area}" and "cost of EPC in {area}". The
- * accreditation suffix is dropped for long borough names rather than allowing
- * the price — the part that earns the click — to be cut off.
+ * Title and description shaped by the borough's measured search intent rather
+ * than one template for all 34 — see boroughIntent in lib/boroughs.ts.
+ *
+ * 'cost'     lead with the cost question, which is what these pages are found on
+ * 'balanced' EPC + area first, price second
+ * 'service'  keep the existing assessor/neighbourhood title, which already
+ *            holds equity and matches the queries these pages actually get
+ *
+ * Titles are capped at 60 characters, dropping the trailing trust phrase rather
+ * than letting the price — the part that earns the click — be truncated.
  */
-function boroughTitle(name: string): string {
-  const core = `EPC ${name} | Cost from £${priceFrom.epc}`
-  const withTrust = `${core} | Elmhurst Accredited`
-  return withTrust.length <= 60 ? withTrust : core
+function fit(core: string, suffix: string): string {
+  const full = `${core} | ${suffix}`
+  return full.length <= 60 ? full : core
+}
+
+function boroughTitle(name: string, intent: BoroughIntent, fallback: string): string {
+  if (intent === 'cost') return fit(`EPC Cost in ${name} | Prices from £${priceFrom.epc}`, 'L&D Energy')
+  if (intent === 'balanced') return fit(`EPC ${name} | Cost from £${priceFrom.epc}`, 'Elmhurst Accredited')
+  return fallback
+}
+
+function boroughDescription(name: string, intent: BoroughIntent): string {
+  if (intent === 'service') {
+    return `Elmhurst-accredited EPC assessor covering ${name}. Guide prices from £${priceFrom.epc}, set by internal floor area, with your exact quote confirmed before booking.`
+  }
+  return `EPC cost in ${name}: guide prices from £${priceFrom.epc}, set by internal floor area. Elmhurst-accredited assessor, exact quote before booking.`
 }
 
 function boroughFaq(name: string, postcodeFaq: { q: string; a: string }): FaqItem[] {

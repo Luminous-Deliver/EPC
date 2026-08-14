@@ -112,7 +112,8 @@ Each area page: ${site.url}/areas/[borough-slug]
 
 ## Company details
 - Trading name: ${site.name}
-- Business structure: sole trader, trading as ${site.parentBrand} / ${site.name}
+- Business structure: sole trader
+- Operator: ${site.legal.soleTraderName}, trading as ${site.parentBrand} / ${site.name}
 - Accreditation: ${site.assessor.scheme}
 - All EPCs lodged on the official UK Government EPC Register (https://www.gov.uk/find-energy-certificate)
 - Verify an assessor: ${site.assessor.verifyUrl}

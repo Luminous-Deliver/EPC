@@ -794,3 +794,58 @@ export const priorityBoroughSlugs = [
 export const priorityBoroughs = priorityBoroughSlugs
   .map((slug) => boroughMeta[slug])
   .filter(Boolean)
+
+/**
+ * Dominant search intent per borough, measured — not assumed.
+ *
+ * Derived from Google Search Console, 6 months to 14 Aug 2026, by bucketing
+ * every query containing the borough or one of its neighbourhoods into
+ * cost/price intent vs service/location intent and comparing impressions.
+ *
+ *   'cost'     >=60% of impressions are cost/price queries
+ *   'balanced' 40-59%
+ *   'service'  <40%, or fewer than 40 impressions (too little data to justify
+ *              changing a title that already holds equity)
+ *
+ * This exists so the 34 titles are not mechanically identical: Harrow is 88%
+ * cost-led while Croydon is 19%, and a single template would serve one of them
+ * badly. Re-derive when fresh GSC data is available rather than editing by hand.
+ */
+export type BoroughIntent = 'cost' | 'balanced' | 'service'
+
+export const boroughIntent: Record<string, BoroughIntent> = {
+  'stratford': 'cost',
+  'hackney': 'service',
+  'tower-hamlets': 'balanced',
+  'newham': 'service',
+  'greenwich': 'balanced',
+  'islington': 'service',
+  'southwark': 'service',
+  'lewisham': 'balanced',
+  'barking-dagenham': 'service',
+  'waltham-forest': 'balanced',
+  'camden': 'balanced',
+  'westminster': 'cost',
+  'lambeth': 'balanced',
+  'wandsworth': 'balanced',
+  'brent': 'balanced',
+  'ealing': 'cost',
+  'hounslow': 'service',
+  'richmond': 'service',
+  'kingston': 'service',
+  'croydon': 'service',
+  'enfield': 'cost',
+  'haringey': 'balanced',
+  'redbridge': 'cost',
+  'havering': 'service',
+  'bexley': 'service',
+  'bromley': 'service',
+  'sutton': 'service',
+  'merton': 'service',
+  'hammersmith-fulham': 'cost',
+  'kensington-chelsea': 'service',
+  'city-of-london': 'service',
+  'barnet': 'balanced',
+  'harrow': 'cost',
+  'hillingdon': 'service',
+}
