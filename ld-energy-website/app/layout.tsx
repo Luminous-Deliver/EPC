@@ -167,6 +167,7 @@ const localBusinessSchema = {
   },
   employee: {
     '@type': 'Person',
+    '@id': `${site.url}/about#assessor`,
     name: site.assessor.name,
     jobTitle: 'Domestic Energy Assessor',
     identifier: site.assessor.accreditationNumber,

@@ -95,6 +95,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     author: author
       ? {
           '@type': 'Person',
+          '@id': `${site.url}/about#assessor`,
           name: author.name,
           jobTitle: author.role,
           worksFor: { '@id': `${site.url}/#business` },

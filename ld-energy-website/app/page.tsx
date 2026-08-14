@@ -6,6 +6,7 @@ import { WhatIsEpc } from '@/components/sections/WhatIsEpc'
 import { Pricing } from '@/components/sections/Pricing'
 import { HowItWorks } from '@/components/sections/HowItWorks'
 import { PrepPreview } from '@/components/sections/PrepPreview'
+import { GoodToKnow } from '@/components/sections/GoodToKnow'
 import { CtaBand } from '@/components/sections/CtaBand'
 import { ServicesOverview } from '@/components/sections/ServicesOverview'
 import { WhoWeHelp } from '@/components/sections/WhoWeHelp'
@@ -84,6 +85,7 @@ export default function HomePage() {
       <CtaBand />
       <HowItWorks />
       <PrepPreview />
+      <GoodToKnow />
       <WhatIsEpc />
       <ServicesOverview />
       <WhoWeHelp />

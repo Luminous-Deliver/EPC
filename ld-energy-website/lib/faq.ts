@@ -131,6 +131,46 @@ export const fullFaq: FaqCategory[] = [
     title: 'About EPCs',
     items: [
       {
+        q: 'Can an EPC assessor change or improve my rating?',
+        a: 'No. The assessor surveys the property, records its measurements, construction, heating, glazing and lighting, and verifies any evidence they can accept. The rating is then calculated from that data by government-approved software. There is no field an assessor can edit to reach a requested result, and doing so would put their accreditation at risk. What an assessor can do is make sure everything genuinely present is recorded and evidenced.',
+        links: [{ label: 'Why EPC ratings differ between similar homes', href: '/blog/why-is-my-epc-different' }],
+      },
+      {
+        q: 'Why is my EPC different from my neighbour’s?',
+        a: 'EPC ratings are specific to the individual property. Position in the terrace is a common reason — a mid-terrace home has two exposed external walls where an end-terrace or semi has three, which changes heat loss before anything else is considered. Floor area, extensions, insulation, glazing, heating, renewables and the evidence available on the day all vary between neighbouring homes too.',
+        links: [{ label: 'Why EPC ratings differ between similar homes', href: '/blog/why-is-my-epc-different' }],
+      },
+      {
+        q: 'Why is my new EPC different from my old one?',
+        a: 'Existing dwellings in England and Wales have been assessed under the RdSAP 10 methodology since 15 June 2025, the first substantial change to the calculation in over a decade. A new certificate will not necessarily reproduce an older one even where the property is unchanged. There is no published rule that the update moves ratings up or down — it depends on the property. Previous certificates can also record different assumptions or information.',
+        links: [{ label: 'RdSAP 10: what changed in 2025', href: '/blog/rdsap-10-what-changed-2025' }],
+      },
+      {
+        q: 'What is RdSAP 10?',
+        a: 'RdSAP is the methodology used to calculate EPCs for existing homes. RdSAP 10 became the approved methodology for existing dwellings in England and Wales on 15 June 2025. It collects more detail about the property and calculates a number of things differently from the version it replaced.',
+        links: [{ label: 'RdSAP 10: what changed in 2025', href: '/blog/rdsap-10-what-changed-2025' }],
+      },
+      {
+        q: 'What documents should I have ready for my EPC assessment?',
+        a: 'None are compulsory, but where they exist they can help: window and door installation certificates, loft, wall or floor insulation records, building-control paperwork for extensions, boiler and hot-water cylinder details, heat-pump commissioning documents, and solar or MCS documentation. They matter because an improvement that cannot be seen or evidenced may have to be recorded using a default assumption instead.',
+        links: [{ label: 'What to have ready', href: '/preparing-for-your-epc' }],
+      },
+      {
+        q: 'What happens if my insulation cannot be seen?',
+        a: 'Where an improvement cannot be inspected and there is no evidence the assessor can accept, the methodology may require a default assumption based on the age and type of property, which can be less favourable than what is actually installed. Supporting paperwork changes what can legitimately be recorded — it does not guarantee a particular rating.',
+        links: [{ label: 'Documents and evidence that may help', href: '/preparing-for-your-epc#evidence' }],
+      },
+      {
+        q: 'Do I need my solar or heat-pump documents?',
+        a: 'They are useful where you have them, but they are not mandatory. MCS paperwork, commissioning documents or system specifications are examples of evidence an assessor may be able to accept to confirm what is installed, rather than estimating it. The assessor decides what can be accepted under the methodology.',
+      },
+      {
+        q: 'What if my property is larger than the details used for my quote?',
+        a: 'Our quote is based on the property information supplied before the appointment. If the property is materially larger or more complex than described — a significant undisclosed extension, an unmentioned loft conversion, or an unusually complex layout — we explain any adjustment and confirm it with you before the assessment begins, never afterwards. In practice this is rare.',
+        links: [{ label: 'See guide pricing', href: '/pricing' }],
+      },
+
+      {
         q: 'What is an EPC?',
         a: 'An Energy Performance Certificate (EPC) is an official UK government document that rates a property’s energy efficiency from A (most efficient) to G (least efficient). It shows current and potential energy efficiency, estimated annual energy costs, CO₂ emissions, and recommendations for improvement.',
       },

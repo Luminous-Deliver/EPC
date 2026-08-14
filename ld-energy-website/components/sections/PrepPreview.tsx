@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Check, KeyRound } from 'lucide-react'
+import { ArrowRight, Check, FileText, KeyRound } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { Disclosure } from '@/components/ui/Disclosure'
@@ -62,7 +62,10 @@ export function PrepPreview() {
         </Disclosure>
       </div>
 
-      <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      {/* Documents are a secondary note, not a second checklist. Listing every
+          possible certificate here would rebuild the section we deliberately
+          moved off the homepage. */}
+      <div className="mt-5 grid gap-4 sm:grid-cols-2">
         <p className="flex items-start gap-2.5 text-sm leading-relaxed text-secondary-700">
           <KeyRound className="mt-0.5 h-4 w-4 shrink-0 text-primary-600" aria-hidden="true" />
           <span>
@@ -70,15 +73,29 @@ export function PrepPreview() {
             tenant notice and confirm access before the visit. Evening and weekend slots are available.
           </span>
         </p>
-
-        <Link
-          href="/preparing-for-your-epc"
-          className="inline-flex min-h-[44px] shrink-0 items-center gap-1.5 self-start text-sm font-semibold text-primary-700 transition-colors hover:text-primary-800 sm:self-auto"
-        >
-          See the full EPC preparation checklist
-          <ArrowRight className="h-4 w-4" aria-hidden="true" />
-        </Link>
+        <p className="flex items-start gap-2.5 text-sm leading-relaxed text-secondary-700">
+          <FileText className="mt-0.5 h-4 w-4 shrink-0 text-primary-600" aria-hidden="true" />
+          <span>
+            <strong className="font-semibold text-secondary-900">Have supporting documents?</strong>{' '}
+            Where applicable, evidence helps us record improvements accurately — for example glazing,
+            insulation, extensions, renewables or heating upgrades.{' '}
+            <Link
+              href="/preparing-for-your-epc#evidence"
+              className="font-semibold text-primary-700 underline underline-offset-2 hover:text-primary-800"
+            >
+              See what documents may be useful
+            </Link>
+          </span>
+        </p>
       </div>
+
+      <Link
+        href="/preparing-for-your-epc"
+        className="mt-4 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-primary-700 transition-colors hover:text-primary-800"
+      >
+        See the full EPC preparation checklist
+        <ArrowRight className="h-4 w-4" aria-hidden="true" />
+      </Link>
     </Section>
   )
 }

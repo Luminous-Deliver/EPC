@@ -4,12 +4,14 @@ import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { WhatToHaveReady } from '@/components/sections/WhatToHaveReady'
+import { EvidenceGuide } from '@/components/sections/EvidenceGuide'
+import { ImportantToKnow } from '@/components/sections/ImportantToKnow'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Preparing for Your EPC Assessment | What to Have Ready',
+  title: 'Preparing for Your EPC Assessment | Access, Documents and Evidence',
   description:
-    'What to have ready before your EPC assessment in London: rooms, loft hatch, boiler, radiators, lighting and meters. Takes 45–60 minutes when everything is accessible.',
+    'What to have ready for your EPC assessment: access, supporting documents and evidence. Plus how your quote works, why the rating is calculated rather than chosen, and why EPCs differ between similar homes.',
   alternates: { canonical: `${site.url}/preparing-for-your-epc` },
   openGraph: {
     title: 'Preparing for Your EPC Assessment | L&D Energy',
@@ -53,6 +55,7 @@ export default function PreparingPage() {
         primaryCta={{ label: 'Book your EPC', href: '/contact' }}
       />
       <WhatToHaveReady heading={false} />
+      <EvidenceGuide />
       <Section variant="muted" tier="secondary">
         <div className="max-w-2xl">
           <h2 className="text-2xl font-bold tracking-tight text-secondary-900">
@@ -61,11 +64,13 @@ export default function PreparingPage() {
           <p className="mt-3 leading-relaxed text-secondary-700">
             Your assessor photographs and measures each room, records the heating system, insulation,
             glazing and lighting, and reads the meters. There is no testing, no mess and nothing
-            invasive. Once the survey is done the certificate is lodged on the government register and
-            lodged on the GOV.UK EPC register within 72 hours, or the next day if you chose express, and we send you the certificate link once it is live.
+            invasive. Once the survey is done, your certificate is lodged on the official GOV.UK EPC
+            register within 72 hours, or the next day if you chose express, and we send you the link
+            as soon as it is live.
           </p>
         </div>
       </Section>
+      <ImportantToKnow govUkHref="https://www.gov.uk/buy-sell-your-home/energy-performance-certificates" />
       <CtaStrip
         heading="Ready to book your assessment?"
         body="Send us the property details and we'll confirm your exact quote and a time slot."
