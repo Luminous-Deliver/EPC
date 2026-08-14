@@ -58,7 +58,7 @@ const groups = [
 
 export function EvidenceGuide() {
   return (
-    <Section variant="default" tier="secondary" id="evidence" className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="default" tier="secondary" id="documents-and-evidence" className="scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-3xl">
         <SectionHeader
           eyebrow="Supporting evidence"
@@ -98,7 +98,7 @@ export function EvidenceGuide() {
         </div>
       </div>
 
-      <div className="mt-5 max-w-3xl">
+      <div id="why-evidence-matters" className="mt-5 max-w-3xl scroll-mt-24 md:scroll-mt-28">
         <h3 className="text-lg font-bold text-secondary-900">Why evidence matters</h3>
         <p className="mt-2 leading-relaxed text-secondary-700">
           If an improvement cannot be seen and cannot be evidenced, the methodology may require the

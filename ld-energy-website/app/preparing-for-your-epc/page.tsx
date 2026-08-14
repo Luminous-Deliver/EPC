@@ -6,7 +6,9 @@ import { CtaStrip } from '@/components/sections/CtaStrip'
 import { WhatToHaveReady } from '@/components/sections/WhatToHaveReady'
 import { EvidenceGuide } from '@/components/sections/EvidenceGuide'
 import { ImportantToKnow } from '@/components/sections/ImportantToKnow'
-import { site } from '@/lib/site'
+import { OnThisPage, type PageAnchor } from '@/components/ui/OnThisPage'
+import { Container } from '@/components/ui/Container'
+import { site, govUk } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Preparing for Your EPC Assessment | Access, Documents and Evidence',
@@ -20,6 +22,22 @@ export const metadata: Metadata = {
     url: `${site.url}/preparing-for-your-epc`,
   },
 }
+
+/**
+ * Stable, human-readable fragments. Deliberately short slugs set explicitly on
+ * the sections rather than derived from heading text, so a link copied into a
+ * WhatsApp reply keeps working if the visible wording is later reworded.
+ */
+const pageAnchors: readonly PageAnchor[] = [
+  { id: 'what-to-have-ready', label: 'What to have ready' },
+  { id: 'documents-and-evidence', label: 'Documents and evidence' },
+  { id: 'why-evidence-matters', label: 'Why evidence matters' },
+  { id: 'quote-and-property-complexity', label: 'Your quote and property complexity' },
+  { id: 'how-your-epc-rating-is-calculated', label: 'How your EPC rating is calculated' },
+  { id: 'why-your-epc-may-differ', label: 'Why your EPC may differ' },
+  { id: 'rdsap-10', label: 'RdSAP 10' },
+  { id: 'tenanted-properties', label: 'Tenanted properties' },
+]
 
 const breadcrumbs = [
   { href: '/', label: 'Home' },
@@ -54,6 +72,11 @@ export default function PreparingPage() {
         subheading="A short checklist so the survey takes 45–60 minutes and nothing needs a second visit. Nothing here is difficult — it is mostly about access."
         primaryCta={{ label: 'Book your EPC', href: '/contact' }}
       />
+      <Container className="pt-8">
+        <div className="mx-auto max-w-4xl">
+          <OnThisPage anchors={pageAnchors} />
+        </div>
+      </Container>
       <WhatToHaveReady heading={false} />
       <EvidenceGuide />
       <Section variant="muted" tier="secondary">
@@ -70,7 +93,7 @@ export default function PreparingPage() {
           </p>
         </div>
       </Section>
-      <ImportantToKnow govUkHref="https://www.gov.uk/buy-sell-your-home/energy-performance-certificates" />
+      <ImportantToKnow govUkHref={govUk.epcGuidance} />
       <CtaStrip
         heading="Ready to book your assessment?"
         body="Send us the property details and we'll confirm your exact quote and a time slot."

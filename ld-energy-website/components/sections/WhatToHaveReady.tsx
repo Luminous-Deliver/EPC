@@ -37,7 +37,7 @@ const items = [
 
 export function WhatToHaveReady({ heading = true }: { heading?: boolean } = {}) {
   return (
-    <Section variant="default" tier="secondary" id="what-to-have-ready" className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="default" tier="secondary" id="what-to-have-ready" className="scroll-mt-24 md:scroll-mt-28">
       {heading && (
       <div className="max-w-3xl">
         <SectionHeader
@@ -68,7 +68,7 @@ export function WhatToHaveReady({ heading = true }: { heading?: boolean } = {}) 
       </ul>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
-        <div className="rounded-2xl border border-primary-200 bg-primary-50/60 p-5">
+        <div id="tenanted-properties" className="scroll-mt-24 rounded-2xl border border-primary-200 bg-primary-50/60 p-5 md:scroll-mt-28">
           <p className="text-sm leading-relaxed text-secondary-800">
             <strong className="font-semibold text-secondary-900">Tenanted property?</strong>{' '}
             Please arrange the visit with your tenants and give them proper notice — they’ll need to

@@ -212,3 +212,28 @@ export const insurance = {
   legal:
     'Professional Indemnity and Public Liability cover, each £5,000,000, is arranged through Elmhurst Energy’s accredited-member insurance scheme and underwritten by Hiscox Insurance Company Limited.',
 } as const
+
+/**
+ * Authoritative GOV.UK sources cited on the site.
+ *
+ * Kept here so a superseded notice is corrected once rather than in every file
+ * that links it. That has already happened once: the 15 June 2025 notice was
+ * superseded by the 24 March 2026 notice, which still approves RdSAP10 for
+ * existing dwellings in England and Wales. The 15 June 2025 *date* remains
+ * correct as when RdSAP 10 took effect — only the notice to cite changed.
+ *
+ * Verified 2026-08-14.
+ */
+export const govUk = {
+  /** Current notice of approval for calculation methodologies. */
+  methodologyNotice:
+    'https://www.gov.uk/government/publications/methodologies-for-expressing-the-energy-performance-of-buildings-in-england-and-wales-notice-of-approval-24-march-2026',
+  /** Consumer-facing EPC guidance. */
+  epcGuidance: 'https://www.gov.uk/buy-sell-your-home/energy-performance-certificates',
+  findCertificate: 'https://www.gov.uk/find-energy-certificate',
+  getCertificate: 'https://www.gov.uk/get-new-energy-certificate',
+  meesLandlordGuidance:
+    'https://www.gov.uk/guidance/domestic-private-rented-property-minimum-energy-efficiency-standard-landlord-guidance',
+  /** Date RdSAP 10 became the approved methodology for existing dwellings. */
+  rdsap10EffectiveFrom: '15 June 2025',
+} as const

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Section } from '@/components/ui/Section'
+import { govUk } from '@/lib/site'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 
 /**
@@ -12,14 +13,14 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
  */
 export function ImportantToKnow({ govUkHref }: { govUkHref: string }) {
   return (
-    <Section variant="muted" tier="secondary" id="important" className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="muted" tier="secondary" id="important" className="scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-3xl">
         <SectionHeader
           eyebrow="Important"
           heading="Things worth knowing before your EPC"
         />
 
-        <h3 className="mt-8 text-xl font-bold text-secondary-900">
+        <h3 id="quote-and-property-complexity" className="mt-8 scroll-mt-24 text-xl font-bold text-secondary-900 md:scroll-mt-28">
           Your quote is based on the details you give us
         </h3>
         <p className="mt-2 leading-relaxed text-secondary-700">
@@ -31,7 +32,7 @@ export function ImportantToKnow({ govUkHref }: { govUkHref: string }) {
           afterwards. In practice this is rare; most quotes stand exactly as given.
         </p>
 
-        <h3 className="mt-8 text-xl font-bold text-secondary-900">
+        <h3 id="how-your-epc-rating-is-calculated" className="mt-8 scroll-mt-24 text-xl font-bold text-secondary-900 md:scroll-mt-28">
           Your EPC rating is not chosen by the assessor
         </h3>
         <p className="mt-2 leading-relaxed text-secondary-700">
@@ -45,13 +46,13 @@ export function ImportantToKnow({ govUkHref }: { govUkHref: string }) {
           certificate would be worth nothing to the buyer, tenant or lender relying on it. What we{' '}
           <em>can</em> do is make sure everything genuinely present is recorded and evidenced — which
           is what the{' '}
-          <Link href="#evidence" className="font-semibold text-primary-700 underline underline-offset-2 hover:text-primary-800">
+          <Link href="#documents-and-evidence" className="font-semibold text-primary-700 underline underline-offset-2 hover:text-primary-800">
             evidence section above
           </Link>{' '}
           is for.
         </p>
 
-        <h3 className="mt-8 text-xl font-bold text-secondary-900">
+        <h3 id="why-your-epc-may-differ" className="mt-8 scroll-mt-24 text-xl font-bold text-secondary-900 md:scroll-mt-28">
           Why your EPC may differ from a neighbour&rsquo;s or an older certificate
         </h3>
         <p className="mt-2 leading-relaxed text-secondary-700">
@@ -81,21 +82,37 @@ export function ImportantToKnow({ govUkHref }: { govUkHref: string }) {
           ))}
         </ul>
 
-        <p className="mt-5 leading-relaxed text-secondary-700">
-          Existing homes have also been assessed under the updated RdSAP 10 methodology since{' '}
+        <h4 id="rdsap-10" className="mt-8 scroll-mt-24 text-lg font-bold text-secondary-900 md:scroll-mt-28">
+          The methodology changed in June 2025: RdSAP 10
+        </h4>
+        <p className="mt-2 leading-relaxed text-secondary-700">
+          Existing homes have been assessed under the updated RdSAP 10 methodology since{' '}
+          {govUk.rdsap10EffectiveFrom}, replacing the approach used for older EPCs. The methodology
+          has been updated to reflect newer building technologies, heating systems, renewable
+          technologies and more detailed property information. As energy-efficiency technology and
+          assessment methods have developed, what is recorded and how different features are treated
+          has also changed.
+        </p>
+        <p className="mt-3 leading-relaxed text-secondary-700">
+          Because of this, a new EPC should not be expected to reproduce an older certificate
+          exactly, even if the property itself has not changed very much. An older EPC reflects the
+          methodology and information available at the time; a current EPC assesses the property
+          using today&rsquo;s approved methodology.
+        </p>
+        <p className="mt-3 leading-relaxed text-secondary-700">
+          This does not mean an older EPC was automatically wrong, or that RdSAP 10 will always
+          produce a higher or lower rating. The result depends on the individual property, the
+          features present, the evidence available and the methodology used. RdSAP 10 remains the
+          approved methodology for existing dwellings in England and Wales under the{' '}
           <a
-            href="https://www.gov.uk/government/publications/methodologies-for-expressing-the-energy-performance-of-buildings-in-england-and-wales-notice-of-approval-15-june-2025/methodologies-for-expressing-the-energy-performance-of-buildings-in-england-and-wales-notice-of-approval-15-june-2025"
+            href={govUk.methodologyNotice}
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold text-primary-700 underline underline-offset-2 hover:text-primary-800"
           >
-            15 June 2025
+            current GOV.UK notice of approval
           </a>
-          , the first substantial change to the calculation in over a decade. A new certificate
-          should not be expected to reproduce an older one exactly, even where the property is
-          broadly unchanged. There is no rule that the update moves ratings up or down — it depends
-          on the property — so differences are worth reading in the context of the methodology as
-          well as any work done to the home.
+          .
         </p>
 
         <p className="mt-3 leading-relaxed text-secondary-700">

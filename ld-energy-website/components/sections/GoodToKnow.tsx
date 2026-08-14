@@ -20,16 +20,19 @@ const items = [
     Icon: ReceiptText,
     title: 'Exact quote',
     body: 'Based on the property details you give us. Anything materially different is discussed and agreed before the assessment begins.',
+    href: '/preparing-for-your-epc#quote-and-property-complexity',
   },
   {
     Icon: Calculator,
     title: 'Independent rating',
     body: 'We record the property; the score is calculated by the approved methodology. It cannot be manually adjusted.',
+    href: '/preparing-for-your-epc#how-your-epc-rating-is-calculated',
   },
   {
     Icon: CalendarClock,
     title: 'RdSAP 10',
     body: 'Existing homes have used the updated methodology since June 2025, so an older EPC may not reproduce exactly.',
+    href: '/preparing-for-your-epc#rdsap-10',
   },
 ]
 
@@ -45,19 +48,23 @@ export function GoodToKnow() {
       </div>
 
       <ul className="mt-5 grid gap-4 md:grid-cols-3">
-        {items.map(({ Icon, title, body }) => (
+        {items.map(({ Icon, title, body, href }) => (
           <li key={title} className="rounded-2xl border border-secondary-200 bg-white p-5">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary-50 text-primary-700 ring-1 ring-primary-100">
               <Icon className="h-4 w-4" aria-hidden="true" />
             </span>
-            <h3 className="mt-3 text-[15px] font-bold leading-snug text-secondary-900">{title}</h3>
+            <h3 className="mt-3 text-[15px] font-bold leading-snug text-secondary-900">
+              <Link href={href} className="underline-offset-2 hover:underline">
+                {title}
+              </Link>
+            </h3>
             <p className="mt-1.5 text-sm leading-relaxed text-secondary-600">{body}</p>
           </li>
         ))}
       </ul>
 
       <Link
-        href="/preparing-for-your-epc"
+        href="/preparing-for-your-epc#what-to-have-ready"
         className="mt-4 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-primary-700 transition-colors hover:text-primary-800"
       >
         Read the full EPC assessment guide
