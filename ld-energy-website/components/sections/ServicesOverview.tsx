@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
-import { ArrowRight, FileText, Ruler, PackageCheck, Leaf, CheckCircle2, Sparkles } from 'lucide-react'
+import { ArrowRight, FileText, Ruler, PackageCheck, Leaf, CheckCircle2, Sparkles, Camera } from 'lucide-react'
 import { priceFrom, formatPrice } from '@/lib/site'
 
 // Three core services today; the grid flexes to fit future additions
@@ -132,6 +132,31 @@ export function ServicesOverview() {
             </Link>
           </Card>
         ))}
+      </div>
+
+      {/*
+        Deliberately outside the services grid and with no link, price or CTA.
+        Photography is not bookable yet, so it must not sit alongside services
+        that are, and it is intentionally absent from the OfferCatalog schema —
+        that markup describes services actually offered.
+      */}
+      <div className="mt-5 flex items-start gap-3 rounded-2xl border border-dashed border-secondary-300 bg-secondary-50/60 p-4 sm:p-5">
+        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-secondary-200 text-secondary-600">
+          <Camera className="h-4 w-4" aria-hidden="true" />
+        </span>
+        <div>
+          <p className="flex flex-wrap items-center gap-2 text-base font-semibold text-secondary-900">
+            Property Photography
+            <span className="rounded-full bg-secondary-200 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-secondary-700">
+              Coming soon
+            </span>
+          </p>
+          <p className="mt-1 text-sm leading-relaxed text-secondary-600">
+            Professional property photography for listings on Rightmove, Zoopla and other property
+            portals. Intended for landlords, estate agents and property managers who may eventually
+            want EPCs, floor plans and listing-ready photography handled in one visit.
+          </p>
+        </div>
       </div>
     </Section>
   )

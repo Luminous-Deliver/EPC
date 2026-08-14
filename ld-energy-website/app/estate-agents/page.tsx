@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { CheckCircle2, Zap, LayoutPanelTop, PhoneCall, BadgePercent, CalendarClock, FileCheck2 } from 'lucide-react'
+import { CheckCircle2, Zap, LayoutPanelTop, PhoneCall, BadgePercent, CalendarClock, FileCheck2, Camera } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
 import { Accordion } from '@/components/ui/Accordion'
@@ -264,6 +264,29 @@ export default function EstateAgentsPage() {
           </h2>
           <div className="mt-8">
             <Accordion items={agentFaq} />
+          </div>
+        </div>
+      </Section>
+
+      {/* Not bookable yet: no link, no price, no CTA, and deliberately absent
+          from this page's Service/OfferCatalog schema. */}
+      <Section variant="default" tier="compact">
+        <div className="mx-auto flex max-w-3xl items-start gap-3 rounded-2xl border border-dashed border-secondary-300 bg-secondary-50/60 p-4 sm:p-5">
+          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-secondary-200 text-secondary-600">
+            <Camera className="h-4 w-4" aria-hidden="true" />
+          </span>
+          <div>
+            <p className="flex flex-wrap items-center gap-2 text-base font-semibold text-secondary-900">
+              Property Photography
+              <span className="rounded-full bg-secondary-200 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-secondary-700">
+                Coming soon
+              </span>
+            </p>
+            <p className="mt-1 text-sm leading-relaxed text-secondary-600">
+              Professional property photography for listings on Rightmove, Zoopla and other property
+              portals. Intended for agencies that may eventually want EPCs, floor plans and
+              listing-ready photography handled in one visit.
+            </p>
           </div>
         </div>
       </Section>
