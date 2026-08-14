@@ -5,7 +5,7 @@ import { CheckCircle2, MapPin } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav'
 import { PageHero } from '@/components/sections/PageHero'
-import { Pricing } from '@/components/sections/Pricing'
+import { LocalPricingSummary } from '@/components/sections/LocalPricingSummary'
 import { CtaStrip } from '@/components/sections/CtaStrip'
 import { Accordion } from '@/components/ui/Accordion'
 import { ContactSection } from '@/components/sections/ContactSection'
@@ -261,7 +261,7 @@ export default async function BoroughPage({ params }: PageProps) {
         </ul>
       </Section>
 
-      <Pricing />
+      <LocalPricingSummary area={data.name} />
 
       {/* Floor plans cross-sell */}
       <Section variant="default" id="floor-plans">
