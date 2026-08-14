@@ -6,6 +6,7 @@ import { CtaStrip } from '@/components/sections/CtaStrip'
 import { WhatToHaveReady } from '@/components/sections/WhatToHaveReady'
 import { EvidenceGuide } from '@/components/sections/EvidenceGuide'
 import { ImportantToKnow } from '@/components/sections/ImportantToKnow'
+import { CustomerBriefing } from '@/components/sections/CustomerBriefing'
 import { OnThisPage, type PageAnchor } from '@/components/ui/OnThisPage'
 import { Container } from '@/components/ui/Container'
 import { site, govUk } from '@/lib/site'
@@ -72,6 +73,7 @@ export default function PreparingPage() {
         subheading="A short checklist so the survey takes 45–60 minutes and nothing needs a second visit. Nothing here is difficult — it is mostly about access."
         primaryCta={{ label: 'Book your EPC', href: '/contact' }}
       />
+      <CustomerBriefing />
       <Container className="pt-8">
         <div className="mx-auto max-w-4xl">
           <OnThisPage anchors={pageAnchors} />
