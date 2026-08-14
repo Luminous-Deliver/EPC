@@ -28,7 +28,7 @@ const items = [
 
 function PrepList() {
   return (
-    <ul className="grid gap-x-6 gap-y-3 sm:grid-cols-2">
+    <ul className="grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
       {items.map((item) => (
         <li key={item} className="flex items-start gap-3">
           <span
@@ -46,18 +46,18 @@ function PrepList() {
 
 export function PrepPreview() {
   return (
-    <Section variant="default" tier="compact" id="before-the-visit" className="scroll-mt-20 md:scroll-mt-24">
-      <div className="mx-auto max-w-4xl rounded-3xl border border-primary-200 bg-primary-50/60 p-6 shadow-sm sm:p-8">
+    <Section variant="muted" tier="compact" id="before-the-visit" className="scroll-mt-20 md:scroll-mt-24">
+      <div className="mx-auto max-w-4xl rounded-3xl border border-primary-200 bg-primary-50/60 p-5 shadow-sm sm:p-7">
         <p className="text-xs font-bold uppercase tracking-widest text-primary-700">Before the visit</p>
         <h2 className="mt-2 text-2xl font-bold tracking-tight text-secondary-900 md:text-3xl">
           What to have ready
         </h2>
-        <p className="mt-3 max-w-2xl leading-relaxed text-secondary-700">
+        <p className="mt-2 max-w-2xl leading-relaxed text-secondary-700">
           Most EPC assessments take around 45–60 minutes. Making these areas accessible beforehand
           helps the visit run smoothly.
         </p>
 
-        <p className="mt-6 text-sm font-bold text-secondary-900">Please make sure we can access:</p>
+        <p className="mt-5 text-sm font-bold text-secondary-900">Please make sure we can access:</p>
 
         {/* Visible at every width. Collapsing this on mobile hid the one thing
             the section exists to communicate, which defeats the point of
@@ -68,7 +68,7 @@ export function PrepPreview() {
 
         {/* Secondary notes: same panel, different treatment, so they read as
             context rather than as two more checklist items. */}
-        <div className="mt-6 grid gap-3 border-t border-primary-200/70 pt-6 sm:grid-cols-2">
+        <div className="mt-5 grid gap-3 border-t border-primary-200/70 pt-5 sm:grid-cols-2">
           <div className="rounded-2xl border border-secondary-200 bg-white p-4">
             <p className="flex items-center gap-2 text-sm font-bold text-secondary-900">
               <KeyRound className="h-4 w-4 shrink-0 text-primary-600" aria-hidden="true" />
@@ -99,7 +99,7 @@ export function PrepPreview() {
 
         <Link
           href="/preparing-for-your-epc#what-to-have-ready"
-          className="mt-6 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-primary-300 bg-white px-5 py-3 text-sm font-bold text-primary-800 shadow-sm transition-all hover:border-primary-400 hover:bg-primary-100"
+          className="mt-5 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-primary-300 bg-white px-5 py-3 text-sm font-bold text-primary-800 shadow-sm transition-all hover:border-primary-400 hover:bg-primary-100"
         >
           View the full EPC preparation checklist
           <ArrowRight className="h-4 w-4" aria-hidden="true" />

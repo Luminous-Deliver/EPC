@@ -79,13 +79,19 @@ export default function HomePage() {
           L&amp;D Energy is an Elmhurst-accredited Domestic Energy Assessor based in Stratford, East London. We provide official Energy Performance Certificates (EPCs) and professional floor plans for residential properties across all London boroughs. EPCs are lodged on the UK government&rsquo;s official GOV.UK EPC Register within 72 hours as standard, and the certificate link is sent once it is live; next-day lodgement is available for {`£${EXPRESS_SURCHARGE}`} extra. Guide prices start at {`£${priceFrom.epc}`} for properties up to 37 m² and {`£${pricing[5].epc}`} for homes over 121 m², with the exact quote confirmed before booking. Internal floor area is the main pricing factor. We work with homeowners, landlords, and estate and letting agents, and are currently taking on new agency clients. Contact: {site.phone} or {site.email}.
         </p>
       </section>
+      {/*
+        Order is deliberate: establish what happens and what to know BEFORE
+        pricing, so the page reads "what happens / what should I know?" ->
+        "what do you offer?" -> "what does it cost?" -> "how do I get a quote?".
+        TrustBar stays welded to the hero as its trust strip.
+      */}
       <TrustBar />
       <SocialProof />
+      <PrepPreview />
+      <GoodToKnow />
       <Pricing />
       <CtaBand />
       <HowItWorks />
-      <PrepPreview />
-      <GoodToKnow />
       <WhatIsEpc />
       <ServicesOverview />
       <WhoWeHelp />

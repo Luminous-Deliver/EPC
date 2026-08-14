@@ -38,7 +38,7 @@ const items = [
 
 export function GoodToKnow() {
   return (
-    <Section variant="muted" tier="compact" id="good-to-know" className="scroll-mt-20 md:scroll-mt-24">
+    <Section variant="default" tier="compact" id="good-to-know" className="scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl">
         <SectionHeader
           tier="compact"
@@ -47,9 +47,9 @@ export function GoodToKnow() {
         />
       </div>
 
-      <ul className="mt-5 grid gap-4 md:grid-cols-3">
+      <ul className="mt-4 grid gap-3 md:grid-cols-3">
         {items.map(({ Icon, title, body, href }) => (
-          <li key={title} className="rounded-2xl border border-secondary-200 bg-white p-5">
+          <li key={title} className="rounded-2xl border border-secondary-200 bg-white p-4">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary-50 text-primary-700 ring-1 ring-primary-100">
               <Icon className="h-4 w-4" aria-hidden="true" />
             </span>
@@ -65,7 +65,7 @@ export function GoodToKnow() {
 
       <Link
         href="/preparing-for-your-epc#what-to-have-ready"
-        className="mt-4 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-primary-700 transition-colors hover:text-primary-800"
+        className="mt-3 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-primary-700 transition-colors hover:text-primary-800"
       >
         Read the full EPC assessment guide
         <ArrowRight className="h-4 w-4" aria-hidden="true" />

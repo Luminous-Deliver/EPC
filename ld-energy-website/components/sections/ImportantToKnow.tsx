@@ -87,11 +87,16 @@ export function ImportantToKnow({ govUkHref }: { govUkHref: string }) {
         </h4>
         <p className="mt-2 leading-relaxed text-secondary-700">
           Existing homes have been assessed under the updated RdSAP 10 methodology since{' '}
-          {govUk.rdsap10EffectiveFrom}, replacing the approach used for older EPCs. The methodology
-          has been updated to reflect newer building technologies, heating systems, renewable
-          technologies and more detailed property information. As energy-efficiency technology and
-          assessment methods have developed, what is recorded and how different features are treated
-          has also changed.
+          {govUk.rdsap10EffectiveFrom}, replacing the approach used for older EPCs. RdSAP is a
+          reduced-data version of the full SAP calculation, used for existing homes because the
+          complete construction data a new-build assessment relies on is rarely available for a
+          property already standing.
+        </p>
+        <p className="mt-3 leading-relaxed text-secondary-700">
+          Older and newer EPCs may differ because the methodology, the data requirements, the
+          property evidence and the technologies considered have all evolved. That is a change in
+          how a home is assessed and recorded — not a judgement that older homes or older building
+          standards are now &ldquo;bad&rdquo;, and not a requirement to modernise anything.
         </p>
         <p className="mt-3 leading-relaxed text-secondary-700">
           Because of this, a new EPC should not be expected to reproduce an older certificate
