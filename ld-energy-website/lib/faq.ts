@@ -50,7 +50,7 @@ export const homepageFaq: FaqItem[] = [
   },
   {
     q: 'What are MEES regulations?',
-    a: 'Minimum Energy Efficiency Standards (MEES) require all rental properties in England and Wales to have an EPC rating of E or above. The government is consulting on raising this to C for new tenancies by 2028 and all tenancies by 2030.',
+    a: 'Minimum Energy Efficiency Standards (MEES) require all rental properties in England and Wales to have an EPC rating of E or above. Government has set out an aim of raising this to band C for privately rented homes by 2030, on a phased basis. That is not yet law.',
   },
   {
     q: 'Can I get a same-day or next-day EPC in London?',
@@ -206,7 +206,7 @@ export const fullFaq: FaqCategory[] = [
       },
       {
         q: 'What are MEES regulations?',
-        a: 'Minimum Energy Efficiency Standards (MEES) require all rental properties to have an EPC rating of E or above. The government has consulted on raising this to C for new tenancies by 2028 and all tenancies by 2030.',
+        a: 'Minimum Energy Efficiency Standards (MEES) require all rental properties to have an EPC rating of E or above. Government has set out an aim of raising this to band C for privately rented homes by 2030, on a phased basis. That is not yet law.',
       },
       {
         q: 'What if my property is below an E rating?',

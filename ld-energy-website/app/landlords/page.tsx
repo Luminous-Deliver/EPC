@@ -13,20 +13,18 @@ import { areaServedLondon } from '@/lib/boroughs'
 import type { FaqItem } from '@/lib/faq'
 
 export const metadata: Metadata = {
-  title: 'EPC for Landlords London | MEES Compliance',
-  description:
-    `EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Guide prices from £${priceFrom.epc}, exact quote before booking.`,
+  title: 'EPC for Landlords London | Domestic MEES Compliance',
+  description: `Domestic EPC assessments for London landlords. See where your rental stands against the current band E requirement. Guide prices from £${priceFrom.epc}, exact quote before booking.`,
   alternates: { canonical: `${site.url}/landlords` },
   openGraph: {
-    title: 'EPC for Landlords London | MEES Compliance | L&D Energy',
-    description:
-      `EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property. Guide prices from £${priceFrom.epc}. Portfolio rates available.`,
+    title: 'EPC for Landlords London | Domestic MEES Compliance | L&D Energy',
+    description: `Domestic EPC assessments for London landlords. Check where your rental stands against the current band E requirement. Guide prices from £${priceFrom.epc}, portfolio rates available.`,
     url: `${site.url}/landlords`,
   },
   twitter: {
-    title: 'EPC for Landlords London | MEES Compliance',
+    title: 'EPC for Landlords London | Domestic MEES Compliance',
     description:
-      'EPC certificates for London landlords. Stay MEES compliant and avoid fines up to £5,000 per property.',
+      'Domestic EPC assessments for London landlords. Check where your rental stands against the current band E requirement.',
   },
 }
 
@@ -145,20 +143,58 @@ export default function LandlordsPage() {
 
       <PageHero
         eyebrow="For Landlords"
-        heading="EPCs for London Landlords"
-        subheading="Stay compliant with MEES regulations. Avoid fines of up to £5,000 per property. Get your rental property's EPC sorted in 72 hours, or next day if you need it urgently."
+        heading="EPCs for London Landlords &amp; Domestic MEES Compliance"
+        subheading="Accredited domestic EPC assessments across London, from our base in Stratford. Your certificate tells you exactly where the property stands against the current band E requirement — lodged within 72 hours, or next day if you need it urgently."
         primaryCta={{ label: 'Book Your Landlord EPC', href: '/contact' }}
       />
 
-      {/* MEES Compliance */}
+      {/* Opening: scope the service honestly before anything else. The SERP for
+          generic "MEES compliance services" is largely commercial-property
+          consultancy, which is outside what we do — so this page is explicit
+          that the service is domestic EPC assessment with landlord context
+          around it, not compliance consultancy. */}
       <Section variant="default" id="mees">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">MEES Compliance</p>
+          <p className="text-xs uppercase tracking-wide font-semibold text-primary-700">What we do for landlords</p>
           <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-secondary-900">
-            Why You Need an EPC for Your Rental
+            Domestic EPC assessments, with the MEES context around them
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-            Under the Minimum Energy Efficiency Standards (MEES), landlords in England and Wales cannot legally let a residential property with an EPC rating below E unless they have a registered exemption. This applies to all new tenancies since 2018 and all existing tenancies since April 2020.
+            We carry out accredited domestic EPC assessments on rental properties across London, from
+            our base in {site.address.locality}. The certificate is what tells you where a property
+            actually stands — and for a landlord, that is the question that matters.
+          </p>
+          <p className="mt-4 text-secondary-700 leading-relaxed">
+            Under the Minimum Energy Efficiency Standards, a property covered by the regulations
+            cannot be let in England and Wales with an EPC rating below band E unless a valid
+            exemption is registered. That has applied to all tenancies since April 2020. Your EPC
+            shows the current band, and the recommendations on it indicate improvements that could
+            raise the rating if you need to.
+          </p>
+          <p className="mt-4 text-secondary-700 leading-relaxed">
+            Two things worth being straight about. The rating is{' '}
+            <Link href="/preparing-for-your-epc#how-your-epc-rating-is-calculated" className="text-primary-700 underline underline-offset-2 hover:text-primary-800">
+              calculated by approved software
+            </Link>{' '}
+            from the assessed data — we record the property accurately, we do not choose or adjust the
+            score. And registering a formal MEES exemption has its own eligibility rules and
+            evidence requirements; that is a separate process which the assessment does not
+            automatically certify.
+          </p>
+          <p className="mt-4 text-secondary-700 leading-relaxed">
+            For the detail behind the rules, see our guides to{' '}
+            <Link href="/blog/mees-regulations-2026" className="text-primary-700 underline underline-offset-2 hover:text-primary-800">
+              the current MEES regulations
+            </Link>
+            ,{' '}
+            <Link href="/blog/epc-for-landlords-2026" className="text-primary-700 underline underline-offset-2 hover:text-primary-800">
+              EPC requirements and exemptions for landlords
+            </Link>{' '}
+            and{' '}
+            <Link href="/blog/mees-timeline-2026-2030" className="text-primary-700 underline underline-offset-2 hover:text-primary-800">
+              what is proposed between now and 2030
+            </Link>
+            .
           </p>
         </div>
       </Section>
@@ -215,7 +251,7 @@ export default function LandlordsPage() {
             </p>
             <ul className="mt-6 space-y-2.5">
               {[
-                'Proposed: New tenancies must be EPC C by 2028',
+                'Proposed, not yet law: band C for privately rented homes, aimed at 2030',
                 'Proposed: All tenancies must be EPC C by 2030',
                 'Dates may shift but direction is set',
                 'Acting now gives you time to plan improvements',
