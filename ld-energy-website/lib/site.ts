@@ -8,25 +8,29 @@ export const site = {
    * company" and "registered in England & Wales" claim was removed on
    * 2026-08-14 because none of them was true.
    *
-   * `legalName` is deliberately absent from this object and from the schema —
-   * a sole trader's legal name is the individual's own name, and publishing it
-   * as the trading entity is the owner's decision, not a default.
+   * `legalName` is deliberately absent from this object and from the schema:
+   * there is no registered company name to assert, and the operator's personal
+   * name belongs only in the legally required places (see `legal` below).
    */
   parentBrand: 'Luminous & Deliver',
   /**
-   * Legal identity, confirmed by the owner 2026-08-14.
+   * Operator identity, confirmed by the owner 2026-08-14.
    *
-   * Sole trader. NOT a registered company — do not reintroduce "Ltd",
-   * "registered company", "registered in England & Wales" or a company number.
-   * These strings are for legally identifying contexts only (privacy policy,
-   * terms, legal footer, schema operator relationship, llms.txt). The
-   * customer-facing brand everywhere else stays "L&D Energy".
+   * NOT a registered company — never reintroduce "Ltd", "registered company",
+   * "registered in England & Wales" or a company number.
+   *
+   * Equally, the business structure is NOT advertised. "Sole trader" must not
+   * appear as a trust badge, tagline, footer label, schema description or
+   * marketing statement anywhere. These strings identify the operator only
+   * where that is genuinely required — data-controller disclosure, and legal
+   * business identification in terms. The customer-facing identity everywhere
+   * else is "L&D Energy".
    */
   legal: {
-    soleTraderName: 'Abdul Motaleb Taher',
-    /** One-line identity statement for terms and about. */
+    operatorName: 'Abdul Motaleb Taher',
+    /** Operator identification for terms and legal contexts. */
     statement:
-      'L&D Energy is a trading name of Luminous & Deliver, operated by Abdul Motaleb Taher as a sole trader.',
+      'L&D Energy is a trading name of Luminous & Deliver, operated by Abdul Motaleb Taher.',
     /** UK GDPR controller identification for the privacy policy. */
     dataController:
       'Abdul Motaleb Taher, trading as Luminous & Deliver / L&D Energy',

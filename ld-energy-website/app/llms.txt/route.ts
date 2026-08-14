@@ -34,7 +34,7 @@ function body(): string {
   return `# L&D Energy — EPC Certificates London
 
 ## What we do
-L&D Energy is the EPC trading brand of ${site.parentBrand}, which operates as a sole trader. We are an Elmhurst-accredited Domestic Energy Assessor (DEA) providing official Energy Performance Certificates (EPCs) and professional laser-measured floor plans for residential properties across all 32 London boroughs plus the City of London.
+L&D Energy is the EPC trading brand of ${site.parentBrand}. We are an Elmhurst-accredited Domestic Energy Assessor (DEA) providing official Energy Performance Certificates (EPCs) and professional laser-measured floor plans for residential properties across all 32 London boroughs plus the City of London.
 
 ## Key facts
 - Accreditation: ${site.assessor.scheme} (${site.assessor.accreditationNumber})
@@ -112,8 +112,7 @@ Each area page: ${site.url}/areas/[borough-slug]
 
 ## Company details
 - Trading name: ${site.name}
-- Business structure: sole trader
-- Operator: ${site.legal.soleTraderName}, trading as ${site.parentBrand} / ${site.name}
+- Trading name: ${site.name}, a brand of ${site.parentBrand}
 - Accreditation: ${site.assessor.scheme}
 - All EPCs lodged on the official UK Government EPC Register (https://www.gov.uk/find-energy-certificate)
 - Verify an assessor: ${site.assessor.verifyUrl}
