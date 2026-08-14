@@ -27,12 +27,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!data) return {}
 
   return {
-    title: { absolute: data.metaTitle },
-    description: `Domestic EPC certificate in ${data.name} from £${priceFrom.epc}. Elmhurst-accredited assessor, next-day available, exact quote before booking. Floor plans too.`,
+    // Search Console (6 months to Aug 2026) shows these pages ranking 6-19 for
+    // "cost of EPC in {area}" — 2,292 impressions across 53 such queries — with
+    // ZERO clicks, while the title said "EPC Assessor {Area} | {neighbourhoods}"
+    // and never mentioned cost. The title now answers the question that is
+    // actually being asked, and the neighbourhood signal moves into the
+    // description where it still earns the long tail.
+    title: { absolute: boroughTitle(data.name) },
+    description: `EPC cost in ${data.name}: guide prices from £${priceFrom.epc}, set by internal floor area. Elmhurst-accredited assessor, exact quote before booking.`,
     alternates: { canonical: `${site.url}/areas/${slug}` },
     openGraph: {
-      title: `EPC in ${data.name} | From £${priceFrom.epc} | L&D Energy`,
-      description: `Domestic EPC certificate in ${data.name} from £${priceFrom.epc}. Next-day service available, exact quote before booking.`,
+      title: `EPC in ${data.name} | Cost from £${priceFrom.epc} | L&D Energy`,
+      description: `EPC cost in ${data.name}: guide prices from £${priceFrom.epc}, based on internal floor area. Exact quote confirmed before booking.`,
       url: `${site.url}/areas/${slug}`,
     },
     twitter: {
@@ -40,6 +46,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: `Domestic EPC certificate in ${data.name} from £${priceFrom.epc}. Next-day service available.`,
     },
   }
+}
+
+/**
+ * Title built to fit inside the ~60-character SERP truncation while carrying
+ * both proven query shapes: "EPC {area}" and "cost of EPC in {area}". The
+ * accreditation suffix is dropped for long borough names rather than allowing
+ * the price — the part that earns the click — to be cut off.
+ */
+function boroughTitle(name: string): string {
+  const core = `EPC ${name} | Cost from £${priceFrom.epc}`
+  const withTrust = `${core} | Elmhurst Accredited`
+  return withTrust.length <= 60 ? withTrust : core
 }
 
 function boroughFaq(name: string, postcodeFaq: { q: string; a: string }): FaqItem[] {

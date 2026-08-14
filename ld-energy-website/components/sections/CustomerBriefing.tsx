@@ -19,7 +19,7 @@ import { govUk } from '@/lib/site'
  */
 const prepare = [
   'Access to all rooms, radiators, windows, heating and hot-water systems.',
-  'If applicable, any useful supporting documents — window installation dates, insulation details or measurements for the roof, floor, walls, extensions or doors, hot-water cylinder details, heat-pump flow-temperature information, and solar or MCS documentation.',
+  'Supporting documents: if insulation or another improvement is hidden and I cannot access, measure and photograph it, please provide legitimate documentation showing what was installed — including the insulation thickness where applicable. Without suitable evidence I cannot assume hidden insulation is present, and the approved methodology requires the applicable RdSAP default to be used instead. Window installation details, hot-water-cylinder information, heat-pump flow-temperature information and solar or MCS documents may also be useful.',
 ]
 
 const notes = [

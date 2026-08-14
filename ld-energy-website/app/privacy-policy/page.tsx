@@ -50,12 +50,12 @@ export default function PrivacyPolicyPage() {
       ]}
     >
       <p>
-        This Privacy Policy explains how L&amp;D Energy, the EPC trading division of {site.legalName} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;), collects, uses and protects your personal data when you enquire about or book one of our services.
+        This Privacy Policy explains how L&amp;D Energy, a trading name of {site.parentBrand} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;), collects, uses and protects your personal data when you enquire about or book one of our services.
       </p>
 
       <h2>1. Who we are</h2>
       <p>
-        L&amp;D Energy is operated by {site.legalName}, a company registered in England &amp; Wales. For privacy enquiries, contact us at{' '}
+        L&amp;D Energy is a trading name of {site.parentBrand}, which operates as a sole trader based in {site.address.locality}, {site.address.region}. For privacy enquiries, contact us at{' '}
         <a href={site.emailHref}>{site.email}</a>.
       </p>
 

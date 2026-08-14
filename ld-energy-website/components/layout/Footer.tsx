@@ -242,7 +242,7 @@ export function Footer() {
       <div style={{ borderTop: '1px solid rgba(71,132,110,0.14)' }}>
         <Container className="py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs" style={{ color: 'rgba(255,255,255,0.65)' }}>
           <p className="text-center sm:text-left">
-            © {year} {site.name}. Part of {site.legalName}.
+            © {year} {site.name}. Part of {site.parentBrand}.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             <Link prefetch={false} href="/privacy-policy" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors">Privacy Policy</Link>

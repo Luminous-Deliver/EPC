@@ -131,7 +131,7 @@ export default function AboutPage() {
             A specialist EPC service for London
           </h2>
           <p className="mt-5 text-lg text-secondary-700 leading-relaxed">
-            L&amp;D Energy is the domestic Energy Performance Certificate division of {site.legalName}. We provide official EPC certificates and professional floor plans for residential properties across all 32 London boroughs and the City of London.
+            L&amp;D Energy is the domestic Energy Performance Certificate brand of {site.parentBrand}. We provide official EPC certificates and professional floor plans for residential properties across all 32 London boroughs and the City of London.
           </p>
           <p className="mt-4 text-secondary-700 leading-relaxed">
             We focus on what landlords, homeowners and letting agents actually need: predictable pricing, fast turnaround, and a qualified assessor who answers their phone. That’s it. No upsells, no surprises, no chasing.
@@ -268,7 +268,7 @@ export default function AboutPage() {
               Based in Stratford (E15), we cover all 32 London boroughs, the City of London, and surrounding areas within a 1.5-hour radius, parts of Essex, Kent, Hertfordshire and Surrey included.
             </p>
             <p className="mt-4 text-secondary-700 leading-relaxed">
-              L&amp;D Energy is the EPC trading division of {site.legalName}, a UK-registered company.
+              L&amp;D Energy is the EPC trading brand of {site.parentBrand}.
             </p>
 
             {/* Coverage stats grid */}

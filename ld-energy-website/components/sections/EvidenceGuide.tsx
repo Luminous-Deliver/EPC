@@ -28,9 +28,9 @@ const groups = [
     Icon: Layers,
     title: 'Insulation and building fabric',
     items: [
-      'Loft, wall or floor insulation records',
+      'Loft, wall or floor insulation records showing what was installed',
       'Building-control or construction paperwork for an extension',
-      'Insulation specifications, or a measured depth where you have it',
+      'Insulation specification or thickness — the detail the methodology needs',
       'Documentation for insulated doors, where relevant',
     ],
   },
@@ -63,7 +63,7 @@ export function EvidenceGuide() {
         <SectionHeader
           eyebrow="Supporting evidence"
           heading="Documents and evidence that may help"
-          intro="An EPC is based on what the assessor can verify during the visit, together with supporting evidence they can accept. Some features — concealed insulation especially — cannot be confirmed by looking, so paperwork sometimes makes the difference between an improvement being recorded and not."
+          intro="An EPC is based on what the assessor can verify during the visit, together with supporting evidence they can accept. This matters most for concealed insulation — behind walls or floors, under boarded lofts, in extensions or doors. If it cannot be safely accessed, measured and photographed, it can only be recorded where documentation confirms what was installed, including the insulation thickness where the methodology requires it. Otherwise the applicable default or age-based assumption has to be used."
         />
       </div>
 
@@ -101,10 +101,13 @@ export function EvidenceGuide() {
       <div id="why-evidence-matters" className="mt-5 max-w-3xl scroll-mt-24 md:scroll-mt-28">
         <h3 className="text-lg font-bold text-secondary-900">Why evidence matters</h3>
         <p className="mt-2 leading-relaxed text-secondary-700">
-          If an improvement cannot be seen and cannot be evidenced, the methodology may require the
-          assessor to fall back on a default assumption based on the age and type of the property.
-          That default can be less favourable than what is actually there. Supporting documentation
-          can therefore allow the certificate to reflect the property more accurately.
+          An assessor cannot simply accept that concealed insulation exists. Where it cannot be
+          safely accessed, measured and photographed, documentary evidence is needed — and it has to
+          carry enough detail to establish what was actually installed, including the insulation
+          thickness where the methodology requires it. Without that, the approved methodology
+          requires a default or age-based assumption instead, which can be less favourable than what
+          is genuinely there. The assessor is also responsible for validating the information used,
+          which is why a verbal assurance on the day is not enough on its own.
         </p>
         <p className="mt-3 leading-relaxed text-secondary-700">
           It is worth being precise about what that means:{' '}

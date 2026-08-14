@@ -5,13 +5,13 @@ import { site, insurance, EXPRESS_SURCHARGE } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description:
-    'Terms of service governing the supply of EPC certificates and floor plans by L&D Energy, the EPC trading division of Luminous & Deliver Ltd.',
+    'Terms of service governing the supply of EPC certificates and floor plans by L&D Energy, a trading name of Luminous & Deliver.',
   alternates: { canonical: `${site.url}/terms` },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Terms of Service | L&D Energy',
     description:
-      'Terms of service governing the supply of EPC certificates and floor plans by L&D Energy, the EPC trading division of Luminous & Deliver Ltd.',
+      'Terms of service governing the supply of EPC certificates and floor plans by L&D Energy, a trading name of Luminous & Deliver.',
     url: `${site.url}/terms`,
   },
   twitter: {
@@ -51,7 +51,7 @@ export default function TermsPage() {
       ]}
     >
       <p>
-        These terms govern the supply of EPC certificates, floor plans, and related services by L&amp;D Energy, the EPC trading division of {site.legalName} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;). By booking a service with us you accept these terms.
+        These terms govern the supply of EPC certificates, floor plans, and related services by L&amp;D Energy, a trading name of {site.parentBrand} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;). By booking a service with us you accept these terms.
       </p>
 
       <h2>1. The service</h2>
@@ -116,7 +116,7 @@ export default function TermsPage() {
 
       <h2>11. Contact</h2>
       <p>
-        L&amp;D Energy is the EPC trading division of {site.legalName}. Contact:{' '}
+        L&amp;D Energy is a trading name of {site.parentBrand}. Contact:{' '}
         <a href={site.phoneHref}>{site.phone}</a> · <a href={site.emailHref}>{site.email}</a>.
       </p>
     </LegalPage>

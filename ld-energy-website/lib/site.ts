@@ -1,6 +1,18 @@
 export const site = {
   name: 'L&D Energy',
-  legalName: 'Luminous & Deliver Ltd',
+  /**
+   * Parent/trading brand. NOT a registered company.
+   *
+   * The business operates as a SOLE TRADER: "Luminous & Deliver" is the trading
+   * name, "L&D Energy" is the EPC brand under it. Every "Ltd", "registered
+   * company" and "registered in England & Wales" claim was removed on
+   * 2026-08-14 because none of them was true.
+   *
+   * `legalName` is deliberately absent from this object and from the schema —
+   * a sole trader's legal name is the individual's own name, and publishing it
+   * as the trading entity is the owner's decision, not a default.
+   */
+  parentBrand: 'Luminous & Deliver',
   url: 'https://epc.luminousanddeliver.co.uk',
   description:
     'L&D Energy is an Elmhurst-accredited Domestic Energy Assessor providing official EPC certificates and laser-measured floor plans for residential properties across all 32 London boroughs. Transparent guide pricing, with your exact quote confirmed before booking.',
@@ -34,11 +46,25 @@ export const site = {
   addOns: {
     retrofitConsult: 25,
   },
-  // Google Business Profile reviews. Keep in sync with the live profile.
+  /**
+   * Google Business Profile. Keep in sync with the live profile.
+   *
+   * `profileUrl` is still a share.google shortlink, which resolves to a Google
+   * search URL rather than a canonical place page — it works for humans but is
+   * not a usable `sameAs` entity reference. Replace with the long
+   * maps.google.com/?cid=... form when available, and only then wire it into
+   * schema. See the sameAs note in app/layout.tsx.
+   *
+   * The public search result currently displays the profile as
+   * "L&D Energy – EPC & Energy Assessor London". That is NOT mirrored into the
+   * site's brand or schema: the canonical entity name here stays "L&D Energy".
+   * Whether that display name is what is entered in the dashboard, and whether
+   * it satisfies Google's real-world-name policy, is a manual review item.
+   */
   reviews: {
     ratingValue: 5,
     reviewCount: 3,
-    profileUrl: 'https://share.google/UkIv0ZTOezQ5KqPQx',
+    profileUrl: 'https://share.google/ZopGGHvr6wBiGbT4A',
     writeUrl: 'https://g.page/r/CWdJZan0XQzDEAI/review',
   },
 } as const
