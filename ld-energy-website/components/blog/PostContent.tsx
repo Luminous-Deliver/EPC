@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 import { CTABanner } from './CTABanner'
+import { EpcEffectNote } from './EpcEffectNote'
 import { slugify } from './TableOfContents'
 
 type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>
@@ -86,6 +87,7 @@ const components = {
     />
   ),
   CTABanner,
+  EpcEffectNote,
 }
 
 interface PostContentProps {
