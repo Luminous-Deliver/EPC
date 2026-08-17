@@ -48,6 +48,21 @@ interface ParsedInput {
   notes?: string
 }
 
+async function verifyTurnstile(token: string, secret: string, remoteip: string): Promise<boolean> {
+  try {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ secret, response: token, remoteip }),
+    })
+    const result = (await res.json()) as { success: boolean }
+    return result.success
+  } catch (err) {
+    console.error('[contact] Turnstile verification request failed', err)
+    return false
+  }
+}
+
 function buildEmail(data: ParsedInput) {
   const rows: Array<[string, string]> = [
     ['Name', data.name],
@@ -243,6 +258,28 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true })
   }
 
+  // On Cloudflare Pages, runtime secrets are in the Worker env bindings, not process.env
+  let cfEnv: Record<string, string> = {}
+  try {
+    cfEnv = getRequestContext().env as Record<string, string>
+  } catch {
+    // fallback to process.env when running locally
+  }
+
+  const turnstileSecret = cfEnv.TURNSTILE_SECRET_KEY || process.env.TURNSTILE_SECRET_KEY
+  if (turnstileSecret) {
+    const clientIP = req.headers.get('CF-Connecting-IP') || req.headers.get('X-Forwarded-For')?.split(',')[0]?.trim() || ''
+    const verified = await verifyTurnstile(parsed.data.turnstileToken, turnstileSecret, clientIP)
+    if (!verified) {
+      return NextResponse.json(
+        { error: 'Security verification failed. Please refresh and try again.' },
+        { status: 400 },
+      )
+    }
+  } else {
+    console.warn('[contact] TURNSTILE_SECRET_KEY not set — skipping verification.')
+  }
+
   const data: ParsedInput = {
     name: parsed.data.name,
     phone: parsed.data.phone,
@@ -262,13 +299,6 @@ export async function POST(req: Request) {
   const subject = `EPC booking: ${data.name} — ${data.propertyType} (${data.postcode})`
   const confirmation = buildConfirmation(data)
 
-  // On Cloudflare Pages, runtime secrets are in the Worker env bindings, not process.env
-  let cfEnv: Record<string, string> = {}
-  try {
-    cfEnv = getRequestContext().env as Record<string, string>
-  } catch {
-    // fallback to process.env when running locally
-  }
   const apiKey = cfEnv.RESEND_API_KEY || process.env.RESEND_API_KEY
   const configuredFrom = cfEnv.RESEND_FROM || process.env.RESEND_FROM || FROM_DEFAULT
   // Guard against a stale RESEND_FROM env var still pointing at the

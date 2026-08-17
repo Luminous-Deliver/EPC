@@ -21,6 +21,7 @@ import { Field, Input, Textarea } from '@/components/ui/Input'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/cn'
 import { pricing, site, EXPRESS_SURCHARGE } from '@/lib/site'
+import { useTurnstile } from '@/lib/useTurnstile'
 import {
   contactSchema,
   propertyTypes,
@@ -69,7 +70,16 @@ export function ContactForm() {
       preferredDate: '',
       notes: '',
       website: '',
+      turnstileToken: '',
     },
+  })
+
+  const {
+    containerRef: turnstileRef,
+    token: turnstileToken,
+  } = useTurnstile({
+    onVerify: (token) => setValue('turnstileToken', token, { shouldValidate: true }),
+    onExpire: () => setValue('turnstileToken', '', { shouldValidate: true }),
   })
 
   // Watch form fields for the live pricing calculator
@@ -623,6 +633,15 @@ export function ContactForm() {
               )}
             </div>
 
+            <div className="mt-4">
+              <div ref={turnstileRef} />
+              {errors.turnstileToken && (
+                <p className="mt-1.5 text-xs text-danger" role="alert">
+                  {errors.turnstileToken.message}
+                </p>
+              )}
+            </div>
+
             {status === 'error' && serverError && (
               <div className="mt-4 flex items-start gap-2 rounded-xl border border-danger/30 bg-danger/5 p-3 text-xs text-danger animate-fade-in" role="alert">
                 <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" aria-hidden="true" />
@@ -662,7 +681,7 @@ export function ContactForm() {
               variant="accent"
               size="md"
               className="ml-auto"
-              disabled={status === 'submitting'}
+              disabled={status === 'submitting' || !turnstileToken}
             >
               {status === 'submitting' ? (
                 <>

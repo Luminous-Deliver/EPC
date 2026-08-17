@@ -77,6 +77,7 @@ export const contactSchema = z.object({
   }),
   /** Honeypot, must remain empty */
   website: z.string().max(0).optional().or(z.literal('')),
+  turnstileToken: z.string().min(1, 'Please complete the security check'),
 })
 
 export type ContactInput = z.infer<typeof contactSchema>
