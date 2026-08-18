@@ -7,17 +7,29 @@ const GOOGLE_REVIEWS_URL = site.reviews.profileUrl
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-canvas border-b border-secondary-100">
+    <section className="relative overflow-hidden bg-canvas border-b border-secondary-100 -mt-16 md:-mt-20">
       {/* Branded background — replaces a generic stock roof photo with the
           site's own pattern/glow system (already used in SocialProof, etc.),
-          since there's no real on-site photography yet to use instead. */}
+          since there's no real on-site photography yet to use instead.
+          The negative top margin pulls this section up underneath the
+          transparent Header (which reserves its own height in normal flow
+          via `sticky`) so the pattern/gradient reads as one continuous
+          surface behind the nav, not a separate white bar above it. */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-canvas to-accent-50/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-canvas to-accent-50" />
+        {/* Soft colour blobs for depth — a flat two-tone gradient read as too
+            quiet/empty for a first impression; this gives it real presence
+            without needing a photo. */}
+        <div className="absolute -top-32 -right-24 h-[520px] w-[520px] rounded-full bg-primary-300/30 blur-3xl" />
+        <div className="absolute top-1/4 -left-32 h-[380px] w-[380px] rounded-full bg-accent-300/25 blur-3xl" />
         <div className="bg-hero-glow absolute inset-0" />
         <div className="bg-brand-pattern absolute inset-0 [mask-image:radial-gradient(90%_80%_at_78%_20%,black,transparent_70%)]" />
       </div>
 
-      <Container className="relative py-10 md:py-14 lg:py-16 grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
+      {/* pt- accounts for the header's own height (h-16/md:h-20) now that this
+          section sits underneath it via the negative margin above; pb- keeps
+          the original bottom spacing. */}
+      <Container className="relative pt-[104px] pb-10 md:pt-[136px] md:pb-14 lg:pt-36 lg:pb-16 grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
         <div className="lg:col-span-7">
           <p className="inline-flex items-center gap-2 text-xs uppercase tracking-wide font-semibold text-primary-700 bg-primary-50 ring-1 ring-primary-100 rounded-full px-3 py-1 animate-fade-in">
             <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
@@ -62,7 +74,7 @@ export function Hero() {
             <span className="text-secondary-600 underline underline-offset-2 decoration-secondary-400 hover:text-secondary-800">Read our reviews</span>
           </a>
 
-          <dl className="mt-10 grid grid-cols-3 gap-3 max-w-md">
+          <dl className="mt-10 flex max-w-md divide-x divide-secondary-900/10">
             {[
               // Deliberately not a price tile. The guide price is stated in the
               // paragraph above; repeating it as a large isolated figure anchors
@@ -71,10 +83,7 @@ export function Hero() {
               { dt: 'Available', dd: '7 days' },
               { dt: 'Boroughs', dd: '32+' },
             ].map((stat) => (
-              <div
-                key={stat.dt}
-                className="rounded-xl bg-white/70 ring-1 ring-secondary-900/5 backdrop-blur px-4 py-3"
-              >
+              <div key={stat.dt} className="flex-1 pl-4 first:pl-0">
                 <dt className="text-xs uppercase tracking-wide font-medium text-secondary-500">{stat.dt}</dt>
                 <dd className="mt-1 text-2xl font-bold text-secondary-900">{stat.dd}</dd>
               </div>

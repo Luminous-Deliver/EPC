@@ -10,6 +10,7 @@ import { MobileNav } from './MobileNav'
 import { topNav, servicesMenu, site } from '@/lib/site'
 import { cn } from '@/lib/cn'
 import { useScrollDirection } from '@/lib/useScrollDirection'
+import { useScrolled } from '@/lib/useScrolled'
 
 function ServicesDropdown() {
   const [open, setOpen] = useState(false)
@@ -120,10 +121,19 @@ function ServicesDropdown() {
 
 export function Header() {
   const hidden = useScrollDirection()
+  // Every page's top section (Hero, PageHero) is light, so nav text stays
+  // dark throughout -- only the bar's own fill/border/shadow need to appear
+  // once real content is scrolling underneath, so it doesn't disappear into
+  // a light hero and doesn't sit as a flat white bar with nothing to separate
+  // from below while the hero is still in view.
+  const scrolled = useScrolled()
   return (
     <header
       className={cn(
-        'sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-secondary-100 shadow-sm transition-transform duration-300 will-change-transform',
+        'sticky top-0 z-40 transition-[transform,background-color,box-shadow,border-color] duration-300 will-change-transform',
+        scrolled
+          ? 'bg-white/95 backdrop-blur border-b border-secondary-100 shadow-sm'
+          : 'bg-transparent border-b border-transparent shadow-none',
         // Auto-hide on scroll-down for mobile reading space; always visible on desktop.
         hidden ? '-translate-y-full md:translate-y-0' : 'translate-y-0',
       )}
