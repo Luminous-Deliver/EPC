@@ -20,10 +20,10 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <section className="bg-gradient-to-b from-primary-50 via-white to-white border-b border-secondary-100 -mt-16 md:-mt-20">
-      {/* Negative margin pulls this section up underneath the transparent
-          Header (see Hero.tsx for the full explanation); pt- absorbs the
-          header's own height so the heading doesn't sit under the nav. */}
-      <Container className="pt-28 pb-12 md:pt-40 md:pb-20">
+      {/* Negative margin pulls this section up underneath the floating pill
+          nav (see Hero.tsx for the full explanation); pt- absorbs its height
+          so the heading doesn't sit under it. */}
+      <Container className="pt-24 pb-12 md:pt-28 md:pb-20">
         {eyebrow && (
           <p className="text-xs uppercase tracking-wide font-semibold text-primary-700 mb-3">
             {eyebrow}

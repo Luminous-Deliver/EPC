@@ -10,7 +10,6 @@ import { MobileNav } from './MobileNav'
 import { topNav, servicesMenu, site } from '@/lib/site'
 import { cn } from '@/lib/cn'
 import { useScrollDirection } from '@/lib/useScrollDirection'
-import { useScrolled } from '@/lib/useScrolled'
 
 function ServicesDropdown() {
   const [open, setOpen] = useState(false)
@@ -121,52 +120,52 @@ function ServicesDropdown() {
 
 export function Header() {
   const hidden = useScrollDirection()
-  // Every page's top section (Hero, PageHero) is light, so nav text stays
-  // dark throughout -- only the bar's own fill/border/shadow need to appear
-  // once real content is scrolling underneath, so it doesn't disappear into
-  // a light hero and doesn't sit as a flat white bar with nothing to separate
-  // from below while the hero is still in view.
-  const scrolled = useScrolled()
   return (
+    // Floating island nav: a self-contained pill, not a full-width bar, so it
+    // always reads clearly regardless of what's behind it (a photo, the brand
+    // pattern, a dark hero) with no scroll-triggered colour flip needed.
     <header
       className={cn(
-        'sticky top-0 z-40 transition-[transform,background-color,box-shadow,border-color] duration-300 will-change-transform',
-        scrolled
-          ? 'bg-white/95 backdrop-blur border-b border-secondary-100 shadow-sm'
-          : 'bg-transparent border-b border-transparent shadow-none',
-        // Auto-hide on scroll-down for mobile reading space; always visible on desktop.
-        hidden ? '-translate-y-full md:translate-y-0' : 'translate-y-0',
+        'sticky top-0 z-40 pt-3 md:pt-4 transition-transform duration-300 will-change-transform',
+        hidden ? '-translate-y-[150%] lg:translate-y-0' : 'translate-y-0',
       )}
     >
-      <Container as="div" className="flex items-center justify-between h-16 md:h-20">
-        <Logo />
+      <Container as="div">
+        <div className="flex items-center justify-between gap-3 rounded-full bg-white/90 ring-1 ring-secondary-900/5 shadow-premium-lg backdrop-blur-md px-4 py-2.5 md:px-5">
+          <Logo size="sm" />
 
-        <nav aria-label="Primary" className="hidden lg:flex items-center gap-6">
-          <ServicesDropdown />
-          {topNav.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="inline-flex min-h-[44px] items-center text-sm font-medium text-secondary-700 hover:text-primary-700 transition-colors"
+          <nav aria-label="Primary" className="hidden lg:flex items-center gap-6">
+            <ServicesDropdown />
+            {topNav.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="inline-flex min-h-[44px] items-center text-sm font-medium text-secondary-700 hover:text-primary-700 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-2 md:gap-3">
+            <a
+              href={site.phoneHref}
+              className="hidden md:inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-secondary-800 hover:text-primary-700 transition-colors"
+              aria-label={`Call ${site.phone}`}
             >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-3">
-          <a
-            href={site.phoneHref}
-            className="hidden md:inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-secondary-800 hover:text-primary-700 transition-colors"
-            aria-label={`Call ${site.phone}`}
-          >
-            <Phone className="w-4 h-4" aria-hidden="true" />
-            {site.phone}
-          </a>
-          <Button href="/contact" variant="accent" className="hidden md:inline-flex" size="md">
-            Book an EPC
-          </Button>
-          <MobileNav />
+              <Phone className="w-4 h-4" aria-hidden="true" />
+              {site.phone}
+            </a>
+            <Button
+              href="/contact"
+              variant="accent"
+              className="hidden md:inline-flex rounded-full px-5 py-2.5 min-h-0"
+              size="md"
+            >
+              Book an EPC
+            </Button>
+            <MobileNav />
+          </div>
         </div>
       </Container>
     </header>

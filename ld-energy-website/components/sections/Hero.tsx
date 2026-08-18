@@ -7,54 +7,67 @@ const GOOGLE_REVIEWS_URL = site.reviews.profileUrl
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-canvas border-b border-secondary-100 -mt-16 md:-mt-20">
-      {/* Branded background — replaces a generic stock roof photo with the
-          site's own pattern/glow system (already used in SocialProof, etc.),
-          since there's no real on-site photography yet to use instead.
+    <section
+      className="relative overflow-hidden -mt-16 md:-mt-20"
+      style={{ background: 'linear-gradient(160deg, #0D1B33 0%, #142644 45%, #091324 100%)' }}
+    >
+      {/* Bold dark treatment — reuses the exact navy gradient + sage glow
+          already established for HowItWorks/Footer elsewhere on this site,
+          rather than a new colour scheme, so the homepage's first impression
+          reads as confident/premium and still ties to the rest of the page.
           The negative top margin pulls this section up underneath the
-          transparent Header (which reserves its own height in normal flow
-          via `sticky`) so the pattern/gradient reads as one continuous
-          surface behind the nav, not a separate white bar above it. */}
+          floating pill nav (which reserves its own height in normal flow
+          via `sticky`) so the gradient/pattern reads as one continuous
+          surface behind it, not a separate strip above it. */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-canvas to-accent-50" />
-        {/* Soft colour blobs for depth — a flat two-tone gradient read as too
-            quiet/empty for a first impression; this gives it real presence
-            without needing a photo. */}
-        <div className="absolute -top-32 -right-24 h-[520px] w-[520px] rounded-full bg-primary-300/30 blur-3xl" />
-        <div className="absolute top-1/4 -left-32 h-[380px] w-[380px] rounded-full bg-accent-300/25 blur-3xl" />
-        <div className="bg-hero-glow absolute inset-0" />
-        <div className="bg-brand-pattern absolute inset-0 [mask-image:radial-gradient(90%_80%_at_78%_20%,black,transparent_70%)]" />
+        <div
+          className="absolute -top-32 -right-24 h-[560px] w-[560px] rounded-full opacity-[0.22]"
+          style={{ background: 'radial-gradient(ellipse, #47846E 0%, transparent 70%)' }}
+        />
+        <div
+          className="absolute top-1/3 -left-32 h-[420px] w-[420px] rounded-full opacity-[0.16]"
+          style={{ background: 'radial-gradient(ellipse, #6C8CBC 0%, transparent 70%)' }}
+        />
+        <div className="bg-brand-pattern-dark absolute inset-0 [mask-image:radial-gradient(90%_80%_at_78%_20%,black,transparent_70%)]" />
       </div>
 
-      {/* pt- accounts for the header's own height (h-16/md:h-20) now that this
+      {/* pt- accounts for the floating pill nav's own height now that this
           section sits underneath it via the negative margin above; pb- keeps
           the original bottom spacing. */}
-      <Container className="relative pt-[104px] pb-10 md:pt-[136px] md:pb-14 lg:pt-36 lg:pb-16 grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
+      <Container className="relative pt-24 pb-10 md:pt-28 md:pb-14 lg:pt-32 lg:pb-16 grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
         <div className="lg:col-span-7">
-          <p className="inline-flex items-center gap-2 text-xs uppercase tracking-wide font-semibold text-primary-700 bg-primary-50 ring-1 ring-primary-100 rounded-full px-3 py-1 animate-fade-in">
+          <p
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-wide font-semibold rounded-full px-3 py-1 animate-fade-in"
+            style={{ background: 'rgba(71,132,110,0.14)', border: '1px solid rgba(71,132,110,0.32)', color: '#B9D6C8' }}
+          >
             <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
             Elmhurst Accredited · All London Boroughs
           </p>
-          <h1 className="mt-4 text-[2.1rem] leading-[1.07] sm:text-5xl md:text-6xl font-semibold tracking-tight text-secondary-900 animate-fade-in-up animate-delay-100">
-            Fast, <span className="text-gradient-brand">Reliable</span> &amp; Certified EPCs in London
+          <h1 className="mt-4 text-[2.1rem] leading-[1.07] sm:text-5xl md:text-6xl font-semibold tracking-tight text-white animate-fade-in-up animate-delay-100">
+            Fast, <span className="text-gradient-brand-light">Reliable</span> &amp; Certified EPCs in London
           </h1>
-          <p className="mt-5 text-lg md:text-xl text-secondary-700 leading-relaxed max-w-2xl animate-fade-in-up animate-delay-200">
+          <p className="mt-5 text-lg md:text-xl leading-relaxed max-w-2xl animate-fade-in-up animate-delay-200" style={{ color: 'rgba(214,225,240,0.75)' }}>
             Domestic EPCs and measured floor plans across all 32 boroughs. Guide prices start at{' '}
-            <span className="font-semibold text-secondary-900">{`£${priceFrom.epc}`}</span> — we confirm your exact quote before you book.
+            <span className="font-semibold text-white">{`£${priceFrom.epc}`}</span> — we confirm your exact quote before you book.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <Button href="/contact" variant="accent" size="lg" className="w-full sm:w-auto text-base">
               Get my exact quote
             </Button>
-            <Button href="#pricing" variant="secondary" size="lg" className="w-full sm:w-auto text-base">
+            <Button
+              href="#pricing"
+              variant="ghost"
+              size="lg"
+              className="w-full sm:w-auto text-base bg-white/10 hover:bg-white/15 text-white border border-white/20 backdrop-blur-sm"
+            >
               See guide prices
             </Button>
           </div>
           {/* "Same-price guarantee" contradicted the guide-price model it sat
               beside, and "2-hour response" was a service promise we cannot
               evidence. Both replaced with claims that are true by construction. */}
-          <p className="mt-3 text-sm text-secondary-500">
+          <p className="mt-3 text-sm" style={{ color: 'rgba(214,225,240,0.55)' }}>
             No call-out fees · Exact quote before booking · 7 days a week, 8am–8pm
           </p>
 
@@ -62,19 +75,19 @@ export function Hero() {
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-2 min-h-[44px] text-sm font-medium text-secondary-700 hover:text-secondary-900"
+            className="mt-5 inline-flex items-center gap-2 min-h-[44px] text-sm font-medium text-white/80 hover:text-white"
           >
             <span className="flex items-center gap-0.5" aria-hidden="true">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
               ))}
             </span>
-            <span className="font-semibold">Rated on Google</span>
-            <span className="text-secondary-500" aria-hidden="true">·</span>
-            <span className="text-secondary-600 underline underline-offset-2 decoration-secondary-400 hover:text-secondary-800">Read our reviews</span>
+            <span className="font-semibold text-white">Rated on Google</span>
+            <span className="text-white/40" aria-hidden="true">·</span>
+            <span className="underline underline-offset-2 decoration-white/30 hover:decoration-white/60">Read our reviews</span>
           </a>
 
-          <dl className="mt-10 flex max-w-md divide-x divide-secondary-900/10">
+          <dl className="mt-10 flex max-w-md divide-x divide-white/15">
             {[
               // Deliberately not a price tile. The guide price is stated in the
               // paragraph above; repeating it as a large isolated figure anchors
@@ -84,8 +97,8 @@ export function Hero() {
               { dt: 'Boroughs', dd: '32+' },
             ].map((stat) => (
               <div key={stat.dt} className="flex-1 pl-4 first:pl-0">
-                <dt className="text-xs uppercase tracking-wide font-medium text-secondary-500">{stat.dt}</dt>
-                <dd className="mt-1 text-2xl font-bold text-secondary-900">{stat.dd}</dd>
+                <dt className="text-xs uppercase tracking-wide font-medium" style={{ color: 'rgba(214,225,240,0.55)' }}>{stat.dt}</dt>
+                <dd className="mt-1 text-2xl font-bold text-white">{stat.dd}</dd>
               </div>
             ))}
           </dl>
