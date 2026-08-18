@@ -63,19 +63,22 @@ lib/
   validators.ts            # Zod schemas (contact form)
 public/
   robots.txt               # AI-crawler allowlists
-  llms.txt                 # AI-readable business summary
   favicon.svg
 ```
+
+`app/llms.txt/route.ts` generates `/llms.txt` at request time from `lib/site.ts`, rather than
+shipping a static file that can drift out of sync.
 
 ## SEO / schema
 
 - LocalBusiness JSON-LD on every page (root layout)
-- Organization + WebSite (with SearchAction) + FAQPage on the homepage
+- Organization + WebSite + FAQPage on the homepage (no `SearchAction`: the Sitelinks Search Box
+  it targeted was retired in 2024)
 - Service schema on `/services/*`
 - BreadcrumbList on every inner page
 - LocalBusiness with `areaServed` + FAQPage on every `/areas/[borough]` page
 - `public/robots.txt` allows GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, anthropic-ai, Google-Extended, Bingbot, CCBot
-- `public/llms.txt` for LLM crawlers
+- `/llms.txt` for LLM crawlers (generated, see Project structure above)
 
 ## Build phases
 

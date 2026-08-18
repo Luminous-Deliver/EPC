@@ -3,7 +3,7 @@ import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
 import { site, priceFrom, EXPRESS_SURCHARGE } from '@/lib/site'
 
-const GOOGLE_REVIEWS_URL = 'https://share.google/4LTPb4XMjeNq7TpXk'
+const GOOGLE_REVIEWS_URL = site.reviews.profileUrl
 
 export function Hero() {
   return (

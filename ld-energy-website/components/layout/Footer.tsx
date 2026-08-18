@@ -163,7 +163,7 @@ export function Footer() {
 
             {/* Google Reviews CTA */}
             <a
-              href="https://share.google/4LTPb4XMjeNq7TpXk"
+              href={site.reviews.profileUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex min-h-[44px] items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all hover:brightness-110"
