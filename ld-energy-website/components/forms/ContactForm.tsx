@@ -227,21 +227,21 @@ export function ContactForm() {
   }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-12 items-start">
+    <div className="grid gap-5 lg:grid-cols-12 items-start">
       {/* Form Steps Column */}
       <form
         onSubmit={handleSubmit(onSubmit)}
         noValidate
-        className="lg:col-span-8 rounded-2xl border border-secondary-200 bg-white p-5 md:p-8 shadow-premium"
+        className="lg:col-span-8 rounded-2xl border border-secondary-200 bg-white p-4 md:p-6 shadow-premium"
         aria-describedby="form-help"
       >
         {/* Progress Tracker */}
-        <div className="mb-6">
-          <div className="flex justify-between items-center text-xs font-semibold text-secondary-500 uppercase tracking-wider mb-2.5">
+        <div className="mb-4">
+          <div className="flex justify-between items-center text-[11px] font-semibold text-secondary-500 uppercase tracking-wider mb-2">
             <span>Step {step} of 3</span>
             <span className="text-primary-700 font-bold">{STEP_TITLES[step - 1]}</span>
           </div>
-          <div className="h-2 w-full bg-secondary-100 rounded-full overflow-hidden">
+          <div className="h-1.5 w-full bg-secondary-100 rounded-full overflow-hidden">
             <div 
               className="h-full bg-gradient-to-r from-primary-500 to-primary-600 rounded-full transition-all duration-300"
               style={{ width: `${(step / 3) * 100}%` }}
@@ -259,10 +259,10 @@ export function ContactForm() {
 
         {/* Step 1: Services & Size */}
         {step === 1 && (
-          <div className="space-y-6 animate-fade-in">
+          <div className="space-y-4 animate-fade-in">
             <div>
-              <h4 className="text-lg font-bold text-secondary-900">What service do you need?</h4>
-              <p className="text-xs text-secondary-500 mt-1">
+              <h4 className="text-base font-bold text-secondary-900">What service do you need?</h4>
+              <p className="text-xs text-secondary-500 mt-0.5">
                 Choose one. Picking the EPC and floor plan together applies the bundle discount automatically.
               </p>
 
@@ -281,7 +281,7 @@ export function ContactForm() {
                         : value.includes(v as any)
 
                   return (
-                    <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                    <div className="mt-2.5 grid gap-2 sm:grid-cols-2">
                       {[
                         { value: 'EPC Certificate', label: 'EPC only', desc: 'Official 10-year energy rating, lodged on the government register.' },
                         { value: 'Both (Bundle)', label: 'EPC + Floor Plan', desc: 'Both for the same property in one visit — better value than booking separately.', badge: 'Better value' },
@@ -296,7 +296,7 @@ export function ContactForm() {
                             aria-pressed={checked}
                             onClick={() => field.onChange([s.value as any])}
                             className={cn(
-                              'flex flex-col text-left p-4 rounded-xl border transition-all duration-200 hover:-translate-y-0.5 shadow-sm min-h-[92px]',
+                              'flex flex-col text-left p-3 rounded-lg border transition-all duration-200 hover:-translate-y-0.5 shadow-sm min-h-[72px]',
                               checked
                                 ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-500'
                                 : 'border-secondary-200 bg-white hover:border-secondary-300'
@@ -307,7 +307,7 @@ export function ContactForm() {
                               {s.badge && (
                                 <span
                                   className={cn(
-                                    'text-xs uppercase tracking-wider font-black px-1.5 py-0.5 rounded text-white',
+                                    'text-[10px] uppercase tracking-wider font-black px-1.5 py-0.5 rounded text-white',
                                     s.value === 'Both (Bundle)' ? 'bg-accent-600' : 'bg-primary-600'
                                   )}
                                 >
@@ -315,7 +315,7 @@ export function ContactForm() {
                                 </span>
                               )}
                             </span>
-                            <span className="text-xs text-secondary-500 mt-1.5 leading-snug">{s.desc}</span>
+                            <span className="text-[11px] text-secondary-500 mt-1 leading-snug">{s.desc}</span>
                           </button>
                         )
                       })}
@@ -332,7 +332,7 @@ export function ContactForm() {
 
             {/* Bulk enquiries cover many properties, so a single size doesn't apply. */}
             {isBulk ? (
-              <div className="rounded-xl border border-primary-200 bg-primary-50/60 p-4">
+              <div className="rounded-lg border border-primary-200 bg-primary-50/60 p-3">
                 <h4 className="text-sm font-bold text-secondary-900">Property size</h4>
                 <p className="mt-1 text-sm text-secondary-700 leading-relaxed">
                   Not needed for a bulk enquiry — tell us roughly how many properties and the postcodes
@@ -341,13 +341,13 @@ export function ContactForm() {
               </div>
             ) : (
             <div>
-              <h4 className="text-lg font-bold text-secondary-900">Select Property Size</h4>
-              <p className="text-xs text-secondary-500 mt-1">
+              <h4 className="text-base font-bold text-secondary-900">Select Property Size</h4>
+              <p className="text-xs text-secondary-500 mt-0.5">
                 Pricing depends mainly on internal floor area. Bedroom count helps us estimate when
                 the exact floor area isn&apos;t known — pick the closest match.
               </p>
 
-              <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div className="mt-2.5 grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {propertyTypes.map((p) => {
                   const active = watchPropertyType === p
                   return (
@@ -356,14 +356,14 @@ export function ContactForm() {
                       type="button"
                       onClick={() => setValue('propertyType', p, { shouldValidate: true })}
                       className={cn(
-                        'flex flex-col items-center justify-center p-3.5 rounded-xl border text-center transition-all duration-200 hover:-translate-y-0.5 shadow-sm',
+                        'flex flex-col items-center justify-center p-2.5 rounded-lg border text-center transition-all duration-200 hover:-translate-y-0.5 shadow-sm',
                         active
                           ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-500'
                           : 'border-secondary-200 bg-white hover:border-secondary-300'
                       )}
                     >
                       <span className="font-bold text-sm text-secondary-900">{p}</span>
-                      <span className="mt-0.5 text-[11px] leading-tight text-secondary-500">
+                      <span className="mt-0.5 text-[10px] leading-tight text-secondary-500">
                         {pricing[propertyTypes.indexOf(p)]?.areaLabel}
                       </span>
                     </button>
@@ -379,8 +379,8 @@ export function ContactForm() {
             )}
 
             <div>
-              <h4 className="text-lg font-bold text-secondary-900">Who are you booking as?</h4>
-              <p className="text-xs text-secondary-500 mt-1">
+              <h4 className="text-base font-bold text-secondary-900">Who are you booking as?</h4>
+              <p className="text-xs text-secondary-500 mt-0.5">
                 This tells us how to arrange access to the property.
               </p>
 
@@ -388,7 +388,7 @@ export function ContactForm() {
                 control={control}
                 name="customerType"
                 render={({ field }) => (
-                  <div className="mt-3 grid grid-cols-2 gap-3">
+                  <div className="mt-2.5 grid grid-cols-2 gap-2">
                     {[
                       { value: 'Homeowner', desc: 'I live in or own the property' },
                       { value: 'Landlord (tenanted)', desc: 'It’s rented out — tenants live there' },
@@ -403,14 +403,14 @@ export function ContactForm() {
                           aria-pressed={active}
                           onClick={() => field.onChange(c.value)}
                           className={cn(
-                            'flex flex-col text-left p-3.5 rounded-xl border transition-all duration-200 hover:-translate-y-0.5 shadow-sm',
+                            'flex flex-col text-left p-2.5 rounded-lg border transition-all duration-200 hover:-translate-y-0.5 shadow-sm',
                             active
                               ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-500'
                               : 'border-secondary-200 bg-white hover:border-secondary-300'
                           )}
                         >
                           <span className="font-bold text-sm text-secondary-900">{c.value}</span>
-                          <span className="text-xs text-secondary-500 mt-1 leading-snug">{c.desc}</span>
+                          <span className="text-[11px] text-secondary-500 mt-0.5 leading-snug">{c.desc}</span>
                         </button>
                       )
                     })}
@@ -425,7 +425,7 @@ export function ContactForm() {
 
               {/* Tenanted properties need notice — surface it as soon as it's relevant */}
               {watchCustomerType === 'Landlord (tenanted)' && (
-                <p className="mt-3 rounded-lg bg-primary-50 ring-1 ring-primary-100 px-3 py-2.5 text-xs leading-relaxed text-secondary-700 animate-fade-in">
+                <p className="mt-2.5 rounded-lg bg-primary-50 ring-1 ring-primary-100 px-3 py-2 text-xs leading-relaxed text-secondary-700 animate-fade-in">
                   Please let your tenants know we’re coming so they can expect us. If it’s easier, share
                   their contact details in the notes and we’ll arrange access directly, giving proper notice.
                   Evening and weekend slots are available at no extra cost.
@@ -444,7 +444,7 @@ export function ContactForm() {
                   aria-pressed={!!field.value}
                   onClick={() => field.onChange(!field.value)}
                   className={cn(
-                    'flex w-full items-start gap-3 text-left p-4 rounded-xl border transition-all duration-200 shadow-sm',
+                    'flex w-full items-start gap-3 text-left p-3 rounded-lg border transition-all duration-200 shadow-sm',
                     field.value
                       ? 'border-accent-500 bg-accent-50/60 ring-2 ring-accent-500'
                       : 'border-secondary-200 bg-white hover:border-secondary-300'
@@ -481,12 +481,12 @@ export function ContactForm() {
 
         {/* Step 2: Speed & Date */}
         {step === 2 && (
-          <div className="space-y-6 animate-fade-in">
+          <div className="space-y-4 animate-fade-in">
             <div>
-              <h4 className="text-lg font-bold text-secondary-900">Select Delivery Speed</h4>
-              <p className="text-xs text-secondary-500 mt-1">Need your certificate quickly? Next-day service is available.</p>
-              
-              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+              <h4 className="text-base font-bold text-secondary-900">Select Delivery Speed</h4>
+              <p className="text-xs text-secondary-500 mt-0.5">Need your certificate quickly? Next-day service is available.</p>
+
+              <div className="mt-2.5 grid gap-2 sm:grid-cols-2">
                 {[
                   { value: 'Standard (72 hours)', label: 'Standard Delivery', desc: 'Lodged on the GOV.UK register within 72 hours of the visit', priceBadge: 'Included' },
                   { value: EXPRESS_SPEED, label: `Express Delivery (+£${EXPRESS_SURCHARGE})`, desc: 'Lodged within 24 hours of the visit', priceBadge: `£${EXPRESS_SURCHARGE} extra` },
@@ -498,7 +498,7 @@ export function ContactForm() {
                       type="button"
                       onClick={() => setValue('speed', s.value as any, { shouldValidate: true })}
                       className={cn(
-                        'flex flex-col text-left p-4 rounded-xl border transition-all duration-200 hover:-translate-y-0.5 shadow-sm min-h-[90px]',
+                        'flex flex-col text-left p-3 rounded-lg border transition-all duration-200 hover:-translate-y-0.5 shadow-sm min-h-[74px]',
                         active
                           ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-500'
                           : 'border-secondary-200 bg-white hover:border-secondary-300'
@@ -507,13 +507,13 @@ export function ContactForm() {
                       <span className="flex justify-between items-center w-full font-bold text-sm text-secondary-900">
                         {s.label}
                         <span className={cn(
-                          'text-xs font-bold px-2 py-0.5 rounded-full',
+                          'text-[11px] font-bold px-2 py-0.5 rounded-full',
                           active ? 'bg-primary-600 text-white' : 'bg-secondary-100 text-secondary-600'
                         )}>
                           {s.priceBadge}
                         </span>
                       </span>
-                      <span className="text-xs text-secondary-500 mt-1.5 leading-snug">{s.desc}</span>
+                      <span className="text-[11px] text-secondary-500 mt-1 leading-snug">{s.desc}</span>
                     </button>
                   )
                 })}
@@ -525,7 +525,7 @@ export function ContactForm() {
               )}
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2">
               <Field label="Preferred Visit Date" htmlFor="preferredDate" hint="Select a date for the assessor's visit. Optional.">
                 <div className="relative">
                   <Input id="preferredDate" type="date" {...register('preferredDate')} />
@@ -540,10 +540,12 @@ export function ContactForm() {
 
         {/* Step 3: Contact Details */}
         {step === 3 && (
-          <div className="space-y-4 animate-fade-in">
-            <h4 className="text-lg font-bold text-secondary-900">Enter Contact & Property Address</h4>
-            <p className="text-xs text-secondary-500">Provide the property details and where we should send the invoice and certificate.</p>
-            
+          <div className="space-y-3 animate-fade-in">
+            <div>
+              <h4 className="text-base font-bold text-secondary-900">Enter Contact & Property Address</h4>
+              <p className="text-xs text-secondary-500 mt-0.5">Provide the property details and where we should send the invoice and certificate.</p>
+            </div>
+
             <div className="grid gap-3 grid-cols-1 sm:grid-cols-2">
               <Field label="Full Name" htmlFor="name" required error={errors.name?.message}>
                 <Input
@@ -611,7 +613,7 @@ export function ContactForm() {
               </Field>
             </div>
 
-            <div className="mt-4 pt-2">
+            <div className="pt-1">
               <label className="flex items-start gap-2.5 text-xs text-secondary-600 cursor-pointer">
                 <input
                   type="checkbox"
@@ -633,17 +635,22 @@ export function ContactForm() {
               )}
             </div>
 
-            <div className="mt-4">
-              <div ref={turnstileRef} />
+            <div className="flex flex-col items-center gap-1.5 pt-1">
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-secondary-400">
+                Quick security check
+              </p>
+              <div className="w-full max-w-[300px] rounded-lg border border-secondary-200 bg-secondary-50/70 p-1.5">
+                <div ref={turnstileRef} />
+              </div>
               {errors.turnstileToken && (
-                <p className="mt-1.5 text-xs text-danger" role="alert">
+                <p className="text-xs text-danger" role="alert">
                   {errors.turnstileToken.message}
                 </p>
               )}
             </div>
 
             {status === 'error' && serverError && (
-              <div className="mt-4 flex items-start gap-2 rounded-xl border border-danger/30 bg-danger/5 p-3 text-xs text-danger animate-fade-in" role="alert">
+              <div className="flex items-start gap-2 rounded-lg border border-danger/30 bg-danger/5 p-2.5 text-xs text-danger animate-fade-in" role="alert">
                 <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" aria-hidden="true" />
                 <p>{serverError}</p>
               </div>
@@ -652,7 +659,7 @@ export function ContactForm() {
         )}
 
         {/* Wizard Controls */}
-        <div className="mt-8 pt-5 border-t border-secondary-100 flex items-center justify-between">
+        <div className="mt-5 pt-4 border-t border-secondary-100 flex items-center justify-between">
           {step > 1 ? (
             <button
               type="button"
@@ -697,13 +704,13 @@ export function ContactForm() {
       </form>
 
       {/* Live Quote Summary Sidebar */}
-      <div className="lg:col-span-4 rounded-2xl border border-secondary-200 bg-glass p-5 md:p-6 shadow-premium lg:sticky lg:top-24 lg:mt-0 mt-4">
-        <h4 className="text-sm font-bold text-secondary-900 tracking-wider uppercase flex items-center gap-1.5 border-b border-secondary-100 pb-3 mb-4">
+      <div className="lg:col-span-4 rounded-2xl border border-secondary-200 bg-glass p-4 md:p-5 shadow-premium lg:sticky lg:top-24 lg:mt-0 mt-4">
+        <h4 className="text-sm font-bold text-secondary-900 tracking-wider uppercase flex items-center gap-1.5 border-b border-secondary-100 pb-2.5 mb-3">
           <BadgePoundSterling className="w-4 h-4 text-primary-600" />
           Live Price Estimate
         </h4>
 
-        <div className="space-y-3.5 text-xs text-secondary-700">
+        <div className="space-y-3 text-xs text-secondary-700">
           <div className="flex justify-between items-start">
             <div>
               <span className="font-semibold block text-secondary-900">Services:</span>
@@ -771,7 +778,7 @@ export function ContactForm() {
             </div>
           )}
 
-          <div className="border-t border-secondary-100 pt-4 mt-4 flex justify-between items-baseline">
+          <div className="border-t border-secondary-100 pt-3 mt-3 flex justify-between items-baseline">
             <span className="text-sm font-bold text-secondary-900">Guide estimate:</span>
             {isBulk ? (
               <span className="text-sm font-bold text-primary-700 text-right">Quoted individually</span>
@@ -788,7 +795,7 @@ export function ContactForm() {
           </p>
         </div>
 
-        <div className="mt-5 border-t border-secondary-100 pt-4 space-y-2">
+        <div className="mt-4 border-t border-secondary-100 pt-3 space-y-2">
           <h5 className="text-xs font-bold uppercase tracking-wider text-secondary-500">What&apos;s Included:</h5>
           <ul className="space-y-1.5 text-xs text-secondary-600">
             <li className="flex items-center gap-1.5">
@@ -812,7 +819,7 @@ export function ContactForm() {
 
         {/* Direct channels — fills the space beside the taller form and gives
             anyone who'd rather not fill in a form a one-tap route out. */}
-        <div className="mt-5 border-t border-secondary-100 pt-4">
+        <div className="mt-4 border-t border-secondary-100 pt-3">
           <h5 className="text-xs font-bold uppercase tracking-wider text-secondary-500">
             Prefer to talk?
           </h5>

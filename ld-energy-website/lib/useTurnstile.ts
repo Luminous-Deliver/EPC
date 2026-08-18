@@ -13,6 +13,7 @@ declare global {
           'expired-callback'?: () => void
           'error-callback'?: () => void
           theme?: 'light' | 'dark' | 'auto'
+          size?: 'normal' | 'compact' | 'flexible'
         }
       ) => string
       reset: (widgetId: string) => void
@@ -100,7 +101,8 @@ export function useTurnstile({ onVerify, onExpire, onError }: UseTurnstileOption
           setToken(null)
           onError?.()
         },
-        theme: 'auto',
+        theme: 'light',
+        size: 'flexible',
       })
       setIsLoading(false)
     } catch (error) {
