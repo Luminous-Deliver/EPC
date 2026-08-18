@@ -227,12 +227,12 @@ export function ContactForm() {
   }
 
   return (
-    <div className="grid gap-5 lg:grid-cols-12 items-start">
+    <div className="max-w-5xl mx-auto grid gap-5 lg:grid-cols-12 items-start">
       {/* Form Steps Column */}
       <form
         onSubmit={handleSubmit(onSubmit)}
         noValidate
-        className="lg:col-span-8 rounded-2xl border border-secondary-200 bg-white p-4 md:p-6 shadow-premium"
+        className="lg:col-span-7 rounded-2xl border border-secondary-200 bg-white p-4 md:p-5 shadow-premium"
         aria-describedby="form-help"
       >
         {/* Progress Tracker */}
@@ -259,7 +259,7 @@ export function ContactForm() {
 
         {/* Step 1: Services & Size */}
         {step === 1 && (
-          <div className="space-y-4 animate-fade-in">
+          <div className="space-y-3 animate-fade-in">
             <div>
               <h4 className="text-base font-bold text-secondary-900">What service do you need?</h4>
               <p className="text-xs text-secondary-500 mt-0.5">
@@ -281,7 +281,7 @@ export function ContactForm() {
                         : value.includes(v as any)
 
                   return (
-                    <div className="mt-2.5 grid gap-2 sm:grid-cols-2">
+                    <div className="mt-2 grid gap-2 sm:grid-cols-2">
                       {[
                         { value: 'EPC Certificate', label: 'EPC only', desc: 'Official 10-year energy rating, lodged on the government register.' },
                         { value: 'Both (Bundle)', label: 'EPC + Floor Plan', desc: 'Both for the same property in one visit — better value than booking separately.', badge: 'Better value' },
@@ -296,7 +296,7 @@ export function ContactForm() {
                             aria-pressed={checked}
                             onClick={() => field.onChange([s.value as any])}
                             className={cn(
-                              'flex flex-col text-left p-3 rounded-lg border transition-all duration-200 hover:-translate-y-0.5 shadow-sm min-h-[72px]',
+                              'flex flex-col text-left p-2.5 rounded-lg border transition-all duration-200 hover:-translate-y-0.5 shadow-sm min-h-[60px]',
                               checked
                                 ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-500'
                                 : 'border-secondary-200 bg-white hover:border-secondary-300'
@@ -347,7 +347,7 @@ export function ContactForm() {
                 the exact floor area isn&apos;t known — pick the closest match.
               </p>
 
-              <div className="mt-2.5 grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {propertyTypes.map((p) => {
                   const active = watchPropertyType === p
                   return (
@@ -356,7 +356,7 @@ export function ContactForm() {
                       type="button"
                       onClick={() => setValue('propertyType', p, { shouldValidate: true })}
                       className={cn(
-                        'flex flex-col items-center justify-center p-2.5 rounded-lg border text-center transition-all duration-200 hover:-translate-y-0.5 shadow-sm',
+                        'flex flex-col items-center justify-center p-2 rounded-lg border text-center transition-all duration-200 hover:-translate-y-0.5 shadow-sm',
                         active
                           ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-500'
                           : 'border-secondary-200 bg-white hover:border-secondary-300'
@@ -388,7 +388,7 @@ export function ContactForm() {
                 control={control}
                 name="customerType"
                 render={({ field }) => (
-                  <div className="mt-2.5 grid grid-cols-2 gap-2">
+                  <div className="mt-2 grid grid-cols-2 gap-2">
                     {[
                       { value: 'Homeowner', desc: 'I live in or own the property' },
                       { value: 'Landlord (tenanted)', desc: 'It’s rented out — tenants live there' },
@@ -403,7 +403,7 @@ export function ContactForm() {
                           aria-pressed={active}
                           onClick={() => field.onChange(c.value)}
                           className={cn(
-                            'flex flex-col text-left p-2.5 rounded-lg border transition-all duration-200 hover:-translate-y-0.5 shadow-sm',
+                            'flex flex-col text-left p-2 rounded-lg border transition-all duration-200 hover:-translate-y-0.5 shadow-sm',
                             active
                               ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-500'
                               : 'border-secondary-200 bg-white hover:border-secondary-300'
@@ -444,7 +444,7 @@ export function ContactForm() {
                   aria-pressed={!!field.value}
                   onClick={() => field.onChange(!field.value)}
                   className={cn(
-                    'flex w-full items-start gap-3 text-left p-3 rounded-lg border transition-all duration-200 shadow-sm',
+                    'flex w-full items-start gap-3 text-left p-2.5 rounded-lg border transition-all duration-200 shadow-sm',
                     field.value
                       ? 'border-accent-500 bg-accent-50/60 ring-2 ring-accent-500'
                       : 'border-secondary-200 bg-white hover:border-secondary-300'
@@ -635,13 +635,15 @@ export function ContactForm() {
               )}
             </div>
 
-            <div className="flex flex-col items-center gap-1.5 pt-1">
+            <div className="flex flex-col items-center gap-2 pt-1">
               <p className="text-[10px] font-semibold uppercase tracking-widest text-secondary-400">
                 Quick security check
               </p>
-              <div className="w-full max-w-[300px] rounded-lg border border-secondary-200 bg-secondary-50/70 p-1.5">
-                <div ref={turnstileRef} />
-              </div>
+              {/* Turnstile's "flexible" size needs an unconstrained width to lay
+                  out correctly — the old max-w-[300px] + padding box left it
+                  under 300px, which caused the widget to overflow its own
+                  border. w-full lets it size itself against the step column. */}
+              <div className="w-full flex justify-center" ref={turnstileRef} />
               {errors.turnstileToken && (
                 <p className="text-xs text-danger" role="alert">
                   {errors.turnstileToken.message}
@@ -704,7 +706,7 @@ export function ContactForm() {
       </form>
 
       {/* Live Quote Summary Sidebar */}
-      <div className="lg:col-span-4 rounded-2xl border border-secondary-200 bg-glass p-4 md:p-5 shadow-premium lg:sticky lg:top-24 lg:mt-0 mt-4">
+      <div className="lg:col-span-5 rounded-2xl border border-secondary-200 bg-glass p-4 md:p-5 shadow-premium lg:sticky lg:top-24 lg:mt-0 mt-4">
         <h4 className="text-sm font-bold text-secondary-900 tracking-wider uppercase flex items-center gap-1.5 border-b border-secondary-100 pb-2.5 mb-3">
           <BadgePoundSterling className="w-4 h-4 text-primary-600" />
           Live Price Estimate
