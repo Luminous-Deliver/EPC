@@ -8,27 +8,13 @@ const GOOGLE_REVIEWS_URL = site.reviews.profileUrl
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-canvas border-b border-secondary-100">
-      {/* Background photo — modern solar-roof home under a light sky (no people).
-          Source: Unsplash (free licence), unsplash.com/photos/Ja8t8nJN2I4 */}
+      {/* Branded background — replaces a generic stock roof photo with the
+          site's own pattern/glow system (already used in SocialProof, etc.),
+          since there's no real on-site photography yet to use instead. */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        {/* Explicit srcset: Next's optimizer is disabled on Cloudflare Pages,
-            so it would otherwise ship the 1600w original to every device. */}
-        <img
-          src="/hero-home-1280.webp"
-          srcSet="/hero-home-640.webp 640w, /hero-home-960.webp 960w, /hero-home-1280.webp 1280w, /hero-home.webp 1600w"
-          sizes="100vw"
-          alt=""
-          width={1600}
-          height={1067}
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover object-[70%_25%]"
-        />
-        {/* Legibility overlays: solid over the text column, airy over the photo */}
-        <div className="absolute inset-0 bg-gradient-to-r from-canvas via-canvas/75 to-canvas/5" />
-        <div className="absolute inset-0 bg-gradient-to-b from-canvas/25 via-transparent to-canvas/90" />
-        {/* Extra wash on small screens where text spans the full width */}
-        <div className="absolute inset-0 bg-canvas/60 md:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-canvas to-accent-50/40" />
+        <div className="bg-hero-glow absolute inset-0" />
+        <div className="bg-brand-pattern absolute inset-0 [mask-image:radial-gradient(90%_80%_at_78%_20%,black,transparent_70%)]" />
       </div>
 
       <Container className="relative py-10 md:py-14 lg:py-16 grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
