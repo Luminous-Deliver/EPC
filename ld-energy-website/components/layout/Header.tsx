@@ -131,7 +131,13 @@ export function Header() {
       )}
     >
       <Container as="div">
-        <div className="flex items-center justify-between gap-3 rounded-full bg-white/90 ring-1 ring-secondary-900/5 shadow-premium-lg backdrop-blur-md px-4 py-2.5 md:px-5">
+        {/* overflow-hidden: a rounded pill has nothing behind it to catch
+            overflow the way a full-width bar did -- anything that doesn't
+            fit spills visibly onto the hero/page background around it
+            instead of just extending an edge-to-edge white strip. The
+            lg-everything breakpoints below are the real fix (nothing tries
+            to cram in past its available width); this is the safety net. */}
+        <div className="flex items-center justify-between gap-3 overflow-hidden rounded-full bg-white/90 ring-1 ring-secondary-900/5 shadow-premium-lg backdrop-blur-md px-4 py-2.5 md:px-5">
           <Logo size="sm" />
 
           <nav aria-label="Primary" className="hidden lg:flex items-center gap-6">
@@ -147,10 +153,14 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2 md:gap-3">
+          <div className="flex items-center gap-2 lg:gap-3">
+            {/* Phone + CTA now appear at the same breakpoint as the nav
+                links (lg), not earlier (md) -- showing them together with
+                the hamburger trigger (which stays visible until lg) was
+                cramming four elements into one row with nothing giving way. */}
             <a
               href={site.phoneHref}
-              className="hidden md:inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-secondary-800 hover:text-primary-700 transition-colors"
+              className="hidden lg:inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-secondary-800 hover:text-primary-700 transition-colors"
               aria-label={`Call ${site.phone}`}
             >
               <Phone className="w-4 h-4" aria-hidden="true" />
@@ -159,7 +169,7 @@ export function Header() {
             <Button
               href="/contact"
               variant="accent"
-              className="hidden md:inline-flex rounded-full px-5 py-2.5 min-h-0"
+              className="hidden lg:inline-flex rounded-full px-5 py-2.5 min-h-0"
               size="md"
             >
               Book an EPC
