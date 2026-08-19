@@ -10,11 +10,24 @@ export const runtime = 'edge'
 const RELEVANT_EVENTS = new Set(['email.delivered', 'email.bounced', 'email.complained'])
 
 const MAX_BODY_BYTES = 50_000
+// Svix's own recommended window — rejects both stale replays and
+// clock-skewed/forged future timestamps.
+const TIMESTAMP_TOLERANCE_SECONDS = 300
+
+function constantTimeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false
+  let diff = 0
+  for (let i = 0; i < a.length; i++) {
+    diff |= a.charCodeAt(i) ^ b.charCodeAt(i)
+  }
+  return diff === 0
+}
 
 /**
  * Verifies a Svix-format webhook signature (the scheme Resend uses).
  * Secret is "whsec_<base64>"; signed content is "<id>.<timestamp>.<body>";
  * svix-signature may carry multiple space-separated "v1,<base64-hmac>" values.
+ * Comparison is constant-time to avoid leaking the valid signature byte-by-byte.
  */
 async function verifySignature(
   body: string,
@@ -39,7 +52,7 @@ async function verifySignature(
     .split(' ')
     .map((part) => part.split(',')[1])
     .filter(Boolean)
-    .some((candidate) => candidate === expected)
+    .some((candidate) => constantTimeEqual(candidate, expected))
 }
 
 export async function POST(req: Request) {
@@ -58,11 +71,27 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Not configured' }, { status: 503 })
   }
 
+  // Reject oversized requests off the declared length before buffering the
+  // body — the read-after-buffer check below is a fallback only (a chunked
+  // request can omit Content-Length), not the primary bound.
+  const contentLength = Number(req.headers.get('content-length') ?? '0')
+  if (contentLength > MAX_BODY_BYTES) {
+    return NextResponse.json({ error: 'Request too large' }, { status: 413 })
+  }
+
   const svixId = req.headers.get('svix-id')
   const svixTimestamp = req.headers.get('svix-timestamp')
   const svixSignature = req.headers.get('svix-signature')
   if (!svixId || !svixTimestamp || !svixSignature) {
     return NextResponse.json({ error: 'Missing signature headers' }, { status: 400 })
+  }
+
+  const timestampSeconds = Number(svixTimestamp)
+  const nowSeconds = Math.floor(Date.now() / 1000)
+  if (!Number.isFinite(timestampSeconds) || Math.abs(nowSeconds - timestampSeconds) > TIMESTAMP_TOLERANCE_SECONDS) {
+    // Outside tolerance — either a replayed old event or a forged timestamp.
+    console.error('[resend-webhook] timestamp outside tolerance, rejecting')
+    return NextResponse.json({ error: 'Timestamp outside tolerance' }, { status: 400 })
   }
 
   const raw = await req.text()
@@ -76,7 +105,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Invalid signature' }, { status: 400 })
   }
 
-  let event: { type?: string; data?: { email_id?: string; to?: string[] } }
+  let event: { type?: string; data?: { email_id?: string } }
   try {
     event = JSON.parse(raw)
   } catch {
@@ -86,10 +115,10 @@ export async function POST(req: Request) {
   if (event.type && RELEVANT_EVENTS.has(event.type)) {
     // Log only, by design — no alert channel wired up yet. If bounce/complaint
     // volume becomes something worth acting on, promote this to a real alert.
+    // email_id only, never the recipient address — that's customer PII and
+    // the Resend dashboard already has it keyed on the same id if needed.
     const level = event.type === 'email.delivered' ? 'log' : 'warn'
-    console[level](
-      `[resend-webhook] ${event.type} — email_id=${event.data?.email_id ?? 'unknown'} to=${event.data?.to?.join(',') ?? 'unknown'}`,
-    )
+    console[level](`[resend-webhook] ${event.type} — email_id=${event.data?.email_id ?? 'unknown'}`)
   }
 
   return NextResponse.json({ ok: true })
